@@ -117,7 +117,7 @@ class StateBase : public IState<T>
 		const StateInfo_t<T>& GetStateInfo( void) const{ return StateInfo;}
 };
 
-};
-};
-};
-};
+}
+}
+}
+}

@@ -14,7 +14,7 @@ long DefaultTimeProviderMilliSeconds( void)
 }
 }
 
-TimeProvider_t TimeProvider = rsp::rsp02::fw::time::DefaultTimeProviderMilliSeconds;
+TimeProvider_t TimeProvider_a = rsp::rsp02::fw::time::DefaultTimeProviderMilliSeconds;
 
 }
 }

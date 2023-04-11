@@ -6,7 +6,7 @@ namespace time{
 
 typedef long (*TimeProvider_t)(void);
 
-extern TimeProvider_t TimeProvider;
+inline TimeProvider_t TimeProvider;
 
 }
 }

@@ -18,7 +18,7 @@ TARGET = exe
 # 例: CFLAGS += -pthread       # thread
 # 例: CFLAGS += -std=gnu++0x   # C++11
 CFLAGS  = -g -Wall -W -Wextra -Wunused-function -Wunused-parameter -Wunused-variable -Isrc/ -Isrc/fw
-CFLAGS += -O3 -std=c++17
+CFLAGS += -O3 -std=c++1z -fno-rtti
 #CFLAGS += -std=c++17
 
 #============================================================
