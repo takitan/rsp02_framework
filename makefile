@@ -5,7 +5,7 @@
 # ソースファイルの場所 ($make steps コマンドで，ヘッダファイルの行数もカウントする場合は，
 # ヘッダファイルのディレクトリも追加する必要があります．また，拡張子を記述してはいけません)
 # 例: SRCDIR = *. source/*. source/SubDir1/*.
-DIR = *. src/*. src/fw/*. src/fw/fsm/*. src/fw/time/*. src/ConcreteState/*. src/fw/logger/*. src/InitialState/*. src/MissionState/*. src/magic_enum/*.
+DIR = *. src/*. src/fw/util/*. src/fw/fsm/*. src/fw/time/*. src/fw/logger/*. src/InitialState/*. src/MissionState/*. src/coroutine/*. 
 
 # 生成ファイル名
 TARGET = exe
