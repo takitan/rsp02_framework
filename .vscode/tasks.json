@@ -1,0 +1,49 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "prerun_make",
+			"type": "shell",
+			"command": "echo",
+			"args": [
+				"Executing make!"
+			],
+			"options": {}
+		},
+		{
+			"type": "shell",
+			"label": "build",
+			"command": "make",
+			"args": [
+				"all"
+			],
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"dependsOn": [
+				"prerun_make"
+			]
+		},
+		{
+			"label": "clean",
+			"type": "shell",
+			"command": "make",
+			"args": [
+				"clean"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"type": "shell",
+			"label": "echo",
+			"command": "echo Hello"
+		}
+	]
+  }
