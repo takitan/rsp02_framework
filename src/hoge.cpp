@@ -1,6 +1,7 @@
 #include "MissionFSM.hpp"
 #include "InitialFSM.hpp"
 #include "MissionLogger.hpp"
+#include "fw/command/TLVCommandBase.hpp"
 
 static MissionLogger logger;
 static MissionFSM::fsm m_fsm;

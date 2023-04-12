@@ -15,32 +15,20 @@ enum class EInnerState{Entry,Execute,Exit};
 template<typename T>
 class StateInfo_t
 {
+	using TimeKeeper = rsp::rsp02::fw::time::TimeKeeper;
 	public:
 		const char* Name;
 		const T ID;
+		TimeKeeper time;
 		long EnteringCount;
 		long ExitingCount;
 		EInnerState InnerState;
-		long EnterTime;
-		long ExitTime;
-		long StayTime;
 		long ExecutingCount;
 		void* Optional;
-		void Enter(){ EnteringCount++;EnterTime = time::TimeProvider();}
+		void Enter(){ EnteringCount++;time.Enter();}
 		void Execute(){ ExecutingCount++;}
-		void Exit(){ ExitingCount++;ExitTime = time::TimeProvider();StayTime = CalcStayTime();}
-		void SetEnterTime(){ EnterTime = time::TimeProvider();}
-		void SetExitTime(){ExitTime = time::TimeProvider(); StayTime = CalcStayTime();}
-
+		void Exit(){ ExitingCount++;time.Enter();}
 		StateInfo_t( const T id, const char* nam) : Name(nam), ID(id), InnerState(EInnerState::Entry){}
-
-	private:
-		inline long CalcStayTime()
-		{
-			return ExitTime < EnterTime
-				? ExitTime + (LONG_MAX - EnterTime) + 1
-				: ExitTime - EnterTime;
-		}
 };
 
 template<typename T>
