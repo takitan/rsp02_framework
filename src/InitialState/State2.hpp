@@ -33,7 +33,7 @@ class State2 : public TStateBase
 				i++;
 				break;
 			case 1:
-				printf("%s:InnerState1:%ld\n", StateInfo.Name, sw.GetElapsed());
+				printf("%s:InnerState1:%d\n", StateInfo.Name, sw.GetElapsed());
 				if( sw.isElapsed( 100)) i++;
 				else break;
 				// fallthrough

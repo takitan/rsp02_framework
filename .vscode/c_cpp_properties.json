@@ -9,8 +9,8 @@
                 "/usr/include/**",
             ],
             "defines": [],
-            "cStandard": "c11",
-            "cppStandard": "c++17",
+            "cStandard": "gnu11",
+            "cppStandard":"gnu++17",
             "configurationProvider": "ms-vscode"
         }
     ],

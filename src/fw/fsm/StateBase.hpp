@@ -1,6 +1,6 @@
 #pragma once
 #include <limits.h>
-#include "fw/time/TimeProvider.hpp"
+#include "fw/time/StopWatch.hpp"
 
 namespace rsp{
 namespace rsp02{
@@ -15,19 +15,19 @@ enum class EInnerState{Entry,Execute,Exit};
 template<typename T>
 class StateInfo_t
 {
-	using TimeKeeper = rsp::rsp02::fw::time::TimeKeeper;
+	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
 	public:
 		const char* Name;
 		const T ID;
-		TimeKeeper time;
+		TStopWatch sw;
 		long EnteringCount;
 		long ExitingCount;
 		EInnerState InnerState;
 		long ExecutingCount;
 		void* Optional;
-		void Enter(){ EnteringCount++;time.Enter();}
+		void Enter(){ EnteringCount++;sw.Start();}
 		void Execute(){ ExecutingCount++;}
-		void Exit(){ ExitingCount++;time.Enter();}
+		void Exit(){ ExitingCount++;sw.Lap();}
 		StateInfo_t( const T id, const char* nam) : Name(nam), ID(id), InnerState(EInnerState::Entry){}
 };
 
@@ -87,13 +87,13 @@ class StateBase : public IState<T>
 					mOnEntry();
 					Entry();
 					StateInfo.InnerState = EInnerState::Execute;
-					__attribute__((fallthrough));
+					// fallthrough
 				case EInnerState::Execute:
 					mOnExecute();
 					next = Execute();
 					if( next == this) break;
 					StateInfo.InnerState = EInnerState::Exit;
-					__attribute__((fallthrough));
+					// fallthrough
 				case EInnerState::Exit:
 					mOnExit();
 					Exit();

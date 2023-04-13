@@ -33,10 +33,10 @@ class State_Idle : public TStateBase
 				i++;
 				break;
 			case 1:
-				printf("%s:InnerState1:%ld\n", StateInfo.Name, sw.GetElapsed());
+				printf("%s:InnerState1:%d\n", StateInfo.Name, sw.GetElapsed());
 				if( sw.isElapsed( 1000)) i++;
 				else break;
-				[[fallthrough]];
+				// fallthrough
 			case 2:
 				printf("%s:InnerState2\n", StateInfo.Name);
 				printf("%s:Exit\n", StateInfo.Name);

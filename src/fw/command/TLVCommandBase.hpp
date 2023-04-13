@@ -11,6 +11,7 @@
 #include "ICommand.hpp"
 #include "fw/logger/logger.hpp"
 #include "fw/time/TimeProvider.hpp"
+#include "fw/time/StopWatch.hpp"
 
 constexpr int TLV_SEND_BUF_SZ = 256;
 constexpr uint16_t MaxValueLength = 256;
@@ -19,11 +20,49 @@ namespace{
 	
 	struct TCommandInfoEx : public rsp::rsp02::fw::command::TCommandInfo
 	{
-		void Enter(){ time.Enter(); AcceptCount++;}
-		void Exit(){ time.Exit(); ExecuteCount++;}
+		void Enter(){ time.Start(); AcceptCount++;}
+		void Exit(){ time.Lap(); ExecuteCount++;}
 	};
 
 }
+
+class IPendingStrategy
+{
+	public:
+		virtual bool operator()(TCommandInfoEx& info) = 0;
+		virtual void Reset() = 0;
+};
+
+class ScanoutPending : public IPendingStrategy
+{
+	private:
+		int MaxCount;
+		int NowCount;
+	public:
+		ScanoutPending(int MaxCount=0):MaxCount(MaxCount),NowCount(0){}
+		bool operator()()
+		{
+			return NowCount++ >= MaxCount ? true : false;
+		}
+		void Reset(){ NowCount = 0;}
+};
+
+class TimeoutPending : public IPendingStrategy
+{
+	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
+	using time_t = rsp::rsp02::time_t;
+	private:
+		TStopWatch sw;
+		time_t Timeout;
+	public:
+		TimeoutPending(time_t Timeout):sw(TStopWatch()),Timeout(Timeout){}
+		bool operator()()
+		{
+			auto el = sw.GetElapsed();
+			return el > Timeout ? true : false;
+		}
+		void Reset(){ sw.Start();}
+};
 
 template< typename CMD_T, typename RES_T>
 class TLVCommandBase : public rsp::rsp02::fw::command::ICommand<TLVmessage_t,TLVmessage_t>
@@ -31,21 +70,23 @@ class TLVCommandBase : public rsp::rsp02::fw::command::ICommand<TLVmessage_t,TLV
 	using ExecuteStatus = rsp::rsp02::fw::command::ExecuteStatus;
 	using ParseStatus = rsp::rsp02::fw::command::ParseStatus;
 	using TCommandInfo = rsp::rsp02::fw::command::TCommandInfo;
-	using TimeKeeper = rsp::rsp02::fw::time::TimeKeeper;
+	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
 	using ILogger = rsp::rsp02::fw::logger::ILogger;
 
 	public:
 		using ParseCallback_t = void (*)(const CMD_T&);
 		using ExecuteCallback_t = void (*)(const CMD_T&);
-		inline static ParseCallback_t OnParseSuccess = nullptr;
-		inline static ParseCallback_t OnParseFailure = nullptr;
-		inline static ExecuteCallback_t OnExecuteSuccess = nullptr;
-		inline static ExecuteCallback_t OnExecuteFailure = nullptr;
+		static ParseCallback_t OnParseSuccess = nullptr;
+		static ParseCallback_t OnParseFailure = nullptr;
+		static ExecuteCallback_t OnExecuteSuccess = nullptr;
+		static ExecuteCallback_t OnExecuteFailure = nullptr;
 
 		/** @brief 自身の宛先とコマンド番号を指定してTLVコマンド生成 */
-		TLVCommandBase( const char* myName, uint8_t myDestination, uint8_t myType)
-			: Info(TCommandInfoEx()), myName(myName), myDestination(myDestination), myType(myType), isInvoked(false)
-		{}
+		TLVCommandBase( const char* myName, uint8_t myDestination, uint8_t myType, IPendingStrategy* Pending = nullptr)
+			: Info(TCommandInfoEx()), myName(myName), myDestination(myDestination), myType(myType), isInvoked(false), Pending(Pending)
+		{
+			this->Pending = Pending==nullptr ? DefaultPending(1) : Pending;
+		}
 
 		virtual ~TLVCommandBase(){}
 
@@ -60,6 +101,7 @@ class TLVCommandBase : public rsp::rsp02::fw::command::ICommand<TLVmessage_t,TLV
 			{
 				Info.Enter();
 				Info.isInvoked = true;
+				Pending->Reset();
 				logger->Info( "%s(%d):Parse Accept", myName, myType);
 				mOnParseSuccess( tlvcmd);
 			}
@@ -74,6 +116,10 @@ class TLVCommandBase : public rsp::rsp02::fw::command::ICommand<TLVmessage_t,TLV
 		{
 			if( !isInvoked) return ExecuteStatus::NotInvoked;
 			auto st = ConcreteExecute();
+			if( st == ExecuteStatus::Pending)
+			{
+				if( *Pending()) st = ExecuteStatus::Ignore; 
+			}
 			switch(st)
 			{
 				case ExecuteStatus::Error:
@@ -115,6 +161,8 @@ class TLVCommandBase : public rsp::rsp02::fw::command::ICommand<TLVmessage_t,TLV
 		RES_T Response;
 
 		ILogger* logger;
+		IPendingStrategy* Pending;
+		ScanoutPending DefaultPending;
 
 		/** @brief コマンド情報*/
 		TCommandInfoEx Info;
@@ -130,17 +178,22 @@ class TLVCommandBase : public rsp::rsp02::fw::command::ICommand<TLVmessage_t,TLV
 		inline void mOnExecuteSuccess()const{ if( OnParseSuccess) OnExecuteSuccess( Command);}
 		inline void mOnExecuteFailure()const{ if( OnParseFailure) OnExecuteFailure( Command);}
 
-		ParseStatus GetStatus( CMD_T* cmd, RES_T* res)
+		void PrepareWorkspace( CMD_T* cmd, RES_T* res)
 		{
-			if( cmd->destination != myDestination) return ParseStatus::OtherDestination;
-			if( cmd->type != myType) return ParseStatus::OtherCommand;
-			if( cmd->length >= CMD_T::MaxLength) return ParseStatus::OverFlowLength;
 			Command.destination = static_cast<EDestination>(cmd->destination);
 			Command.type = static_cast<EType>(cmd->type);
 			Command.length = cmd->length;
 			Response.destination = EDestination::Null;
 			Response.type = EType::Null;
 			Response.length = 0;
+		}
+
+		ParseStatus GetStatus( CMD_T* cmd, RES_T* res)
+		{
+			if( cmd->destination != myDestination) return ParseStatus::OtherDestination;
+			if( cmd->type != myType) return ParseStatus::OtherCommand;
+			if( cmd->length >= CMD_T::MaxLength) return ParseStatus::OverFlowLength;
+
 			return  ConcreteParse( Command, Response);
 		}
 };

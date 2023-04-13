@@ -6,7 +6,7 @@
  */
 
 #pragma once
-#include "fw/time/TimeProvider.hpp"
+#include "fw/time/StopWatch.hpp"
 
 namespace rsp{
 namespace rsp02{
@@ -37,15 +37,16 @@ enum class ExecuteStatus
 	Ignore = -2,
 	Error = -1,
 	Success = 0,
-	Executing = 1,
+	Pending = 1,
+	Executing = 2,
 };
 
 struct TCommandInfo
 {
-	using TimeKeeper = rsp::rsp02::fw::time::TimeKeeper;
+	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
 	long AcceptCount;
 	long ExecuteCount;
-	TimeKeeper time;
+	TStopWatch time;
 	bool isInvoked;
 };
 

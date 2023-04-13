@@ -1,3 +1,11 @@
+/**
+ * @file PrintfLogger.cpp
+ * @author Nobuyuki Takita (takitan1972@gmail.com)
+ * @brief printfベースのログシステムの実装
+ * @version 0.1
+ * @date 2023-04-13
+  */
+
 #include <cstdio>
 #include "PrintfLogger.hpp"
 #include "time/TimeProvider.hpp"
@@ -27,7 +35,7 @@ void TPrintfLogger::Log( ELogLevel ll, const char* fmt, ...)
 void TPrintfLogger::Log( ELogLevel ll, const char* fmt, va_list arg)
 {
 	if( ll < LogLevel) return;
-	printf( "%ld,%s,", TimeProvider(), LogLevelString(ll));
+	printf( "%d,%s,", TimeProvider(), LogLevelString(ll));
 	vprintf( fmt, arg);
 	printf( "\n");
 }

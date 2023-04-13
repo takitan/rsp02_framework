@@ -1,39 +1,83 @@
+/**
+ * @file StopWatch.hpp
+ * @author Nobuyuki Takita (takitan1972@gmail.com)
+ * @brief 簡易的な経過時間測定手段を提供する
+ * @version 0.1
+ * @date 2023-04-13
+ */
 #pragma once
 #include <climits>
+#include <cstdint>
 #include "TimeProvider.hpp"
 
 namespace rsp{
 namespace rsp02{
 namespace fw{
 namespace time{
+/** @brief RSP02の統一時間型 */
+typedef time_t (*TimeProvider_t)( void);
 
-typedef long (*TimeProvider_t)( void);
-
+/**
+ * @class TStopWatch
+ * @brief 簡易的な経過時間測定クラス
+ */
 class TStopWatch
 {
 	public:
-		TStopWatch( void){ StartTime = TimeProvider();}
+		/** 勝手にスタートする*/
+		TStopWatch(){ Start();}
 		virtual ~TStopWatch(){}
 
-		long GetElapsed( void)
+		/** @brief スタート時刻の登録
+		 * @return time_t 現在時刻
+		 */
+		time_t Start(){ return StartTime = TimeProvider();}
+
+		/** @brief 計時時刻の登録
+		 * @return time_t 現在時刻
+		 */
+		time_t Lap(){ return CurrentTime = TimeProvider();}
+
+		/** @brief 経過時刻を登録しつつ経過時間を取得する
+		 * @return time_t 経過時間
+		*/
+		time_t LapAndGetElapsed(){ Lap();return GetElapsed();}
+
+		/**
+		 * @brief 経過時間を取得する
+		 * 
+		 * @return time_t 経過時間
+		 */
+		time_t GetElapsed( void)
 		{
-			CurrentTime = TimeProvider();
-			auto et = CurrentTime - StartTime;
-			et = et >=0 ? et : et + LONG_MAX;
-			return et;
+			auto et = (dtime_t)CurrentTime - (dtime_t)StartTime;
+			return (time_t)et;
 		}
-		long GetCurrentTime( void){ return TimeProvider();}
-		bool isElapsed( long ElapsedTime)
+		/**
+		 * @brief 現在時刻を取得する
+		 * 
+		 * @return time_t 現在時刻
+		 */
+		time_t GetCurrentTime( void){ return TimeProvider();}
+
+		/**
+		 * @brief 経過時間が指定時間を超えているかを判定する
+		 * 
+		 * @param ElapsedTime 指定経過時間
+		 * @return true 超えている
+		 * @return false 超えていない
+		 */
+		bool isElapsed( time_t ElapsedTime)
 		{
 			auto et = GetElapsed();
 			return et >= ElapsedTime ? true : false;
 		}
 	private:
-		long StartTime = -1L;
-		long CurrentTime = -1L;
+		time_t StartTime = -1L;
+		time_t CurrentTime = -1L;
 };
 
-};
-};
-};
-};
+}
+}
+}
+}
