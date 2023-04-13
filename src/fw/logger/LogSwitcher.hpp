@@ -1,3 +1,15 @@
+/**
+ * @file LogSwitcher.hpp
+ * @author Nobuyuki Takita (takitan1972@gmail.com)
+ * @brief ログシステムを切り替えられるログシステム
+ * 
+ * このLoggerはProxyなので、実際のLoggerがないと動かない
+ * @version 0.1
+ * @date 2023-04-13
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #pragma once
 #include "logger.hpp"
 

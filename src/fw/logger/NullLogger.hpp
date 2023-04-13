@@ -1,3 +1,12 @@
+/**
+ * @file NullLogger.hpp
+ * @author Nobuyuki Takita (takitan1972@gmail.com)
+ * @brief すべてのログを捨てるロガー
+ * @version 0.1
+ * @date 2023-04-13
+ * 
+ * @copyright Copyright (c) 2023
+ */
 #pragma once
 #include "logger.hpp"
 #include "time/TimeProvider.hpp"
