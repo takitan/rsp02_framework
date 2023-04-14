@@ -82,8 +82,8 @@ class TLVCommandBase : public rsp::rsp02::fw::command::ICommand<TLVmessage_t,TLV
 		static ExecuteCallback_t OnExecuteFailure = nullptr;
 
 		/** @brief 自身の宛先とコマンド番号を指定してTLVコマンド生成 */
-		TLVCommandBase( const char* myName, uint8_t myDestination, uint8_t myType, IPendingStrategy* Pending = nullptr)
-			: Info(TCommandInfoEx()), myName(myName), myDestination(myDestination), myType(myType), isInvoked(false), Pending(Pending)
+		TLVCommandBase( const char* myName, uint8_t myType, IPendingStrategy* Pending = nullptr)
+			: Info(TCommandInfoEx()), myName(myName), myType(myType), isInvoked(false), Pending(Pending)
 		{
 			this->Pending = Pending==nullptr ? DefaultPending(1) : Pending;
 		}
@@ -147,8 +147,6 @@ class TLVCommandBase : public rsp::rsp02::fw::command::ICommand<TLVmessage_t,TLV
 		}
 
 	protected:
-		/** @brief 自身の宛先 */
-		EDestination myDestination;
 		/** @brief 自身のコマンドtype */
 		EType myType;
 		/** @brief 自身の表示名（デバッグ用） */
@@ -190,7 +188,6 @@ class TLVCommandBase : public rsp::rsp02::fw::command::ICommand<TLVmessage_t,TLV
 
 		ParseStatus GetStatus( CMD_T* cmd, RES_T* res)
 		{
-			if( cmd->destination != myDestination) return ParseStatus::OtherDestination;
 			if( cmd->type != myType) return ParseStatus::OtherCommand;
 			if( cmd->length >= CMD_T::MaxLength) return ParseStatus::OverFlowLength;
 
