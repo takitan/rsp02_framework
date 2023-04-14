@@ -8,7 +8,7 @@
                 "${workspaceFolder}/**",
                 "/usr/include/**",
             ],
-            "defines": [],
+            "defines": ["FOR_BBM"],
             "cStandard": "gnu11",
             "cppStandard":"gnu++17",
             "configurationProvider": "ms-vscode"

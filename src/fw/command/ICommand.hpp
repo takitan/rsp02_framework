@@ -24,30 +24,36 @@ constexpr int TLV_SEND_BUF_SZ = 256;
 
 enum class ParseStatus
 {
-	OtherCommand = -3,
-	OtherDestination = -2,
-	OverFlowLength = -1,
 	Accept = 0,
+	OtherCommand,
+	OtherDestination,
+	OverFlowLength,
+	InvalidValue,
 };
 
 enum class ExecuteStatus
 {
-	NotInvoked = -4,
-	InvalidValue = -3,
-	Ignore = -2,
-	Error = -1,
 	Success = 0,
-	Pending = 1,
-	Executing = 2,
+	Pending,
+	Executing,
+	NotInvoked,
+	InvalidValue,
+	Ignore,
+	Error,
 };
 
 struct TCommandInfo
 {
 	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
+	const char* Name;
+	EDestination Dest;
+	EType Type;
 	long AcceptCount;
 	long ExecuteCount;
 	TStopWatch time;
 	bool isInvoked;
+	TCommandInfo( const char* nam, const EDestination dst, const EType typ)
+		: Name(nam), Dest(dst), Type(typ), AcceptCount(0), ExecuteCount(0), time(), isInvoked(false){}
 };
 
 template< typename CMD_T, typename RES_T>
@@ -61,6 +67,11 @@ public:
 	virtual ExecuteStatus Execute() = 0;
 	/** @brief コマンドの現在ステータス参照*/
 	virtual const TCommandInfo &GetInfo() const = 0;
+	/** @brief コマンド実行中かどうかを問い合わせ、必要に応じて実行中フラグをクリアする
+	 * @param clear true 実行中フラグをクリアする(default)
+	 * @param clear false 実行中フラグをクリアしない
+	*/
+	virtual bool TestInvoked(bool clear=true) = 0;
 };
 
 }

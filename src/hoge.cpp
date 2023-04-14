@@ -1,11 +1,13 @@
 #include "MissionFSM.hpp"
 #include "InitialFSM.hpp"
 #include "MissionLogger.hpp"
-#include "fw/command/TLVCommandBase.hpp"
+#include "HogeCommand.hpp"
 
 static MissionLogger logger;
 static MissionFSM::fsm m_fsm;
 static InitialFSM::fsm i_fsm;
+
+static Hoge Hoge;
 
 int main(int argc, const char* argv[])
 {
