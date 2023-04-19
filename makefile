@@ -17,9 +17,10 @@ TARGET = exe
 # 例: CFLAGS += -lssl -lcrypto # OpenSSL
 # 例: CFLAGS += -pthread       # thread
 # 例: CFLAGS += -std=gnu++0x   # C++11
-CFLAGS  = -g -Wall -W -Wextra -Wunused-function -Wunused-parameter -Wunused-variable -Isrc/ -Isrc/fw
-CFLAGS += -O3 -std=gnu++1z -fno-rtti -Wreturn-type
-#CFLAGS += -std=c++17
+CFLAGS  = -g -Wall -W -Wextra -Wunused-function -Wunused-parameter -Wunused-variable -Isrc/ -Isrc/fw -Isrc/system
+CFLAGS += -std=gnu++1z -fno-rtti -Wreturn-type
+CFLAGS += -DOFFLINE
+#CFLAGS += -std=c++17 -O3 
 
 #============================================================
 

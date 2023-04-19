@@ -6,9 +6,10 @@
             "compilerPath": "/usr/bin/gcc",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/include/**",
+                "/usr/include/*",
+                "/usr/include/c++/6.4.0/**"
             ],
-            "defines": ["FOR_BBM"],
+            "defines": ["OFFLINE"],
             "cStandard": "gnu11",
             "cppStandard":"gnu++17",
             "configurationProvider": "ms-vscode"

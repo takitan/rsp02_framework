@@ -13,8 +13,6 @@ namespace rsp02{
 namespace fw{
 namespace command{
 
-constexpr int TLV_SEND_BUF_SZ = 256;
-
 //#include "mission.hpp"
 //#include "RSP02.hpp"
 //#include "RspTLV.hpp"
@@ -42,31 +40,37 @@ enum class ExecuteStatus
 	Error,
 };
 
+template< typename TLV_T>
 struct TCommandInfo
 {
+	public:
+	using dst_t = typename TLV_T::dst_t;
+	using type_t = typename TLV_T::type_t;
+	using len_t = typename TLV_T::len_t;
 	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
+
 	const char* Name;
-	EDestination Dest;
-	EType Type;
+	dst_t Dest;
+	type_t Type;
 	long AcceptCount;
 	long ExecuteCount;
 	TStopWatch time;
 	bool isInvoked;
-	TCommandInfo( const char* nam, const EDestination dst, const EType typ)
+	TCommandInfo( const char* nam, const dst_t dst, const type_t typ)
 		: Name(nam), Dest(dst), Type(typ), AcceptCount(0), ExecuteCount(0), time(), isInvoked(false){}
 };
 
-template< typename CMD_T, typename RES_T>
+template< typename TLV_T>
 class ICommand
 {
 public:
 	virtual ~ICommand(){}
 
-	virtual ParseStatus Parse( CMD_T* cmd, RES_T* res) = 0;
+	virtual ParseStatus Parse( TLV_T& cmd) = 0;
 	/** @brief コマンド実行関数 */
 	virtual ExecuteStatus Execute() = 0;
 	/** @brief コマンドの現在ステータス参照*/
-	virtual const TCommandInfo &GetInfo() const = 0;
+	virtual const TCommandInfo<TLV_T> &GetInfo() const = 0;
 	/** @brief コマンド実行中かどうかを問い合わせ、必要に応じて実行中フラグをクリアする
 	 * @param clear true 実行中フラグをクリアする(default)
 	 * @param clear false 実行中フラグをクリアしない
