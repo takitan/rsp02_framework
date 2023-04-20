@@ -33,43 +33,6 @@ struct ProcessInfo_t
 	ProcessInfo_t() : TotalPacket(0), QueueOverflow(0), Option(nullptr){}
 };
 
-namespace{
-class TTimeKeeper
-{
-	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
-	public:
-		TTimeKeeper( ProcessInfo_t &inf) : info(inf){ info.StartTime = sw.Start();}
-		~TTimeKeeper()
-		{
-			info.CompletionTime = sw.Lap();
-			info.ElapsedTime = sw.GetElapsed();
-		}
-	private:
-		TStopWatch sw;
-		ProcessInfo_t &info;
-};
-}
-/*
-class IProcess
-{
-	public:
-		virtual bool Process() = 0;
-		virtual const ProcessInfo_t &GetInfo() const = 0;
-		IProcess(){}
-		virtual ~IProcess(){}
-};
-
-template<typename T>
-class IPacket
-{
-	public:
-		virtual void SetPostProcess( IPacket<T>*) = 0;
-		virtual bool Accept( T &) = 0;
-
-};
-
-*/
-
 class IProcess
 {
 	public:
@@ -195,6 +158,23 @@ class Consumer<NONE_T>
 		Consumer( ProcessInfo_t &inf, std::size_t qsz){(void)inf;(void)qsz;}
 };
 
+namespace{
+class TTimeKeeper
+{
+	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
+	public:
+		TTimeKeeper( ProcessInfo_t &inf) : info(inf){ info.StartTime = sw.Start();}
+		~TTimeKeeper()
+		{
+			info.CompletionTime = sw.Lap();
+			info.ElapsedTime = sw.GetElapsed();
+		}
+	private:
+		TStopWatch sw;
+		ProcessInfo_t &info;
+};
+}
+
 template<typename PRD_T, typename CNS_T>
 class Executer : public IProcess, public ProducerAdapter<PRD_T>, public ConsumerAdapter<CNS_T>
 {
@@ -267,8 +247,8 @@ template<typename CNS_T>
 class Executer<NONE_T,CNS_T> : public IProcess, public ConsumerAdapter<CNS_T>
 {
 	public:
-		Executer( ProcessInfo_t &inf, Producer<NONE_T>* p, Consumer<CNS_T>* c) :
-			Info(inf), ConsumerAdapter<CNS_T>(c){}
+		Executer( Producer<NONE_T>* p, Consumer<CNS_T>* c, ProcessInfo_t &inf) :
+			ConsumerAdapter<CNS_T>(c),Info(inf){}
 		bool Perform()
 		{
 			bool st = true;
@@ -298,8 +278,8 @@ template<>
 class Executer<NONE_T,NONE_T> : public IProcess
 {
 	public:
-		Executer(ProcessInfo_t &inf, Producer<NONE_T>* p, Consumer<NONE_T>* c)
-		{(void)inf;(void)p;(void)c;}
+		Executer( Producer<NONE_T>* p, Consumer<NONE_T>* c, ProcessInfo_t &inf)
+			{(void)inf;(void)p;(void)c;}
 		bool Perform(){return ConcreteProcess();}
 		const ProcessInfo_t &GetInfo() const{ return Info;}
 	private:
@@ -312,7 +292,7 @@ class ProcessBase : public Producer<PRD_T>, public Consumer<CNS_T>, public Execu
 {
 	public:
 		ProcessBase(std::size_t queuesz = 1) :
-			Producer<PRD_T>( Info), Consumer<CNS_T>( Info, queuesz), Executer<PRD_T,CNS_T>( Info, this, this){}
+			Producer<PRD_T>( Info), Consumer<CNS_T>( Info, queuesz), Executer<PRD_T,CNS_T>(this,this,Info){}
 	private:
 		ProcessInfo_t Info;
 };
@@ -328,65 +308,6 @@ using PipelineProcess = ProcessBase<PRD_T,CNS_T>;
 
 using IndivisualProcess = ProcessBase<NONE_T,NONE_T>;
 
-#if 0
-template<typename PRD_T, typename CNS_T>
-class PipelineProcess : public ProducerBase<PRD_T>, public ConsumerBase<CNS_T>, public Executer
-template<typename T, std::size_t N = 1>
-class Executer : public IProcess, public IPacket<T>
-{
-	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
-	private:
-		IPacket<T>* PostProcess;
-		std::queue<T> PacketQueue;
-
-	protected:
-		ProcessInfo_t Info;
-		bool Invoke( T &packet)
-		{
-			if( PostProcess == nullptr) return false;
-			return PostProcess->Accept( packet);
-		}
-		
-		virtual bool ConcreteProcess( T &packet)
-		{
-			(void)packet;
-			return true;
-		}
-
-	public:
-		Executer(){}
-
-		void SetPostProcess( IPacket<T>* pp)
-		{
-			PostProcess = pp;
-		}
-
-		bool Process()
-		{
-			TTimeKeeper<ProcessInfo_t,std::queue<T> > tk( Info, PacketQueue);
-			bool st = true;
-			while( !PacketQueue.empty()) 
-			{
-				st &= ConcreteProcess( PacketQueue.front());
-				PacketQueue.pop();
-				Info.TotalPacket ++;
-			}
-			return st;
-		}
-
-		const ProcessInfo_t &GetInfo() const{ return Info;}
-
-		bool Accept( T &packet)
-		{
-			if( PacketQueue.size() > N)
-			{
-				Info.QueueOverflow ++;
-				return false;
-			}
-			PacketQueue.push( packet);
-		}
-};
-#endif
 
 }
 }
