@@ -5,6 +5,7 @@
 
 struct TLVmessage_t
 {
+	constexpr static std::size_t pValueSize = 256;
 	typedef uint8_t type_t;
 	typedef uint8_t dst_t;
 	typedef uint16_t len_t;
@@ -12,7 +13,11 @@ struct TLVmessage_t
 	dst_t destination;
 	type_t type;
 	len_t length;
-	uint8_t pValue[];
+	uint8_t pValue[pValueSize];
+	TLVmessage_t():destination(0),type(0),length(0)
+	{
+		memset(pValue, 0, pValueSize);
+	}
 };
 
 enum class EType : TLVmessage_t::type_t

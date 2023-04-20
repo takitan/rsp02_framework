@@ -8,28 +8,29 @@ namespace rsp{
 namespace rsp02{
 namespace system{
 
-template<typename T>
-class CommandKernel : public ProcessBase<T>
+template<typename TLV_T,typename PRD_T,typename CNS_T>
+class CommandKernel : public PipelineProcess<PRD_T,CNS_T>
 {
 	template<typename X> using ICommand = rsp::rsp02::fw::command::ICommand<X>;
 
 	private:
-		std::vector<ICommand<T>*> CommandList;
+		std::vector<ICommand<TLV_T>*> CommandList;
 	
 	protected:
-		bool ConcreteProcess( T &packet)
+		bool ConcreteProcess( PRD_T &reproduct, CNS_T &product)
 		{
 			for( auto it=CommandList.begin(); it!=CommandList.end(); ++it)
 			{
-				(*it)->Parse( packet);
+				(*it)->Parse( product);
 			}
+			reproduct = PRD_T();
 		}
 
 	public:
 		CommandKernel(){}
 		virtual ~CommandKernel(){}
 
-		bool RegisterCommand( ICommand<T>* cmd)
+		bool RegisterCommand( ICommand<TLV_T>* cmd)
 		{
 			CommandList.push_back( cmd);
 			return true;

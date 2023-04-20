@@ -11,10 +11,10 @@ namespace system{
 
 
 
+/*
 template<typename T>
 class TLVTransport : public ProcessBase<T,2>
 {
-/*
 	public:
 		TLVTransport(){}
 
@@ -64,8 +64,8 @@ class TLVTransport : public ProcessBase<T,2>
 			}
 			DownStreamQueue.push_back( packet);
 		}
-*/
 };
+*/
 
 }
 }

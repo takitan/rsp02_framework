@@ -52,7 +52,7 @@ class SystemManager
 			Info.StartTime = sw.Start();
 			for( auto it=process.begin(); it!=process.end(); ++it)
 			{
-				(*it)->Process();
+				(*it)->Perform();
 			}
 			Info.Status = SystemStatus::Normal;
 			Info.ProcessTime = sw.LapAndGetElapsed();

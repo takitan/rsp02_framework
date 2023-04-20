@@ -10,6 +10,7 @@
 #include "system/CommandKernel.hpp"
 #include "MissionDefine.hpp"
 #include "fw/time/time.hpp"
+#include "system/IProcess.hpp"
 
 static MissionLogger logger;
 static MissionFSM::fsm m_fsm;
@@ -21,6 +22,10 @@ static TLVDatalinkUp datalink_up( &tlv);
 static TLVDatalinkDown datalink_down( &tlv);
 static CommandKernel kernel;
 static SystemManager SysMan( 1000);
+
+static rsp::rsp02::system::ProducerProcess<TLVmessage_t> pro;
+static rsp::rsp02::system::PipelineProcess<TLVmessage_t,MissionTLV> pipe(1);
+static rsp::rsp02::system::ConsumerProcess<TLVmessage_t> con(1);
 
 static void PeriodStartCB( const rsp::rsp02::system::SystemInfo &info)
 {
@@ -52,11 +57,10 @@ void TransportTest()
 	kernel.RegisterCommand( &hoge);
 	kernel.RegisterCommand( &hogehoge);
 	SysMan.RegisterProcess( &datalink_up);
-	datalink_up.SetPostProcess( &kernel);
+	datalink_up.SetConsumer( &kernel);
 	SysMan.RegisterProcess( &kernel);
-	kernel.SetPostProcess( &datalink_down);
+	kernel.SetConsumer( &datalink_down);
 	SysMan.RegisterProcess( &datalink_down);
-	datalink_down.SetPostProcess( nullptr);
 	SysMan.PeriodStartCallback = PeriodStartCB;
 	SysMan.PeriodCompletionCallback = PeriodCompletionCB;
 
