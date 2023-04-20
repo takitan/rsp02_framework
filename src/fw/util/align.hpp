@@ -28,21 +28,21 @@ template<>
 struct byte_type<8>
 {
 	typedef uint8_t type;
-	constexpr static size_t byte_size = sizeof(type)/sizeof(uint8_t);
+	constexpr static std::size_t byte_size = sizeof(type)/sizeof(uint8_t);
 };
 
 template<>
 struct byte_type<16>
 {
 	typedef uint16_t type;
-	constexpr static size_t byte_size = sizeof(type)/sizeof(uint8_t);
+	constexpr static std::size_t byte_size = sizeof(type)/sizeof(uint8_t);
 };
 
 template<>
 struct byte_type<32>
 {
 	typedef uint32_t type;
-	constexpr static size_t byte_size = sizeof(type)/sizeof(uint8_t);
+	constexpr static std::size_t byte_size = sizeof(type)/sizeof(uint8_t);
 };
 
 namespace {

@@ -1,22 +1,7 @@
 #pragma once
 #include <climits>
 #include <cstdint>
-
-namespace rsp{
-namespace rsp02{
-
-/** timeフレームワークの時間の型*/
-typedef int32_t time_t;
-/**
- * @brief timeフレームワークの倍精度時間の型
- * 
- * 経過時間計算時に内部的に使用することを想定するが、
- * それ以外への利用についての制限は特にない
- */
-typedef int64_t dtime_t;
-
-}
-}
+#include "time.hpp"
 
 namespace rsp{
 namespace rsp02{

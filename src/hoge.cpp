@@ -19,7 +19,32 @@ static TinyTLV tlv(10);
 static TLVDatalinkUp datalink_up( &tlv);
 static TLVDatalinkDown datalink_down( &tlv);
 static CommandKernel kernel;
-static SystemManager SysMan;
+static SystemManager SysMan( 1000);
+
+static void PeriodStartCB( const rsp::rsp02::system::SystemInfo &info)
+{
+	using SystemStatus = rsp::rsp02::system::SystemStatus;
+	printf("%8s%7s%12s%12s%12s%12s\n","[START]","Status","PreStart","Start","Period","Process");
+	printf("%8s%7d%10ldms%10ldms%10ldms%10ldms\n",
+		"[START]",
+		(std::underlying_type_t<SystemStatus>)info.Status,
+		info.PreviousStartTime,
+		info.StartTime,
+		info.ActualPeriod,
+		info.ProcessTime);
+}
+static void PeriodCompletionCB( const rsp::rsp02::system::SystemInfo &info)
+{
+	using SystemStatus = rsp::rsp02::system::SystemStatus;
+	printf("%8s%7s%12s%12s%12s%12s\n","[END]","Status","PreStart","Start","Period","Process");
+	printf("%8s%7d%10ldms%10ldms%10ldms%10ldms\n",
+		"[END]",
+		(std::underlying_type_t<SystemStatus>)info.Status,
+		info.PreviousStartTime,
+		info.StartTime,
+		info.ActualPeriod,
+		info.ProcessTime);
+}
 
 void TransportTest()
 {
@@ -31,6 +56,9 @@ void TransportTest()
 	kernel.SetPostProcess( &datalink_down);
 	SysMan.RegisterProcess( &datalink_down);
 	datalink_down.SetPostProcess( nullptr);
+	SysMan.PeriodStartCallback = PeriodStartCB;
+	SysMan.PeriodCompletionCallback = PeriodCompletionCB;
+
 	while(true)
 	{
 		SysMan.Process();

@@ -9,7 +9,7 @@
 struct HogeCommand_t : public rsp::rsp02::fw::command::CommandTypeBase_t<MissionTLV>
 {
 	using CommandTypeBase_t<MissionTLV>::CommandTypeBase_t;
-	constexpr static size_t PayloadSize = 10;
+	constexpr static std::size_t PayloadSize = 10;
 	struct Payload_t
 	{
 		uint8_t hage[PayloadSize];
@@ -37,6 +37,7 @@ class Hoge : public CommandImplBase<HogeCommand_t,HogeResponse_t>
 	private:
 		ExecuteStatus ConcreteExecute( const HogeCommand_t &cmd, HogeResponse_t &res)
 		{
+			(void)cmd;(void)res;
 			return ExecuteStatus::Success;
 		}
 };

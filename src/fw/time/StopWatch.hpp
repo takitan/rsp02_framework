@@ -8,13 +8,15 @@
 #pragma once
 #include <climits>
 #include <cstdint>
+#include "time.hpp"
 #include "TimeProvider.hpp"
 
 namespace rsp{
 namespace rsp02{
 namespace fw{
 namespace time{
-/** @brief RSP02の統一時間型 */
+
+/** @brief RSP02の統一の時刻取得手段 */
 typedef time_t (*TimeProvider_t)( void);
 
 /**
@@ -26,6 +28,7 @@ class TStopWatch
 	public:
 		/** 勝手にスタートする*/
 		TStopWatch(){ Start();}
+		TStopWatch(time_t p) : Period(p){}
 		virtual ~TStopWatch(){}
 
 		/** @brief スタート時刻の登録
@@ -72,7 +75,19 @@ class TStopWatch
 			auto et = GetElapsed();
 			return et >= ElapsedTime ? true : false;
 		}
+		bool isPeriod()
+		{
+			// 初回呼び出し時を開始時刻とする
+			if( StartTime < 0)
+			{
+				Start();
+				return true;
+			}
+			Lap();
+			return isElapsed( Period);
+		}
 	private:
+		time_t Period = 0;
 		time_t StartTime = -1L;
 		time_t CurrentTime = -1L;
 };

@@ -23,16 +23,17 @@ class TinyTLV : public ITLV
 		int data_receive_count;
 		int ScanOfDataReceive;
 		uint8_t* pValue;
-		size_t length;
+		std::size_t length;
 		bool result;
-		int pBufNum;
+		std::size_t pBufIdx;
 
 		uint8_t pBuf[2][16] =
 		{
 			{ 0x05, 0x31, 0x0a, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09},
 			{ 0x05, 0x31, 0x09, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08},
 		};
-
+		static constexpr std::size_t pBufNum = sizeof(pBuf)/sizeof(pBuf[0]);
+		
 		bool HasData()
 		{
 			switch( state)
@@ -44,8 +45,8 @@ class TinyTLV : public ITLV
 			case 0:
 				if( data_receive_count++ < ScanOfDataReceive) break;
 				result = true;
-				pValue = &pBuf[pBufNum][4];
-				if( pBufNum++ == sizeof(pBuf[0])/sizeof(uint8_t)) pBufNum=0;
+				pValue = &pBuf[pBufIdx][4];
+				if( ++pBufIdx == pBufNum) pBufIdx=0;
 				state++;
 				break;
 			}
@@ -60,11 +61,11 @@ class TinyTLV : public ITLV
 		}
 
 		uint8_t GetResult(){ return result;}
-		uint8_t GetDestination(){ return pBuf[pBufNum][0];}
-		uint8_t GetType(){ return pBuf[pBufNum][1];}
-		uint16_t GetLength(){ return rsp::rsp02::fw::util::align::safe_read<16>(&pBuf[pBufNum][2]); }
-		uint8_t* GetPV(){ return &pBuf[pBufNum][4];}
+		uint8_t GetDestination(){ return pBuf[pBufIdx][0];}
+		uint8_t GetType(){ return pBuf[pBufIdx][1];}
+		uint16_t GetLength(){ return rsp::rsp02::fw::util::align::safe_read<16>(&pBuf[pBufIdx][2]); }
+		uint8_t* GetPV(){ return &pBuf[pBufIdx][4];}
 
 		TinyTLV(int sdr)
-			: state(0), data_receive_count(0), ScanOfDataReceive(sdr), pValue(pBuf[0]), length(0), result(false), pBufNum(0){}
+			: state(0), data_receive_count(0), ScanOfDataReceive(sdr), pValue(pBuf[0]), length(0), result(false), pBufIdx(0){}
 };

@@ -35,7 +35,7 @@ class TLVTransport : public ProcessBase<T,2>
 		{
 			StreamInfo_t &info = DownStreamInfo;
 			std::vector<T> &queue = DownStreamQueue;
-			const size_t szmax = DownStreamQueueSizeMax;
+			const std::size_t szmax = DownStreamQueueSizeMax;
 
 			TTimeKeeper tk( info);
 			if( queue.empty()) return false;
