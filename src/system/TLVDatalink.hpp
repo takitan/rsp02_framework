@@ -1,5 +1,5 @@
 #pragma once
-#include "system/IProcess.hpp"
+#include "system/Process.hpp"
 #include "system/TLVStub.hpp"
 
 namespace rsp{

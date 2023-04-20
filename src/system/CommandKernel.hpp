@@ -2,7 +2,7 @@
 #include <vector>
 #include <queue>
 #include "fw/command/ICommand.hpp"
-#include "system/IProcess.hpp"
+#include "system/Process.hpp"
 
 namespace rsp{
 namespace rsp02{

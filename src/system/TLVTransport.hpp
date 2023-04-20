@@ -3,7 +3,7 @@
 #include <queue>
 #include <algorithm>
 #include "rsp02.hpp"
-#include "system/IProcess.hpp"
+#include "system/Process.hpp"
 
 namespace rsp{
 namespace rsp02{

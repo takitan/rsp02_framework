@@ -10,7 +10,7 @@
 #include "system/CommandKernel.hpp"
 #include "MissionDefine.hpp"
 #include "fw/time/time.hpp"
-#include "system/IProcess.hpp"
+#include "system/Process.hpp"
 
 static MissionLogger logger;
 static MissionFSM::fsm m_fsm;

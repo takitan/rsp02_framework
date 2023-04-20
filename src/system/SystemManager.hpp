@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "system/IProcess.hpp"
+#include "system/Process.hpp"
 #include "fw/time/StopWatch.hpp"
 
 namespace rsp{
