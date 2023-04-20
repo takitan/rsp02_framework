@@ -9,6 +9,7 @@
 #include "system/TLVDatalink.hpp"
 #include "system/CommandKernel.hpp"
 #include "MissionDefine.hpp"
+#include "fw/time/time.hpp"
 
 static MissionLogger logger;
 static MissionFSM::fsm m_fsm;
@@ -25,7 +26,7 @@ static void PeriodStartCB( const rsp::rsp02::system::SystemInfo &info)
 {
 	using SystemStatus = rsp::rsp02::system::SystemStatus;
 	printf("%8s%7s%12s%12s%12s%12s\n","[START]","Status","PreStart","Start","Period","Process");
-	printf("%8s%7d%10ldms%10ldms%10ldms%10ldms\n",
+	printf("%8s%7d%10dms%10dms%10dms%10dms\n",
 		"[START]",
 		(std::underlying_type_t<SystemStatus>)info.Status,
 		info.PreviousStartTime,
@@ -37,7 +38,7 @@ static void PeriodCompletionCB( const rsp::rsp02::system::SystemInfo &info)
 {
 	using SystemStatus = rsp::rsp02::system::SystemStatus;
 	printf("%8s%7s%12s%12s%12s%12s\n","[END]","Status","PreStart","Start","Period","Process");
-	printf("%8s%7d%10ldms%10ldms%10ldms%10ldms\n",
+	printf("%8s%7d%10dms%10dms%10dms%10dms\n",
 		"[END]",
 		(std::underlying_type_t<SystemStatus>)info.Status,
 		info.PreviousStartTime,
