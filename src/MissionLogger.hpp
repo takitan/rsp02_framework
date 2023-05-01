@@ -1,13 +1,13 @@
 #pragma once
 
-#include "fw/logger/LogSwitcher.hpp"
 
 class MissionLogger
 {
-	using TLogSwitcher = rsp::rsp02::fw::logger::TLogSwitcher;
+	using PrintfLogger = rsp::rsp02::fw::logger::PrintfLogger;
+	using FileLogger = rsp::rsp02::fw::logger::FileLogger;
 	using ILogger = rsp::rsp02::fw::logger::ILogger;
 
 	public:
 		static bool Initialize();
-		TLogSwitcher* operator()() const;
+		PrintfLogger* operator()() const;
 };

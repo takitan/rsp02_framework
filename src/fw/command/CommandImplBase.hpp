@@ -9,8 +9,7 @@
 
 #include "system/rsp02.hpp"
 #include "fw/command/ICommand.hpp"
-#include "fw/logger/logger.hpp"
-#include "fw/logger/NullLogger.hpp"
+#include "fw/logger/Logger.hpp"
 #include "fw/time/TimeProvider.hpp"
 #include "fw/time/StopWatch.hpp"
 #include "fw/command/ExecutionStrategy.hpp"
@@ -55,7 +54,7 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 
 		/**
 		 * @brief Construct a new CommandImplBase object
-		 * 
+		 *
 		 * @param name コマンド名称
 		 * @param dst 宛先
 		 * @param type コマンドタイプ
@@ -96,7 +95,7 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		{
 			ExecuteStatus st;
 			if( !Info.isInvoked) return ExecuteStatus::NotInvoked;
-			if( (*ExecutionStrategy)( Info.isInvoked)) st = ExecuteStatus::Ignore; 
+			if( (*ExecutionStrategy)( Info.isInvoked)) st = ExecuteStatus::Ignore;
 
 			st = ConcreteExecute( TLVCommand);
 
@@ -140,19 +139,19 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 	private:
 		CMD_T TLVCommand;
 		RES_T TLVResponse;
-		
+
 		/** @brief コマンド情報*/
 		TCommandInfoEx<TLV_T> Info;
-	
+
 		ILogger* logger;
 		TNullLogger DefaultLogger;
-	
+
 		IExecutionStrategy* ExecutionStrategy;
 		OnceAndForAll DefaultStrategy;
 
 		/* @brief 具象コマンド解釈関数*/
 		virtual ParseStatus ConcreteParse( const CMD_T &cmd){ return ParseStatus::Accept;}
-		
+
 		/** @brief 具象コマンド実行関数 */
 		virtual ExecuteStatus ConcreteExecute(const CMD_T &cmd){ return ExecuteStatus::Success;}
 
