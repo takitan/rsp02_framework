@@ -1,28 +1,14 @@
 #include "MissionLogger.hpp"
-#include "fw/logger/PrintfLogger.hpp"
-#include "fw/logger/NullLogger.hpp"
+#include "fw/logger/Logger.hpp"
+#include "fw/logger/PrintfSink.hpp"
 
-using TPrintfLogger = rsp::rsp02::fw::logger::TPrintfLogger;
-using TNullLogger = rsp::rsp02::fw::logger::TNullLogger;
-using TLogSwitcher = rsp::rsp02::fw::logger::TLogSwitcher;
 using ILogger = rsp::rsp02::fw::logger::ILogger;
-
-static TPrintfLogger PrintfLogger;
-static TNullLogger NullLogger;
-
-static const ILogger* Loggers[] =
+using Logger = rsp::rsp02::fw::logger::Logger;
+using PrintfSink = rsp::rsp02::fw::logger::PrintfSink;
+/*
+ILogger* MissionLogger::Logger()
 {
-	&PrintfLogger,
-	&NullLogger,
-};
-static TLogSwitcher LogSwitcher(Loggers);
-
-TLogSwitcher* MissionLogger::operator()() const
-{
-	return &LogSwitcher;
+	static rsp::rsp02::fw::logger::Logger logger();
+	return &logger;
 }
-
-bool MissionLogger::Initialize()
-{
-	return true;
-}
+*/
