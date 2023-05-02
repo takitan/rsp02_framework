@@ -2,15 +2,25 @@
 #include "Logger.hpp"
 #include "ISink.hpp"
 #include "fw/time/TimeProvider.hpp"
+#include "fw/logger/NullSink.hpp"
 
 namespace rsp{
 namespace rsp02{
 namespace fw{
 namespace logger{
 
-Logger::Logger( ISink* s) : Sink(s), ThresholdLevel(ELogLevel::Debug){}
+Logger::Logger( const char* name) : Name(name), ThresholdLevel(ELogLevel::Debug){}
 Logger::~Logger(){}
+namespace{
+NullSink DefaultSink;
+}
 
+ISink* Logger::Sink = &DefaultSink;
+
+ILogger* Logger::GetLogger( const char* name)
+{
+	return new Logger( name);
+}
 
 void Logger::Log( ELogLevel ll, const char* fmt, ::va_list arg)
 {
@@ -68,6 +78,11 @@ void Logger::Fatal(const char* fmt, ...)
 	va_start( arg, fmt);
 	Log( ELogLevel::Fatal, fmt, arg);
 	va_end( arg);
+}
+
+void Logger::SetLogLevel( ELogLevel ll)
+{
+	ThresholdLevel = ll;
 }
 
 time_t Logger::GetTime()

@@ -28,7 +28,7 @@ enum class ELogLevel
 class ILogger
 {
 	public:
-		virtual void Log( ELogLevel ll, const char* fmt, va_list arg) = 0;
+		virtual void Log( ELogLevel ll, const char* fmt, ::va_list arg) = 0;
 		virtual void Log( ELogLevel ll, const char* fmt, ...) = 0;
 		virtual void Trace(const char* fmt, ...) = 0;
 		virtual void Debug(const char* fmt, ...) = 0;

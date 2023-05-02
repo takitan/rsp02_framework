@@ -10,14 +10,23 @@ namespace logger{
 
 class ISink;
 
-class Logger : ILogger
+class Logger : public ILogger
 {
 	private:
-		const char* Name;
-		ELogLevel ThresholdLevel;
+		Logger( const char* name);
 
 	public:
-		Logger( ISink* s);
+		/** @brief 実際にログを出力する機構のインターフェース */
+		static ISink* Sink;
+
+		/**
+		 * @brief Get the Logger object
+		 *
+		 * @param name logger名称
+		 * @return ILogger* ロガーオブジェクト
+		 */
+		static ILogger* GetLogger(const char* name);
+
 		virtual ~Logger();
 		/**
 		 * @brief 可変引数バージョンのログ出力
@@ -88,11 +97,11 @@ class Logger : ILogger
 		void SetLogLevel( ELogLevel lv);
 
 	protected:
-		/**
-		 * @brief 実際にログを出力する機構のインターフェース
-		 *
-		 */
-		ISink* Sink;
+		/** @brief logger名称 */
+		const char* Name;
+		/** @brief ログレベル*/
+		ELogLevel ThresholdLevel;
+
 		/**
 		 * @brief 現在時刻を取得
 		 *

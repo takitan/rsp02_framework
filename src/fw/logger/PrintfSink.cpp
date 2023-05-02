@@ -16,7 +16,10 @@ namespace rsp02{
 namespace fw{
 namespace logger{
 
-PrintfSink::PrintfSink(){}
+PrintfSink::PrintfSink()
+{
+	
+}
 
 void PrintfSink::Sink( time_t time, const char* name, const char* ll, const char* fmt, std::va_list arg)
 {
@@ -25,6 +28,10 @@ void PrintfSink::Sink( time_t time, const char* name, const char* ll, const char
 	printf( "\n");
 }
 
+void PrintfSink::operator()( time_t time, const char* name, const char* ll, const char* fmt, std::va_list arg)
+{
+	return Sink( time, name, ll, fmt, arg);
+}
 }
 }
 }
