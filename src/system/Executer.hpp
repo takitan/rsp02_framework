@@ -33,13 +33,13 @@ class Executer : public IProcess, public ProducerAdapter<PRD_T>, public Consumer
 	public:
 		Executer( Producer<PRD_T>* p, Consumer<CNS_T>* c, ProcessInfo_t &inf)
 			: ProducerAdapter<PRD_T>(p), ConsumerAdapter<CNS_T>(c), Info(inf){}
-		
+
 		bool Perform()
 		{
 			TTimeKeeper kp(Info);
 			bool st = true;
 			CNS_T product;
-			while( ConsumerAdapter<CNS_T>::TakeProduct( product)) 
+			while( ConsumerAdapter<CNS_T>::TakeProduct( product))
 			{
 				PRD_T reproduct;
 				if( !ConcreteProcess( reproduct, product))
@@ -66,6 +66,7 @@ class Executer : public IProcess, public ProducerAdapter<PRD_T>, public Consumer
 		{
 			(void)product;
 			reproduct = PRD_T();
+			return false;
 		}
 };
 
@@ -74,13 +75,14 @@ class Executer<PRD_T,NONE_T> : public IProcess, public ProducerAdapter<PRD_T>
 {
 	public:
 		Executer( Producer<PRD_T>* p, Consumer<NONE_T>* c, ProcessInfo_t &inf) :
-			ProducerAdapter<PRD_T>(p), Info(inf){}
+			ProducerAdapter<PRD_T>(p), Info(inf){(void)c;}
 		bool Perform()
 		{
 			PRD_T product;
 			if( !ConcreteProcess( product)) return false;
-			ProducerAdapter<PRD_T>::Invoke( product);
+			return ProducerAdapter<PRD_T>::Invoke( product);
 		}
+
 		const ProcessInfo_t &GetInfo() const
 		{
 			return Info;
@@ -100,12 +102,12 @@ class Executer<NONE_T,CNS_T> : public IProcess, public ConsumerAdapter<CNS_T>
 {
 	public:
 		Executer( Producer<NONE_T>* p, Consumer<CNS_T>* c, ProcessInfo_t &inf) :
-			ConsumerAdapter<CNS_T>(c),Info(inf){}
+			ConsumerAdapter<CNS_T>(c),Info(inf){(void)p;}
 		bool Perform()
 		{
 			bool st = true;
 			CNS_T product;
-			while( ConsumerAdapter<CNS_T>::TakeProduct( product)) 
+			while( ConsumerAdapter<CNS_T>::TakeProduct( product))
 			{
 				st &= ConcreteProcess( product);
 				Info.TotalPacket ++;

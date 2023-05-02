@@ -13,10 +13,12 @@
 #include "system/Process.hpp"
 #include "fw/logger/Logger.hpp"
 #include "fw/logger/PrintfSink.hpp"
+#include "fw/logger/FifoSink.hpp"
 
 static MissionFSM::fsm m_fsm;
 static InitialFSM::fsm i_fsm;
 static rsp::rsp02::fw::logger::PrintfSink printf_sink;
+static rsp::rsp02::fw::logger::FifoSink fifo_sink("FifoSink");
 static Hoge hoge;
 static HogeHoge hogehoge;
 static TinyTLV tlv(10);
@@ -74,7 +76,15 @@ void TransportTest()
 
 int main(int argc, const char* argv[])
 {
-	rsp::rsp02::fw::logger::Logger::Sink = &printf_sink;
+	rsp::rsp02::fw::logger::Logger::Sink = &fifo_sink;
+	auto logger = rsp::rsp02::fw::logger::Logger::GetLogger("hoge");
+	int i=0;
+	printf("hige\n");
+	for(;;)
+	{
+		//printf("hoge");
+		logger->Info("hage%d08",i++);
+	}
 	TransportTest();
 	//using ELogLevel = rsp::rsp02::fw::logger::ELogLevel;
 	//auto Logger = logger();

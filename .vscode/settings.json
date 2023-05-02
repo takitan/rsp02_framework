@@ -47,6 +47,7 @@
 		"typeinfo": "cpp",
 		"climits": "cpp",
 		"ctime": "cpp",
-		"cstring": "cpp"
+		"cstring": "cpp",
+		"cassert": "cpp"
 	}
 }

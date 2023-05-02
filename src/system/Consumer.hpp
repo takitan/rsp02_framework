@@ -38,6 +38,7 @@ class Consumer : public IConsumer<CNS_T>
 			}
 			queue.push_back( product);
 			Info.QueueSize = queue.size();
+			return true;
 		}
 	private:
 		ProcessInfo_t &Info;

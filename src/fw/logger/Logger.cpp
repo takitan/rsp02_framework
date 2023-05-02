@@ -24,7 +24,7 @@ ILogger* Logger::GetLogger( const char* name)
 
 void Logger::Log( ELogLevel ll, const char* fmt, ::va_list arg)
 {
-	if( ll < ThresholdLevel) return;
+	if( ll > ThresholdLevel) return;
 	(*Sink)( GetTime(), Name, LogLevelString(ll), fmt, arg);
 }
 
