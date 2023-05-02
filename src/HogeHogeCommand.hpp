@@ -6,6 +6,10 @@
 #include "fw/command/CommandImplBase.hpp"
 #include "fw/command/CommandTypeBase.hpp"
 
+namespace rsp::rsp02::fw::logger{
+class ILogger;
+}
+
 struct HogeHogeCommand_t : public rsp::rsp02::fw::command::CommandTypeBase_t<MissionTLV>
 {
 	using CommandTypeBase_t<MissionTLV>::CommandTypeBase_t;
@@ -33,14 +37,11 @@ using HogeHogeResponse_t = HogeHogeCommand_t;
 
 class HogeHoge : public CommandImplBase<HogeHogeCommand_t,HogeHogeResponse_t>
 {
-	using ParseStatus = rsp::rsp02::fw::command::ParseStatus;
-	using ExecuteStatus = rsp::rsp02::fw::command::ExecuteStatus;
 	public:
-		HogeHoge():CommandImplBase( "HogeHoge", EDestination::Ground, EType::RequestPing){}
+		using ParseStatus = rsp::rsp02::fw::command::ParseStatus;
+		using ExecuteStatus = rsp::rsp02::fw::command::ExecuteStatus;
+		HogeHoge();
 
 	private:
-		ExecuteStatus ConcreteExecute( const HogeHogeCommand_t &cmd, HogeHogeResponse_t &res)
-		{
-			return ExecuteStatus::Success;
-		}
+		ExecuteStatus ConcreteExecute( const HogeHogeCommand_t &cmd, HogeHogeResponse_t &res);
 };

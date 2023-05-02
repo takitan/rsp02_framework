@@ -11,10 +11,12 @@
 #include "MissionDefine.hpp"
 #include "fw/time/time.hpp"
 #include "system/Process.hpp"
+#include "fw/logger/Logger.hpp"
+#include "fw/logger/PrintfSink.hpp"
 
-static MissionLogger logger;
 static MissionFSM::fsm m_fsm;
 static InitialFSM::fsm i_fsm;
+static rsp::rsp02::fw::logger::PrintfSink printf_sink;
 static Hoge hoge;
 static HogeHoge hogehoge;
 static TinyTLV tlv(10);
@@ -72,20 +74,21 @@ void TransportTest()
 
 int main(int argc, const char* argv[])
 {
+	rsp::rsp02::fw::logger::Logger::Sink = &printf_sink;
 	TransportTest();
-	using ELogLevel = rsp::rsp02::fw::logger::ELogLevel;
-	auto Logger = logger();
-	logger()->SetLogLevel( ELogLevel::Trace);
-	logger()->SetLogLevel( ELogLevel::Fatal);
+	//using ELogLevel = rsp::rsp02::fw::logger::ELogLevel;
+	//auto Logger = logger();
+	//logger()->SetLogLevel( ELogLevel::Trace);
+	//logger()->SetLogLevel( ELogLevel::Fatal);
 	for( int i=0;; i++)
 	{
-		Logger->Trace( "hogehoge%d", i);
-		Logger->Debug( "hogehoge%d", i);
-		Logger->Info( "hogehoge%d", i);
-		Logger->Warn( "hogehoge%d", i);
-		Logger->Error( "hogehoge%d", i);
-		Logger->Fatal( "hogehoge%d", i);
-		Logger->SetLogger( i%2);
+		//Logger->Trace( "hogehoge%d", i);
+		//Logger->Debug( "hogehoge%d", i);
+		//Logger->Info( "hogehoge%d", i);
+		//Logger->Warn( "hogehoge%d", i);
+		//Logger->Error( "hogehoge%d", i);
+		//Logger->Fatal( "hogehoge%d", i);
+		//Logger->SetLogger( i%2);
 	}
 	(void)argc;(void)argv;
 	m_fsm()->ForceTrans( MissionFSM::StateID::Idle);
