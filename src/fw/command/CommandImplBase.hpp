@@ -13,6 +13,9 @@
 #include "fw/time/TimeProvider.hpp"
 #include "fw/time/StopWatch.hpp"
 #include "fw/command/ExecutionStrategy.hpp"
+#include "fw/logger/Logger.hpp"
+#include "fw/logger/NullSink.hpp"
+#include "fw/util/assert.hpp"
 
 namespace rsp{
 namespace rsp02{
@@ -27,6 +30,9 @@ struct TCommandInfoEx : public rsp::rsp02::fw::command::TCommandInfo<TLV_T>
 	void Exit(){this->time.Lap(); this->ExecuteCount++;}
 };
 
+namespace fw::logger{
+	class ISink;
+}
 constexpr int TLV_SEND_BUF_SZ = 256;
 constexpr uint16_t MaxValueLength = 256;
 
@@ -42,7 +48,9 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		using TCommandInfo = rsp::rsp02::fw::command::TCommandInfo<TLV_T>;
 		using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
 		using ILogger = rsp::rsp02::fw::logger::ILogger;
-		using TNullLogger = rsp::rsp02::fw::logger::TNullLogger;
+		using Logger = rsp::rsp02::fw::logger::Logger;
+		using ISink = rsp::rsp02::fw::logger::ISink;
+		using NullSink = rsp::rsp02::fw::logger::NullSink;
 
 	public:
 		using ParseCallback_t = void (*)(const CMD_T&);
@@ -61,11 +69,11 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		 * @param ex 実行種別(nullptrだったらOnceForAll)
 		 * @param logger ロガー(nullptrだったらNullLogger)
 		 */
-		CommandImplBase( const char* name, dst_t dst, type_t type, IExecutionStrategy* ex=nullptr, ILogger* logger=nullptr) :
+		CommandImplBase( const char* name, dst_t dst, type_t type, IExecutionStrategy* ex=nullptr) :
 			Info(TCommandInfoEx<TLV_T>( name,dst,type))
 		{
-			this->ExecutionStrategy = ex==nullptr ? &DefaultStrategy : ex;
-			this->Logger = logger==nullptr ? &DefaultLogger : logger;
+			this->ExecutionStrategy = ex==nullptr ? new OnceAndForAll : ex;
+			this->logger = Logger::GetLogger( name);
 		}
 		virtual ~CommandImplBase(){}
 
@@ -82,11 +90,11 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 				Info.isInvoked = true;
 				ExecutionStrategy->Reset();
 				logger->Info( "%s(%d):Parse Accept", Info.Name, Info.Type);
-				//mOnParseSuccess( tlvcmd);
+				mOnParseSuccess();
 			}
 			else
 			{
-				//mOnParseFailure( tlvcmd);
+				mOnParseFailure();
 			}
 			return st;
 		}
@@ -102,22 +110,15 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 			switch(st)
 			{
 				case ExecuteStatus::Error:
-					logger->Info( "%s(%d):Execute Error", Info.Name, Info.Type);
 				case ExecuteStatus::InvalidValue:
-					logger->Trace( "%s(%d):Execute Invalid Value", Info.Name, Info.Type);
-				case ExecuteStatus::Ignore:
-					logger->Trace( "%s(%d):Execute Ignore", Info.Name, Info.Type);
 					mOnExecuteFailure();
-				// fallthrough
 					break;
-				case ExecuteStatus::NotInvoked:
-					logger->Trace( "%s(%d):Execute NotInvoked", Info.Name, Info.Type);
-				case ExecuteStatus::Executing:
-					logger->Trace( "%s(%d):Execute Executing", Info.Name, Info.Type);
 				case ExecuteStatus::Success:
-					logger->Info( "%s(%d):Execute Success", Info.Name, Info.Type);
 					mOnExecuteSuccess();
+				default:
+					;
 			}
+			return st;
 		}
 
 		const TCommandInfo &GetInfo() const
@@ -128,37 +129,50 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		bool TestInvoked( bool clear=true)
 		{
 			auto r = Info.isInvoked;
-			Info.isInvoked = r ? false : Info.isInvoked;
+			if( clear) Info.isInvoked = false;
 			return r;
 		}
 
 	protected:
 		/** @brief ロガー*/
-		ILogger* Logger;
+		ILogger* logger;
 
 	private:
 		CMD_T TLVCommand;
 		RES_T TLVResponse;
+		NullSink DefaultSink;
 
 		/** @brief コマンド情報*/
 		TCommandInfoEx<TLV_T> Info;
 
-		ILogger* logger;
-		TNullLogger DefaultLogger;
-
 		IExecutionStrategy* ExecutionStrategy;
-		OnceAndForAll DefaultStrategy;
 
 		/* @brief 具象コマンド解釈関数*/
-		virtual ParseStatus ConcreteParse( const CMD_T &cmd){ return ParseStatus::Accept;}
+		virtual ParseStatus ConcreteParse( const CMD_T &cmd){ (void)cmd;return ParseStatus::Accept;}
 
 		/** @brief 具象コマンド実行関数 */
-		virtual ExecuteStatus ConcreteExecute(const CMD_T &cmd){ return ExecuteStatus::Success;}
+		virtual ExecuteStatus ConcreteExecute(const CMD_T &cmd){ (void)cmd;return ExecuteStatus::Success;}
 
-		inline void mOnParseSuccess()const{ if( OnParseSuccess) OnParseSuccess( TLVCommand);}
-		inline void mOnParseFailure()const{ if( OnParseFailure) OnParseFailure( TLVCommand);}
-		inline void mOnExecuteSuccess()const{ if( OnParseSuccess) OnExecuteSuccess( TLVCommand);}
-		inline void mOnExecuteFailure()const{ if( OnParseFailure) OnExecuteFailure( TLVCommand);}
+		inline void mOnParseSuccess()const
+		{
+			logger->Trace( "%s(%d):Parse success", Info.Name, Info.Type);
+			if( OnParseSuccess) OnParseSuccess( TLVCommand);
+		}
+		inline void mOnParseFailure()const
+		{
+			logger->Trace( "%s(%d):Parse failed", Info.Name, Info.Type);
+			if( OnParseFailure) OnParseFailure( TLVCommand);
+		}
+		inline void mOnExecuteSuccess()const
+		{
+			logger->Info( "%s(%d):Execute Success", Info.Name, Info.Type);
+			if( OnParseSuccess) OnExecuteSuccess( TLVCommand);
+		}
+		inline void mOnExecuteFailure()const
+		{
+			logger->Info( "%s(%d):Execution failed", Info.Name, Info.Type);
+			if( OnParseFailure) OnExecuteFailure( TLVCommand);
+		}
 
 		ParseStatus Validate( const TLV_T &cmd)
 		{

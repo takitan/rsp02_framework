@@ -24,6 +24,7 @@ class CommandKernel : public PipelineProcess<PRD_T,CNS_T>
 				(*it)->Parse( product);
 			}
 			reproduct = PRD_T();
+#pragma message ToDo!!!!!!
 		}
 
 	public:
