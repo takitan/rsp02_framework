@@ -39,10 +39,10 @@ void FifoSink::Sink( time_t time, const char* name, const char* ll, const char* 
 
 	try
 	{
-		fprintf( fd, "%d.8,%s,%s,", time, name, ll);
+		fprintf( fd, "%08d,%s,%s,", time, name, ll);
 		vfprintf( fd, fmt, arg);
 		fprintf( fd, "\n");
-		//fflush(fd);
+		fflush(fd);
 	}
 	catch(const std::exception& e)
 	{
