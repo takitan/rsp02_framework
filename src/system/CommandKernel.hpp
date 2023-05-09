@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include <queue>
+#include <functional>
+
 #include "fw/command/ICommand.hpp"
 #include "system/Process.hpp"
 
@@ -15,7 +17,7 @@ class CommandKernel : public PipelineProcess<PRD_T,CNS_T>
 
 	private:
 		std::vector<ICommand<TLV_T>*> CommandList;
-	
+
 	protected:
 		bool ConcreteProcess( PRD_T &reproduct, CNS_T &product)
 		{
@@ -33,8 +35,15 @@ class CommandKernel : public PipelineProcess<PRD_T,CNS_T>
 
 		bool RegisterCommand( ICommand<TLV_T>* cmd)
 		{
+			auto srf = std::bind(&CommandKernel<TLV_T,PRD_T,CNS_T>::SendRequest, this);
+			cmd->SetSendRequestFunc( srf);
 			CommandList.push_back( cmd);
 			return true;
+		}
+
+		void SendRequest()
+		{
+			;
 		}
 };
 

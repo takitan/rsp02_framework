@@ -27,6 +27,10 @@ struct HogeCommand_t : public rsp::rsp02::fw::command::CommandTypeBase_t<Mission
 	HogeCommand_t(){}
 	HogeCommand_t( const MissionTLV &packet) : CommandTypeBase_t( packet), Payload( packet.pValue, length){}
 	HogeCommand_t( const MissionTLV* packet) : CommandTypeBase_t( packet), Payload( packet->pValue, length){}
+	operator MissionTLV() const
+	{
+		return MissionTLV(this->destination, this->type, this->length, (void*)(&this->Payload));
+	}
 };
 
 using HogeResponse_t = HogeCommand_t;

@@ -64,9 +64,10 @@ template< typename TLV_T>
 class ICommand
 {
 public:
+	using SendRequestFunc_t = std::function<void(const TLV_T&)>;
 	virtual ~ICommand(){}
 
-	virtual ParseStatus Parse( TLV_T& cmd) = 0;
+	virtual ParseStatus Parse( const TLV_T &cmd, TLV_T &res) = 0;
 	/** @brief コマンド実行関数 */
 	virtual ExecuteStatus Execute() = 0;
 	/** @brief コマンドの現在ステータス参照*/
@@ -76,6 +77,8 @@ public:
 	 * @param clear false 実行中フラグをクリアしない
 	*/
 	virtual bool TestInvoked(bool clear=true) = 0;
+
+	virtual void SetSendRequestFunc( SendRequestFunc_t srf) = 0;
 };
 
 }

@@ -6,7 +6,7 @@
  */
 
 #pragma once
-
+#include <functional>
 #include "system/rsp02.hpp"
 #include "fw/command/ICommand.hpp"
 #include "fw/logger/Logger.hpp"
@@ -14,7 +14,6 @@
 #include "fw/time/StopWatch.hpp"
 #include "fw/command/ExecutionStrategy.hpp"
 #include "fw/logger/Logger.hpp"
-#include "fw/logger/NullSink.hpp"
 #include "fw/util/assert.hpp"
 
 namespace rsp{
@@ -39,18 +38,15 @@ constexpr uint16_t MaxValueLength = 256;
 template< typename CMD_T, typename RES_T, typename TLV_T>
 class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 {
-
-		using dst_t = typename TLV_T::dst_t;
-		using type_t = typename TLV_T::type_t;
-		using len_t = typename TLV_T::len_t;
-		using ExecuteStatus = rsp::rsp02::fw::command::ExecuteStatus;
-		using ParseStatus = rsp::rsp02::fw::command::ParseStatus;
-		using TCommandInfo = rsp::rsp02::fw::command::TCommandInfo<TLV_T>;
-		using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
-		using ILogger = rsp::rsp02::fw::logger::ILogger;
-		using Logger = rsp::rsp02::fw::logger::Logger;
-		using ISink = rsp::rsp02::fw::logger::ISink;
-		using NullSink = rsp::rsp02::fw::logger::NullSink;
+	using dst_t = typename TLV_T::dst_t;
+	using type_t = typename TLV_T::type_t;
+	using len_t = typename TLV_T::len_t;
+	using ExecuteStatus = rsp::rsp02::fw::command::ExecuteStatus;
+	using ParseStatus = rsp::rsp02::fw::command::ParseStatus;
+	using TCommandInfo = rsp::rsp02::fw::command::TCommandInfo<TLV_T>;
+	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
+	using ILogger = rsp::rsp02::fw::logger::ILogger;
+	using Logger = rsp::rsp02::fw::logger::Logger;
 
 	public:
 		using ParseCallback_t = void (*)(const CMD_T&);
@@ -75,13 +71,14 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 			this->ExecutionStrategy = ex==nullptr ? new OnceAndForAll : ex;
 			this->logger = Logger::GetLogger( name);
 		}
+
 		virtual ~CommandImplBase(){}
 
 		/** @brief コマンド解釈
 		 * 基底クラスで宛先判別とコマンドtype判別を行い、
 		 * 自身宛てコマンドだったら具象クラスの実行関数を呼ぶ
 		 */
-		ParseStatus Parse( TLV_T &tlvcmd)
+		ParseStatus Parse( const TLV_T &tlvcmd, TLV_T &tlvres)
 		{
 			auto st = Validate( tlvcmd);
 			if( st == ParseStatus::Accept)
@@ -94,6 +91,7 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 			}
 			else
 			{
+				logger->Trace( "%s(%d):Parse Deny", Info.Name, Info.Type);
 				mOnParseFailure();
 			}
 			return st;
@@ -105,15 +103,19 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 			if( !Info.isInvoked) return ExecuteStatus::NotInvoked;
 			if( (*ExecutionStrategy)( Info.isInvoked)) st = ExecuteStatus::Ignore;
 
-			st = ConcreteExecute( TLVCommand);
+			st = ConcreteExecute( Command, Response);
 
 			switch(st)
 			{
+				case ExecuteStatus::Executing:
+					logger->Trace( "%s(%d):Executing", Info.Name, Info.Type);
 				case ExecuteStatus::Error:
 				case ExecuteStatus::InvalidValue:
+					logger->Info( "%s(%d):Execute fail", Info.Name, Info.Type);
 					mOnExecuteFailure();
 					break;
 				case ExecuteStatus::Success:
+					logger->Info( "%s(%d):Execute Success", Info.Name, Info.Type);
 					mOnExecuteSuccess();
 				default:
 					;
@@ -133,14 +135,39 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 			return r;
 		}
 
+		void SetSendRequestFunc( typename ICommand<TLV_T>::SendRequestFunc_t srf)
+		{
+			SendRequestFunc = srf;
+		}
+
+	private:
+		ParseStatus Validate( const TLV_T &cmd)
+		{
+
+			if( cmd.destination != Info.Dest) return ParseStatus::OtherDestination;
+			if( cmd.type != Info.Type) return ParseStatus::OtherCommand;
+#if 0
+			// 実際のところ、このレイヤでのエラーを返す機構がないから、変換コンストラクタでのバッファオーバーフロー対策をあてこんで
+			// ここでは握りつぶしておく
+			if( cmd.length >= sizeof( CMD_T::Payload)) return ParseStatus::OverFlowLength;
+#endif
+			Command = CMD_T(cmd);
+			return  ConcreteParse( Command, Response);
+		}
+
 	protected:
 		/** @brief ロガー*/
 		ILogger* logger;
-
+		void SendRequest()
+		{
+			if( !SendRequestFunc) return;
+			logger->Info( "%s(%d):Send Response Request", Info.Name, Info.Type);
+			SendRequestFunc( Response);
+		}
 	private:
-		CMD_T TLVCommand;
-		RES_T TLVResponse;
-		NullSink DefaultSink;
+		CMD_T Command;
+		RES_T Response;
+		typename ICommand<TLV_T>::SendRequestFunc_t SendRequestFunc;
 
 		/** @brief コマンド情報*/
 		TCommandInfoEx<TLV_T> Info;
@@ -148,39 +175,26 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		IExecutionStrategy* ExecutionStrategy;
 
 		/* @brief 具象コマンド解釈関数*/
-		virtual ParseStatus ConcreteParse( const CMD_T &cmd){ (void)cmd;return ParseStatus::Accept;}
+		virtual ParseStatus ConcreteParse( const CMD_T &cmd, const RES_T &res){ (void)cmd;(void)res;return ParseStatus::Accept;}
 
 		/** @brief 具象コマンド実行関数 */
-		virtual ExecuteStatus ConcreteExecute(const CMD_T &cmd){ (void)cmd;return ExecuteStatus::Success;}
+		virtual ExecuteStatus ConcreteExecute(const CMD_T &cmd, const RES_T &res){ (void)cmd;(void)res;return ExecuteStatus::Success;}
 
 		inline void mOnParseSuccess()const
 		{
-			logger->Trace( "%s(%d):Parse success", Info.Name, Info.Type);
-			if( OnParseSuccess) OnParseSuccess( TLVCommand);
+			if( OnParseSuccess) OnParseSuccess( Command);
 		}
 		inline void mOnParseFailure()const
 		{
-			logger->Trace( "%s(%d):Parse failed", Info.Name, Info.Type);
-			if( OnParseFailure) OnParseFailure( TLVCommand);
+			if( OnParseFailure) OnParseFailure( Command);
 		}
 		inline void mOnExecuteSuccess()const
 		{
-			logger->Info( "%s(%d):Execute Success", Info.Name, Info.Type);
-			if( OnParseSuccess) OnExecuteSuccess( TLVCommand);
+			if( OnParseSuccess) OnExecuteSuccess( Command);
 		}
 		inline void mOnExecuteFailure()const
 		{
-			logger->Info( "%s(%d):Execution failed", Info.Name, Info.Type);
-			if( OnParseFailure) OnExecuteFailure( TLVCommand);
-		}
-
-		ParseStatus Validate( const TLV_T &cmd)
-		{
-			if( cmd.destination != Info.Dest) return ParseStatus::OtherDestination;
-			if( cmd.type != Info.Type) return ParseStatus::OtherCommand;
-			if( cmd.length >= sizeof( CMD_T::Payload)) return ParseStatus::OverFlowLength;
-			TLVCommand = CMD_T(cmd);
-			return  ConcreteParse( TLVCommand);
+			if( OnParseFailure) OnExecuteFailure( Command);
 		}
 };
 
