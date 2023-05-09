@@ -83,7 +83,7 @@ int main(int argc, const char* argv[])
 	for(;;)
 	{
 		//printf("hoge");
-		logger->Info("hage%d08",i++);
+		logger->Info("hage%08d",i++);
 	}
 	TransportTest();
 	//using ELogLevel = rsp::rsp02::fw::logger::ELogLevel;
