@@ -87,3 +87,5 @@ struct align
 }
 }
 }
+
+#define SAFE_INIT(x,y) x( align::safe_read<sizeof(x)*8>(&y))
