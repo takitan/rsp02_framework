@@ -56,7 +56,7 @@ class Executer : public IProcess, public ProducerAdapter<PRD_T>, public Consumer
 			}
 			return st;
 		}
-		const ProcessInfo_t &GetInfo() const
+		const ProcessInfo_t GetInfo() const
 		{
 			return Info;
 		}
@@ -83,7 +83,7 @@ class Executer<PRD_T,NONE_T> : public IProcess, public ProducerAdapter<PRD_T>
 			return ProducerAdapter<PRD_T>::Invoke( product);
 		}
 
-		const ProcessInfo_t &GetInfo() const
+		const ProcessInfo_t GetInfo() const
 		{
 			return Info;
 		}
@@ -114,7 +114,7 @@ class Executer<NONE_T,CNS_T> : public IProcess, public ConsumerAdapter<CNS_T>
 			}
 			return st;
 		}
-		const ProcessInfo_t &GetInfo() const
+		const ProcessInfo_t GetInfo() const
 		{
 			return Info;
 		}
@@ -135,7 +135,7 @@ class Executer<NONE_T,NONE_T> : public IProcess
 		Executer( Producer<NONE_T>* p, Consumer<NONE_T>* c, ProcessInfo_t &inf)
 			{(void)inf;(void)p;(void)c;}
 		bool Perform(){return ConcreteProcess();}
-		const ProcessInfo_t &GetInfo() const{ return Info;}
+		const ProcessInfo_t GetInfo() const{ return Info;}
 	private:
 		ProcessInfo_t Info;
 		virtual bool ConcreteProcess(){ return true;}

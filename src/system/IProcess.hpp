@@ -30,14 +30,16 @@ struct ProcessInfo_t
 	int QueueOverflow;
 	/** @brief オプション*/
 	void* Option;
-	ProcessInfo_t() : TotalPacket(0), QueueOverflow(0), Option(nullptr){}
+	ProcessInfo_t() = default;
+	inline ProcessInfo_t(const ProcessInfo_t &) = default;
+	ProcessInfo_t( ProcessInfo_t &&) = default;
 };
 
 class IProcess
 {
 	public:
 		virtual bool Perform() = 0;
-		virtual const ProcessInfo_t &GetInfo() const = 0;
+		virtual const ProcessInfo_t GetInfo() const = 0;
 };
 
 template<typename CNS_T>
