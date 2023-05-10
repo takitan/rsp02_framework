@@ -33,6 +33,10 @@ void FifoSink::Sink( time_t time, const char* name, const char* ll, const char* 
 {
 	if( !fd)
 	{
+		#pragma message "Start reading from fifo, Before Start FifoSink!"
+		#pragma message "c.f. cat FifoSink"
+		printf("Start reading from fifo, Before Start FifoSink!\n");
+		printf("c.f. cat FifoSink\n");
 		fd = fopen( Name, "a");
 	}
 	if( !fd) return;
