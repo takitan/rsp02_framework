@@ -5,6 +5,7 @@
 
 #include "fw/command/ICommand.hpp"
 #include "system/Process.hpp"
+#include "fw/logger/Logger.hpp"
 
 namespace rsp{
 namespace rsp02{
@@ -17,33 +18,36 @@ class CommandKernel : public PipelineProcess<PRD_T,CNS_T>
 
 	private:
 		std::vector<ICommand<TLV_T>*> CommandList;
+		fw::logger::ILogger *logger;
+
+		bool Kernel(PRD_T &reproduct, CNS_T &product)
+		{
+			for( auto it=CommandList.begin(); it!=CommandList.end(); ++it)
+			{
+				if( (*it)->Parse( product)) return true;
+			}
+			for( auto it=CommandList.begin(); it!=CommandList.end(); ++it)
+			{
+				if( (*it)->Execute( reproduct)) return true;
+			}
+		}
 
 	protected:
 		bool ConcreteProcess( PRD_T &reproduct, CNS_T &product)
 		{
-			for( auto it=CommandList.begin(); it!=CommandList.end(); ++it)
-			{
-				(*it)->Parse( product);
-			}
-			reproduct = PRD_T();
-#pragma message ToDo!!!!!!
+			return Kernel(reproduct, product);
 		}
 
 	public:
-		CommandKernel(){}
+		CommandKernel() : logger( fw::logger::Logger::GetLogger( "CommandKernel")){}
 		virtual ~CommandKernel(){}
 
 		bool RegisterCommand( ICommand<TLV_T>* cmd)
 		{
-			auto srf = std::bind(&CommandKernel<TLV_T,PRD_T,CNS_T>::SendRequest, this);
-			cmd->SetSendRequestFunc( srf);
 			CommandList.push_back( cmd);
+			auto info = cmd->GetInfo();
+			logger->Info("RegisterCommand:name=%s,type=%d", info.Name, info.Type);
 			return true;
-		}
-
-		void SendRequest()
-		{
-			;
 		}
 };
 
