@@ -20,16 +20,16 @@ namespace time{
 typedef time_t (*TimeProvider_t)( void);
 
 /**
- * @class TStopWatch
+ * @class StopWatch
  * @brief 簡易的な経過時間測定クラス
  */
-class TStopWatch
+class StopWatch
 {
 	public:
 		/** 勝手にスタートする*/
-		TStopWatch(){ Start();}
-		TStopWatch(time_t p) : Period(p){}
-		virtual ~TStopWatch(){}
+		StopWatch(){ Start();}
+		StopWatch(time_t p) : Period(p){}
+		virtual ~StopWatch(){}
 
 		/** @brief スタート時刻の登録
 		 * @return time_t 現在時刻
@@ -48,7 +48,7 @@ class TStopWatch
 
 		/**
 		 * @brief 経過時間を取得する
-		 * 
+		 *
 		 * @return time_t 経過時間
 		 */
 		time_t GetElapsed( void)
@@ -58,14 +58,14 @@ class TStopWatch
 		}
 		/**
 		 * @brief 現在時刻を取得する
-		 * 
+		 *
 		 * @return time_t 現在時刻
 		 */
 		time_t GetCurrentTime( void){ return TimeProvider();}
 
 		/**
 		 * @brief 経過時間が指定時間を超えているかを判定する
-		 * 
+		 *
 		 * @param ElapsedTime 指定経過時間
 		 * @return true 超えている
 		 * @return false 超えていない

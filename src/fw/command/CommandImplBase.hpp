@@ -48,7 +48,7 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 	using ExecuteStatus = rsp::rsp02::fw::command::ExecuteStatus;
 	using ParseStatus = rsp::rsp02::fw::command::ParseStatus;
 	using TCommandInfo = rsp::rsp02::fw::command::CommandInfo<TLV_T>;
-	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
+	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 	using ILogger = rsp::rsp02::fw::logger::ILogger;
 	using Logger = rsp::rsp02::fw::logger::Logger;
 

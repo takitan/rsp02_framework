@@ -47,14 +47,14 @@ struct CommandInfo
 	using dst_t = typename TLV_T::dst_t;
 	using type_t = typename TLV_T::type_t;
 	using len_t = typename TLV_T::len_t;
-	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
+	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 
 	const char* Name;
 	dst_t Dest;
 	type_t Type;
 	long AcceptCount;
 	long ExecuteCount;
-	TStopWatch time;
+	StopWatch time;
 	bool isInvoked;
 	CommandInfo() = default;
 	CommandInfo( const char* nam, const dst_t dst, const type_t typ)

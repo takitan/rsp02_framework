@@ -7,27 +7,27 @@ namespace MissionFSM
 
 class State2 : public TStateBase
 {
-	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
+	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 	public:
 		State2():TStateBase(StateID::State2, "State2"){}
 
 	private:
 		int i;
-		TStopWatch sw;
+		StopWatch sw;
 
 		void Entry()
 		{
 			i = 0;
 			return;
 		}
-		
+
 		IState* Execute( void)
 		{
 			IState* next = this;
 			switch( i)
 			{
 			case 0:
-				sw = TStopWatch();
+				sw = StopWatch();
 				printf("%s:Start\n", StateInfo.Name);
 				printf("%s:InnerState0\n", StateInfo.Name);
 				i++;

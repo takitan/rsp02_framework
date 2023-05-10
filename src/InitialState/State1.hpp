@@ -6,28 +6,28 @@ namespace InitialFSM
 {
 class State1 : public TStateBase
 {
-	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
+	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 
 	public:
 		State1():TStateBase(StateID::State1, "State1"){}
 
 	private:
 		int i;
-		TStopWatch sw;
+		StopWatch sw;
 
 		void Entry()
 		{
 			i = 0;
 			return;
 		}
-		
+
 		IState* Execute( void)
 		{
 			IState* next = this;
 			switch( i)
 			{
 			case 0:
-				sw = TStopWatch();
+				sw = StopWatch();
 				printf("%s:Start\n", StateInfo.Name);
 				printf("%s:InnerState0\n", StateInfo.Name);
 				i++;

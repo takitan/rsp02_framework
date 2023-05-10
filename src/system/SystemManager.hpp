@@ -32,7 +32,7 @@ template<typename T>
 class SystemManager
 {
 	using time_t = rsp::rsp02::time_t;
-	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
+	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 
 	public:
 		using SystemManagerCallback_t = void (*)(const SystemInfo &Info);
@@ -51,7 +51,7 @@ class SystemManager
 			logger->Info("Tick!");
 			Info.ActualPeriod = PeriodicTimer.LapAndGetElapsed();
 			PeriodicTimer.Start();
-			TStopWatch sw;
+			StopWatch sw;
 			Info.Status = SystemStatus::Null;
 			mPeriodStart();
 			Info.PreviousStartTime = Info.StartTime;
@@ -78,7 +78,7 @@ class SystemManager
 
 	private:
 		SystemInfo Info;
-		TStopWatch PeriodicTimer;
+		StopWatch PeriodicTimer;
 		std::vector<IProcess*> process;
 		rsp::rsp02::fw::logger::ILogger* logger;
 

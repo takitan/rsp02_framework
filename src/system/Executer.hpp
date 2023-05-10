@@ -13,7 +13,7 @@ template<typename T> class Consumer;
 namespace{
 class TTimeKeeper
 {
-	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
+	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 	public:
 		TTimeKeeper( ProcessInfo_t &inf) : info(inf){ info.StartTime = sw.Start();}
 		~TTimeKeeper()
@@ -22,7 +22,7 @@ class TTimeKeeper
 			info.ElapsedTime = sw.GetElapsed();
 		}
 	private:
-		TStopWatch sw;
+		StopWatch sw;
 		ProcessInfo_t &info;
 };
 }

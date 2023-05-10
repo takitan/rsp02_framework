@@ -15,11 +15,11 @@ enum class EInnerState{Entry,Execute,Exit};
 template<typename T>
 class StateInfo_t
 {
-	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
+	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 	public:
 		const char* Name;
 		const T ID;
-		TStopWatch sw;
+		StopWatch sw;
 		long EnteringCount;
 		long ExitingCount;
 		EInnerState InnerState;
@@ -75,7 +75,7 @@ class StateBase : public IState<T>
 		static CallBack_t OnExit;
 
 		StateBase( T id, char const* const nam) : StateInfo( id, nam){}
-		
+
 		virtual ~StateBase(){}
 
 		IState<T>* Process( void)

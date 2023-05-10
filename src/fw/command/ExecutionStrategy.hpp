@@ -43,13 +43,13 @@ class ContinueUntillScanout : public IExecutionStrategy
 
 class ContinueUntillTimeout : public IExecutionStrategy
 {
-	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
+	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 	using time_t = rsp::rsp02::time_t;
 	private:
-		TStopWatch sw;
+		StopWatch sw;
 		time_t Timeout;
 	public:
-		ContinueUntillTimeout(time_t Timeout):sw(TStopWatch()),Timeout(Timeout){}
+		ContinueUntillTimeout(time_t Timeout):sw(StopWatch()),Timeout(Timeout){}
 		bool operator()(bool &isInvoked)
 		{
 			auto el = sw.GetElapsed();
