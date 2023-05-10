@@ -41,7 +41,7 @@ enum class ExecuteStatus
 };
 
 template< typename TLV_T>
-struct TCommandInfo
+struct CommandInfo
 {
 	public:
 	using dst_t = typename TLV_T::dst_t;
@@ -56,8 +56,11 @@ struct TCommandInfo
 	long ExecuteCount;
 	TStopWatch time;
 	bool isInvoked;
-	TCommandInfo( const char* nam, const dst_t dst, const type_t typ)
+	CommandInfo() = default;
+	CommandInfo( const char* nam, const dst_t dst, const type_t typ)
 		: Name(nam), Dest(dst), Type(typ), AcceptCount(0), ExecuteCount(0), time(), isInvoked(false){}
+	inline CommandInfo(const CommandInfo &) = default;
+	CommandInfo( CommandInfo &&) = default;
 };
 
 template< typename TLV_T>
@@ -67,18 +70,16 @@ public:
 	using SendRequestFunc_t = std::function<void(const TLV_T&)>;
 	virtual ~ICommand(){}
 
-	virtual ParseStatus Parse( const TLV_T &cmd, TLV_T &res) = 0;
+	virtual bool Parse( const TLV_T &cmd, TLV_T &res) = 0;
 	/** @brief コマンド実行関数 */
-	virtual ExecuteStatus Execute() = 0;
+	virtual bool Execute() = 0;
 	/** @brief コマンドの現在ステータス参照*/
-	virtual const TCommandInfo<TLV_T> &GetInfo() const = 0;
+	virtual const CommandInfo<TLV_T> GetInfo() const = 0;
 	/** @brief コマンド実行中かどうかを問い合わせ、必要に応じて実行中フラグをクリアする
 	 * @param clear true 実行中フラグをクリアする(default)
 	 * @param clear false 実行中フラグをクリアしない
 	*/
 	virtual bool TestInvoked(bool clear=true) = 0;
-
-	virtual void SetSendRequestFunc( SendRequestFunc_t srf) = 0;
 };
 
 }
