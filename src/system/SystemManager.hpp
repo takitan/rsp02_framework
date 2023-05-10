@@ -2,6 +2,7 @@
 #include <vector>
 #include "system/Process.hpp"
 #include "fw/time/StopWatch.hpp"
+#include "fw/logger/Logger.hpp"
 
 namespace rsp{
 namespace rsp02{
@@ -32,17 +33,22 @@ class SystemManager
 {
 	using time_t = rsp::rsp02::time_t;
 	using TStopWatch = rsp::rsp02::fw::time::TStopWatch;
-	
+
 	public:
 		using SystemManagerCallback_t = void (*)(const SystemInfo &Info);
 		SystemManagerCallback_t PeriodStartCallback;
 		SystemManagerCallback_t PeriodCompletionCallback;
 
-		SystemManager( time_t lp) : PeriodStartCallback(nullptr), PeriodCompletionCallback(nullptr), PeriodicTimer( lp){}
+		SystemManager( time_t lp) :
+			PeriodStartCallback(nullptr),
+			PeriodCompletionCallback(nullptr),
+			PeriodicTimer( lp),
+			logger(fw::logger::Logger::GetLogger("SystemManager")){}
 
 		SystemStatus Process()
 		{
 			if( !PeriodicTimer.isPeriod()) return SystemStatus::Through;
+			logger->Info("Tick!");
 			Info.ActualPeriod = PeriodicTimer.LapAndGetElapsed();
 			PeriodicTimer.Start();
 			TStopWatch sw;
@@ -74,6 +80,7 @@ class SystemManager
 		SystemInfo Info;
 		TStopWatch PeriodicTimer;
 		std::vector<IProcess*> process;
+		rsp::rsp02::fw::logger::ILogger* logger;
 
 		void mPeriodStart()
 		{
