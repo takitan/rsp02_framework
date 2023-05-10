@@ -17,7 +17,6 @@
 
 static MissionFSM::fsm m_fsm;
 static InitialFSM::fsm i_fsm;
-static rsp::rsp02::fw::logger::PrintfSink printf_sink;
 static rsp::rsp02::fw::logger::FifoSink fifo_sink("FifoSink");
 static Hoge hoge;
 static HogeHoge hogehoge;
@@ -76,19 +75,13 @@ void TransportTest()
 
 int main(int argc, const char* argv[])
 {
+	using ELogLevel = rsp::rsp02::fw::logger::ELogLevel;
+	auto logger = rsp::rsp02::fw::logger::Logger::GetLogger( "ROOT");
 	rsp::rsp02::fw::logger::Logger::Sink = &fifo_sink;
-	auto logger = rsp::rsp02::fw::logger::Logger::GetLogger("hoge");
-	int i=0;
-	printf("hige\n");
-	for(;;)
-	{
-		//printf("hoge");
-		logger->Info("hage%08d",i++);
-	}
+	logger->Info("Let's Start!");
+
 	TransportTest();
-	//using ELogLevel = rsp::rsp02::fw::logger::ELogLevel;
-	//auto Logger = logger();
-	//logger()->SetLogLevel( ELogLevel::Trace);
+	logger->SetLogLevel( ELogLevel::Trace);
 	//logger()->SetLogLevel( ELogLevel::Fatal);
 	for( int i=0;; i++)
 	{

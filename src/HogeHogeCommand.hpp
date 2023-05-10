@@ -22,15 +22,22 @@ struct HogeHogeCommand_t : public rsp::rsp02::fw::command::CommandTypeBase_t<Mis
 		uint32_t hoge;
 		Payload_t(){}
 		Payload_t(const uint8_t* pValue) :
-			hage( align::safe_read<8>(&pValue[0])),
-			hige( align::safe_read<32>(&pValue[1])),
-			huge( align::safe_read<8>(&pValue[5])),
-			hege( align::safe_read<16>(&pValue[6])),
-			hoge( align::safe_read<32>(&pValue[8])){}
+			SAFE_INIT(hage,pValue[0]),
+			SAFE_INIT(hige,pValue[1]),
+			SAFE_INIT(huge,pValue[5]),
+			SAFE_INIT(hege,pValue[6]),
+			SAFE_INIT(hoge,pValue[8]){}
 	}Payload;
-	HogeHogeCommand_t(){}
+	HogeHogeCommand_t() = default;
+	HogeHogeCommand_t (HogeHogeCommand_t &&) = default;
+	// コピーコンストラクタ
+	inline HogeHogeCommand_t( const HogeHogeCommand_t &) = default;
+	// ムーブコンストラクタ
+	HogeHogeCommand_t &operator=(const HogeHogeCommand_t &) = default;
+
 	HogeHogeCommand_t( const MissionTLV &packet) : CommandTypeBase_t( packet), Payload( packet.pValue){}
 	HogeHogeCommand_t( const MissionTLV* packet) : CommandTypeBase_t( packet), Payload( packet->pValue){}
+
 	operator MissionTLV() const
 	{
 		return MissionTLV(this->destination, this->type, this->length, (void*)(&this->Payload));
@@ -47,5 +54,5 @@ class HogeHoge : public CommandImplBase<HogeHogeCommand_t,HogeHogeResponse_t>
 		HogeHoge();
 
 	private:
-		ExecuteStatus ConcreteExecute( const HogeHogeCommand_t &cmd, HogeHogeResponse_t &res);
+		ExecuteStatus ConcreteExecute( const HogeHogeCommand_t &cmd);
 };

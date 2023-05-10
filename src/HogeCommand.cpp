@@ -3,14 +3,11 @@
 
 Hoge::Hoge():CommandImplBase( "Hoge", EDestination::Ground, EType::RequestPing){}
 
-Hoge::ExecuteStatus Hoge::ConcreteExecute( const HogeCommand_t &cmd, HogeResponse_t &res)
+Hoge::ExecuteStatus Hoge::ConcreteExecute( const HogeCommand_t &cmd)
 {
-	(void)cmd;(void)res;
-	res.destination = EDestination::Ground;
-	res.type = EType::ReplyPing;
-	res.length = cmd.length;
-	memcpy( &res.Payload, &cmd.Payload, cmd.length);
-	SendRequest();
+	HogeResponse_t cres( EDestination::Ground, EType::ReplyPing, cmd.length);
+	memcpy( &cres.Payload, &cmd.Payload, cmd.length);
+	SendRequest( cres);
 
 	return ExecuteStatus::Success;
 }

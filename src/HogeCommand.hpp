@@ -43,5 +43,5 @@ class Hoge : public CommandImplBase<HogeCommand_t,HogeResponse_t>
 		Hoge();
 
 	private:
-		ExecuteStatus ConcreteExecute( const HogeCommand_t &cmd, HogeResponse_t &res);
+		ExecuteStatus ConcreteExecute( const HogeCommand_t &cmd);
 };
