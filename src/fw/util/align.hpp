@@ -5,16 +5,16 @@
  * @version 0.1
  * @date 2023-04-18
  * @copyright Copyright (c) 2023
- * 
+ *
  * usage:
  * 要は、テンプレート引数にビットサイズを渡すと適切にアクセスしてくれる
- * 
+ *
  * N=8 : バイトアクセス(実際には普通に読めば良い)
  *  uint8_t safe_read<8>(uint8_t* src);
  */
 #pragma once
 #include <cstdint>
-#include <cstdlib>
+#include <cstring>
 
 namespace rsp{
 namespace rsp02{
@@ -60,7 +60,7 @@ struct align
 	static typename byte_type<N>::type safe_read( uint8_t* src)
 	{
 		alignas(32) aligned<N> dst;
-		memcpy( dst.src, src, byte_type<N>::byte_size);
+		::memcpy( dst.src, src, byte_type<N>::byte_size);
 		return dst.word;
 	}
 
@@ -73,7 +73,7 @@ struct align
 	template<int N>
 	static void safe_write( uint8_t* dst, typename byte_type<N>::type src)
 	{
-		memcpy( dst, &src, N);
+		::memcpy( dst, &src, N);
 	}
 
 	template<int N>
