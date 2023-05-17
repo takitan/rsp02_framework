@@ -14,9 +14,6 @@
 			"type": "shell",
 			"label": "build",
 			"command": "make",
-			"args": [
-				"all"
-			],
 			"problemMatcher": [
 				"$gcc"
 			],
