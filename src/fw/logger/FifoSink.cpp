@@ -41,18 +41,10 @@ void FifoSink::Sink( time_t time, const char* name, const char* ll, const char* 
 	}
 	if( !fd) return;
 
-	try
-	{
-		fprintf( fd, "%08d,%s,%s,", time, name, ll);
-		vfprintf( fd, fmt, arg);
-		fprintf( fd, "\n");
-		fflush(fd);
-	}
-	catch(const std::exception& e)
-	{
-		fd = nullptr;
-	}
-
+	fprintf( fd, "%08d,%s,%s,", time, name, ll);
+	vfprintf( fd, fmt, arg);
+	fprintf( fd, "\n");
+	fflush(fd);
 }
 
 void FifoSink::operator()( time_t time, const char* name, const char* ll, const char* fmt, std::va_list arg)
