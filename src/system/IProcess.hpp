@@ -1,6 +1,5 @@
 #pragma once
 #include <cstddef>
-#include <deque>
 #include "fw/time/StopWatch.hpp"
 
 namespace rsp{
