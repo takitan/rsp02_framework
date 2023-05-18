@@ -11,8 +11,9 @@ namespace detail{
 class DebugPortImpl;
 }
 
-class DebugPort : ProducerProcess<MissionTLV>
+class DebugPort : public ProducerProcess<MissionTLV>
 {
+	friend detail::DebugPortImpl;
 	public:
 		DebugPort();
 	private:
