@@ -522,7 +522,6 @@ public:
      */
     R call(ArgTs... args) const
     {
-        MBED_ASSERT(_ops);
         return _ops->call(this, args...);
     }
 

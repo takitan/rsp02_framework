@@ -1,4 +1,11 @@
 #pragma once
+#ifndef OFFLINE
+#else
+#include <thread>
+#include "callback.hpp"
+#include <cstdint>
+#endif
+
 namespace rsp{
 namespace rsp02{
 namespace fw{
@@ -10,9 +17,6 @@ namespace util{
 using Thread = mbed::Thread;
 
 #else
-
-#include <thread>
-#include "callback.hpp"
 
 typedef int32_t                  osStatus;
 #define osOK					(0x00)
