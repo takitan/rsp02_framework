@@ -2,6 +2,6 @@
 while true
 do
 	echo "Sink Start"
-	cat >FifoSink
+	cat FifoSink
 	echo "Sink Finish"
 done
