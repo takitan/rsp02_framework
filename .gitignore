@@ -3,3 +3,4 @@ make_temp/*
 *.d
 *.o
 exe
+*.out
