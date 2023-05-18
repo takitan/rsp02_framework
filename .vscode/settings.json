@@ -48,6 +48,7 @@
 		"climits": "cpp",
 		"ctime": "cpp",
 		"cstring": "cpp",
-		"cassert": "cpp"
+		"cassert": "cpp",
+		"thread": "cpp"
 	}
 }
