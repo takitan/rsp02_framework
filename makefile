@@ -14,6 +14,7 @@ CPPFLAGS ?= $(INC_FLAGS) -MMD -MP
 CPPFLAGS += -g -Wall -W -Wextra -Wunused-function -Wunused-parameter -Wunused-variable -fno-exceptions
 CPPFLAGS += -std=gnu++1z -fno-rtti -Wreturn-type -pthread
 CPPFLAGS += -DOFFLINE
+LDFLAGS = $(CPPFLAGS)
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 	$(CXX) $(OBJS) -o $@ $(LDFLAGS)
@@ -25,7 +26,6 @@ $(BUILD_DIR)/%.s.o: %.s
 
 # c source
 $(BUILD_DIR)/%.c.o: %.c
-	@echo $(BUILD_DIR)
 	$(MKDIR_P) $(dir $@)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
