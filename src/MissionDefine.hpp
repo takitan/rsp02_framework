@@ -1,4 +1,5 @@
 #pragma once
+#include "rsp02.hpp"
 #include "fw/command/CommandImplBase.hpp"
 #include "system/TLVDatalink.hpp"
 #include "system/TLVTransport.hpp"
