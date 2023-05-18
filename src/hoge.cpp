@@ -8,6 +8,7 @@
 #include "system/TLVStub.hpp"
 #include "system/TLVDatalink.hpp"
 #include "system/CommandKernel.hpp"
+#include "system/DebugPort.hpp"
 #include "MissionDefine.hpp"
 #include "fw/time/time.hpp"
 #include "system/Process.hpp"
@@ -25,35 +26,7 @@ static TLVDatalinkUp datalink_up( &tlv);
 static TLVDatalinkDown datalink_down( &tlv);
 static CommandKernel kernel;
 static SystemManager SysMan( 1000);
-
-static rsp::rsp02::system::ProducerProcess<TLVmessage_t> pro;
-static rsp::rsp02::system::PipelineProcess<TLVmessage_t,MissionTLV> pipe(1);
-static rsp::rsp02::system::ConsumerProcess<TLVmessage_t> con(1);
-
-static void PeriodStartCB( const rsp::rsp02::system::SystemInfo &info)
-{
-	using SystemStatus = rsp::rsp02::system::SystemStatus;
-	printf("%8s%7s%12s%12s%12s%12s\n","[START]","Status","PreStart","Start","Period","Process");
-	printf("%8s%7d%10dms%10dms%10dms%10dms\n",
-		"[START]",
-		(std::underlying_type_t<SystemStatus>)info.Status,
-		info.PreviousStartTime,
-		info.StartTime,
-		info.ActualPeriod,
-		info.ProcessTime);
-}
-static void PeriodCompletionCB( const rsp::rsp02::system::SystemInfo &info)
-{
-	using SystemStatus = rsp::rsp02::system::SystemStatus;
-	printf("%8s%7s%12s%12s%12s%12s\n","[END]","Status","PreStart","Start","Period","Process");
-	printf("%8s%7d%10dms%10dms%10dms%10dms\n",
-		"[END]",
-		(std::underlying_type_t<SystemStatus>)info.Status,
-		info.PreviousStartTime,
-		info.StartTime,
-		info.ActualPeriod,
-		info.ProcessTime);
-}
+static rsp::rsp02::system::DebugPort debugport;
 
 void TransportTest()
 {
@@ -64,8 +37,8 @@ void TransportTest()
 	SysMan.RegisterProcess( &kernel);
 	kernel.SetConsumer( &datalink_down);
 	SysMan.RegisterProcess( &datalink_down);
-	SysMan.PeriodStartCallback = PeriodStartCB;
-	SysMan.PeriodCompletionCallback = PeriodCompletionCB;
+	SysMan.RegisterProcess( &debugport);
+	debugport.SetConsumer( &kernel);
 
 	while(true)
 	{
