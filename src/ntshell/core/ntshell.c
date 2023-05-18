@@ -516,6 +516,7 @@ static const ntshell_action_table_t action_table[] = {
     {VTRECV_ACTION_EXECUTE, 0x06, actfunc_cursor_right},
     {VTRECV_ACTION_EXECUTE, 0x08, actfunc_backspace},
     {VTRECV_ACTION_EXECUTE, 0x09, actfunc_suggest},
+    {VTRECV_ACTION_EXECUTE, 0x0a, actfunc_enter},
     {VTRECV_ACTION_EXECUTE, 0x0d, actfunc_enter},
     {VTRECV_ACTION_EXECUTE, 0x0e, actfunc_history_next},
     {VTRECV_ACTION_EXECUTE, 0x10, actfunc_history_prev},
