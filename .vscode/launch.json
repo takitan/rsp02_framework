@@ -13,7 +13,7 @@
 		//"log": true,
 		"cwd": "${workspaceFolder}",
 		"environment": [],
-		"program": "${workspaceFolder}/exe",
+		"program": "${workspaceFolder}/build/a.out",
 		"internalConsoleOptions": "openOnSessionStart",
 		"MIMode": "gdb",
 		"preLaunchTask": "build",
