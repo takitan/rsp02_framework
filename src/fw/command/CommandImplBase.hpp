@@ -8,7 +8,7 @@
 #pragma once
 #include <functional>
 #include <cstdio>
-#include "system/rsp02.hpp"
+#include "tlv/rsp02.hpp"
 #include "fw/command/ICommand.hpp"
 #include "fw/logger/Logger.hpp"
 #include "fw/time/TimeProvider.hpp"

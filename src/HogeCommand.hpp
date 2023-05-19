@@ -2,17 +2,15 @@
 #include <cstdint>
 #include <cstring>
 #include "fw/util/align.hpp"
+#include "rsp02_mission.hpp"
 #include "MissionDefine.hpp"
-#include "fw/command/CommandImplBase.hpp"
-#include "fw/command/CommandTypeBase.hpp"
 
 namespace rsp::rsp02::fw::logger{
 class ISink;
 }
 
-struct HogeCommand_t : public rsp::rsp02::fw::command::CommandTypeBase_t<MissionTLV>
+struct HogeCommand_t : public CommandTypeBase
 {
-	using CommandTypeBase_t<MissionTLV>::CommandTypeBase_t;
 	constexpr static std::size_t PayloadSize = 10;
 	struct Payload_t
 	{
@@ -25,8 +23,14 @@ struct HogeCommand_t : public rsp::rsp02::fw::command::CommandTypeBase_t<Mission
 		}
 	}Payload;
 	HogeCommand_t(){}
-	HogeCommand_t( const MissionTLV &packet) : CommandTypeBase_t( packet), Payload( packet.pValue, length){}
-	HogeCommand_t( const MissionTLV* packet) : CommandTypeBase_t( packet), Payload( packet->pValue, length){}
+	// コピーコンストラクタ
+	inline HogeCommand_t( const HogeCommand_t &) = default;
+	// ムーブコンストラクタ
+	HogeCommand_t &operator=(const HogeCommand_t &) = default;
+
+	HogeCommand_t(EDestination d, EType t, len_t l) : CommandTypeBase( d, t, l){}
+	HogeCommand_t( const MissionTLV &packet) : CommandTypeBase( packet), Payload( packet.pValue, length){}
+	HogeCommand_t( const MissionTLV* packet) : CommandTypeBase( packet), Payload( packet->pValue, length){}
 	operator MissionTLV() const
 	{
 		return MissionTLV(this->destination, this->type, this->length, (void*)(&this->Payload));

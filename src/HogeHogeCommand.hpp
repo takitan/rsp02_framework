@@ -2,17 +2,15 @@
 #include <cstdint>
 #include <cstring>
 #include "fw/util/align.hpp"
+#include "tlv/rsp02_mission.hpp"
 #include "MissionDefine.hpp"
-#include "fw/command/CommandImplBase.hpp"
-#include "fw/command/CommandTypeBase.hpp"
 
 namespace rsp::rsp02::fw::logger{
 class ILogger;
 }
 
-struct HogeHogeCommand_t : public rsp::rsp02::fw::command::CommandTypeBase_t<MissionTLV>
+struct HogeHogeCommand_t : public CommandTypeBase
 {
-	using CommandTypeBase_t<MissionTLV>::CommandTypeBase_t;
 	struct Payload_t
 	{
 		uint8_t hage;
@@ -35,8 +33,9 @@ struct HogeHogeCommand_t : public rsp::rsp02::fw::command::CommandTypeBase_t<Mis
 	// ムーブコンストラクタ
 	HogeHogeCommand_t &operator=(const HogeHogeCommand_t &) = default;
 
-	HogeHogeCommand_t( const MissionTLV &packet) : CommandTypeBase_t( packet), Payload( packet.pValue){}
-	HogeHogeCommand_t( const MissionTLV* packet) : CommandTypeBase_t( packet), Payload( packet->pValue){}
+	HogeHogeCommand_t(EDestination d, EType t, len_t l) : CommandTypeBase( d, t, l){}
+	HogeHogeCommand_t( const MissionTLV &packet) : CommandTypeBase( packet), Payload( packet.pValue){}
+	HogeHogeCommand_t( const MissionTLV* packet) : CommandTypeBase( packet), Payload( packet->pValue){}
 
 	operator MissionTLV() const
 	{
