@@ -4,11 +4,21 @@
 #include <sys/ioctl.h>
 #include <signal.h>
 #include "thread.hpp"
-#include "ntshell.h"
+#include "ntshell/core/ntshell.h"
+#include "ntshell/util/ntopt.h"
 #include "DebugPort.hpp"
+#include "Shell.hpp"
 
 namespace rsp::rsp02::system
 {
+
+namespace
+{
+static int tr_read( char* buf, int cnt, void* extobj);
+static int tr_write( const char* buf, int cnt, void* extobj);
+static int tr_cb( const char* text, void* extobj);
+static int tr_parse( int argc, char** argv, void* extobj);
+}
 
 namespace detail
 {
@@ -17,16 +27,18 @@ class DebugPortImpl
 {
 	using Thread = fw::util::Thread;
 	public:
-		DebugPortImpl()
+		DebugPortImpl( IShell* sh)
 		{
+			shell = sh;
 			th.start( fw::util::callback( this, &DebugPortImpl::func));
 		}
 	private:
 		bool isCanceled;
 		Thread th;
-		void func()
+		IShell* shell;
+
+		void SetupConsole()
 		{
-			isCanceled = false;
 			termios iterm, iterm_org, oterm, oterm_org;
 			tcgetattr( STDIN_FILENO, &iterm);
 			tcgetattr( STDOUT_FILENO, &oterm);
@@ -36,14 +48,18 @@ class DebugPortImpl
 			oterm.c_lflag &= ~(ECHO|ICANON);
 			tcsetattr( STDIN_FILENO, TCSANOW, &iterm);
 			tcsetattr( STDOUT_FILENO, TCSANOW, &oterm);
+		}
 
+		void func()
+		{
+			isCanceled = false;
 			ntshell_t ntshell;
 			ntshell_init(
 				&ntshell,
-				&DebugPortImpl::func_read,
-				&DebugPortImpl::func_write,
-				&DebugPortImpl::func_cb,
-				(void*)&ntshell
+				tr_read,
+				tr_write,
+				tr_cb,
+				(void*)this
 			);
 			ntshell_set_prompt( &ntshell, "rsp02>");
 			while( !isCanceled)
@@ -51,9 +67,14 @@ class DebugPortImpl
 				ntshell_execute( &ntshell);
 			}
 		}
-		static int func_read( char* buf, int cnt, void* extobj)
+
+	// 以下のメソッドはトランポリンから呼ばれるから、publicにしてしまう
+	// 閉じた名前空間にあるprivateなクラスだからいいよね・・・
+	public:
+		int func_read( char* buf, int cnt, void* extobj)
 		{
-			std::size_t len = 0;
+			(void)extobj;
+			int len = 0;
 			while( len<cnt)
 			{
 				std::size_t l;
@@ -64,9 +85,10 @@ class DebugPortImpl
 			return len;
 		}
 
-		static int func_write( const char* buf, int cnt, void* extobj)
+		int func_write( const char* buf, int cnt, void* extobj)
 		{
-			std::size_t len = 0;
+			(void)extobj;
+			int len = 0;
 			while( len<cnt)
 			{
 				std::size_t l;
@@ -76,29 +98,47 @@ class DebugPortImpl
 			}
 			return len;
 		}
-		static int func_cb( const char* text, void* extobj)
+		int func_cb( const char* text, void* extobj)
 		{
-			char buf[32];
-			sprintf( buf, "%s uhyo\n\r", text);
-			prints( buf, extobj);
-			return 0;
+			return ntopt_parse( text, tr_parse, extobj);
 		}
-		static int prints( const char* text, void* extobj)
+		int func_parse( int argc, char** argv, void* extobj)
 		{
-			func_write(text, std::strlen(text), extobj);
+			return shell->Invoke( argc, argv, extobj);
+		}
+		int prints( const char* text, void* extobj)
+		{
+			return func_write(text, std::strlen(text), extobj);
 		}
 	};
 }
 
-DebugPort::DebugPort()
+// Cスタイルコールバックのトランポリン
+namespace
 {
-	impl = new detail::DebugPortImpl();
+static int tr_read( char* buf, int cnt, void* extobj)
+{
+	return static_cast<detail::DebugPortImpl*>(extobj)->func_read(buf,cnt,extobj);
 }
 
-bool DebugPort::ConcreteProcess( MissionTLV reproduct)
+static int tr_write( const char* buf, int cnt, void* extobj)
 {
-	(void)reproduct;
-	return false;
+	return static_cast<detail::DebugPortImpl*>(extobj)->func_write(buf,cnt,extobj);
+}
+static int tr_cb( const char* text, void* extobj)
+{
+	return static_cast<detail::DebugPortImpl*>(extobj)->func_cb(text,extobj);
+}
+
+static int tr_parse( int argc, char** argv, void* extobj)
+{
+	return static_cast<detail::DebugPortImpl*>(extobj)->func_parse( argc, argv, extobj);
+}
+}
+
+DebugPort::DebugPort( IShell* sh)
+{
+	impl = new detail::DebugPortImpl( sh);
 }
 
 }
