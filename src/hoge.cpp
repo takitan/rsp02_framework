@@ -15,6 +15,9 @@
 #include "fw/logger/Logger.hpp"
 #include "fw/logger/PrintfSink.hpp"
 #include "fw/logger/FifoSink.hpp"
+#include "system/Shell.hpp"
+
+using namespace rsp::rsp02;
 
 static MissionFSM::fsm m_fsm;
 static InitialFSM::fsm i_fsm;
@@ -22,11 +25,12 @@ static rsp::rsp02::fw::logger::FifoSink fifo_sink("FifoSink");
 static Hoge hoge;
 static HogeHoge hogehoge;
 static TinyTLV tlv(10);
-static TLVDatalinkUp datalink_up( &tlv);
-static TLVDatalinkDown datalink_down( &tlv);
-static CommandKernel kernel;
-static SystemManager SysMan( 1000);
-static rsp::rsp02::system::DebugPort debugport;
+static system::TLVDatalinkUp<MissionTLV> datalink_up( &tlv);
+static system::TLVDatalinkDown<MissionTLV> datalink_down( &tlv);
+static system::CommandKernel<MissionTLV,MissionTLV,MissionTLV> kernel;
+static system::SystemManager<MissionTLV> SysMan( 1000);
+static system::Shell shell;
+static system::DebugPort debugport(&shell);
 
 void TransportTest()
 {
@@ -37,8 +41,6 @@ void TransportTest()
 	SysMan.RegisterProcess( &kernel);
 	kernel.SetConsumer( &datalink_down);
 	SysMan.RegisterProcess( &datalink_down);
-	SysMan.RegisterProcess( &debugport);
-	debugport.SetConsumer( &kernel);
 
 	while(true)
 	{
