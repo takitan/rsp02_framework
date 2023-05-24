@@ -5,25 +5,18 @@
 #include "MissionDefine.hpp"
 //#include "IProcess.hpp"
 
-namespace rsp{
-namespace rsp02{
-namespace system{
-
 namespace detail{
 class tlvcmd_impl;
 }
 
 //class IConsumer<MissionTLV>;
 
-class tlvcmd : public IShellCommand
+class tlvcmd : public rsp::rsp02::system::IShellCommand
 {
 	public:
-		tlvcmd( IConsumer<MissionTLV>* c);
+		tlvcmd( rsp::rsp02::system::IConsumer<MissionTLV>* c);
 		int operator()( int argc, char** argv, void* extobj);
 	private:
-		IConsumer<MissionTLV>* cns;
+		rsp::rsp02::system::IConsumer<MissionTLV>* cns;
 		detail::tlvcmd_impl* impl;
 };
-}
-}
-}

@@ -3,10 +3,9 @@
 #include <algorithm>
 #include "IProcess.hpp"
 #include "tlvcmd.hpp"
-
-namespace rsp{
-namespace rsp02{
-namespace system{
+#include "ntshell/core/ntlibc.h"
+template<typename T>
+using IConsumer = rsp::rsp02::system::IConsumer<T>;
 
 namespace detail{
 
@@ -31,7 +30,11 @@ class tlvcmd_impl
 
 		int operator()( int argc, char** argv, void* extobj)
 		{
-			if( argc < 5) return -1;
+			if( argc < 5)
+			{
+				printf("Less arguments\n");
+				return -1;
+			}
 			char* e = nullptr;
 			auto destination = static_cast<EDestination>( strtol( argv[1], &e, 10));
 			auto type = static_cast<EType>( strtol( argv[2], &e, 10));
@@ -40,6 +43,7 @@ class tlvcmd_impl
 			ConvertpData( pData, argv[4]);
 			MissionTLV mtlv(destination, type, length, (void*)pData);
 			cns->Accept( mtlv);
+
 			return 1;
 		}
 	private:
@@ -54,8 +58,4 @@ tlvcmd::tlvcmd( IConsumer<MissionTLV>* c)
 int tlvcmd::operator()( int argc, char** argv, void* extobj)
 {
 	return impl->operator()( argc, argv, extobj);
-}
-
-}
-}
 }

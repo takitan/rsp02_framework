@@ -15,7 +15,7 @@ class Shell : public IShell
 	friend class detail::ShellImpl;
 	public:
 		Shell();
-		void RegisterCommand( IShellCommand* cmd);
+		void RegisterCommand( const char* name, IShellCommand* cmd);
 		int Invoke( int argc, char** argv, void* extobj);
 	private:
 		detail::ShellImpl* impl;

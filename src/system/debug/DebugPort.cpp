@@ -62,6 +62,13 @@ class DebugPortImpl
 				(void*)this
 			);
 			ntshell_set_prompt( &ntshell, "rsp02>");
+			printf("\n\n");
+			printf("\e[34m");
+			printf("====================================\n");
+			printf("  Welcome to RSP-02 DEBUG SHELL.\n");
+			printf("====================================\n");
+			printf("\e[37m");
+			printf("Type 'help' for a list of commands.\n");
 			while( !isCanceled)
 			{
 				ntshell_execute( &ntshell);

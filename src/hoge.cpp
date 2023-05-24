@@ -8,14 +8,15 @@
 #include "system/TLVStub.hpp"
 #include "system/TLVDatalink.hpp"
 #include "system/CommandKernel.hpp"
-#include "system/DebugPort.hpp"
+#include "system/debug/DebugPort.hpp"
 #include "MissionDefine.hpp"
 #include "fw/time/time.hpp"
 #include "system/Process.hpp"
 #include "fw/logger/Logger.hpp"
 #include "fw/logger/PrintfSink.hpp"
 #include "fw/logger/FifoSink.hpp"
-#include "system/Shell.hpp"
+#include "system/debug/Shell.hpp"
+#include "DebugCommand/tlvcmd.hpp"
 
 using namespace rsp::rsp02;
 
@@ -31,9 +32,11 @@ static system::CommandKernel<MissionTLV,MissionTLV,MissionTLV> kernel;
 static system::SystemManager<MissionTLV> SysMan( 1000);
 static system::Shell shell;
 static system::DebugPort debugport(&shell);
+static tlvcmd tlv_cmd(&kernel);
 
 void TransportTest()
 {
+	shell.RegisterCommand( "tlvcmd", &tlv_cmd);
 	kernel.RegisterCommand( &hoge);
 	kernel.RegisterCommand( &hogehoge);
 	SysMan.RegisterProcess( &datalink_up);

@@ -8,7 +8,6 @@ class IShellCommand
 {
 	public:
 		virtual int operator()( int argc, char** argv, void* extobj) = 0;
-		virtual const char* Name() const = 0;
 };
 
 }
