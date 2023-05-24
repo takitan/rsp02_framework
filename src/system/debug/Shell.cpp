@@ -26,7 +26,7 @@ class ShellImpl
 			cmdtbl.push_back( tbl);
 		}
 
-		int Invoke( int argc, char** argv, void* extobj)
+		int Invoke( int argc, const char** argv, void* extobj)
 		{
 			// argv(ポインタ)1個キャプチャするだけだからstackでやれるはず！
 			auto it = std::find_if( std::cbegin(cmdtbl), std::cend(cmdtbl),
@@ -53,7 +53,7 @@ void Shell::RegisterCommand( const char* name, IShellCommand* cmd)
 	impl->RegisterCommand( name, cmd);
 }
 
-int Shell::Invoke( int argc, char** argv, void* extobj)
+int Shell::Invoke( int argc, const char** argv, void* extobj)
 {
 	return impl->Invoke( argc, argv, extobj);
 }

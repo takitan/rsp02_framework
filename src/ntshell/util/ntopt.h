@@ -54,7 +54,7 @@
  *
  * @return A return value.
  */
-typedef int (*NTOPT_CALLBACK)(int argc, char **argv, void *extobj);
+typedef int (*NTOPT_CALLBACK)(int argc, const char **argv, void *extobj);
 
 #ifdef __cplusplus
 extern "C" {

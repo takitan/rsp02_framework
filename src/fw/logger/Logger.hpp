@@ -25,7 +25,7 @@ class Logger : public ILogger
 		 * @param name logger名称
 		 * @return ILogger* ロガーオブジェクト
 		 */
-		static ILogger* GetLogger(const char* name);
+		static ILogger* GetLogger(const char* name, bool generate_if_not_found = true);
 
 		virtual ~Logger();
 		/**
@@ -96,9 +96,21 @@ class Logger : public ILogger
 		 */
 		void SetLogLevel( ELogLevel lv);
 
+		bool SetLogLevel( const char* lv);
+
+		const char* Name() const;
+
+		/**
+		 * @brief ELogLevelを表す文字列を取得
+		 *
+		 * @param ll ログレベル
+		 * @return const char* ログレベルを表す文字列
+		 */
+		static const char* LogLevelString(ELogLevel ll);
+
 	protected:
 		/** @brief logger名称 */
-		const char* Name;
+		const char* mName;
 		/** @brief ログレベル*/
 		ELogLevel ThresholdLevel;
 
@@ -108,13 +120,6 @@ class Logger : public ILogger
 		 * @return time_t 現在時刻
 		 */
 		time_t GetTime();
-		/**
-		 * @brief ELogLevelを表す文字列を取得
-		 *
-		 * @param ll ログレベル
-		 * @return const char* ログレベルを表す文字列
-		 */
-		const char* LogLevelString(ELogLevel ll);
 };
 
 }

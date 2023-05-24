@@ -37,6 +37,8 @@ class ILogger
 		virtual void Error(const char* fmt, ...) = 0;
 		virtual void Fatal(const char* fmt, ...) = 0;
 		virtual void SetLogLevel( ELogLevel lv) = 0;
+		virtual bool SetLogLevel( const char* lv) = 0;
+		virtual const char* Name() const = 0;
 };
 
 }

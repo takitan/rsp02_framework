@@ -17,7 +17,7 @@ namespace
 static int tr_read( char* buf, int cnt, void* extobj);
 static int tr_write( const char* buf, int cnt, void* extobj);
 static int tr_cb( const char* text, void* extobj);
-static int tr_parse( int argc, char** argv, void* extobj);
+static int tr_parse( int argc, const char** argv, void* extobj);
 }
 
 namespace detail
@@ -109,7 +109,7 @@ class DebugPortImpl
 		{
 			return ntopt_parse( text, tr_parse, extobj);
 		}
-		int func_parse( int argc, char** argv, void* extobj)
+		int func_parse( int argc, const char** argv, void* extobj)
 		{
 			return shell->Invoke( argc, argv, extobj);
 		}
@@ -137,7 +137,7 @@ static int tr_cb( const char* text, void* extobj)
 	return static_cast<detail::DebugPortImpl*>(extobj)->func_cb(text,extobj);
 }
 
-static int tr_parse( int argc, char** argv, void* extobj)
+static int tr_parse( int argc, const char** argv, void* extobj)
 {
 	return static_cast<detail::DebugPortImpl*>(extobj)->func_parse( argc, argv, extobj);
 }

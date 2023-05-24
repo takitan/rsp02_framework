@@ -1,4 +1,7 @@
 #include <cstdarg>
+#include <vector>
+#include <algorithm>
+#include <cstring>
 #include "Logger.hpp"
 #include "ISink.hpp"
 #include "fw/time/TimeProvider.hpp"
@@ -9,23 +12,40 @@ namespace rsp02{
 namespace fw{
 namespace logger{
 
-Logger::Logger( const char* name) : Name(name), ThresholdLevel(ELogLevel::Debug){}
+Logger::Logger( const char* name) : mName(name), ThresholdLevel(ELogLevel::Debug){}
 Logger::~Logger(){}
 namespace{
 NullSink DefaultSink;
 }
 
+namespace
+{
+	static std::vector<ILogger*> list;
+}
 ISink* Logger::Sink = &DefaultSink;
 
-ILogger* Logger::GetLogger( const char* name)
+ILogger* Logger::GetLogger( const char* name, bool generate_if_not_found)
 {
-	return new Logger( name);
+	auto it = std::find_if(
+		std::cbegin(list),
+		std::cend(list),
+		[name](ILogger* l)
+		{
+			auto len = std::max( std::strlen(name),std::strlen(l->Name()));
+			return ::strncmp(l->Name(), name, len)==0;
+		});
+		if( it==std::cend(list))
+		{
+			if( generate_if_not_found) return new Logger( name);
+			else return nullptr;
+		}
+	return (*it);
 }
 
 void Logger::Log( ELogLevel ll, const char* fmt, ::va_list arg)
 {
 	if( ll > ThresholdLevel) return;
-	(*Sink)( GetTime(), Name, LogLevelString(ll), fmt, arg);
+	(*Sink)( GetTime(), mName, LogLevelString(ll), fmt, arg);
 }
 
 void Logger::Log( ELogLevel ll, const char* fmt, ...)
@@ -55,7 +75,7 @@ void Logger::Info(const char* fmt, ...)
 {
 	std::va_list arg;
 	va_start( arg, fmt);
-	Log( ELogLevel::Trace, fmt, arg);
+	Log( ELogLevel::Info, fmt, arg);
 	va_end( arg);
 }
 void Logger::Warn(const char* fmt, ...)
@@ -83,6 +103,23 @@ void Logger::Fatal(const char* fmt, ...)
 void Logger::SetLogLevel( ELogLevel ll)
 {
 	ThresholdLevel = ll;
+}
+
+bool Logger::SetLogLevel( const char* ll)
+{
+	if( strcasecmp( ll, "Trace")==0){ ThresholdLevel = ELogLevel::Trace; return true;}
+	if( strcasecmp( ll, "Debug")==0){ ThresholdLevel = ELogLevel::Debug; return true;}
+	if( strcasecmp( ll, "Info")==0){ ThresholdLevel = ELogLevel::Info; return true;}
+	if( strcasecmp( ll, "Warn")==0){ ThresholdLevel = ELogLevel::Warn; return true;}
+	if( strcasecmp( ll, "Error")==0){ ThresholdLevel = ELogLevel::Error; return true;}
+	if( strcasecmp( ll, "Fatal")==0){ ThresholdLevel = ELogLevel::Fatal; return true;}
+	if( strcasecmp( ll, "None")==0){ ThresholdLevel = ELogLevel::None; return true;}
+	return false;
+}
+
+const char* Logger::Name() const
+{
+	return mName;
 }
 
 time_t Logger::GetTime()

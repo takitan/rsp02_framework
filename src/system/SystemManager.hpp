@@ -48,7 +48,7 @@ class SystemManager
 		SystemStatus Process()
 		{
 			if( !PeriodicTimer.isPeriod()) return SystemStatus::Through;
-			logger->Info("Tick!");
+			logger->Info("Global Tick!");
 			Info.ActualPeriod = PeriodicTimer.LapAndGetElapsed();
 			PeriodicTimer.Start();
 			StopWatch sw;

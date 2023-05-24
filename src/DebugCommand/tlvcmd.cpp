@@ -14,7 +14,7 @@ class tlvcmd_impl
 	public:
 		static constexpr int pDataSize = 256;
 		tlvcmd_impl( IConsumer<MissionTLV>* c) : cns(c){}
-		int ConvertpData( uint8_t* pData, char *arg)
+		int ConvertpData( uint8_t* pData, const char *arg)
 		{
 			char* idx = nullptr;
 			int sz = std::min( (std::size_t)pDataSize, strlen( arg)/2);
@@ -28,7 +28,7 @@ class tlvcmd_impl
 			return i;
 		}
 
-		int operator()( int argc, char** argv, void* extobj)
+		int operator()( int argc, const char** argv, void* extobj)
 		{
 			if( argc < 5)
 			{
@@ -55,7 +55,7 @@ tlvcmd::tlvcmd( IConsumer<MissionTLV>* c)
 {
 	impl = new detail::tlvcmd_impl(c);
 }
-int tlvcmd::operator()( int argc, char** argv, void* extobj)
+int tlvcmd::operator()( int argc, const char** argv, void* extobj)
 {
 	return impl->operator()( argc, argv, extobj);
 }

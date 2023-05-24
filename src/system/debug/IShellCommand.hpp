@@ -7,7 +7,7 @@ namespace system{
 class IShellCommand
 {
 	public:
-		virtual int operator()( int argc, char** argv, void* extobj) = 0;
+		virtual int operator()( int argc, const char** argv, void* extobj) = 0;
 };
 
 }
