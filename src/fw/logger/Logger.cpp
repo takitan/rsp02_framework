@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cstring>
+#include <cstdio>
 #include "Logger.hpp"
 #include "ISink.hpp"
 #include "fw/time/TimeProvider.hpp"
@@ -12,34 +13,54 @@ namespace rsp02{
 namespace fw{
 namespace logger{
 
-Logger::Logger( const char* name) : mName(name), ThresholdLevel(ELogLevel::Debug){}
+Logger::Logger( const char* name) : ThresholdLevel(ELogLevel::Debug)
+{
+	::strncpy( mName, name, sizeof(mName));
+}
+
 Logger::~Logger(){}
 namespace{
 NullSink DefaultSink;
 }
 
-namespace
-{
-	static std::vector<ILogger*> list;
-}
 ISink* Logger::Sink = &DefaultSink;
+
+static bool hagehige( const char* s1, const char* s2)
+{
+	static volatile bool hoge;
+	hoge = ::strcmp(s1,s2)==0;
+	return hoge;
+}
 
 ILogger* Logger::GetLogger( const char* name, bool generate_if_not_found)
 {
+	static std::vector<ILogger*> list;
+	printf("Logger:GetLogger:cap=%lu,sz=%lu\n",list.capacity(),list.size());
 	auto it = std::find_if(
-		std::cbegin(list),
-		std::cend(list),
+		std::begin(list),
+		std::end(list),
 		[name](ILogger* l)
 		{
-			auto len = std::max( std::strlen(name),std::strlen(l->Name()));
-			return ::strncmp(l->Name(), name, len)==0;
+			//return ::strcmp(l->Name(), name)==0;
+			bool hige = hagehige(l->Name(),name);
+			return hige;
 		});
-		if( it==std::cend(list))
-		{
-			if( generate_if_not_found) return new Logger( name);
-			else return nullptr;
-		}
-	return (*it);
+	if( it!=std::end(list))
+	{
+		printf("Logger:%s already exists\n", name);
+		return (*it);
+	}
+	if( generate_if_not_found)
+	{
+		auto l = new Logger( name);
+		list.push_back(l);
+		printf( "Logger:%s is created, %d Logger exists\n",l->Name(),list.size());
+		return l;
+	}
+	else
+	{
+		return nullptr;
+	}
 }
 
 void Logger::Log( ELogLevel ll, const char* fmt, ::va_list arg)

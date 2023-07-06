@@ -74,8 +74,7 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		{
 			this->ExecutionStrategy = ex==nullptr ? new OnceAndForAll : ex;
 			char buf[32];
-			snprintf( buf, sizeof(buf), "%s(%s)", __func__, name);
-			this->logger = Logger::GetLogger( buf);
+			this->logger = Logger::GetLogger( "Command");
 		}
 
 		virtual ~CommandImplBase(){}

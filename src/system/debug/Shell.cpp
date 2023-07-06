@@ -1,5 +1,6 @@
 #include <vector>
 #include <cstring>
+#include <cstdio>
 #include <algorithm>
 #include "Shell.hpp"
 #include "IShellCommand.hpp"
@@ -28,13 +29,18 @@ class ShellImpl
 
 		int Invoke( int argc, const char** argv, void* extobj)
 		{
+			if( argc<1) return -1;
 			// argv(ポインタ)1個キャプチャするだけだからstackでやれるはず！
 			auto it = std::find_if( std::cbegin(cmdtbl), std::cend(cmdtbl),
 				[argv]( const CommandTable &c)
 				{
 					return ::strncasecmp( c.name, argv[0], std::strlen(c.name))==0;
 				});
-			if( it==std::cend(cmdtbl)) return -1;
+			if( it==std::cend(cmdtbl))
+			{
+				printf( "Command not found.\n");
+				return -1;
+			}
 			return (*it).cmd->operator()( argc, argv, extobj);
 		}
 

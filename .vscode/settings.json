@@ -50,5 +50,7 @@
 		"cstring": "cpp",
 		"cassert": "cpp",
 		"thread": "cpp"
-	}
+	},
+	"asciidoc.use_asciidoctorpdf": true,
+	"terminal.integrated.fontFamily": "'Migu 1M'"
 }

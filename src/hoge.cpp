@@ -1,3 +1,4 @@
+#include <vector>
 #include "MissionFSM.hpp"
 #include "InitialFSM.hpp"
 #include "MissionLogger.hpp"
@@ -17,7 +18,7 @@
 #include "fw/logger/FifoSink.hpp"
 #include "system/debug/Shell.hpp"
 #include "DebugCommand/tlvcmd.hpp"
-#include "DebugCommand/loglevel.hpp"
+#include "DebugCommand/chloglv.hpp"
 
 using namespace rsp::rsp02;
 
@@ -34,12 +35,12 @@ static system::SystemManager<MissionTLV> SysMan( 1000);
 static system::Shell shell;
 static system::DebugPort debugport(&shell);
 static tlvcmd tlv_cmd(&kernel);
-static loglevel log_level();
+static chloglv chloglv_cmd;
 
 void TransportTest()
 {
 	shell.RegisterCommand( "tlvcmd", &tlv_cmd);
-	shell.RegisterCommand( "loglvl", &log_level);
+	shell.RegisterCommand( "chloglv", &chloglv_cmd);
 	kernel.RegisterCommand( &hoge);
 	kernel.RegisterCommand( &hogehoge);
 	SysMan.RegisterProcess( &datalink_up);

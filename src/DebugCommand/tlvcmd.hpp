@@ -3,13 +3,10 @@
 #include "IShellCommand.hpp"
 #include "rsp02.hpp"
 #include "MissionDefine.hpp"
-//#include "IProcess.hpp"
 
 namespace detail{
 class tlvcmd_impl;
 }
-
-//class IConsumer<MissionTLV>;
 
 class tlvcmd : public rsp::rsp02::system::IShellCommand
 {
