@@ -88,3 +88,6 @@ struct TLVpacket_t
 		memcpy( pValue, mes->pValue, mes->length);
 	}
 };
+
+bool str2dst( const char* str, EDestination &dst);
+bool dst2str( EDestination dst, const char* &str);
