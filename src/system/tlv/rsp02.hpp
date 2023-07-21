@@ -3,6 +3,7 @@
 #include <cstring>
 #include "fw/util/align.hpp"
 
+/*
 struct TLVmessage_t
 {
 	constexpr static std::size_t pValueSize = 256;
@@ -19,8 +20,9 @@ struct TLVmessage_t
 		memset(pValue, 0, pValueSize);
 	}
 };
+*/
 
-enum class EDestination : TLVmessage_t::dst_t
+enum class EDestination : uint8_t
 {
 	Null = 0,
 	Ground = 1,
@@ -34,8 +36,89 @@ enum class EDestination : TLVmessage_t::dst_t
 	Child2,
 };
 
+template<typename T>
+struct SafeProperty
+{
+	using align = rsp::rsp02::fw::util::align;
+	private:
+		const void* origin;
+	public:
+		SafeProperty( const void* org) : origin(org){}
+		SafeProperty& operator=(T src)
+		{
+			align::safe_write( (uint8_t*)origin, src);
+			return *this;
+		}
+		operator T() const
+		{
+			return align::safe_read<T>( (uint8_t*)origin);
+		}
+};
+
+template<typename T>
+struct SafeArray
+{
+	using align = rsp::rsp02::fw::util::align;
+	private:
+		const void* origin;
+	public:
+		SafeArray( const void* org) : origin(org){}
+		operator void*()
+		{
+			return static_cast<void*>((uint8_t*)origin);
+		}
+		T &operator[](int i)
+		{
+			return *((uint8_t*)origin);
+		}
+};
+
+struct TLVpacketBase_t
+{
+	const void* Original;
+
+	TLVpacketBase_t(const void* org, int sender) :
+		TLVpacketBase_t( const_cast<void*>(org), sender){}
+	TLVpacketBase_t(void* org, int sender) :
+		Original(org), sender_id(sender){}
+
+	protected:
+		int sender_id;
+};
+
+template<typename DST_T,typename TYP_T>
+struct TLVpacket_t : TLVpacketBase_t
+{
+	using dst_t = DST_T;
+	using typ_t = TYP_T;
+	using len_t = uint16_t;
+	constexpr static size_t dst_offset = 0;
+	constexpr static size_t typ_offset = 1;
+	constexpr static size_t len_offset = 2;
+	constexpr static size_t pv_offset = 4;
+
+	TLVpacket_t() : TLVpacket_t((const void*)nullptr){}
+	TLVpacket_t(const void* org) : TLVpacket_t(org,-1){}
+	TLVpacket_t(const void* org, int sender) :
+		TLVpacketBase_t(org,sender),
+		Destination(pnt(org,dst_offset)),
+		Type(pnt(org,typ_offset)),
+		Length(pnt(org,len_offset)),
+		pValue(pnt(org,pv_offset)){}
+
+	SafeProperty<dst_t> Destination;
+	SafeProperty<typ_t> Type;
+	SafeProperty<len_t> Length;
+	SafeArray<uint8_t> pValue;
+	int sender_id;
+
+	private:
+		inline const void* pnt(const void* org, size_t ofs){ return (uint8_t*)org+ofs;}
+};
+
+/*
 template< typename DST_T, typename TYPE_T>
-struct TLVpacket_t
+struct TLVpacket_tt
 {
 	using align = rsp::rsp02::fw::util::align;
 	using dst_t = DST_T;
@@ -88,3 +171,4 @@ struct TLVpacket_t
 		memcpy( pValue, mes->pValue, mes->length);
 	}
 };
+*/

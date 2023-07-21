@@ -1,6 +1,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <algorithm>
+#include <memory>
 #include "IProcess.hpp"
 #include "tlvcmd.hpp"
 #include "ntshell/core/ntlibc.h"
@@ -8,6 +9,15 @@ template<typename T>
 using IConsumer = rsp::rsp02::system::IConsumer<T>;
 
 namespace detail{
+
+template<size_t N>
+struct TLVBuf
+{
+	EDestination Destination;
+	EType Type;
+	uint16_t Length;
+	uint8_t pValue[N];
+};
 
 class tlvcmd_impl
 {
@@ -36,18 +46,33 @@ class tlvcmd_impl
 				return -1;
 			}
 			char* e = nullptr;
-			auto destination = static_cast<EDestination>( strtol( argv[1], &e, 10));
-			auto type = static_cast<EType>( strtol( argv[2], &e, 10));
-			auto length = (uint16_t)strtol( argv[3], &e, 10);
-			uint8_t pData[ pDataSize];
-			ConvertpData( pData, argv[4]);
-			MissionTLV mtlv(destination, type, length, (void*)pData);
+			buf.Destination = static_cast<EDestination>( strtol( argv[1], &e, 10));
+			if( e!='\0')
+			{
+				printf( "Destination is invalid.\n");
+				return -1;
+			}
+			buf.Type = static_cast<EType>( strtol( argv[2], &e, 10));
+			if( e!='\0')
+			{
+				printf( "Type is invalid.\n");
+				return -1;
+			}
+			buf.Length = (uint16_t)strtol( argv[3], &e, 10);
+			if( e!='\0')
+			{
+				printf( "Length is invalid.\n");
+				return -1;
+			}
+			ConvertpData( buf.pValue, argv[4]);
+			MissionTLV mtlv( &buf);
 			cns->Accept( mtlv);
 
 			return 1;
 		}
 	private:
 		IConsumer<MissionTLV>* cns;
+		TLVBuf<16> buf;
 };
 }
 

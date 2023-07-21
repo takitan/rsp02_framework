@@ -43,7 +43,7 @@ template< typename CMD_T, typename RES_T, typename TLV_T>
 class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 {
 	using dst_t = typename TLV_T::dst_t;
-	using type_t = typename TLV_T::type_t;
+	using typ_t = typename TLV_T::typ_t;
 	using len_t = typename TLV_T::len_t;
 	using ExecuteStatus = rsp::rsp02::fw::command::ExecuteStatus;
 	using ParseStatus = rsp::rsp02::fw::command::ParseStatus;
@@ -69,11 +69,10 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		 * @param ex 実行種別(nullptrだったらOnceForAll)
 		 * @param logger ロガー(nullptrだったらNullLogger)
 		 */
-		CommandImplBase( const char* name, dst_t dst, type_t type, IExecutionStrategy* ex=nullptr) :
+		CommandImplBase( const char* name, dst_t dst, typ_t type, IExecutionStrategy* ex=nullptr) :
 			Info(CommandInfoEx<TLV_T>( name,dst,type))
 		{
 			this->ExecutionStrategy = ex==nullptr ? new OnceAndForAll : ex;
-			char buf[32];
 			this->logger = Logger::GetLogger( "Command");
 		}
 
@@ -153,14 +152,14 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		ParseStatus VaridateArgs( const TLV_T &cmd)
 		{
 
-			if( cmd.destination != Info.Dest) return ParseStatus::OtherDestination;
-			if( cmd.type != Info.Type) return ParseStatus::OtherCommand;
+			if( cmd.Destination != Info.Dest) return ParseStatus::OtherDestination;
+			if( cmd.Type != Info.Type) return ParseStatus::OtherCommand;
 #if 0
 			// 実際のところ、このレイヤでのエラーを返す機構がないから、変換コンストラクタでのバッファオーバーフロー対策をあてこんで
 			// ここでは握りつぶしておく
 			if( cmd.length >= sizeof( CMD_T::Payload)) return ParseStatus::OverFlowLength;
 #endif
-			Command = CMD_T(cmd);
+			Command = CMD_T(cmd.Original);
 			return  ConcreteParse( Command);
 		}
 
@@ -170,14 +169,14 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		ILogger* logger;
 		void SendRequest( const RES_T &res)
 		{
-			Response = (TLV_T)res;
+			Response = TLV_T(&res);
 			isSendRequested = true;
 			//if( !SendRequestFunc) return;
 			logger->Info( "%s(%d):Send Request", Info.Name, Info.Type);
 		}
 
 	private:
-		CMD_T Command;
+		uint8_t Command[];
 		TLV_T Response;
 		typename ICommand<TLV_T>::SendRequestFunc_t SendRequestFunc;
 
@@ -202,11 +201,11 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		}
 		inline void mOnExecuteSuccess()const
 		{
-			if( OnParseSuccess) OnExecuteSuccess( Command);
+			//if( OnParseSuccess) OnExecuteSuccess( Response);
 		}
 		inline void mOnExecuteFailure()const
 		{
-			if( OnParseFailure) OnExecuteFailure( Command);
+			//if( OnParseFailure) OnExecuteFailure( Response);
 		}
 };
 

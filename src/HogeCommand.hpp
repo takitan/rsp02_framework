@@ -9,35 +9,24 @@ namespace rsp::rsp02::fw::logger{
 class ISink;
 }
 
-struct HogeCommand_t : public CommandTypeBase
+struct HogeCommand_t : public MissionTLV
 {
-	constexpr static std::size_t PayloadSize = 10;
-	struct Payload_t
-	{
-		uint8_t data[PayloadSize];
-		Payload_t(){}
-		Payload_t(const uint8_t* pValue, len_t len)
-		{
-			if( len > PayloadSize) len = PayloadSize;
-			memcpy( data, pValue, len);
-		}
-	}Payload;
-	HogeCommand_t(){}
-	// コピーコンストラクタ
-	inline HogeCommand_t( const HogeCommand_t &) = default;
-	// ムーブコンストラクタ
-	HogeCommand_t &operator=(const HogeCommand_t &) = default;
-
-	HogeCommand_t(EDestination d, EType t, len_t l) : CommandTypeBase( d, t, l){}
-	HogeCommand_t( const MissionTLV &packet) : CommandTypeBase( packet), Payload( packet.pValue, length){}
-	HogeCommand_t( const MissionTLV* packet) : CommandTypeBase( packet), Payload( packet->pValue, length){}
-	operator MissionTLV() const
-	{
-		return MissionTLV(this->destination, this->type, this->length, (void*)(&this->Payload));
-	}
+	constexpr static int PayloadSize = 10;
+	HogeCommand_t( const void* pkt) : MissionTLV(pkt){}
+	HogeCommand_t( const void* pkt, int sender) : MissionTLV(pkt,sender){}
 };
 
-using HogeResponse_t = HogeCommand_t;
+struct HogeResponse_t
+{
+	constexpr static int PayloadSize = 10;
+	MissionTLV::dst_t Destination;
+	MissionTLV::typ_t Type;
+	MissionTLV::len_t Length;
+	int sender_id;
+	uint8_t pValue[PayloadSize];
+	HogeResponse_t( MissionTLV::dst_t dst, MissionTLV::typ_t typ, MissionTLV::len_t len) :
+		Destination(dst), Type(typ), Length(len){}
+};
 
 class Hoge : public CommandImplBase<HogeCommand_t,HogeResponse_t>
 {

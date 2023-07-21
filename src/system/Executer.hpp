@@ -28,18 +28,18 @@ class TTimeKeeper
 }
 
 template<typename PRD_T, typename CNS_T>
-class Executer : public IProcess, public ProducerAdapter<PRD_T>, public ConsumerAdapter<CNS_T>
+class Executer : public IExecuter<PRD_T,CNS_T>
 {
 	public:
-		Executer( Producer<PRD_T>* p, Consumer<CNS_T>* c, ProcessInfo_t &inf)
-			: ProducerAdapter<PRD_T>(p), ConsumerAdapter<CNS_T>(c), Info(inf){}
+		Executer( Producer<PRD_T>* p, Consumer<CNS_T>* c, ProcessInfo_t &inf) :
+			Info(inf), pro_adp( new ProducerAdapter<PRD_T>(p)), cns_adp( new ConsumerAdapter<CNS_T>(c)){}
 
 		bool Perform()
 		{
 			TTimeKeeper kp(Info);
 			bool st = true;
 			CNS_T product;
-			while( ConsumerAdapter<CNS_T>::TakeProduct( product))
+			while( cns_adp->TakeProduct( product))
 			{
 				PRD_T reproduct;
 				if( !ConcreteProcess( reproduct, product))
@@ -47,7 +47,7 @@ class Executer : public IProcess, public ProducerAdapter<PRD_T>, public Consumer
 					Info.FailedPacket++;
 					return false;
 				}
-				if( !ProducerAdapter<PRD_T>::Invoke( reproduct))
+				if( !pro_adp->Invoke( reproduct))
 				{
 					Info.FailedPacket++;
 					return false;
@@ -62,6 +62,9 @@ class Executer : public IProcess, public ProducerAdapter<PRD_T>, public Consumer
 		}
 	private:
 		ProcessInfo_t &Info;
+		ProducerAdapter<PRD_T>* pro_adp;
+		ConsumerAdapter<CNS_T>* cns_adp;
+
 		virtual bool ConcreteProcess( PRD_T reproduct, CNS_T product)
 		{
 			(void)product;
@@ -71,16 +74,16 @@ class Executer : public IProcess, public ProducerAdapter<PRD_T>, public Consumer
 };
 
 template<typename PRD_T>
-class Executer<PRD_T,NONE_T> : public IProcess, public ProducerAdapter<PRD_T>
+class Executer<PRD_T,NONE_T> : public IExecuter<PRD_T,NONE_T>
 {
 	public:
 		Executer( Producer<PRD_T>* p, Consumer<NONE_T>* c, ProcessInfo_t &inf) :
-			ProducerAdapter<PRD_T>(p), Info(inf){(void)c;}
+			Info(inf), pro_adp( new ProducerAdapter<PRD_T>(p)){(void)c;}
 		bool Perform()
 		{
 			PRD_T product;
 			if( !ConcreteProcess( product)) return false;
-			return ProducerAdapter<PRD_T>::Invoke( product);
+			return pro_adp->Invoke( product);
 		}
 
 		const ProcessInfo_t GetInfo() const
@@ -90,6 +93,8 @@ class Executer<PRD_T,NONE_T> : public IProcess, public ProducerAdapter<PRD_T>
 
 	private:
 		ProcessInfo_t &Info;
+		ProducerAdapter<PRD_T>* pro_adp;
+
 		virtual bool ConcreteProcess( PRD_T &product)
 		{
 			(void)product;
@@ -98,29 +103,27 @@ class Executer<PRD_T,NONE_T> : public IProcess, public ProducerAdapter<PRD_T>
 };
 
 template<typename CNS_T>
-class Executer<NONE_T,CNS_T> : public IProcess, public ConsumerAdapter<CNS_T>
+class Executer<NONE_T,CNS_T> : public IExecuter<NONE_T,CNS_T>
 {
 	public:
 		Executer( Producer<NONE_T>* p, Consumer<CNS_T>* c, ProcessInfo_t &inf) :
-			ConsumerAdapter<CNS_T>(c),Info(inf){(void)p;}
+			Info(inf), cns_adp( new ConsumerAdapter<CNS_T>(c)){(void)p;}
 		bool Perform()
 		{
 			bool st = true;
 			CNS_T product;
-			while( ConsumerAdapter<CNS_T>::TakeProduct( product))
+			while( cns_adp->TakeProduct( product))
 			{
 				st &= ConcreteProcess( product);
 				Info.TotalPacket ++;
 			}
 			return st;
 		}
-		const ProcessInfo_t GetInfo() const
-		{
-			return Info;
-		}
 
 	private:
-		ProcessInfo_t Info;
+		ProcessInfo_t& Info;
+		ConsumerAdapter<CNS_T>* cns_adp;
+
 		virtual bool ConcreteProcess( CNS_T &product)
 		{
 			(void)product;
@@ -129,15 +132,14 @@ class Executer<NONE_T,CNS_T> : public IProcess, public ConsumerAdapter<CNS_T>
 };
 
 template<>
-class Executer<NONE_T,NONE_T> : public IProcess
+class Executer<NONE_T,NONE_T> : public IExecuter<NONE_T,NONE_T>
 {
 	public:
-		Executer( Producer<NONE_T>* p, Consumer<NONE_T>* c, ProcessInfo_t &inf)
-			{(void)inf;(void)p;(void)c;}
+		Executer( Producer<NONE_T>* p, Consumer<NONE_T>* c, ProcessInfo_t &inf) : Info(inf)
+			{(void)p;(void)c;}
 		bool Perform(){return ConcreteProcess();}
-		const ProcessInfo_t GetInfo() const{ return Info;}
 	private:
-		ProcessInfo_t Info;
+		ProcessInfo_t& Info;
 		virtual bool ConcreteProcess(){ return true;}
 };
 

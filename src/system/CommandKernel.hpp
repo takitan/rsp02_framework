@@ -39,7 +39,7 @@ class CommandKernel : public PipelineProcess<PRD_T,CNS_T>
 		}
 
 	public:
-		CommandKernel() : logger( fw::logger::Logger::GetLogger( "CommandKernel")){}
+		CommandKernel(rsp::rsp02::time_t prd = 0) : PipelineProcess<PRD_T,CNS_T>(prd), logger(fw::logger::Logger::GetLogger( "CommandKernel")){}
 		virtual ~CommandKernel(){}
 
 		bool RegisterCommand( ICommand<TLV_T>* cmd)

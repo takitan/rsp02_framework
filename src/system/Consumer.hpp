@@ -16,7 +16,7 @@ class ConsumerAdapter
 	private:
 		Consumer* consumer;
 
-	protected:
+	public:
 		ConsumerAdapter( Consumer* c) : consumer(c){}
 		bool TakeProduct( CNS_T &product)
 		{

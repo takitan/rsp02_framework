@@ -13,7 +13,7 @@ class TLVDatalinkUp : public ProducerProcess<T>
 		ITLV* tlv;
 
 	public:
-		TLVDatalinkUp( ITLV* t) : tlv(t){}
+		TLVDatalinkUp( ITLV* t, rsp::rsp02::time_t prd = 0) : ProducerProcess<T>(prd), tlv(t){}
 
 		bool ConcreteProcess( T &product)
 		{
@@ -28,15 +28,16 @@ template<typename T>
 class TLVDatalinkDown : public ConsumerProcess<T>
 {
 	public:
-		TLVDatalinkDown( ITLV* t) : tlv(t){}
+		TLVDatalinkDown( ITLV* t, rsp::rsp02::time_t prd = 0) : ConsumerProcess<T>(prd), tlv(t){}
 	protected:
 		bool ConcreteProcess( T &packet)
 		{
+			auto pkt = (rsp02TLV*)&packet;
 			return tlv->send(
-				(TLVmessage_t::dst_t)packet.destination,
-				(TLVmessage_t::type_t)packet.type,
-				packet.pValue,
-				(TLVmessage_t::len_t)packet.length) ? true : false;
+				pkt->Destination,
+				pkt->Type,
+				(void*)(pkt->pValue),
+				pkt->Length) ? true : false;
 		}
 	private:
 		ITLV* tlv;

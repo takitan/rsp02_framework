@@ -17,6 +17,7 @@ class chloglv_impl
 
 		int operator()( int argc, const char** argv, void* extobj)
 		{
+			(void)extobj;
 			if( argc < 3)
 			{
 				printf( "Less arguments.\n");
