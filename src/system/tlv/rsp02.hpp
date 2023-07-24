@@ -92,6 +92,8 @@ struct TLVpacket_t : TLVpacketBase_t
 	using dst_t = DST_T;
 	using typ_t = TYP_T;
 	using len_t = uint16_t;
+	constexpr static size_t HeaderSize = sizeof(dst_t)+sizeof(typ_t)+sizeof(len_t);
+
 	constexpr static size_t dst_offset = 0;
 	constexpr static size_t typ_offset = 1;
 	constexpr static size_t len_offset = 2;
@@ -101,10 +103,10 @@ struct TLVpacket_t : TLVpacketBase_t
 	TLVpacket_t(const void* org) : TLVpacket_t(org,-1){}
 	TLVpacket_t(const void* org, int sender) :
 		TLVpacketBase_t(org,sender),
-		Destination(pnt(org,dst_offset)),
-		Type(pnt(org,typ_offset)),
-		Length(pnt(org,len_offset)),
-		pValue(pnt(org,pv_offset)){}
+		Destination(org_pnt(dst_offset)),
+		Type(org_pnt(typ_offset)),
+		Length(org_pnt(len_offset)),
+		pValue(org_pnt(pv_offset)){}
 
 	SafeProperty<dst_t> Destination;
 	SafeProperty<typ_t> Type;
@@ -112,8 +114,9 @@ struct TLVpacket_t : TLVpacketBase_t
 	SafeArray<uint8_t> pValue;
 	int sender_id;
 
-	private:
-		inline const void* pnt(const void* org, size_t ofs){ return (uint8_t*)org+ofs;}
+	protected:
+		inline const void* org_pnt(size_t ofs){ return (uint8_t*)Original+ofs;}
+		inline const void* pv_pnt(size_t ofs){ return (uint8_t*)org_pnt(pv_offset)+ofs;}
 };
 
 /*

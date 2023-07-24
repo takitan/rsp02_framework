@@ -7,6 +7,7 @@ enum class EType : uint8_t
 {
 	RequestNull = 0x00,
 	RequestPing = 0x01,
+	RequestTakePhoto = 0x02,
 	ReplyNull = 0x80,
 	ReplyPing = 0x81,
 };

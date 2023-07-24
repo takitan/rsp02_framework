@@ -176,7 +176,7 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		}
 
 	private:
-		uint8_t Command[];
+		CMD_T Command;
 		TLV_T Response;
 		typename ICommand<TLV_T>::SendRequestFunc_t SendRequestFunc;
 
@@ -193,11 +193,11 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 
 		inline void mOnParseSuccess()const
 		{
-			if( OnParseSuccess) OnParseSuccess( Command);
+			//if( OnParseSuccess) OnParseSuccess( Command);
 		}
 		inline void mOnParseFailure()const
 		{
-			if( OnParseFailure) OnParseFailure( Command);
+			//if( OnParseFailure) OnParseFailure( Command);
 		}
 		inline void mOnExecuteSuccess()const
 		{

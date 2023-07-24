@@ -2,6 +2,7 @@
 #include "IProcess.hpp"
 #include "Producer.hpp"
 #include "Consumer.hpp"
+#include "fw/logger/Logger.hpp"
 
 namespace rsp{
 namespace rsp02{
@@ -32,7 +33,8 @@ class Executer : public IExecuter<PRD_T,CNS_T>
 {
 	public:
 		Executer( Producer<PRD_T>* p, Consumer<CNS_T>* c, ProcessInfo_t &inf) :
-			Info(inf), pro_adp( new ProducerAdapter<PRD_T>(p)), cns_adp( new ConsumerAdapter<CNS_T>(c)){}
+			Info(inf), pro_adp( new ProducerAdapter<PRD_T>(p)), cns_adp( new ConsumerAdapter<CNS_T>(c)),
+			logger(fw::logger::Logger::GetLogger("Executer")){}
 
 		bool Perform()
 		{
@@ -41,6 +43,7 @@ class Executer : public IExecuter<PRD_T,CNS_T>
 			CNS_T product;
 			while( cns_adp->TakeProduct( product))
 			{
+				logger->Info( "Message is comming");
 				PRD_T reproduct;
 				if( !ConcreteProcess( reproduct, product))
 				{
@@ -64,8 +67,9 @@ class Executer : public IExecuter<PRD_T,CNS_T>
 		ProcessInfo_t &Info;
 		ProducerAdapter<PRD_T>* pro_adp;
 		ConsumerAdapter<CNS_T>* cns_adp;
+		fw::logger::ILogger* logger;
 
-		virtual bool ConcreteProcess( PRD_T reproduct, CNS_T product)
+		virtual bool ConcreteProcess( PRD_T& reproduct, CNS_T& product) = 0;
 		{
 			(void)product;
 			reproduct = PRD_T();

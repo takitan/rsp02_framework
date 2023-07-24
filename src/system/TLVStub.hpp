@@ -7,8 +7,11 @@ class ITLV
 {
 	public:
 		virtual bool HasData() = 0;
+
 		virtual uint8_t  send(uint8_t msgDest ,uint8_t msgType ,void* msgVal ,uint16_t msgLen ,
 					bool waitReply = true , float timeout = -1 , int retryCount = -1 ) = 0;
+		virtual uint8_t recv( rsp02TLV& packet, int sender_id) = 0;
+
 		virtual uint8_t GetResult() = 0;
 		virtual uint8_t GetDestination() = 0;
 		virtual uint8_t GetType() = 0;
@@ -37,6 +40,7 @@ class TinyTLV : public ITLV
 
 		bool HasData()
 		{
+			if( result) return true;
 			switch( state)
 			{
 			case 1:
@@ -63,7 +67,8 @@ class TinyTLV : public ITLV
 
 		uint8_t recv( rsp02TLV& packet, int sender_id)
 		{
-			packet = rsp02TLV(pBuf, sender_id);
+			packet = rsp02TLV(pBuf[pBufIdx], sender_id);
+			pBufIdx = (pBufIdx+0x01)&0x01;
 			return 0x01;
 		}
 		uint8_t GetResult(){ return result;}

@@ -21,12 +21,14 @@ class ProcessBase : public Producer<PRD_T>, public Consumer<CNS_T>, public Execu
 			logger(rsp::rsp02::fw::logger::Logger::GetLogger("Process")){}
 		bool Accept( CNS_T &product)
 		{
+			logger->Info("Accept");
 			product.sender_id = IProcess::ProcessID;
 			return Consumer<CNS_T>::Accept( product);
 		}
 
 		bool Invoke( PRD_T &p)
 		{
+			logger->Info("Invoke");
 			return Producer<PRD_T>::Invoke(p);
 		}
 
@@ -35,7 +37,7 @@ class ProcessBase : public Producer<PRD_T>, public Consumer<CNS_T>, public Execu
 			bool retval = true;
 			if( sw.isPeriod())
 			{
-				logger->Info("Process started.");
+				logger->Trace("Process Ticked.");
 				retval = Executer<PRD_T,CNS_T>::Perform();
 			}
 			return retval;

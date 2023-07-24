@@ -48,7 +48,7 @@ class SystemManager
 		SystemStatus Process()
 		{
 			//if( !PeriodicTimer.isPeriod()) return SystemStatus::Through;
-			logger->Info("main loop");
+			logger->Trace("main loop");
 			Info.ActualPeriod = PeriodicTimer.LapAndGetElapsed();
 			PeriodicTimer.Start();
 			StopWatch sw;

@@ -73,7 +73,15 @@ class StopWatch
 		bool isElapsed( time_t ElapsedTime)
 		{
 			auto et = GetElapsed();
-			return et >= ElapsedTime ? true : false;
+			if( et >= ElapsedTime)
+			{
+				Start();
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		bool isPeriod()
 		{
