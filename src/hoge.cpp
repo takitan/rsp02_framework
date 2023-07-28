@@ -48,10 +48,13 @@ void TransportTest()
 	SysMan.RegisterProcess( &kernel);
 	kernel.SetConsumer( &datalink_down);
 	SysMan.RegisterProcess( &datalink_down);
+	m_fsm()->ForceTrans( MissionFSM::StateID::Idle);
+	i_fsm()->ForceTrans( InitialFSM::StateID::Idle);
 
 	while(true)
 	{
 		SysMan.Process();
+		m_fsm()->Process();
 	}
 }
 

@@ -70,19 +70,14 @@ class StopWatch
 		 * @return true 超えている
 		 * @return false 超えていない
 		 */
-		bool isElapsed( time_t ElapsedTime)
+		bool isElapsed( time_t ElapsedTime = -1)
 		{
-			auto et = GetElapsed();
-			if( et >= ElapsedTime)
-			{
-				Start();
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			ElapsedTime = ElapsedTime==-1 ? Period : ElapsedTime;
+			if( StartTime < 0) Start();
+			auto et = LapAndGetElapsed();
+			return et >= ElapsedTime;
 		}
+
 		bool isPeriod()
 		{
 			// 初回呼び出し時を開始時刻とする
@@ -91,8 +86,15 @@ class StopWatch
 				Start();
 				return true;
 			}
-			Lap();
-			return isElapsed( Period);
+			if( isElapsed( Period))
+			{
+				Start();
+				return true;
+			}
+			else
+			{
+				return false;
+			};
 		}
 	private:
 		time_t Period = 0;

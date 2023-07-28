@@ -1,6 +1,7 @@
 #pragma once
 #include <limits.h>
 #include "fw/time/StopWatch.hpp"
+#include "fw/logger/Logger.hpp"
 
 namespace rsp{
 namespace rsp02{
@@ -62,6 +63,8 @@ class StateBase : public IState<T>
 
 	protected:
 		StateInfo_t<T> StateInfo;
+		rsp::rsp02::fw::logger::ILogger* logger;
+
 		virtual void Entry( void){}
 		virtual IState<T>* Execute( void){ return nullptr;}
 		virtual void Exit( void){}
@@ -74,7 +77,8 @@ class StateBase : public IState<T>
 		static CallBack_t OnExecute;
 		static CallBack_t OnExit;
 
-		StateBase( T id, char const* const nam) : StateInfo( id, nam){}
+		StateBase( T id, char const* const nam) :
+			StateInfo( id, nam), logger(rsp::rsp02::fw::logger::Logger::GetLogger("StateBase")){}
 
 		virtual ~StateBase(){}
 
