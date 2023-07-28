@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include <cstring>
+#include <cstdio>
 #include "fw/util/align.hpp"
 
 /*
@@ -44,12 +45,11 @@ struct SafeProperty
 		const void* origin;
 	public:
 		SafeProperty( const void* org) : origin(org){}
-		SafeProperty& operator=(T src)
+		void operator()(T src)
 		{
 			align::safe_write( (uint8_t*)origin, src);
-			return *this;
 		}
-		operator T() const
+		T operator()() const
 		{
 			return align::safe_read<T>( (uint8_t*)origin);
 		}
@@ -63,13 +63,13 @@ struct SafeArray
 		const void* origin;
 	public:
 		SafeArray( const void* org) : origin(org){}
-		operator void*()
+		T* operator()() const
 		{
-			return static_cast<void*>((uint8_t*)origin);
+			return (T*)const_cast<void*>(origin);
 		}
-		T &operator[](int i)
+		T &operator[](int i) const
 		{
-			return *((uint8_t*)origin);
+			return ((uint8_t*)origin)[i];
 		}
 };
 
@@ -82,7 +82,6 @@ struct TLVpacketBase_t
 	TLVpacketBase_t(void* org, int sender) :
 		Original(org), sender_id(sender){}
 
-	protected:
 		int sender_id;
 };
 
@@ -112,7 +111,19 @@ struct TLVpacket_t : TLVpacketBase_t
 	SafeProperty<typ_t> Type;
 	SafeProperty<len_t> Length;
 	SafeArray<uint8_t> pValue;
-	int sender_id;
+
+	void print(char* buf)
+	{
+		int p = ::sprintf( buf, "dst:%02x,type:%02x,length:%04x,pv:",
+			Destination(), Type(), Length());
+		len_t len = Length();
+		auto pvpnt = pValue();
+		for(int i=0;i<len;i++)
+		{
+			uint8_t pv = pvpnt[i];
+			p += ::sprintf( &buf[p], "%02x", pv);
+		}
+	}
 
 	protected:
 		inline const void* org_pnt(size_t ofs){ return (uint8_t*)Original+ofs;}
