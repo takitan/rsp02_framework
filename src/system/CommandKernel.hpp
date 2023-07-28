@@ -24,12 +24,13 @@ class CommandKernel : public PipelineProcess<PRD_T,CNS_T>
 		{
 			for( auto it=CommandList.begin(); it!=CommandList.end(); ++it)
 			{
-				if( (*it)->Parse( product)) return true;
+				if( (*it)->Parse( product, reproduct)) return true;
 			}
 			for( auto it=CommandList.begin(); it!=CommandList.end(); ++it)
 			{
-				if( (*it)->Execute( reproduct)) return true;
+				if( (*it)->Execute( product, reproduct)) return true;
 			}
+			return false;
 		}
 
 	protected:

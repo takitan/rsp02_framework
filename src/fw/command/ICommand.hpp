@@ -72,7 +72,7 @@ public:
 
 	virtual bool Parse( const TLV_T &cmd, TLV_T &res) = 0;
 	/** @brief コマンド実行関数 */
-	virtual bool Execute() = 0;
+	virtual bool Execute(const TLV_T &cmd, TLV_T &res) = 0;
 	/** @brief コマンドの現在ステータス参照*/
 	virtual const CommandInfo<TLV_T> GetInfo() const = 0;
 	/** @brief コマンド実行中かどうかを問い合わせ、必要に応じて実行中フラグをクリアする
