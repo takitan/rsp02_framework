@@ -40,6 +40,7 @@ class tlvcmd_impl
 
 		int operator()( int argc, const char** argv, void* extobj)
 		{
+			(void)extobj;
 			if( argc < 5)
 			{
 				printf("Less arguments\n");
