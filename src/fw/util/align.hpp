@@ -79,7 +79,7 @@ struct align
 	}
 
 	template<typename T>
-	static void safe_write( const uint8_t* dst, T src)
+	static void safe_write( const void* dst, T src)
 	{
 		safe_write<T>( const_cast<void*>(dst), src);
 	}
