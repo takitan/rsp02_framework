@@ -99,16 +99,20 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 				logger->Trace( "%s(%d):Parse Fail", Info.Name, Info.Type);
 				mOnParseFailure();
 			}
+			if( isSendRequested)
+			{
+				tlvres = TLV_T(Response.Original);
+			}
 			RETURN_AFTER_CLEAR(isSendRequested);
 			return isSendRequested;
 		}
 
-		bool Execute()
+		bool Execute(const TLV_T& tlvcmd, TLV_T& tlvres)
 		{
 			ExecuteStatus st;
 			if( !Info.isInvoked) return false;
 			if( (*ExecutionStrategy)( Info.isInvoked)) st = ExecuteStatus::Ignore;
-
+			Command = CMD_T(tlvcmd.Original);
 			st = ConcreteExecute( Command);
 
 			switch(st)
@@ -126,6 +130,10 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 					mOnExecuteSuccess();
 				default:
 					;
+			}
+			if( isSendRequested)
+			{
+				tlvres = TLV_T(Response.Original);
 			}
 			RETURN_AFTER_CLEAR(isSendRequested);
 			return isSendRequested;
@@ -152,8 +160,8 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		ParseStatus VaridateArgs( const TLV_T &cmd)
 		{
 
-			if( cmd.Destination != Info.Dest) return ParseStatus::OtherDestination;
-			if( cmd.Type != Info.Type) return ParseStatus::OtherCommand;
+			if( cmd.Destination() != Info.Dest) return ParseStatus::OtherDestination;
+			if( cmd.Type() != Info.Type) return ParseStatus::OtherCommand;
 #if 0
 			// 実際のところ、このレイヤでのエラーを返す機構がないから、変換コンストラクタでのバッファオーバーフロー対策をあてこんで
 			// ここでは握りつぶしておく
@@ -169,7 +177,7 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		ILogger* logger;
 		void SendRequest( const RES_T &res)
 		{
-			Response = TLV_T(&res);
+			Response = res;
 			isSendRequested = true;
 			//if( !SendRequestFunc) return;
 			logger->Info( "%s(%d):Send Request", Info.Name, Info.Type);
@@ -177,7 +185,7 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 
 	private:
 		CMD_T Command;
-		TLV_T Response;
+		RES_T Response;
 		typename ICommand<TLV_T>::SendRequestFunc_t SendRequestFunc;
 
 		/** @brief コマンド情報*/
@@ -186,7 +194,7 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		IExecutionStrategy* ExecutionStrategy;
 
 		/* @brief 具象コマンド解釈関数*/
-		virtual ParseStatus ConcreteParse( const CMD_T &cmd){ (void)cmd;return ParseStatus::Accept;}
+		virtual ParseStatus ConcreteParse( const CMD_T &cmd){ (void)cmd;;return ParseStatus::Accept;}
 
 		/** @brief 具象コマンド実行関数 */
 		virtual ExecuteStatus ConcreteExecute(const CMD_T &cmd){ (void)cmd;return ExecuteStatus::Success;}
