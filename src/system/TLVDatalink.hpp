@@ -31,9 +31,9 @@ class TLVDatalinkUp : public ProducerProcess<T>
 			tlv->recv( prd, -1);
 			product = T(prd.Original);
 			logger->Info("TLVmessage is incoming,dst=%d,type=%d,length=%d",
-				(typename T::dst_t)product.Destination,
-				(typename T::typ_t)product.Type,
-				(typename T::len_t)product.Length);
+				product.Destination(),
+				product.Type(),
+				product.Length());
 			return true;
 		}
 };
@@ -46,12 +46,8 @@ class TLVDatalinkDown : public ConsumerProcess<T>
 	protected:
 		bool ConcreteProcess( T &packet)
 		{
-			auto pkt = (rsp02TLV*)&packet;
-			return tlv->send(
-				pkt->Destination,
-				pkt->Type,
-				(void*)(pkt->pValue),
-				pkt->Length) ? true : false;
+			auto pkt = rsp02TLV(packet.Original);
+			return tlv->send(pkt) ? true : false;
 		}
 	private:
 		ITLV* tlv;
