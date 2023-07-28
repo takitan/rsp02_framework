@@ -29,7 +29,7 @@ class Consumer : public IConsumer<CNS_T>
 {
 	friend ConsumerAdapter<CNS_T>;
 	public:
-		Consumer( ProcessInfo_t &inf, std::size_t qsz) : Info(inf), queue(){}
+		Consumer( ProcessInfo_t &inf, std::size_t qsz) : Info(inf), queue(){(void)qsz;}
 		bool Accept( CNS_T &product)
 		{
 			if( queue.size() >= queue.max_size())
