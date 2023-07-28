@@ -69,7 +69,7 @@ class Executer : public IExecuter<PRD_T,CNS_T>
 		ConsumerAdapter<CNS_T>* cns_adp;
 		fw::logger::ILogger* logger;
 
-		virtual bool ConcreteProcess( PRD_T& reproduct, CNS_T& product) = 0;
+		virtual bool ConcreteProcess( PRD_T& reproduct, CNS_T& product)
 		{
 			(void)product;
 			reproduct = PRD_T();
