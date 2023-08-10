@@ -16,10 +16,7 @@ class StateMachine
 		IState<T>* NextState;
 		StateFactory<T>* Factory;
 
-		__attribute__((weak)) static inline void OnTransfer()
-		{
-			//if( OnTransfer) OnTransfer( CurrentState, NextState);
-		}
+		__attribute__((weak)) static inline void OnTransfer(){}
 
 	public:
 		typedef void (*Callback_t)(IState<T>*,IState<T>*);
