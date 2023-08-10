@@ -1,3 +1,4 @@
+/*
 #include <cstdio>
 #include "InitialFSM.hpp"
 #include "InitialState/StateIdle.hpp"
@@ -60,3 +61,4 @@ template<>
 TStateMachine::Callback_t TStateMachine::OnTransfer = InitialFSM::DefaultOnTransferCallback;
 
 }
+*/

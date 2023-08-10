@@ -24,12 +24,13 @@ class CommandKernel : public PipelineProcess<PRD_T,CNS_T>
 		{
 			for( auto it=CommandList.begin(); it!=CommandList.end(); ++it)
 			{
-				if( (*it)->Parse( product)) return true;
+				if( (*it)->Parse( product, reproduct)) return true;
 			}
 			for( auto it=CommandList.begin(); it!=CommandList.end(); ++it)
 			{
-				if( (*it)->Execute( reproduct)) return true;
+				if( (*it)->Execute( product, reproduct)) return true;
 			}
+			return false;
 		}
 
 	protected:
@@ -39,7 +40,7 @@ class CommandKernel : public PipelineProcess<PRD_T,CNS_T>
 		}
 
 	public:
-		CommandKernel() : logger( fw::logger::Logger::GetLogger( "CommandKernel")){}
+		CommandKernel(rsp::rsp02::time_t prd = 0) : PipelineProcess<PRD_T,CNS_T>(prd), logger(fw::logger::Logger::GetLogger( "CommandKernel")){}
 		virtual ~CommandKernel(){}
 
 		bool RegisterCommand( ICommand<TLV_T>* cmd)

@@ -47,8 +47,8 @@ class SystemManager
 
 		SystemStatus Process()
 		{
-			if( !PeriodicTimer.isPeriod()) return SystemStatus::Through;
-			logger->Info("Global Tick!");
+			//if( !PeriodicTimer.isPeriod()) return SystemStatus::Through;
+			logger->Trace("main loop");
 			Info.ActualPeriod = PeriodicTimer.LapAndGetElapsed();
 			PeriodicTimer.Start();
 			StopWatch sw;
@@ -69,7 +69,9 @@ class SystemManager
 		void RegisterProcess( IProcess* p)
 		{
 			process.push_back( p);
-
+			// 思いつく限りの簡単な方法でIDを振っているが、
+			// Process削除できるようにしない限り、これでいいはず
+			p->ProcessID = process.size();
 		}
 		const SystemStatus &GetInfo() const
 		{

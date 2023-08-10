@@ -12,17 +12,32 @@
 		"stopAtEntry": false,
 		//"log": true,
 		"cwd": "${workspaceFolder}",
+//		"targetArchitecture": "x64",
 		"environment": [],
 		"program": "${workspaceFolder}/build/a.out",
 		"internalConsoleOptions": "openOnSessionStart",
-		"MIMode": "gdb",
 		"preLaunchTask": "build",
-		"miDebuggerPath": "/usr/bin/gdb",
+/*		"customLaunchSetupCommands": [
+			{
+				"text": "target-run",
+				"description": "run target",
+				"ignoreFailures": true 
+			}
+		],
+*/		"linux":{
+			"MIMode": "gdb",
+			"miDebuggerPath": "/usr/bin/gdb"
+		},
 		"externalConsole": false,
 		"setupCommands": [
 			{
 				"description": "Enable pretty-printing for gdb",
 				"text": "-enable-pretty-printing",
+				"ignoreFailures": true
+			},
+			{
+				"text":"handle SIGPIPE nostop noprint pass",
+				"description": "ignore SIGPIPE",
 				"ignoreFailures": true
 			}
 		]

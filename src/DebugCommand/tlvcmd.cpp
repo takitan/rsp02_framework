@@ -1,6 +1,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <algorithm>
+#include <memory>
 #include "IProcess.hpp"
 #include "rsp02.hpp"
 #include "tlvcmd.hpp"

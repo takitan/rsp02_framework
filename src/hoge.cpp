@@ -1,10 +1,10 @@
 #include <vector>
-#include "MissionFSM.hpp"
+#include "MissionState.hpp"
 #include "InitialFSM.hpp"
 #include "MissionLogger.hpp"
 #include "MissionDefine.hpp"
-#include "HogeCommand.hpp"
-#include "HogeHogeCommand.hpp"
+#include "RequestPingCommand.hpp"
+#include "RequestTakePhotoCommand.hpp"
 #include "system/SystemManager.hpp"
 #include "system/TLVStub.hpp"
 #include "system/TLVDatalink.hpp"
@@ -22,11 +22,10 @@
 
 using namespace rsp::rsp02;
 
-static MissionFSM::fsm m_fsm;
-static InitialFSM::fsm i_fsm;
+static TMissionState MissionState;
 static rsp::rsp02::fw::logger::FifoSink fifo_sink("FifoSink");
-static Hoge hoge;
-static HogeHoge hogehoge;
+static TRequestPingCommand RequestPingCommand;
+static TRequestTakePhotoCommand RequestTakePhotoCommand;
 static TinyTLV tlv(10);
 static system::TLVDatalinkUp<MissionTLV> datalink_up( &tlv);
 static system::TLVDatalinkDown<MissionTLV> datalink_down( &tlv);
@@ -41,13 +40,17 @@ void TransportTest()
 {
 	shell.RegisterCommand( "tlvcmd", &tlv_cmd);
 	shell.RegisterCommand( "chloglv", &chloglv_cmd);
-	kernel.RegisterCommand( &hoge);
-	kernel.RegisterCommand( &hogehoge);
+	kernel.RegisterCommand( &RequestPingCommand);
+	kernel.RegisterCommand( &RequestTakePhotoCommand);
 	SysMan.RegisterProcess( &datalink_up);
 	datalink_up.SetConsumer( &kernel);
 	SysMan.RegisterProcess( &kernel);
 	kernel.SetConsumer( &datalink_down);
 	SysMan.RegisterProcess( &datalink_down);
+	SysMan.RegisterProcess( &MissionState);
+	MissionState.ResetState();
+//	m_fsm()->ForceTrans( MissionFSM::StateID::Idle);
+//	i_fsm()->ForceTrans( InitialFSM::StateID::Idle);
 
 	while(true)
 	{
@@ -76,10 +79,10 @@ int main(int argc, const char* argv[])
 		//Logger->SetLogger( i%2);
 	}
 	(void)argc;(void)argv;
-	m_fsm()->ForceTrans( MissionFSM::StateID::Idle);
-	i_fsm()->ForceTrans( InitialFSM::StateID::Idle);
+//	m_fsm()->ForceTrans( MissionFSM::StateID::Idle);
+//	i_fsm()->ForceTrans( InitialFSM::StateID::Idle);
 	for(;;)
 	{
-		m_fsm()->Process();
+//		m_fsm()->Process();
 	}
 }

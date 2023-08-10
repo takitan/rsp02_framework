@@ -1,3 +1,4 @@
+/*
 #pragma once
 
 #include <cstdio>
@@ -25,7 +26,8 @@ class fsm
 {
 	public:
 		static bool Initialize( void);
-		TStateMachine* operator()() const;  
+		TStateMachine* operator()() const;
 };
 
 }
+*/
