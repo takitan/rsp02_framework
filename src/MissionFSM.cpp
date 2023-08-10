@@ -1,10 +1,10 @@
 #include <cstdio>
-#include "InitialFSM.hpp"
-#include "InitialState/StateIdle.hpp"
-#include "InitialState/State1.hpp"
-#include "InitialState/State2.hpp"
+#include "MissionFSM.hpp"
+#include "MissionState/StateIdle.hpp"
+#include "MissionState/State1.hpp"
+#include "MissionState/State2.hpp"
 
-namespace InitialFSM{
+namespace MissionFSM{
 
 static State_Idle st_idle;
 static State1 st1;
@@ -16,7 +16,7 @@ TStateFactory StateFactory(state);
 TStateMachine StateMachine(&StateFactory);
 
 template<>
-TStateFactory *TStateBase::Factory = &InitialFSM::StateFactory;
+TStateFactory *TStateBase::Factory = &MissionFSM::StateFactory;
 
 bool fsm::Initialize( void)
 {
@@ -48,15 +48,15 @@ static void DefaultOnTransferCallback( IState* cur, IState* next)
 }
 
 template<>
-TStateBase::CallBack_t TStateBase::OnEntry = InitialFSM::DefaultOnEntryCallback;
+TStateBase::CallBack_t TStateBase::OnEntry = MissionFSM::DefaultOnEntryCallback;
 
 template<>
-TStateBase::CallBack_t TStateBase::OnExecute = InitialFSM::DefaultOnExecuteCallback;
+TStateBase::CallBack_t TStateBase::OnExecute = MissionFSM::DefaultOnExecuteCallback;
 
 template<>
-TStateBase::CallBack_t TStateBase::OnExit = InitialFSM::DefaultOnExitCallback;
+TStateBase::CallBack_t TStateBase::OnExit = MissionFSM::DefaultOnExitCallback;
 
 template<>
-TStateMachine::Callback_t TStateMachine::OnTransfer = InitialFSM::DefaultOnTransferCallback;
+TStateMachine::Callback_t TStateMachine::OnTransfer = MissionFSM::DefaultOnTransferCallback;
 
 }

@@ -1,6 +1,4 @@
 #pragma once
-#include <vector>
-#include <algorithm>
 #include "StateBase.hpp"
 
 namespace rsp{
@@ -12,25 +10,24 @@ template<typename T>
 class StateFactory
 {
 private:
-	std::vector<IState<T>*> StateList;
+	const IState<T>** state;
+	int StateCount = 0;
 
 public:
-	StateFactory():StateList(){}
-
-	StateFactory( std::vector<IState<T>*> &st):StateList(std::move(st)){}
-
-	virtual bool RegisterState( IState<T>* st)
+	template<int N>
+	StateFactory(const IState<T>*(&st)[N]):state(st)
 	{
-		StateList.push_back( st);
-		return true;
+		StateCount = N;
 	}
 	virtual ~StateFactory(){}
 
 	virtual IState<T>* GetState( T id) const
 	{
-		auto it = std::find_if( std::cbegin(StateList), std::cend(StateList), [id](IState<T>* e){ return e->GetStateInfo().ID == id;});
-		if( it == std::cend(StateList)) return nullptr;
-		else return *it;
+		for(int i=0; i<StateCount; i++)
+		{
+			if( state[i]->GetStateInfo().ID==id) return const_cast<IState<T>*>( state[i]);
+		}
+		return nullptr;
 	}
 };
 

@@ -1,14 +1,15 @@
 #pragma once
 #include <cstdio>
-#include "fw/fsm/StateBase.hpp"
-#include "fw/logger/Logger.hpp"
-#include "MissionDefine.hpp"
+#include "MissionFSM.hpp"
 
-class State_Idle : public rsp::rsp02::fw::fsm::StateBase<StateID>
+namespace MissionFSM
+{
+
+class State_Idle : public TStateBase
 {
 	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 	public:
-		State_Idle():StateBase(StateID::Idle, "Idle"){}
+		State_Idle():TStateBase(StateID::Idle, "Idle"){}
 
 	private:
 		int i;
@@ -26,19 +27,19 @@ class State_Idle : public rsp::rsp02::fw::fsm::StateBase<StateID>
 			switch( i)
 			{
 			case 0:
-				sw = StopWatch(1500);
-				logger->Info("%s:Start\n", StateInfo.Name);
-				logger->Info("%s:InnerState0\n", StateInfo.Name);
+				sw = StopWatch();
+				printf("%s:Start\n", StateInfo.Name);
+				printf("%s:InnerState0\n", StateInfo.Name);
 				i++;
 				break;
 			case 1:
-				logger->Trace("%s:InnerState1:%d\n", StateInfo.Name, sw.GetElapsed());
-				if( sw.isElapsed()) i++;
+				printf("%s:InnerState1:%d\n", StateInfo.Name, sw.GetElapsed());
+				if( sw.isElapsed( 1000)) i++;
 				else break;
 				// fallthrough
 			case 2:
-				logger->Info("%s:InnerState2\n", StateInfo.Name);
-				logger->Info("%s:Exit\n", StateInfo.Name);
+				printf("%s:InnerState2\n", StateInfo.Name);
+				printf("%s:Exit\n", StateInfo.Name);
 				next = Factory->GetState(StateID::State2);
 				i = 0;
 				break;
@@ -52,3 +53,4 @@ class State_Idle : public rsp::rsp02::fw::fsm::StateBase<StateID>
 		}
 };
 
+};

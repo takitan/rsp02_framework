@@ -1,7 +1,6 @@
 #pragma once
 #include <limits.h>
 #include "fw/time/StopWatch.hpp"
-#include "fw/logger/Logger.hpp"
 
 namespace rsp{
 namespace rsp02{
@@ -45,23 +44,37 @@ class StateBase : public IState<T>
 {
 	private:
 		IState<T>* next;
-		__attribute__((weak)) static inline void OnEntry( const StateInfo_t<T>& state){(void)state;}
-		__attribute__((weak)) static inline void OnExecute( const StateInfo_t<T>& state){(void)state;}
-		__attribute__((weak)) static inline void OnExit( const StateInfo_t<T>& state){(void)state;}
+		void mOnEntry( void)
+		{
+			StateInfo.Enter();
+			if( OnEntry) OnEntry( this);
+		}
+		void mOnExecute( void)
+		{
+			StateInfo.Execute();
+			if( OnExecute) OnExecute( this);
+		}
+		void mOnExit( void)
+		{
+			StateInfo.Exit();
+			if( OnExit) OnExit( this);
+		}
 
 	protected:
 		StateInfo_t<T> StateInfo;
-		rsp::rsp02::fw::logger::ILogger* logger;
-
 		virtual void Entry( void){}
 		virtual IState<T>* Execute( void){ return nullptr;}
 		virtual void Exit( void){}
 
 	public:
-		static StateFactory<T>* Factory;
+		typedef void (*CallBack_t)( IState<T>*);
 
-		StateBase( T id, char const* const nam) :
-			StateInfo( id, nam), logger(rsp::rsp02::fw::logger::Logger::GetLogger("StateBase")){}
+		static StateFactory<T>* Factory;
+		static CallBack_t OnEntry;
+		static CallBack_t OnExecute;
+		static CallBack_t OnExit;
+
+		StateBase( T id, char const* const nam) : StateInfo( id, nam){}
 
 		virtual ~StateBase(){}
 
@@ -71,19 +84,19 @@ class StateBase : public IState<T>
 			switch( StateInfo.InnerState)
 			{
 				case EInnerState::Entry:
-					OnEntry( StateInfo);
+					mOnEntry();
 					Entry();
 					StateInfo.InnerState = EInnerState::Execute;
 					// fallthrough
 				case EInnerState::Execute:
-					OnExecute( StateInfo);
+					mOnExecute();
 					next = Execute();
 					if( next == this) break;
 					StateInfo.InnerState = EInnerState::Exit;
 					// fallthrough
 				case EInnerState::Exit:
+					mOnExit();
 					Exit();
-					OnExit( StateInfo);
 					StateInfo.InnerState = EInnerState::Entry;
 			}
 			return next;
@@ -91,9 +104,6 @@ class StateBase : public IState<T>
 
 		const StateInfo_t<T>& GetStateInfo( void) const{ return StateInfo;}
 };
-
-template<typename T>
-StateFactory<T>* StateBase<T>::Factory;
 
 }
 }

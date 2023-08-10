@@ -43,7 +43,7 @@ template< typename CMD_T, typename RES_T, typename TLV_T>
 class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 {
 	using dst_t = typename TLV_T::dst_t;
-	using typ_t = typename TLV_T::typ_t;
+	using type_t = typename TLV_T::type_t;
 	using len_t = typename TLV_T::len_t;
 	using ExecuteStatus = rsp::rsp02::fw::command::ExecuteStatus;
 	using ParseStatus = rsp::rsp02::fw::command::ParseStatus;
@@ -69,10 +69,11 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		 * @param ex 実行種別(nullptrだったらOnceForAll)
 		 * @param logger ロガー(nullptrだったらNullLogger)
 		 */
-		CommandImplBase( const char* name, dst_t dst, typ_t type, IExecutionStrategy* ex=nullptr) :
+		CommandImplBase( const char* name, dst_t dst, type_t type, IExecutionStrategy* ex=nullptr) :
 			Info(CommandInfoEx<TLV_T>( name,dst,type))
 		{
 			this->ExecutionStrategy = ex==nullptr ? new OnceAndForAll : ex;
+			char buf[32];
 			this->logger = Logger::GetLogger( "Command");
 		}
 
@@ -99,20 +100,16 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 				logger->Trace( "%s(%d):Parse Fail", Info.Name, Info.Type);
 				mOnParseFailure();
 			}
-			if( isSendRequested)
-			{
-				tlvres = TLV_T(Response.Original);
-			}
 			RETURN_AFTER_CLEAR(isSendRequested);
 			return isSendRequested;
 		}
 
-		bool Execute(const TLV_T& tlvcmd, TLV_T& tlvres)
+		bool Execute()
 		{
 			ExecuteStatus st;
 			if( !Info.isInvoked) return false;
 			if( (*ExecutionStrategy)( Info.isInvoked)) st = ExecuteStatus::Ignore;
-			Command = CMD_T(tlvcmd.Original);
+
 			st = ConcreteExecute( Command);
 
 			switch(st)
@@ -130,10 +127,6 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 					mOnExecuteSuccess();
 				default:
 					;
-			}
-			if( isSendRequested)
-			{
-				tlvres = TLV_T(Response.Original);
 			}
 			RETURN_AFTER_CLEAR(isSendRequested);
 			return isSendRequested;
@@ -160,14 +153,14 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		ParseStatus VaridateArgs( const TLV_T &cmd)
 		{
 
-			if( cmd.Destination() != Info.Dest) return ParseStatus::OtherDestination;
-			if( cmd.Type() != Info.Type) return ParseStatus::OtherCommand;
+			if( cmd.destination != Info.Dest) return ParseStatus::OtherDestination;
+			if( cmd.type != Info.Type) return ParseStatus::OtherCommand;
 #if 0
 			// 実際のところ、このレイヤでのエラーを返す機構がないから、変換コンストラクタでのバッファオーバーフロー対策をあてこんで
 			// ここでは握りつぶしておく
 			if( cmd.length >= sizeof( CMD_T::Payload)) return ParseStatus::OverFlowLength;
 #endif
-			Command = CMD_T(cmd.Original);
+			Command = CMD_T(cmd);
 			return  ConcreteParse( Command);
 		}
 
@@ -177,7 +170,7 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		ILogger* logger;
 		void SendRequest( const RES_T &res)
 		{
-			Response = res;
+			Response = (TLV_T)res;
 			isSendRequested = true;
 			//if( !SendRequestFunc) return;
 			logger->Info( "%s(%d):Send Request", Info.Name, Info.Type);
@@ -185,7 +178,7 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 
 	private:
 		CMD_T Command;
-		RES_T Response;
+		TLV_T Response;
 		typename ICommand<TLV_T>::SendRequestFunc_t SendRequestFunc;
 
 		/** @brief コマンド情報*/
@@ -194,26 +187,26 @@ class CommandImplBase : public rsp::rsp02::fw::command::ICommand<TLV_T>
 		IExecutionStrategy* ExecutionStrategy;
 
 		/* @brief 具象コマンド解釈関数*/
-		virtual ParseStatus ConcreteParse( const CMD_T &cmd){ (void)cmd;;return ParseStatus::Accept;}
+		virtual ParseStatus ConcreteParse( const CMD_T &cmd){ (void)cmd;return ParseStatus::Accept;}
 
 		/** @brief 具象コマンド実行関数 */
 		virtual ExecuteStatus ConcreteExecute(const CMD_T &cmd){ (void)cmd;return ExecuteStatus::Success;}
 
 		inline void mOnParseSuccess()const
 		{
-			//if( OnParseSuccess) OnParseSuccess( Command);
+			if( OnParseSuccess) OnParseSuccess( Command);
 		}
 		inline void mOnParseFailure()const
 		{
-			//if( OnParseFailure) OnParseFailure( Command);
+			if( OnParseFailure) OnParseFailure( Command);
 		}
 		inline void mOnExecuteSuccess()const
 		{
-			//if( OnParseSuccess) OnExecuteSuccess( Response);
+			if( OnParseSuccess) OnExecuteSuccess( Command);
 		}
 		inline void mOnExecuteFailure()const
 		{
-			//if( OnParseFailure) OnExecuteFailure( Response);
+			if( OnParseFailure) OnExecuteFailure( Command);
 		}
 };
 

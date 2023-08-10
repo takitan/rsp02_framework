@@ -45,19 +45,19 @@ struct CommandInfo
 {
 	public:
 	using dst_t = typename TLV_T::dst_t;
-	using typ_t = typename TLV_T::typ_t;
+	using type_t = typename TLV_T::type_t;
 	using len_t = typename TLV_T::len_t;
 	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 
 	const char* Name;
 	dst_t Dest;
-	typ_t Type;
+	type_t Type;
 	long AcceptCount;
 	long ExecuteCount;
 	StopWatch time;
 	bool isInvoked;
 	CommandInfo() = default;
-	CommandInfo( const char* nam, const dst_t dst, const typ_t typ)
+	CommandInfo( const char* nam, const dst_t dst, const type_t typ)
 		: Name(nam), Dest(dst), Type(typ), AcceptCount(0), ExecuteCount(0), time(), isInvoked(false){}
 	inline CommandInfo(const CommandInfo &) = default;
 	CommandInfo( CommandInfo &&) = default;
@@ -72,7 +72,7 @@ public:
 
 	virtual bool Parse( const TLV_T &cmd, TLV_T &res) = 0;
 	/** @brief コマンド実行関数 */
-	virtual bool Execute(const TLV_T &cmd, TLV_T &res) = 0;
+	virtual bool Execute() = 0;
 	/** @brief コマンドの現在ステータス参照*/
 	virtual const CommandInfo<TLV_T> GetInfo() const = 0;
 	/** @brief コマンド実行中かどうかを問い合わせ、必要に応じて実行中フラグをクリアする

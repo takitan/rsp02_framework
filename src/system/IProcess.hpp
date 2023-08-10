@@ -37,16 +37,8 @@ struct ProcessInfo_t
 class IProcess
 {
 	public:
-		int ProcessID;
 		virtual bool Perform() = 0;
 		virtual const ProcessInfo_t GetInfo() const = 0;
-};
-
-template<typename PRD_T,typename CNS_T>
-class IExecuter
-{
-	public:
-		virtual bool Perform() = 0;
 };
 
 template<typename CNS_T>

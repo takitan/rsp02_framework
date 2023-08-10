@@ -16,7 +16,7 @@ class ConsumerAdapter
 	private:
 		Consumer* consumer;
 
-	public:
+	protected:
 		ConsumerAdapter( Consumer* c) : consumer(c){}
 		bool TakeProduct( CNS_T &product)
 		{
@@ -29,7 +29,7 @@ class Consumer : public IConsumer<CNS_T>
 {
 	friend ConsumerAdapter<CNS_T>;
 	public:
-		Consumer( ProcessInfo_t &inf, std::size_t qsz) : Info(inf), queue(){(void)qsz;}
+		Consumer( ProcessInfo_t &inf, std::size_t qsz) : Info(inf), queue(qsz){}
 		bool Accept( CNS_T &product)
 		{
 			if( queue.size() >= queue.max_size())

@@ -8,48 +8,15 @@ namespace rsp{
 namespace rsp02{
 namespace system{
 
+
 template<typename PRD_T,typename CNS_T>
-class ProcessBase : public Producer<PRD_T>, public Consumer<CNS_T>, public Executer<PRD_T, CNS_T>, public IProcess
+class ProcessBase : public Producer<PRD_T>, public Consumer<CNS_T>, public Executer<PRD_T, CNS_T>
 {
-	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 	public:
-		ProcessBase(rsp::rsp02::time_t per = 0, std::size_t queuesz = 1) :
-			Producer<PRD_T>( Info),
-			Consumer<CNS_T>( Info, queuesz),
-			Executer<PRD_T,CNS_T>(this,this,Info),
-			sw(per),
-			logger(rsp::rsp02::fw::logger::Logger::GetLogger("Process")){}
-		bool Accept( CNS_T &product)
-		{
-			logger->Info("Accept");
-			product.sender_id = IProcess::ProcessID;
-			return Consumer<CNS_T>::Accept( product);
-		}
-
-		bool Invoke( PRD_T &p)
-		{
-			logger->Info("Invoke");
-			return Producer<PRD_T>::Invoke(p);
-		}
-
-		bool Perform()
-		{
-			bool retval = true;
-			if( sw.isPeriod())
-			{
-				logger->Trace("Process Ticked.");
-				retval = Executer<PRD_T,CNS_T>::Perform();
-			}
-			return retval;
-
-		}
-
-		const ProcessInfo_t GetInfo() const{ return Info;}
-
+		ProcessBase(std::size_t queuesz = 1) :
+			Producer<PRD_T>( Info), Consumer<CNS_T>( Info, queuesz), Executer<PRD_T,CNS_T>(this,this,Info){}
 	private:
 		ProcessInfo_t Info;
-		rsp::rsp02::fw::time::StopWatch sw;
-		rsp::rsp02::fw::logger::ILogger* logger;
 };
 
 template<typename PRD_T>

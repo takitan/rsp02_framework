@@ -46,42 +46,40 @@ struct byte_type<32>
 };
 
 namespace {
-template<typename T>
+template<int N>
 union aligned
 {
-	uint8_t src[sizeof(T)];
-	T word;
+	uint8_t src[byte_type<N>::byte_size];
+	typename byte_type<N>::type word;
 };
 }
 
 struct align
 {
-	template<typename T>
-	static T safe_read( void* src)
+	template<int N>
+	static typename byte_type<N>::type safe_read( uint8_t* src)
 	{
-		constexpr static std::size_t byte_size = sizeof(T);
-		alignas(32) aligned<T> dst;
-		::memcpy( dst.src, src, byte_size);
+		alignas(32) aligned<N> dst;
+		::memcpy( dst.src, src, byte_type<N>::byte_size);
 		return dst.word;
 	}
 
-	template<typename T>
-	static T safe_read( const void* src)
+	template<int N>
+	static typename byte_type<N>::type safe_read( const uint8_t* src)
 	{
-		return safe_read<T>( const_cast<void*>(src));
+		return safe_read<N>( const_cast<uint8_t*>(src));
 	}
 
-	template<typename T>
-	static void safe_write( void* dst, const T src)
+	template<int N>
+	static void safe_write( uint8_t* dst, typename byte_type<N>::type src)
 	{
-		constexpr static std::size_t byte_size = sizeof(T);
-		::memcpy( dst, &src, byte_size);
+		::memcpy( dst, &src, N);
 	}
 
-	template<typename T>
-	static void safe_write( const void* dst, T src)
+	template<int N>
+	static void safe_write( const uint8_t* dst, typename byte_type<N>::type src)
 	{
-		safe_write<T>( const_cast<void*>(dst), src);
+		safe_write( const_cast<uint8_t*>(dst), src);
 	}
 };
 
@@ -90,4 +88,4 @@ struct align
 }
 }
 
-#define SAFE_INIT(x,y) x( align::safe_read<uint8_t>(&y))
+#define SAFE_INIT(x,y) x( align::safe_read<sizeof(x)*8>(&y))

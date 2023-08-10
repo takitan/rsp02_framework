@@ -15,9 +15,8 @@ class ProducerAdapter
 	private:
 		Producer* producer;
 
-	public:
+	protected:
 		ProducerAdapter( Producer* p) : producer(p){}
-
 		bool Invoke( PRD_T &product)
 		{
 			return producer->Invoke( product);
@@ -33,14 +32,15 @@ class Producer : public IProducer<PRD_T>
 	public:
 		Producer( ProcessInfo_t &inf) : Info(inf){}
 		void SetConsumer( IConsumer<PRD_T>* c){Consumer = c;}
-		bool Invoke( PRD_T &p)
-		{
-			return Consumer->Accept( p);
-		}
 
 	private:
 		ProcessInfo_t &Info;
 		IConsumer<PRD_T>* Consumer;
+
+		bool Invoke( PRD_T &p)
+		{
+			return Consumer->Accept( p);
+		}
 };
 template<>
 class Producer<NONE_T>

@@ -16,13 +16,14 @@ class StateMachine
 		IState<T>* NextState;
 		StateFactory<T>* Factory;
 
-		__attribute__((weak)) static inline void OnTransfer()
+		void mOnTransfer( void)
 		{
-			//if( OnTransfer) OnTransfer( CurrentState, NextState);
+			if( OnTransfer) OnTransfer( CurrentState, NextState);
 		}
 
 	public:
 		typedef void (*Callback_t)(IState<T>*,IState<T>*);
+		static Callback_t OnTransfer;
 
 		StateMachine( StateFactory<T>* sf)
 		{
@@ -41,7 +42,7 @@ class StateMachine
 		bool Process( void)
 		{
 			NextState = CurrentState->Process();
-			if( NextState != CurrentState) OnTransfer();
+			if( NextState != CurrentState) mOnTransfer();
 			PreState = CurrentState;
 			CurrentState = NextState;
 			return true;

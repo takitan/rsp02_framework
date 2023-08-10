@@ -2,7 +2,6 @@
 #include "IProcess.hpp"
 #include "Producer.hpp"
 #include "Consumer.hpp"
-#include "fw/logger/Logger.hpp"
 
 namespace rsp{
 namespace rsp02{
@@ -29,28 +28,26 @@ class TTimeKeeper
 }
 
 template<typename PRD_T, typename CNS_T>
-class Executer : public IExecuter<PRD_T,CNS_T>
+class Executer : public IProcess, public ProducerAdapter<PRD_T>, public ConsumerAdapter<CNS_T>
 {
 	public:
-		Executer( Producer<PRD_T>* p, Consumer<CNS_T>* c, ProcessInfo_t &inf) :
-			Info(inf), pro_adp( new ProducerAdapter<PRD_T>(p)), cns_adp( new ConsumerAdapter<CNS_T>(c)),
-			logger(fw::logger::Logger::GetLogger("Executer")){}
+		Executer( Producer<PRD_T>* p, Consumer<CNS_T>* c, ProcessInfo_t &inf)
+			: ProducerAdapter<PRD_T>(p), ConsumerAdapter<CNS_T>(c), Info(inf){}
 
 		bool Perform()
 		{
 			TTimeKeeper kp(Info);
 			bool st = true;
 			CNS_T product;
-			while( cns_adp->TakeProduct( product))
+			while( ConsumerAdapter<CNS_T>::TakeProduct( product))
 			{
-				logger->Info( "Message is comming");
 				PRD_T reproduct;
 				if( !ConcreteProcess( reproduct, product))
 				{
 					Info.FailedPacket++;
 					return false;
 				}
-				if( !pro_adp->Invoke( reproduct))
+				if( !ProducerAdapter<PRD_T>::Invoke( reproduct))
 				{
 					Info.FailedPacket++;
 					return false;
@@ -65,11 +62,7 @@ class Executer : public IExecuter<PRD_T,CNS_T>
 		}
 	private:
 		ProcessInfo_t &Info;
-		ProducerAdapter<PRD_T>* pro_adp;
-		ConsumerAdapter<CNS_T>* cns_adp;
-		fw::logger::ILogger* logger;
-
-		virtual bool ConcreteProcess( PRD_T& reproduct, CNS_T& product)
+		virtual bool ConcreteProcess( PRD_T reproduct, CNS_T product)
 		{
 			(void)product;
 			reproduct = PRD_T();
@@ -78,16 +71,16 @@ class Executer : public IExecuter<PRD_T,CNS_T>
 };
 
 template<typename PRD_T>
-class Executer<PRD_T,NONE_T> : public IExecuter<PRD_T,NONE_T>
+class Executer<PRD_T,NONE_T> : public IProcess, public ProducerAdapter<PRD_T>
 {
 	public:
 		Executer( Producer<PRD_T>* p, Consumer<NONE_T>* c, ProcessInfo_t &inf) :
-			Info(inf), pro_adp( new ProducerAdapter<PRD_T>(p)){(void)c;}
+			ProducerAdapter<PRD_T>(p), Info(inf){(void)c;}
 		bool Perform()
 		{
 			PRD_T product;
 			if( !ConcreteProcess( product)) return false;
-			return pro_adp->Invoke( product);
+			return ProducerAdapter<PRD_T>::Invoke( product);
 		}
 
 		const ProcessInfo_t GetInfo() const
@@ -97,8 +90,6 @@ class Executer<PRD_T,NONE_T> : public IExecuter<PRD_T,NONE_T>
 
 	private:
 		ProcessInfo_t &Info;
-		ProducerAdapter<PRD_T>* pro_adp;
-
 		virtual bool ConcreteProcess( PRD_T &product)
 		{
 			(void)product;
@@ -107,27 +98,29 @@ class Executer<PRD_T,NONE_T> : public IExecuter<PRD_T,NONE_T>
 };
 
 template<typename CNS_T>
-class Executer<NONE_T,CNS_T> : public IExecuter<NONE_T,CNS_T>
+class Executer<NONE_T,CNS_T> : public IProcess, public ConsumerAdapter<CNS_T>
 {
 	public:
 		Executer( Producer<NONE_T>* p, Consumer<CNS_T>* c, ProcessInfo_t &inf) :
-			Info(inf), cns_adp( new ConsumerAdapter<CNS_T>(c)){(void)p;}
+			ConsumerAdapter<CNS_T>(c),Info(inf){(void)p;}
 		bool Perform()
 		{
 			bool st = true;
 			CNS_T product;
-			while( cns_adp->TakeProduct( product))
+			while( ConsumerAdapter<CNS_T>::TakeProduct( product))
 			{
 				st &= ConcreteProcess( product);
 				Info.TotalPacket ++;
 			}
 			return st;
 		}
+		const ProcessInfo_t GetInfo() const
+		{
+			return Info;
+		}
 
 	private:
-		ProcessInfo_t& Info;
-		ConsumerAdapter<CNS_T>* cns_adp;
-
+		ProcessInfo_t Info;
 		virtual bool ConcreteProcess( CNS_T &product)
 		{
 			(void)product;
@@ -136,14 +129,15 @@ class Executer<NONE_T,CNS_T> : public IExecuter<NONE_T,CNS_T>
 };
 
 template<>
-class Executer<NONE_T,NONE_T> : public IExecuter<NONE_T,NONE_T>
+class Executer<NONE_T,NONE_T> : public IProcess
 {
 	public:
-		Executer( Producer<NONE_T>* p, Consumer<NONE_T>* c, ProcessInfo_t &inf) : Info(inf)
-			{(void)p;(void)c;}
+		Executer( Producer<NONE_T>* p, Consumer<NONE_T>* c, ProcessInfo_t &inf)
+			{(void)inf;(void)p;(void)c;}
 		bool Perform(){return ConcreteProcess();}
+		const ProcessInfo_t GetInfo() const{ return Info;}
 	private:
-		ProcessInfo_t& Info;
+		ProcessInfo_t Info;
 		virtual bool ConcreteProcess(){ return true;}
 };
 
