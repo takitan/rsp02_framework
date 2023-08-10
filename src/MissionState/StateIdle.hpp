@@ -1,15 +1,14 @@
 #pragma once
 #include <cstdio>
-#include "MissionFSM.hpp"
+#include "fw/fsm/StateBase.hpp"
+#include "fw/logger/Logger.hpp"
+#include "MissionDefine.hpp"
 
-namespace MissionFSM
-{
-
-class State_Idle : public TStateBase
+class State_Idle : public rsp::rsp02::fw::fsm::StateBase<StateID>
 {
 	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 	public:
-		State_Idle():TStateBase(StateID::Idle, "Idle"){}
+		State_Idle():StateBase(StateID::Idle, "Idle"){}
 
 	private:
 		int i;
@@ -53,4 +52,3 @@ class State_Idle : public TStateBase
 		}
 };
 
-};

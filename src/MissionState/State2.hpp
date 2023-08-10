@@ -1,16 +1,14 @@
 #pragma once
 #include <cstdio>
-#include "MissionFSM.hpp"
+#include "fw/fsm/StateBase.hpp"
 #include "fw/logger/Logger.hpp"
+#include "MissionDefine.hpp"
 
-namespace MissionFSM
-{
-
-class State2 : public TStateBase
+class State2 : public rsp::rsp02::fw::fsm::StateBase<StateID>
 {
 	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 	public:
-		State2():TStateBase(StateID::State2, "State2"),logger(rsp::rsp02::fw::logger::Logger::GetLogger("State2")){}
+		State2():StateBase(StateID::State2, "State2"),logger(rsp::rsp02::fw::logger::Logger::GetLogger("State2")){}
 
 	private:
 		int i;
@@ -55,4 +53,3 @@ class State2 : public TStateBase
 		}
 };
 
-};

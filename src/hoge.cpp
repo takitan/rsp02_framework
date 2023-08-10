@@ -1,5 +1,5 @@
 #include <vector>
-#include "MissionFSM.hpp"
+#include "MissionState.hpp"
 #include "InitialFSM.hpp"
 #include "MissionLogger.hpp"
 #include "MissionDefine.hpp"
@@ -22,8 +22,7 @@
 
 using namespace rsp::rsp02;
 
-static MissionFSM::fsm m_fsm;
-static InitialFSM::fsm i_fsm;
+static TMissionState MissionState;
 static rsp::rsp02::fw::logger::FifoSink fifo_sink("FifoSink");
 static TRequestPingCommand RequestPingCommand;
 static TRequestTakePhotoCommand RequestTakePhotoCommand;
@@ -48,13 +47,14 @@ void TransportTest()
 	SysMan.RegisterProcess( &kernel);
 	kernel.SetConsumer( &datalink_down);
 	SysMan.RegisterProcess( &datalink_down);
-	m_fsm()->ForceTrans( MissionFSM::StateID::Idle);
-	i_fsm()->ForceTrans( InitialFSM::StateID::Idle);
+	SysMan.RegisterProcess( &MissionState);
+	MissionState.ResetState();
+//	m_fsm()->ForceTrans( MissionFSM::StateID::Idle);
+//	i_fsm()->ForceTrans( InitialFSM::StateID::Idle);
 
 	while(true)
 	{
 		SysMan.Process();
-		m_fsm()->Process();
 	}
 }
 
@@ -79,10 +79,10 @@ int main(int argc, const char* argv[])
 		//Logger->SetLogger( i%2);
 	}
 	(void)argc;(void)argv;
-	m_fsm()->ForceTrans( MissionFSM::StateID::Idle);
-	i_fsm()->ForceTrans( InitialFSM::StateID::Idle);
+//	m_fsm()->ForceTrans( MissionFSM::StateID::Idle);
+//	i_fsm()->ForceTrans( InitialFSM::StateID::Idle);
 	for(;;)
 	{
-		m_fsm()->Process();
+//		m_fsm()->Process();
 	}
 }
