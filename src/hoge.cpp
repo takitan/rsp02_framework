@@ -19,6 +19,7 @@
 #include "system/debug/Shell.hpp"
 #include "DebugCommand/tlvcmd.hpp"
 #include "DebugCommand/chloglv.hpp"
+#include "system/MessageDispatcher.hpp"
 
 using namespace rsp::rsp02;
 
@@ -27,12 +28,13 @@ static rsp::rsp02::fw::logger::FifoSink fifo_sink("FifoSink");
 static TRequestPingCommand RequestPingCommand;
 static TRequestTakePhotoCommand RequestTakePhotoCommand;
 static TinyTLV tlv(10);
-static system::TLVDatalinkUp<MissionTLV> datalink_up( &tlv);
+static system::TLVDatalinkUp<rsp02TLV> datalink_up( &tlv);
 static system::TLVDatalinkDown<MissionTLV> datalink_down( &tlv);
 static system::CommandKernel<MissionTLV,MissionTLV,MissionTLV> kernel;
 static system::SystemManager<MissionTLV> SysMan( 1000);
 static system::Shell shell;
 static system::DebugPort debugport(&shell);
+static system::TMessageDispatcher<rsp02TLV,rsp02TLV> Dispatcher;
 static tlvcmd tlv_cmd(&kernel);
 static chloglv chloglv_cmd;
 
@@ -43,7 +45,8 @@ void TransportTest()
 	kernel.RegisterCommand( &RequestPingCommand);
 	kernel.RegisterCommand( &RequestTakePhotoCommand);
 	SysMan.RegisterProcess( &datalink_up);
-	datalink_up.SetConsumer( &kernel);
+	SysMan.RegisterProcess( &Dispatcher);
+	datalink_up.SetConsumer( &Dispatcher);
 	SysMan.RegisterProcess( &kernel);
 	kernel.SetConsumer( &datalink_down);
 	SysMan.RegisterProcess( &datalink_down);
