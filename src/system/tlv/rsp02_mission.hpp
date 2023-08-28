@@ -30,17 +30,17 @@ static inline const char* TypeString(EType dst)
 }
 
 template<>
-void TLVpacket_t<EDestination,EType>::print(char* buf)
+inline void TLVpacket_t<EDestination,EType>::print(char* buf)
+{
+	int p = ::sprintf( buf, "dst:%02x(%s),typ:%02x(%s),length:%04x,pv:",
+		(uint8_t)Destination(), DestinationString(Destination()),
+		(uint8_t)Type(), TypeString(Type()),
+		Length());
+	len_t len = Length();
+	auto pvpnt = pValue();
+	for(int i=0;i<len;i++)
 	{
-		int p = ::sprintf( buf, "dst:%02x(%s),typ:%02x,length:%04x,pv:",
-			(uint8_t)Destination(), DestinationString(Destination()),
-			(uint8_t)Type(), TypeString(Type()),
-			Length());
-		len_t len = Length();
-		auto pvpnt = pValue();
-		for(int i=0;i<len;i++)
-		{
-			uint8_t pv = pvpnt[i];
-			p += ::sprintf( &buf[p], "%02x", pv);
-		}
+		uint8_t pv = pvpnt[i];
+		p += ::sprintf( &buf[p], "%02x", pv);
 	}
+}
