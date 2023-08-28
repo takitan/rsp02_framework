@@ -54,7 +54,7 @@ ILogger* Logger::GetLogger( const char* name, bool generate_if_not_found)
 	{
 		auto l = new Logger( name);
 		list.push_back(l);
-		printf( "Logger:%s is created, %d Logger exists\n",l->Name(),list.size());
+		printf( "Logger:%s is created\n",l->Name());
 		return l;
 	}
 	else
