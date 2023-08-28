@@ -20,7 +20,7 @@ class CommandKernel : public PipelineProcess<PRD_T,CNS_T>
 		std::vector<ICommand<TLV_T>*> CommandList;
 		fw::logger::ILogger *logger;
 
-		bool Kernel(PRD_T &reproduct, CNS_T &product)
+		bool Kernel(CNS_T &product, PRD_T &reproduct)
 		{
 			for( auto it=CommandList.begin(); it!=CommandList.end(); ++it)
 			{
@@ -34,13 +34,15 @@ class CommandKernel : public PipelineProcess<PRD_T,CNS_T>
 		}
 
 	protected:
-		bool ConcreteProcess( PRD_T &reproduct, CNS_T &product)
+		bool ConcreteProcess( CNS_T &product, PRD_T &reproduct)
 		{
-			return Kernel(reproduct, product);
+			return Kernel(product, reproduct);
 		}
 
 	public:
-		CommandKernel(rsp::rsp02::time_t prd = 0) : PipelineProcess<PRD_T,CNS_T>(prd), logger(fw::logger::Logger::GetLogger( "CommandKernel")){}
+		CommandKernel(rsp::rsp02::time_t prd = 0) :
+			PipelineProcess<CNS_T,PRD_T>("CommandKernel", prd),
+			logger(fw::logger::Logger::GetLogger( "CommandKernel")){}
 		virtual ~CommandKernel(){}
 
 		bool RegisterCommand( ICommand<TLV_T>* cmd)

@@ -17,7 +17,7 @@ class TMessageDispatcher : public PipelineProcess<PRD_T,CNS_T>
 		std::map<dst_t, IConsumer<CNS_T>* > Route;
 	public:
 		TMessageDispatcher( rsp::rsp02::time_t prd = 0) :
-			PipelineProcess<PRD_T,CNS_T>(prd),
+			PipelineProcess<CNS_T,PRD_T>("MessageDispatcher", prd),
 			logger(fw::logger::Logger::GetLogger("MessageDispatcher")),
 			sw(prd){}
 
@@ -26,13 +26,13 @@ class TMessageDispatcher : public PipelineProcess<PRD_T,CNS_T>
 			Route[dst] = process;
 		}
 
-		bool ConcreteProcess( PRD_T &product, CNS_T &consume)
+		bool ConcreteProcess( CNS_T &product, PRD_T &reproduct)
 		{
-			auto it = Route.find(consume.Destination());
+			auto it = Route.find(product.Destination());
 			if( it == std::end(Route)) return false;
-			product = consume;
-			logger->Info("Dispatch to %s", DestinationString( product.Destination()));
-			return (it->second)->Accept( product);
+			reproduct = PRD_T(product);
+			logger->Info("Dispatch to %s", DestinationString( reproduct.Destination()));
+			(it->second)->Accept( reproduct);
 			return false;
 		}
 

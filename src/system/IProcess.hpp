@@ -32,6 +32,7 @@ struct ProcessInfo_t
 	ProcessInfo_t() = default;
 	inline ProcessInfo_t(const ProcessInfo_t &) = default;
 	ProcessInfo_t( ProcessInfo_t &&) = default;
+	ProcessInfo_t( const char* name):Name(name){}
 };
 
 class IProcess

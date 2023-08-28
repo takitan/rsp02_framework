@@ -4,6 +4,7 @@
 class TMissionState : public rsp::rsp02::system::IndivisualProcess
 {
 	public:
+		TMissionState() : rsp::rsp02::system::IndivisualProcess("MissionState"){}
 		void ResetState();
 	private:
 		bool ConcreteProcess();

@@ -17,7 +17,8 @@ class TLVDatalinkUp : public ProducerProcess<T>
 		fw::time::StopWatch sw;
 	public:
 		TLVDatalinkUp( ITLV* t, rsp::rsp02::time_t prd = 0) :
-			ProducerProcess<T>(prd), tlv(t),
+			ProducerProcess<T>("TLVDatalinkUP", prd),
+			tlv(t),
 			logger(fw::logger::Logger::GetLogger("TLVDatalinkUP")),
 			sw(1000){}
 
@@ -42,7 +43,7 @@ template<typename T>
 class TLVDatalinkDown : public ConsumerProcess<T>
 {
 	public:
-		TLVDatalinkDown( ITLV* t, rsp::rsp02::time_t prd = 0) : ConsumerProcess<T>(prd), tlv(t){}
+		TLVDatalinkDown( ITLV* t, rsp::rsp02::time_t prd = 0) : ConsumerProcess<T>("TLVDatalinkDown", prd), tlv(t){}
 	protected:
 		bool ConcreteProcess( T &packet)
 		{

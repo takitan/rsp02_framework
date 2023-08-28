@@ -28,13 +28,14 @@ enum class EDestination : uint8_t
 	Null = 0,
 	Ground = 1,
 	Rx = 2,
-	Tx1,
-	Tx2,
-	CDH,
-	Mission,
-	ParentLora,
-	Child1,
-	Child2,
+	Tx1 = 3,
+	Tx2 = 4,
+	CDH = 5,
+	Mission = 6,
+	ParentLora = 7,
+	Child1 = 8,
+	Child2 = 9,
+	NumOfDestination,
 };
 
 template<typename T>

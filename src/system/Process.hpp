@@ -13,10 +13,11 @@ class ProcessBase : public Producer<PRD_T>, public Consumer<CNS_T>, public Execu
 {
 	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 	public:
-		ProcessBase(rsp::rsp02::time_t per = 0, std::size_t queuesz = 1) :
+		ProcessBase(const char* name, rsp::rsp02::time_t per = 0, std::size_t queuesz = 1) :
 			Producer<PRD_T>( Info),
 			Consumer<CNS_T>( Info, queuesz),
 			Executer<CNS_T,PRD_T>(this,this,Info),
+			Info(name),
 			sw(per),
 			logger(rsp::rsp02::fw::logger::Logger::GetLogger("Process")){}
 		bool Accept( CNS_T &product)
