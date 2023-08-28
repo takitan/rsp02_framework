@@ -8,15 +8,15 @@ namespace rsp{
 namespace rsp02{
 namespace system{
 
-template<typename PRD_T,typename CNS_T>
-class ProcessBase : public Producer<PRD_T>, public Consumer<CNS_T>, public Executer<PRD_T, CNS_T>, public IProcess
+template<typename CNS_T,typename PRD_T>
+class ProcessBase : public Producer<PRD_T>, public Consumer<CNS_T>, public Executer<CNS_T, PRD_T>, public IProcess
 {
 	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 	public:
 		ProcessBase(rsp::rsp02::time_t per = 0, std::size_t queuesz = 1) :
 			Producer<PRD_T>( Info),
 			Consumer<CNS_T>( Info, queuesz),
-			Executer<PRD_T,CNS_T>(this,this,Info),
+			Executer<CNS_T,PRD_T>(this,this,Info),
 			sw(per),
 			logger(rsp::rsp02::fw::logger::Logger::GetLogger("Process")){}
 		bool Accept( CNS_T &product)
@@ -38,7 +38,7 @@ class ProcessBase : public Producer<PRD_T>, public Consumer<CNS_T>, public Execu
 			if( sw.isPeriod())
 			{
 				logger->Trace("Process Ticked.");
-				retval = Executer<PRD_T,CNS_T>::Perform();
+				retval = Executer<CNS_T,PRD_T>::Perform();
 			}
 			return retval;
 
@@ -53,13 +53,13 @@ class ProcessBase : public Producer<PRD_T>, public Consumer<CNS_T>, public Execu
 };
 
 template<typename PRD_T>
-using ProducerProcess = ProcessBase<PRD_T,NONE_T>;
+using ProducerProcess = ProcessBase<NONE_T,PRD_T>;
 
 template<typename CNS_T>
-using ConsumerProcess = ProcessBase<NONE_T,CNS_T>;
+using ConsumerProcess = ProcessBase<CNS_T,NONE_T>;
 
-template<typename PRD_T,typename CNS_T>
-using PipelineProcess = ProcessBase<PRD_T,CNS_T>;
+template<typename CNS_T,typename PRD_T>
+using PipelineProcess = ProcessBase<CNS_T,PRD_T>;
 
 using IndivisualProcess = ProcessBase<NONE_T,NONE_T>;
 

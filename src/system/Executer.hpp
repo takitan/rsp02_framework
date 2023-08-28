@@ -28,12 +28,12 @@ class TTimeKeeper
 };
 }
 
-template<typename PRD_T, typename CNS_T>
-class Executer : public IExecuter<PRD_T,CNS_T>
+template<typename CNS_T, typename PRD_T>
+class Executer : public IExecuter<CNS_T,PRD_T>
 {
 	public:
-		Executer( Producer<PRD_T>* p, Consumer<CNS_T>* c, ProcessInfo_t &inf) :
-			Info(inf), pro_adp( new ProducerAdapter<PRD_T>(p)), cns_adp( new ConsumerAdapter<CNS_T>(c)),
+		Executer( Consumer<CNS_T>* c, Producer<PRD_T>* p, ProcessInfo_t &inf) :
+			Info(inf), cns_adp( new ConsumerAdapter<CNS_T>(c)), pro_adp( new ProducerAdapter<PRD_T>(p)),
 			logger(fw::logger::Logger::GetLogger("Executer")){}
 
 		bool Perform()
@@ -45,7 +45,7 @@ class Executer : public IExecuter<PRD_T,CNS_T>
 			{
 				logger->Info( "Message is comming");
 				PRD_T reproduct;
-				if( !ConcreteProcess( reproduct, product))
+				if( !ConcreteProcess( product, reproduct))
 				{
 					Info.FailedPacket++;
 					return false;
@@ -65,11 +65,11 @@ class Executer : public IExecuter<PRD_T,CNS_T>
 		}
 	private:
 		ProcessInfo_t &Info;
-		ProducerAdapter<PRD_T>* pro_adp;
 		ConsumerAdapter<CNS_T>* cns_adp;
+		ProducerAdapter<PRD_T>* pro_adp;
 		fw::logger::ILogger* logger;
 
-		virtual bool ConcreteProcess( PRD_T& reproduct, CNS_T& product)
+		virtual bool ConcreteProcess( CNS_T& product, PRD_T& reproduct)
 		{
 			(void)product;
 			reproduct = PRD_T();
@@ -78,7 +78,7 @@ class Executer : public IExecuter<PRD_T,CNS_T>
 };
 
 template<typename PRD_T>
-class Executer<PRD_T,NONE_T> : public IExecuter<PRD_T,NONE_T>
+class Executer<NONE_T,PRD_T> : public IExecuter<NONE_T,PRD_T>
 {
 	public:
 		Executer( Producer<PRD_T>* p, Consumer<NONE_T>* c, ProcessInfo_t &inf) :
@@ -107,7 +107,7 @@ class Executer<PRD_T,NONE_T> : public IExecuter<PRD_T,NONE_T>
 };
 
 template<typename CNS_T>
-class Executer<NONE_T,CNS_T> : public IExecuter<NONE_T,CNS_T>
+class Executer<CNS_T,NONE_T> : public IExecuter<CNS_T,NONE_T>
 {
 	public:
 		Executer( Producer<NONE_T>* p, Consumer<CNS_T>* c, ProcessInfo_t &inf) :

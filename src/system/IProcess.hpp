@@ -42,7 +42,7 @@ class IProcess
 		virtual const ProcessInfo_t GetInfo() const = 0;
 };
 
-template<typename PRD_T,typename CNS_T>
+template<typename CNS_T,typename PRD_T>
 class IExecuter
 {
 	public:
