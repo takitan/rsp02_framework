@@ -39,16 +39,19 @@ void StateMachine<StateID>::OnTransfer()
 template<>
 void StateBase<StateID>::OnEntry( const StateInfo_t<StateID>& state)
 {
+	(void)state;
 }
 
 template<>
 void StateBase<StateID>::OnExecute( const StateInfo_t<StateID>& state)
 {
+	(void)state;
 }
 
 template<>
 void StateBase<StateID>::OnExit( const StateInfo_t<StateID>& state)
 {
+	(void)state;
 }
 
 }
