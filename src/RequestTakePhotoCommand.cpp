@@ -2,13 +2,13 @@
 #include "fw/logger/ILogger.hpp"
 
 TRequestTakePhotoCommand::TRequestTakePhotoCommand():
-	CommandImplBase( "RequestTakePhotoCommand", EDestination::Mission, EType::RequestTakePhoto),Response(buffer){}
+	CommandImplBase( "RequestTakePhotoCommand", EDestination::Mission, EType::ReqTakePhoto),Response(buffer){}
 
 TRequestTakePhotoCommand::ExecuteStatus TRequestTakePhotoCommand::ConcreteExecute( const RequestTakePhotoCommand_t &cmd)
 {
 	(void)cmd;
 	Response.Destination(EDestination::Ground);
-	Response.Type(EType::ReplyTakePhoto);
+	Response.Type(EType::RepTakePhoto);
 	Response.Length(0);
 	SendRequest( Response);
 
