@@ -20,6 +20,7 @@
 #include "DebugCommand/tlvcmd.hpp"
 #include "DebugCommand/chloglv.hpp"
 #include "system/MessageDispatcher.hpp"
+#include "system/MessageConverter.hpp"
 
 using namespace rsp::rsp02;
 
@@ -29,28 +30,41 @@ static TRequestPingCommand RequestPingCommand;
 static TRequestTakePhotoCommand RequestTakePhotoCommand;
 static TinyTLV tlv(10);
 static system::TLVDatalinkUp<rsp02TLV> datalink_up( &tlv);
-static system::TLVDatalinkDown<MissionTLV> datalink_down( &tlv);
+static system::TLVDatalinkDown<rsp02TLV> datalink_down( &tlv);
 static system::CommandKernel<MissionTLV,MissionTLV,MissionTLV> kernel;
 static system::SystemManager<MissionTLV> SysMan( 1000);
 static system::Shell shell;
 static system::DebugPort debugport(&shell);
 static system::TMessageDispatcher<rsp02TLV,rsp02TLV> Dispatcher;
+static system::TMessageConverter<rsp02TLV,MissionTLV> UpConverter;
+static system::TMessageConverter<MissionTLV,rsp02TLV> DnConverter;
 static tlvcmd tlv_cmd(&kernel);
 static chloglv chloglv_cmd;
 
 void TransportTest()
 {
+	/*
+	data flow
+	 datalink_up -> Dispatcher -> (Mission Route) -> UpConverter -> kernel -> DnConverter -> datalink_down
+                               -> (Attitude Route) -> UnDefined
+	*/
 	shell.RegisterCommand( "tlvcmd", &tlv_cmd);
 	shell.RegisterCommand( "chloglv", &chloglv_cmd);
 	kernel.RegisterCommand( &RequestPingCommand);
 	kernel.RegisterCommand( &RequestTakePhotoCommand);
+
 	SysMan.RegisterProcess( &datalink_up);
 	SysMan.RegisterProcess( &Dispatcher);
-	datalink_up.SetConsumer( &Dispatcher);
+	SysMan.RegisterProcess( &UpConverter);
 	SysMan.RegisterProcess( &kernel);
-	kernel.SetConsumer( &datalink_down);
+	SysMan.RegisterProcess( &DnConverter);
 	SysMan.RegisterProcess( &datalink_down);
 	SysMan.RegisterProcess( &MissionState);
+	datalink_up.SetConsumer( &Dispatcher);
+	Dispatcher.RegisterRoute( EDestination::Mission, &UpConverter);
+	UpConverter.SetConsumer( &kernel);
+	kernel.SetConsumer( &DnConverter);
+	DnConverter.SetConsumer( &datalink_down);
 	MissionState.ResetState();
 //	m_fsm()->ForceTrans( MissionFSM::StateID::Idle);
 //	i_fsm()->ForceTrans( InitialFSM::StateID::Idle);
