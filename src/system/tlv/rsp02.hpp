@@ -114,8 +114,9 @@ struct TLVpacket_t : TLVpacketBase_t
 
 	void print(char* buf)
 	{
-		int p = ::sprintf( buf, "dst:%02x,type:%02x,length:%04x,pv:",
-			Destination(), Type(), Length());
+		int p = ::sprintf( buf, "dst:%02x(%s),type:%02x,length:%04x,pv:",
+			(uint8_t)Destination(), DestinationString(Destination()),
+			(uint8_t)Type(), Length());
 		len_t len = Length();
 		auto pvpnt = pValue();
 		for(int i=0;i<len;i++)
@@ -129,3 +130,23 @@ struct TLVpacket_t : TLVpacketBase_t
 		inline const void* org_pnt(size_t ofs){ return (uint8_t*)Original+ofs;}
 		inline const void* pv_pnt(size_t ofs){ return (uint8_t*)org_pnt(pv_offset)+ofs;}
 };
+
+using rsp02TLV = TLVpacket_t<EDestination,uint8_t>;
+
+static inline const char* DestinationString(EDestination dst)
+{
+	switch( dst)
+	{
+		case EDestination::Null: return "Null!";
+		case EDestination::Ground: return "Ground";
+		case EDestination::Rx: return "Rx";
+		case EDestination::Tx1: return "Tx1";
+		case EDestination::Tx2: return "Tx2";
+		case EDestination::CDH: return "CDH";
+		case EDestination::Mission: return "Mission";
+		case EDestination::ParentLora: return "ParentLora";
+		case EDestination::Child1: return "Child1";
+		case EDestination::Child2: return "Child2";
+		default: return "";
+	}
+}
