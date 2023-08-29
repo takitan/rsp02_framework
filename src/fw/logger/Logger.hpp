@@ -110,7 +110,7 @@ class Logger : public ILogger
 
 	protected:
 		/** @brief logger名称 */
-		char mName[16];
+		char mName[32];
 		/** @brief ログレベル*/
 		ELogLevel ThresholdLevel;
 
