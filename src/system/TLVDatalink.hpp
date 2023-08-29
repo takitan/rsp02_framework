@@ -15,6 +15,7 @@ class TLVDatalinkUp : public ProducerProcess<T>
 		ITLV* tlv;
 		fw::logger::ILogger *logger;
 		fw::time::StopWatch sw;
+		const int DebugMode = 0;
 	public:
 		TLVDatalinkUp( ITLV* t, rsp::rsp02::time_t prd = 0) :
 			ProducerProcess<T>("TLVDatalinkUP", prd),
@@ -24,13 +25,18 @@ class TLVDatalinkUp : public ProducerProcess<T>
 
 		bool ConcreteProcess( T &product)
 		{
-			//if( !tlv->HasData()) return false;
-			//if( !tlv->GetResult()) return false;
-			if( !sw.isPeriod()) return false;
-			//product = T( &tlv->GetPV()[-T::pv_offset]);
-			rsp02TLV prd;
-			tlv->recv( prd, -1);
-			product = T(prd.Original);
+			if( !DebugMode)
+			{
+				if( !tlv->HasData()) return false;
+				if( !tlv->GetResult()) return false;
+				if( !sw.isPeriod()) return false;
+				product = T( &tlv->GetPV()[-T::pv_offset]);
+			}else
+			{
+				rsp02TLV prd;
+				tlv->recv( prd, -1);
+				product = T(prd.Original);
+			}
 			logger->Info("TLVmessage is incoming,dst=%d,type=%d,length=%d",
 				product.Destination(),
 				product.Type(),

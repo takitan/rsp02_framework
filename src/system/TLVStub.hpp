@@ -43,6 +43,7 @@ class TinyTLV : public ITLV
 
 		bool HasData()
 		{
+			return false;
 			if( result) return true;
 			switch( state)
 			{
