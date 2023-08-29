@@ -7,13 +7,23 @@
 class State1 : public rsp::rsp02::fw::fsm::StateBase<StateID>
 {
 	using StopWatch = rsp::rsp02::fw::time::StopWatch;
+	using TinyOneshotEvent = rsp::rsp02::fw::fsm::TinyOneshotEvent;
 
 	public:
-		State1():StateBase(StateID::State1, "State1"),logger(rsp::rsp02::fw::logger::Logger::GetLogger("State1")){}
+		State1() :
+			StateBase(StateID::State1, "State1"),
+			logger(rsp::rsp02::fw::logger::Logger::GetLogger("State1")),
+			trig(false){}
+
+		bool Trigger()
+		{
+			trig.Set();
+		}
 
 	private:
 		int i;
 		StopWatch sw;
+		TinyOneshotEvent trig;
 		rsp::rsp02::fw::logger::Logger::ILogger* logger;
 
 		void Entry()
@@ -33,12 +43,22 @@ class State1 : public rsp::rsp02::fw::fsm::StateBase<StateID>
 				break;
 			case 1:
 				logger->Trace("%s:InnerState1:%d\n", StateInfo.Name, sw.GetElapsed());
-				if( sw.isElapsed( 1500)) i++;
-				else break;
+				if( sw.isElapsed( 1500))
+				{
+					logger->Info( "Timeout");
+					i++;
+				}
+				else
+				{
+					if( trig.Test())
+					{
+						logger->Info( "Triggerd");
+						i++;
+					}
+					break;
+				}
 				// fallthrougf
 			case 2:
-				logger->Info("%s:InnerState2\n", StateInfo.Name);
-				logger->Info("%s:Exit\n", StateInfo.Name);
 				next = Factory->GetState(StateID::State2);
 				i = 0;
 				break;

@@ -8,6 +8,26 @@ namespace rsp02{
 namespace fw{
 namespace fsm{
 
+/**
+ * Warning!
+ * this class is not THREAD SAFE!
+*/
+class TinyOneshotEvent
+{
+	private:
+		bool flag;
+	public:
+		TinyOneshotEvent(bool init):flag(init){}
+		void Set(){flag=true;}
+		void Reset(){flag=false;}
+		bool Test()
+		{
+			auto buf = flag;
+			flag = false;
+			return buf;
+		}
+};
+
 template<typename T>
 class StateFactory;
 
