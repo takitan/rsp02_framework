@@ -34,24 +34,27 @@ int tlvcmd::operator()( int argc, const char** argv, void* extobj)
 		return -1;
 	}
 	char* e = nullptr;
-	buf.Destination = static_cast<EDestination>( strtol( argv[1], &e, 10));
-	if( e!='\0')
+	auto dst = strtol( argv[1], &e, 10);
+	if( *e!='\0')
 	{
 		printf( "Destination is invalid.\n");
 		return -1;
 	}
-	buf.Type = static_cast<EType>( strtol( argv[2], &e, 10));
-	if( e!='\0')
+	buf.Destination = static_cast<EDestination>(dst);
+	auto typ = strtol( argv[2], &e, 10);
+	if( *e!='\0')
 	{
 		printf( "Type is invalid.\n");
 		return -1;
 	}
-	buf.Length = (uint16_t)strtol( argv[3], &e, 10);
-	if( e!='\0')
+	buf.Type = static_cast<EType>(typ);
+	auto len = strtol( argv[3], &e, 10);
+	if( *e!='\0')
 	{
 		printf( "Length is invalid.\n");
 		return -1;
 	}
+	buf.Length = (uint16_t)len;
 	ConvertpData( buf.pValue, argv[4]);
 	MissionTLV mtlv( &buf);
 	cns->Accept( mtlv);
