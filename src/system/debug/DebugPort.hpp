@@ -17,6 +17,7 @@ class DebugPort
 	friend detail::DebugPortImpl;
 	public:
 		DebugPort( IShell* sh);
+		DebugPort(){}
 	private:
 		detail::DebugPortImpl* impl;
 };

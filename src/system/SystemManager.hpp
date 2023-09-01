@@ -29,7 +29,7 @@ struct SystemInfo
 };
 
 template<typename T>
-class SystemManager
+class TSystemManager
 {
 	using time_t = rsp::rsp02::time_t;
 	using StopWatch = rsp::rsp02::fw::time::StopWatch;
@@ -39,11 +39,14 @@ class SystemManager
 		SystemManagerCallback_t PeriodStartCallback;
 		SystemManagerCallback_t PeriodCompletionCallback;
 
-		SystemManager( time_t lp) :
+		TSystemManager( time_t lp) :
 			PeriodStartCallback(nullptr),
 			PeriodCompletionCallback(nullptr),
 			PeriodicTimer( lp),
-			logger(fw::logger::Logger::GetLogger("SystemManager")){}
+			logger(fw::logger::Logger::GetLogger("SystemManager"))
+			{
+				logger->SetLogLevel( fw::logger::ELogLevel::Info);
+			}
 
 		SystemStatus Process()
 		{

@@ -6,7 +6,6 @@
 #include "Logger.hpp"
 #include "ISink.hpp"
 #include "fw/time/TimeProvider.hpp"
-#include "fw/logger/NullSink.hpp"
 
 namespace rsp{
 namespace rsp02{
@@ -19,11 +18,8 @@ Logger::Logger( const char* name) : ThresholdLevel(ELogLevel::Debug)
 }
 
 Logger::~Logger(){}
-namespace{
-NullSink DefaultSink;
-}
 
-ISink* Logger::Sink = &DefaultSink;
+ISink* Logger::Sink = nullptr;
 
 static bool hagehige( const char* s1, const char* s2)
 {
@@ -65,7 +61,8 @@ ILogger* Logger::GetLogger( const char* name, bool generate_if_not_found)
 
 void Logger::Log( ELogLevel ll, const char* fmt, ::va_list arg)
 {
-	if( ll > ThresholdLevel) return;
+	if( (typename std::underlying_type<ELogLevel>::type)ll > (typename std::underlying_type<ELogLevel>::type)ThresholdLevel) return;
+	if( Sink==nullptr) return;
 	(*Sink)( GetTime(), mName, LogLevelString(ll), fmt, arg);
 }
 

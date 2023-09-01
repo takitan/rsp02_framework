@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <cstddef>
 #include "fw/util/align.hpp"
+#include "system/tlv/rsp02_mission.hpp"
 
 class ITLV
 {

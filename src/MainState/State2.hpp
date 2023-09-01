@@ -3,16 +3,19 @@
 #include "fw/fsm/StateBase.hpp"
 #include "fw/logger/Logger.hpp"
 #include "MissionDefine.hpp"
+#include "fw/fsm/StateFactory.hpp"
 
-class State_Idle : public rsp::rsp02::fw::fsm::StateBase<StateID>
+class State2 : public rsp::rsp02::fw::fsm::StateBase<StateID>
 {
 	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 	public:
-		State_Idle():StateBase(StateID::Idle, "Idle"){}
+		State2():
+			StateBase(StateID::State2, "State2"),logger(rsp::rsp02::fw::logger::Logger::GetLogger("State2")){}
 
 	private:
 		int i;
 		StopWatch sw;
+		rsp::rsp02::fw::logger::Logger::ILogger* logger;
 
 		void Entry()
 		{
@@ -33,14 +36,23 @@ class State_Idle : public rsp::rsp02::fw::fsm::StateBase<StateID>
 				break;
 			case 1:
 				logger->Trace("%s:InnerState1:%d\n", StateInfo.Name, sw.GetElapsed());
-				if( sw.isElapsed()) i++;
+				if( sw.isElapsed( 1500)) i++;
 				else break;
+				logger->Info("Wait for the trigger of flag 0 or 1");
 				// fallthrough
 			case 2:
-				logger->Info("%s:InnerState2\n", StateInfo.Name);
-				logger->Info("%s:Exit\n", StateInfo.Name);
-				next = Factory->GetState(StateID::State2);
-				i = 0;
+				if( TestEventAndClear( 0))
+				{
+					logger->Info( "flag 0 Triggered!");
+					i = 0;
+					break;
+				}
+				if( TestEventAndClear( 1)) 
+				{
+					logger->Info( "flag 1 Triggered!");
+					next = Factory->GetState(StateID::State1);
+					i = 0;
+				}
 				break;
 			}
 			return next;

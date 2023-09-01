@@ -1,5 +1,7 @@
 #pragma once
 #include <limits.h>
+#include <bitset>
+#include <mutex>
 #include "fw/time/StopWatch.hpp"
 #include "fw/logger/Logger.hpp"
 
@@ -12,19 +14,40 @@ namespace fsm{
  * Warning!
  * this class is not THREAD SAFE!
 */
-class TinyOneshotEvent
+template<size_t N>
+class TinyEvent
 {
 	private:
-		bool flag;
+		std::bitset<N> flag;
+		std::mutex mtx;
 	public:
-		TinyOneshotEvent(bool init):flag(init){}
-		void Set(){flag=true;}
-		void Reset(){flag=false;}
-		bool Test()
+		TinyEvent(std::bitset<N> init=0):flag(init){}
+		void Set( size_t n)
 		{
-			auto buf = flag;
-			flag = false;
+			std::lock_guard<std::mutex> lock(mtx);
+			printf( "%s\n",flag.to_string().c_str());
+			flag.set(n);
+			printf( "%s\n",flag.to_string().c_str());
+		}
+		void Reset( size_t n)
+		{
+			std::lock_guard<std::mutex> lock(mtx);
+			printf( "%s\n",flag.to_string().c_str());
+			flag.reset(n);
+			printf( "%s\n",flag.to_string().c_str());
+		}
+		bool TestAndReset( size_t n)
+		{
+			std::lock_guard<std::mutex> lock(mtx);
+			//printf( "TestAndReset:%s\n",flag.to_string().c_str());
+			bool buf = flag[n];
+			flag.reset(n);
+			//printf( "TestAndReset:%s\n",flag.to_string().c_str());
 			return buf;
+		}
+		bool Test( size_t n)
+		{
+			return flag[n];
 		}
 };
 
@@ -58,6 +81,7 @@ class IState
 	public:
 		virtual IState<T>* Process( void) = 0;
 		virtual const StateInfo_t<T>& GetStateInfo( void) const = 0;
+		virtual void Trigger( size_t flag) = 0;
 };
 
 template<typename T>
@@ -65,6 +89,7 @@ class StateBase : public IState<T>
 {
 	private:
 		IState<T>* next;
+		TinyEvent<32> event;
 		__attribute__((weak)) static inline void OnEntry( const StateInfo_t<T>& state){(void)state;}
 		__attribute__((weak)) static inline void OnExecute( const StateInfo_t<T>& state){(void)state;}
 		__attribute__((weak)) static inline void OnExit( const StateInfo_t<T>& state){(void)state;}
@@ -77,6 +102,17 @@ class StateBase : public IState<T>
 		virtual IState<T>* Execute( void){ return nullptr;}
 		virtual void Exit( void){}
 
+
+		bool TestEventAndClear( size_t n)
+		{
+			return event.TestAndReset(n);
+		}
+
+		bool TestEvent( size_t n)
+		{
+			return event.Test( n);
+		}
+
 	public:
 		static StateFactory<T>* Factory;
 
@@ -84,7 +120,12 @@ class StateBase : public IState<T>
 			StateInfo( id, nam), logger(rsp::rsp02::fw::logger::Logger::GetLogger("StateBase")){}
 
 		virtual ~StateBase(){}
-
+	
+		void Trigger( size_t n)
+		{
+			event.Set( n);
+		}
+		
 		IState<T>* Process( void)
 		{
 			next = this;

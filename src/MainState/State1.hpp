@@ -3,29 +3,26 @@
 #include "fw/fsm/StateBase.hpp"
 #include "fw/logger/Logger.hpp"
 #include "MissionDefine.hpp"
+#include "fw/fsm/StateFactory.hpp"
 
 class State1 : public rsp::rsp02::fw::fsm::StateBase<StateID>
 {
 	using StopWatch = rsp::rsp02::fw::time::StopWatch;
-	using TinyOneshotEvent = rsp::rsp02::fw::fsm::TinyOneshotEvent;
+	template<size_t N>
+	using TinyEvent = rsp::rsp02::fw::fsm::TinyEvent<N>;
 
 	public:
 		State1() :
 			StateBase(StateID::State1, "State1"),
-			logger(rsp::rsp02::fw::logger::Logger::GetLogger("State1")),
-			trig(false){}
-
-		bool Trigger()
-		{
-			trig.Set();
-		}
+			trig(),
+			logger(rsp::rsp02::fw::logger::Logger::GetLogger("State1")){}
 
 	private:
 		int i;
 		StopWatch sw;
-		TinyOneshotEvent trig;
+		TinyEvent<32> trig;
 		rsp::rsp02::fw::logger::Logger::ILogger* logger;
-
+		static constexpr size_t EventNumber = 0;
 		void Entry()
 		{
 			i = 0;
@@ -50,7 +47,7 @@ class State1 : public rsp::rsp02::fw::fsm::StateBase<StateID>
 				}
 				else
 				{
-					if( trig.Test())
+					if( trig.TestAndReset(EventNumber))
 					{
 						logger->Info( "Triggerd");
 						i++;

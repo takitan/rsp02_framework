@@ -1,89 +1,50 @@
 #include <vector>
-#include "MissionState.hpp"
+#include "process/StateMachine.hpp"
 #include "InitialFSM.hpp"
-#include "MissionLogger.hpp"
 #include "MissionDefine.hpp"
-#include "RequestPingCommand.hpp"
-#include "RequestTakePhotoCommand.hpp"
 #include "system/SystemManager.hpp"
-#include "system/TLVStub.hpp"
-#include "system/TLVDatalink.hpp"
-#include "system/CommandKernel.hpp"
-#include "system/debug/DebugPort.hpp"
 #include "MissionDefine.hpp"
 #include "fw/time/time.hpp"
 #include "system/Process.hpp"
-#include "fw/logger/Logger.hpp"
-#include "fw/logger/PrintfSink.hpp"
-#include "fw/logger/FifoSink.hpp"
-#include "system/debug/Shell.hpp"
-#include "DebugCommand/tlvcmd.hpp"
-#include "DebugCommand/chloglv.hpp"
-#include "system/MessageDispatcher.hpp"
-#include "system/MessageConverter.hpp"
+#include "system/debug/DebugPort.hpp"
+#include "MissionCommand/MissionCommand.hpp"
+#include "DebugCommand/DebugCommand.hpp"
+#include "process/MissionProcess.hpp"
+#include "MainState/MainFSM.hpp"
+#include "LogSystem.hpp"
 
 using namespace rsp::rsp02;
 
-static TMissionState MissionState;
-static rsp::rsp02::fw::logger::FifoSink fifo_sink("FifoSink");
-static TRequestPingCommand RequestPingCommand;
-static TRequestTakePhotoCommand RequestTakePhotoCommand;
-static TinyTLV tlv(10);
-static system::TLVDatalinkUp<rsp02TLV> datalink_up( &tlv);
-static system::TLVDatalinkDown<rsp02TLV> datalink_down( &tlv);
-static system::CommandKernel<MissionTLV,MissionTLV,MissionTLV> kernel;
-static system::SystemManager<MissionTLV> SysMan( 1000);
-static system::Shell shell;
-static system::DebugPort debugport(&shell);
-static system::TMessageDispatcher<rsp02TLV,rsp02TLV> Dispatcher;
-static system::TMessageConverter<rsp02TLV,MissionTLV> UpConverter;
-static system::TMessageConverter<MissionTLV,rsp02TLV> DnConverter;
-static tlvcmd tlv_cmd(&kernel);
-static chloglv chloglv_cmd;
+system::CommandKernel<MissionTLV,MissionTLV,MissionTLV> kernel;
 
 void TransportTest()
 {
-	/*
-	data flow
-	 datalink_up -> Dispatcher -> (Mission Route) -> UpConverter -> kernel -> DnConverter -> datalink_down
-                               -> (Attitude Route) -> UnDefined
-	*/
-	shell.RegisterCommand( "tlvcmd", &tlv_cmd);
-	shell.RegisterCommand( "chloglv", &chloglv_cmd);
-	kernel.RegisterCommand( &RequestPingCommand);
-	kernel.RegisterCommand( &RequestTakePhotoCommand);
+	MissionProcess.Dispatcher.RegisterRoute( EDestination::Mission, &MissionProcess.UpConverter);
 
-	SysMan.RegisterProcess( &datalink_up);
-	SysMan.RegisterProcess( &Dispatcher);
-	SysMan.RegisterProcess( &UpConverter);
-	SysMan.RegisterProcess( &kernel);
-	SysMan.RegisterProcess( &DnConverter);
-	SysMan.RegisterProcess( &datalink_down);
-	SysMan.RegisterProcess( &MissionState);
-	datalink_up.SetConsumer( &Dispatcher);
-	Dispatcher.RegisterRoute( EDestination::Mission, &UpConverter);
-	UpConverter.SetConsumer( &kernel);
-	kernel.SetConsumer( &DnConverter);
-	DnConverter.SetConsumer( &datalink_down);
-	MissionState.ResetState();
+	MainFSM.StateMachine.ResetState();
 //	m_fsm()->ForceTrans( MissionFSM::StateID::Idle);
 //	i_fsm()->ForceTrans( InitialFSM::StateID::Idle);
 
 	while(true)
 	{
-		SysMan.Process();
+		MissionProcess.SystemManager.Process();
 	}
 }
 
 int main(int argc, const char* argv[])
 {
-	using ELogLevel = rsp::rsp02::fw::logger::ELogLevel;
+	// 初期化中にもログを吐くので、真っ先に初期化するべし
+	LogSystem.Initialize();
+	DebugCommand.Initialize();
+	MissionCommand.Initialize();
+	MainFSM.Initialize();
+	MissionProcess.Initialize();
+	DebugCommand.trigger_cmd.RegisterState( &MainFSM.st2);
 	auto logger = rsp::rsp02::fw::logger::Logger::GetLogger( "ROOT");
-	rsp::rsp02::fw::logger::Logger::Sink = &fifo_sink;
 	logger->Info("Let's Start!");
 
+	logger->SetLogLevel( rsp::rsp02::fw::logger::ELogLevel::Trace);
 	TransportTest();
-	logger->SetLogLevel( ELogLevel::Trace);
 	//logger()->SetLogLevel( ELogLevel::Fatal);
 	for( int i=0;; i++)
 	{
