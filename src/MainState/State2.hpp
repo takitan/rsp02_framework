@@ -10,7 +10,8 @@ class State2 : public rsp::rsp02::fw::fsm::StateBase<StateID>
 	using StopWatch = rsp::rsp02::fw::time::StopWatch;
 	public:
 		State2():
-			StateBase(StateID::State2, "State2"),logger(rsp::rsp02::fw::logger::Logger::GetLogger("State2")){}
+			StateBase(StateID::State2, "State2"),
+			logger(rsp::rsp02::fw::logger::Logger::GetLogger("State2")){}
 
 	private:
 		int i;
