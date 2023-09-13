@@ -46,7 +46,6 @@ class TMessageDispatcher : public PipelineProcess<PT,CT>
 			(it->second)->Accept( reproduct);
 			return false;
 		}
-
 };
 }
 }
