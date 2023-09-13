@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+mkfifo FifoSink
 while true
 do
 	echo "Sink Start"

@@ -10,10 +10,12 @@
 #include <cstdarg>
 #include <cstdio>
 #include <sys/fcntl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <cerrno>
+#include <exception>
 #include "FifoSink.hpp"
 #include "time/time.hpp"
-#include <exception>
 
 namespace rsp{
 namespace rsp02{
@@ -22,11 +24,8 @@ namespace logger{
 
 FifoSink::FifoSink(const char* name) : Name(name)
 {
-	fd = fopen( Name, "a");
-	volatile int hoge = errno;
-	char hage[156];
-	sprintf(hage,"%d",hoge);
-	printf("%d",hoge);
+	mkfifo( Name, 0666);
+	fd = fopen( Name, "O_WRONLY");
 }
 
 void FifoSink::Sink( time_t time, const char* name, const char* ll, const char* fmt, std::va_list arg)
