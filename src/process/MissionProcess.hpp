@@ -12,12 +12,14 @@
 class TMissionProcess
 {
 	public:
-		using TMessageDispatcher = rsp::rsp02::system::TMessageDispatcher<rsp02TLV,rsp02TLV,rsp02TLV::dst_t>;
+		using TDSTDispatcher = rsp::rsp02::system::TMessageDispatcher<rsp02TLV,rsp02TLV,rsp02TLV::dst_t>;
+		using TPRDispatcher = rsp::rsp02::system::TMessageDispatcher<rsp02TLV,rsp02TLV,int>;
 		TinyTLV tlv;
 		rsp::rsp02::system::TLVDatalinkUp<rsp02TLV> datalink_up;
 		rsp::rsp02::system::TLVDatalinkDown<rsp02TLV> datalink_down;
 		rsp::rsp02::system::DebugPort debugport;
-		TMessageDispatcher Dispatcher;
+		TDSTDispatcher DSTDispatcher;
+		TPRDispatcher PRDispatcher;
 		rsp::rsp02::system::TMessageConverter<rsp02TLV,MissionTLV> UpConverter;
 		rsp::rsp02::system::TMessageConverter<MissionTLV,rsp02TLV> DnConverter;
 		rsp::rsp02::system::TSystemManager<MissionTLV> SystemManager;
