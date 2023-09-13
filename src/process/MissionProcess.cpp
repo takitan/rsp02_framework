@@ -7,7 +7,18 @@
 TMissionProcess MissionProcess;
 
 TMissionProcess::TMissionProcess():
-	tlv(10),datalink_up(&tlv),datalink_down(&tlv), SystemManager( 1000)
+	tlv(10),
+	datalink_up(&tlv),
+	datalink_down(&tlv),
+	Dispatcher( "DST Dispatcher",
+		[](TMessageDispatcher::PRD_T* prd)
+		{
+			using dst_t = TMessageDispatcher::PRD_T::dst_t;
+			dst_t dst = prd->Destination();
+			const char* name = DestinationString( dst);
+			return std::make_pair(dst,name);
+		}),
+	SystemManager( 1000)
 {
 }
 
