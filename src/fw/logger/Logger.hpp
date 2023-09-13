@@ -13,7 +13,7 @@ class ISink;
 class Logger : public ILogger
 {
 	private:
-		Logger( const char* name);
+		Logger( const char* name, ELogLevel initlv);
 
 	public:
 		/** @brief 実際にログを出力する機構のインターフェース */
