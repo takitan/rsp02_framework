@@ -5,11 +5,9 @@
 #include "IProcess.hpp"
 #include "tlvcmd.hpp"
 #include "ntshell/core/ntlibc.h"
-template<typename T>
-using IConsumer = rsp::rsp02::system::IConsumer<T>;
+#include "process/MissionProcess.hpp"
 
-
-tlvcmd::tlvcmd( IConsumer<MissionTLV>* c) : cns(c){}
+tlvcmd::tlvcmd(){}
 
 int tlvcmd::ConvertpData( uint8_t* pData, const char *arg)
 {
@@ -56,8 +54,9 @@ int tlvcmd::operator()( int argc, const char** argv, void* extobj)
 	}
 	buf.Length = (uint16_t)len;
 	ConvertpData( buf.pValue, argv[4]);
-	MissionTLV mtlv( &buf);
-	cns->Accept( mtlv);
+	rsp02TLV mtlv( &buf);
+	mtlv.sender_id = 1234;
+	MissionProcess.DSTDispatcher.Accept( mtlv);
 
-	return 1;
+	return 0;
 }

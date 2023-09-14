@@ -9,8 +9,10 @@ namespace system{
 struct ProcessInfo_t
 {
 	using time_t = rsp::rsp02::time_t;
-	/** プロセス名*/
+	/** @brief プロセス名*/
 	const char* Name;
+	/** @brief プロセスID*/
+	int ProcessID;
 	/** @brief 処理開始時刻 */
 	time_t StartTime;
 	/** @brief 処理完了時刻 */
@@ -38,9 +40,9 @@ struct ProcessInfo_t
 class IProcess
 {
 	public:
-		int ProcessID;
 		virtual bool Perform() = 0;
 		virtual const ProcessInfo_t GetInfo() const = 0;
+		virtual void SetID( int id) = 0;
 };
 
 template<typename CNS_T,typename PRD_T>
@@ -48,6 +50,7 @@ class IExecuter
 {
 	public:
 		virtual bool Perform() = 0;
+		virtual const ProcessInfo_t GetInfo() const = 0;
 };
 
 template<typename CNS_T>
@@ -55,6 +58,7 @@ class IConsumer
 {
 	public:
 		virtual bool Accept( CNS_T &) = 0;
+		virtual const ProcessInfo_t GetInfo() const = 0;
 };
 
 template<typename PRD_T>
@@ -62,6 +66,7 @@ class IProducer
 {
 	public:
 		virtual void SetConsumer( IConsumer<PRD_T>*) = 0;
+		virtual const ProcessInfo_t GetInfo() const = 0;
 };
 
 struct NONE_T

@@ -19,17 +19,16 @@ class ProcessBase : public Producer<PRD_T>, public Consumer<CNS_T>, public Execu
 			Executer<CNS_T,PRD_T>(this,this,Info),
 			Info(name),
 			sw(per),
-			logger(rsp::rsp02::fw::logger::Logger::GetLogger("Process")){}
+			logger(rsp::rsp02::fw::logger::Logger::GetLogger(name)){}
 		bool Accept( CNS_T &product)
 		{
-			logger->Info("Accept");
-			product.sender_id = IProcess::ProcessID;
+			logger->Info("Accept Message %d", product.sender_id);
 			return Consumer<CNS_T>::Accept( product);
 		}
 
 		bool Invoke( PRD_T &p)
 		{
-			logger->Info("Invoke");
+			logger->Info("Invoke Message %d", p.sender_id);
 			return Producer<PRD_T>::Invoke(p);
 		}
 
@@ -47,8 +46,14 @@ class ProcessBase : public Producer<PRD_T>, public Consumer<CNS_T>, public Execu
 
 		const ProcessInfo_t GetInfo() const{ return Info;}
 
-	private:
+		void SetID( int id)
+		{
+			Info.ProcessID = id;
+		}
+
+	protected:
 		ProcessInfo_t Info;
+	private:
 		rsp::rsp02::fw::time::StopWatch sw;
 		rsp::rsp02::fw::logger::ILogger* logger;
 };

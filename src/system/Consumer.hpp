@@ -41,6 +41,8 @@ class Consumer : public IConsumer<CNS_T>
 			Info.QueueSize = queue.size();
 			return true;
 		}
+		const ProcessInfo_t GetInfo() const{ return Info;}
+
 	private:
 		ProcessInfo_t &Info;
 		std::deque<CNS_T> queue;

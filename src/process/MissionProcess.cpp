@@ -10,7 +10,7 @@ TMissionProcess::TMissionProcess():
 	tlv(10),
 	datalink_up(&tlv),
 	datalink_down(&tlv),
-	DSTDispatcher( "Destination Dispatcher",
+	DSTDispatcher( "DstDispatcher",
 		[](TDSTDispatcher::PRD_T* prd)
 		{
 			using idx_t = TDSTDispatcher::INF_T::first_type;
@@ -18,13 +18,14 @@ TMissionProcess::TMissionProcess():
 			const char* name = DestinationString( index);
 			return std::make_pair(index,name);
 		}),
-	PRDispatcher( "Process Dispatcher",
+	PRDispatcher( "PrcDispatcher",
 		[](TPRDispatcher::PRD_T* prd)
 		{
 			using idx_t = TPRDispatcher::INF_T::first_type;
 			idx_t index = prd->sender_id;
-			const char* name = "I can't know the Process Name";
-			return std::make_pair(index,name);
+			static char str[8];
+			sprintf( str, "%d", index);
+			return std::make_pair(index,str);
 		}),
 	SystemManager( 1000)
 {
@@ -42,11 +43,14 @@ void TMissionProcess::Initialize()
 	SystemManager.RegisterProcess( &UpConverter);
 	SystemManager.RegisterProcess( &MissionCommand.kernel);
 	SystemManager.RegisterProcess( &DnConverter);
+	SystemManager.RegisterProcess( &PRDispatcher);
 	SystemManager.RegisterProcess( &datalink_down);
 	datalink_up.SetConsumer( &DSTDispatcher);
 	UpConverter.SetConsumer( &MissionCommand.kernel);
 	MissionCommand.kernel.SetConsumer( &DnConverter);
-	DnConverter.SetConsumer( &datalink_down);
+	DnConverter.SetConsumer( &PRDispatcher);
 	SystemManager.RegisterProcess( &MainFSM.StateMachine);
 	//SystemManager.RegisterProcess( &DebugCommand.)
+	DSTDispatcher.RegisterRoute( EDestination::Mission, &MissionProcess.UpConverter);
+	PrDispatcher.RegisterRoute( 1234, &MissionProcess.UpConverter);
 }

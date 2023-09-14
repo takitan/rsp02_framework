@@ -39,10 +39,11 @@ class Executer : public IExecuter<CNS_T,PRD_T>
 		bool Perform()
 		{
 			TTimeKeeper kp(Info);
-			bool st = true;
+			bool st = false;
 			CNS_T product;
 			while( cns_adp->TakeProduct( product))
 			{
+				st = true;
 				logger->Info( "Message is comming");
 				PRD_T reproduct;
 				if( !ConcreteProcess( product, reproduct))
@@ -87,6 +88,7 @@ class Executer<NONE_T,PRD_T> : public IExecuter<NONE_T,PRD_T>
 		{
 			PRD_T product;
 			if( !ConcreteProcess( product)) return false;
+			product.sender_id = Info.ProcessID;
 			return pro_adp->Invoke( product);
 		}
 
@@ -123,6 +125,7 @@ class Executer<CNS_T,NONE_T> : public IExecuter<CNS_T,NONE_T>
 			}
 			return st;
 		}
+		const ProcessInfo_t GetInfo() const{ return Info;}
 
 	private:
 		ProcessInfo_t& Info;
@@ -142,6 +145,8 @@ class Executer<NONE_T,NONE_T> : public IExecuter<NONE_T,NONE_T>
 		Executer( Producer<NONE_T>* p, Consumer<NONE_T>* c, ProcessInfo_t &inf) : Info(inf)
 			{(void)p;(void)c;}
 		bool Perform(){return ConcreteProcess();}
+		const ProcessInfo_t GetInfo() const{ return Info;}
+
 	private:
 		ProcessInfo_t& Info;
 		virtual bool ConcreteProcess(){ return true;}

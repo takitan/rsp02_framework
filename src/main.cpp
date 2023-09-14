@@ -19,8 +19,6 @@ system::CommandKernel<MissionTLV,MissionTLV,MissionTLV> kernel;
 
 void Test()
 {
-	MissionProcess.DSTDispatcher.RegisterRoute( EDestination::Mission, &MissionProcess.UpConverter);
-
 	MainFSM.StateMachine.ResetState();
 
 	while(true)

@@ -82,8 +82,13 @@ struct TLVpacketBase_t
 		TLVpacketBase_t( const_cast<void*>(org), sender){}
 	TLVpacketBase_t(void* org, int sender) :
 		Original(org), sender_id(sender){}
-
 		int sender_id;
+
+	TLVpacketBase_t( const TLVpacketBase_t &dst)
+	{
+		Original = dst.Original;
+		sender_id = dst.sender_id;
+	}
 };
 
 template<typename DST_T,typename TYP_T>

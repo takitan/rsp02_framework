@@ -30,13 +30,16 @@ class CommandKernel : public PipelineProcess<PRD_T,CNS_T>
 			{
 				if( (*it)->Execute( product, reproduct)) return true;
 			}
+			logger->Info( "Command not found.");
 			return false;
 		}
 
 	protected:
 		bool ConcreteProcess( CNS_T &product, PRD_T &reproduct)
 		{
-			return Kernel(product, reproduct);
+			if( !Kernel(product, reproduct)) return false;
+			reproduct.sender_id = product.sender_id;
+			return true;
 		}
 
 	public:
