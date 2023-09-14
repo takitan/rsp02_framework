@@ -52,5 +52,4 @@ void TMissionProcess::Initialize()
 	SystemManager.RegisterProcess( &MainFSM.StateMachine);
 	//SystemManager.RegisterProcess( &DebugCommand.)
 	DSTDispatcher.RegisterRoute( EDestination::Mission, &MissionProcess.UpConverter);
-	PrDispatcher.RegisterRoute( 1234, &MissionProcess.UpConverter);
 }
