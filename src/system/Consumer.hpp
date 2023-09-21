@@ -1,5 +1,5 @@
 #pragma once
-#include <deque>
+#include "fw/util/queue.hpp"
 #include "IProcess.hpp"
 
 namespace rsp{
@@ -28,6 +28,7 @@ template<typename CNS_T>
 class Consumer : public IConsumer<CNS_T>
 {
 	friend ConsumerAdapter<CNS_T>;
+	constexpr static int N = 1;
 	public:
 		Consumer( ProcessInfo_t &inf, std::size_t qsz) : Info(inf), queue(){(void)qsz;}
 		bool Accept( CNS_T &product)
@@ -37,23 +38,22 @@ class Consumer : public IConsumer<CNS_T>
 				Info.QueueOverflow ++;
 				return false;
 			}
-			queue.push_back( product);
+			auto st = queue.put( product);
 			Info.QueueSize = queue.size();
-			return true;
+			return st;
 		}
 		const ProcessInfo_t GetInfo() const{ return Info;}
 
 	private:
 		ProcessInfo_t &Info;
-		std::deque<CNS_T> queue;
+		rsp02::fw::util::queue<CNS_T,N> queue;
 
 		bool TakeProduct( CNS_T &product)
 		{
 			if( queue.empty()) return false;
-			product = queue.front();
-			queue.pop_front();
+			auto st = queue.get( product);
 			Info.QueueSize = queue.size();
-			return true;
+			return st;
 		}
 
 };
