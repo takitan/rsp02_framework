@@ -35,7 +35,13 @@ class TDebugOutput : public ConsumerProcess<rsp02TLV>
 	protected:
 		bool ConcreteProcess( rsp02TLV &packet)
 		{
-			printf( "tlvres %02x,%02x,%04x,", packet.Destination(), packet.Type(), packet.Length());
+			auto dst = packet.Destination();
+			auto typ = packet.Type();
+			auto len = packet.Length();
+			printf( "tlvres %s(%02x),%02x,%04x,",
+				DestinationString(dst),static_cast<std::underlying_type<EDestination>::type>(typ),
+				typ,
+				len);
 			print_pData( packet);
 			return true;
 		}
