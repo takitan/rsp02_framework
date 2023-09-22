@@ -115,7 +115,8 @@ class queue
 #ifdef OFFLINE
 			std::unique_lock<std::mutex> ul(mtx);
 			auto rel_time = std::chrono::milliseconds(milliseconds);
-			can_put.wait_for(ul, rel_time, [this]{ return mqueue.size()<N;});
+			auto cv_status = can_put.wait_for(ul, rel_time, [this]{ return mqueue.size()<N;});
+			if( !cv_status) return false;
 			mqueue.push_back( std::move(data));
 			can_put.notify_all();
 #else
@@ -136,13 +137,16 @@ class queue
 		 * @return true 成功
 		 * @return false 失敗
 		 */
-		bool get(T& data)
+		bool try_get_for(T& data, uint32_t milliseconds)
 		{
 #ifdef OFFLINE
-			std::lock_guard<std::mutex> lg{mtx};
-			if( mqueue.empty()) return false;
+			std::unique_lock<std::mutex> ul(mtx);
+			auto rel_time = std::chrono::milliseconds(milliseconds);
+			auto cv_status = can_get.wait_for( ul, rel_time, [this]{return !mqueue.empty();});
+			if( !cv_status) return false;
 			data = mqueue.front();
 			mqueue.pop_front();
+			can_get.notify_all();
 			return true;
 #else
 			osEvent ev = queue.try_get();

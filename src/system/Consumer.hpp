@@ -33,12 +33,12 @@ class Consumer : public IConsumer<CNS_T>
 		Consumer( ProcessInfo_t &inf, std::size_t qsz) : Info(inf), queue(){(void)qsz;}
 		bool Accept( CNS_T &product)
 		{
-			if( queue.size() >= queue.max_size())
+			auto st = queue.try_put_for( product);
+			if( !st)
 			{
 				Info.QueueOverflow ++;
 				return false;
 			}
-			auto st = queue.put( product);
 			Info.QueueSize = queue.size();
 			return st;
 		}
@@ -50,8 +50,8 @@ class Consumer : public IConsumer<CNS_T>
 
 		bool TakeProduct( CNS_T &product)
 		{
-			if( queue.empty()) return false;
 			auto st = queue.get( product);
+			if( !st) return false;
 			Info.QueueSize = queue.size();
 			return st;
 		}
