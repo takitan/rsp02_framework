@@ -6,6 +6,9 @@
 #ifdef OFFLINE
 #include <mutex>
 #include <deque>
+#include <condition_variable>
+#include <chrono>
+
 #else
 //#include "mbed.h"
 #endif
@@ -29,8 +32,10 @@ class queue
 {
 	private:
 #ifdef OFFLINE
-		mutable std::mutex mtx;
 		mutable std::deque<T> mqueue;
+		mutable std::mutex mtx;
+		mutable std::condition_variable can_put;
+		mutable std::condition_variable can_get;
 #else
 		Queue<T,N> mqueue;
 		MemoryPool<T,N> mpool;
@@ -61,6 +66,7 @@ class queue
 		bool full() const
 		{
 #ifdef OFFLINE
+			std::lock_guard<std::mutex> lg(mtx);
 			return mqueue.size()==N;
 #else
 			return mqueue.full();
@@ -104,26 +110,20 @@ class queue
 		 * @return true 成功
 		 * @return false 失敗
 		 */
-		bool put(const T& data)
+		bool try_put_for(const T& data, uint32_t milliseconds = 0)
 		{
 #ifdef OFFLINE
-			std::lock_guard<std::mutex> lg{mtx};
-			try
-			{
-				if( mqueue.size()==N) return false;
-				mqueue.push_back( data);
-				return true;
-			}
-			catch(...)
-			{
-				return false;
-			}
+			std::unique_lock<std::mutex> ul(mtx);
+			auto rel_time = std::chrono::milliseconds(milliseconds);
+			can_put.wait_for(ul, rel_time, [this]{ return mqueue.size()<N;});
+			mqueue.push_back( std::move(data));
+			can_put.notify_all();
 #else
-			T* p = mpool.try_alloc();
+			T* p = mpool.try_alloc(rel_time);
 			if( p==nullptr) return false;
 
 			*p = data;
-			auto st = mqueue.put( p);
+			auto st = mqueue.try_put_for( p, rel_time);
 			return st == osOK ? true : false;
 #endif
 		}
