@@ -50,7 +50,7 @@ class Consumer : public IConsumer<CNS_T>
 
 		bool TakeProduct( CNS_T &product)
 		{
-			auto st = queue.get( product);
+			auto st = queue.try_get_for( product);
 			if( !st) return false;
 			Info.QueueSize = queue.size();
 			return st;

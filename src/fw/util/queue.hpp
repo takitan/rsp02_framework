@@ -137,7 +137,7 @@ class queue
 		 * @return true 成功
 		 * @return false 失敗
 		 */
-		bool try_get_for(T& data, uint32_t milliseconds)
+		bool try_get_for(T& data, uint32_t milliseconds = 0)
 		{
 #ifdef OFFLINE
 			std::unique_lock<std::mutex> ul(mtx);
