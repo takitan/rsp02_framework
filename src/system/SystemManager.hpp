@@ -89,7 +89,7 @@ class TSystemManager
 			else return *it;
 		}
 
-		const SystemStatus &GetInfo() const
+		const SystemInfo &GetInfo() const
 		{
 			return Info;
 		}
