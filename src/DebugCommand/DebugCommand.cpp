@@ -1,12 +1,8 @@
 #include "DebugCommand.hpp"
-#include "process/CommandKernel.hpp"
 
-extern rsp::rsp02::system::CommandKernel<MissionTLV,MissionTLV,MissionTLV> kernel;
+TDebugCommand DebugCommand;
 
-TDebugCommand DebugCommand(&kernel);
-
-TDebugCommand::TDebugCommand(rsp::rsp02::system::CommandKernel<MissionTLV,MissionTLV,MissionTLV>* kernel):
-	tlv_cmd(kernel),DebugPort(&shell)
+TDebugCommand::TDebugCommand():DebugPort(&shell)
 {
 }
 

@@ -16,7 +16,7 @@ class TDebugCommand
 		rsp::rsp02::system::Shell shell;
 		rsp::rsp02::system::DebugPort DebugPort;
 
-		TDebugCommand(rsp::rsp02::system::CommandKernel<MissionTLV,MissionTLV,MissionTLV>* kernel);
+		TDebugCommand();
 
 		void Initialize();
 };

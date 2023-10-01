@@ -1,5 +1,5 @@
 #pragma once
-#include "system/IProcess.hpp"
+#include "system/Process.hpp"
 #include "MissionDefine.hpp"
 #include "system/debug/IShellCommand.hpp"
 
@@ -15,12 +15,48 @@ struct TLVBuf
 class tlvcmd : public rsp::rsp02::system::IShellCommand
 {
 	public:
-		tlvcmd( rsp::rsp02::system::IConsumer<MissionTLV>* c);
+		tlvcmd();
 		int operator()( int argc, const char** argv, void* extobj);
 	private:
 			TLVBuf<16> buf;
-			rsp::rsp02::system::IConsumer<MissionTLV>* cns;
 			static constexpr int pDataSize = 256;
 			int ConvertpData( uint8_t* pData, const char *arg);
 
 };
+
+namespace rsp{
+namespace rsp02{
+namespace system{
+
+class TDebugOutput : public ConsumerProcess<rsp02TLV>
+{
+	public:
+		TDebugOutput( rsp::rsp02::time_t prd = 0) : ConsumerProcess<rsp02TLV>("DebugOutput", prd){}
+	protected:
+		bool ConcreteProcess( rsp02TLV &packet)
+		{
+			auto dst = packet.Destination();
+			auto typ = packet.Type();
+			auto len = packet.Length();
+			printf( "tlvres %s(%02x),%02x,%04x,",
+				DestinationString(dst),static_cast<std::underlying_type<EDestination>::type>(typ),
+				typ,
+				len);
+			print_pData( packet);
+			return true;
+		}
+	private:
+		void print_pData( rsp02TLV &packet)
+		{
+			typename rsp02TLV::len_t len;
+			for( int i=0;i<len;i++)
+			{
+				printf( "%02x", packet.pValue[i]);
+			} 
+			printf( "\n");
+		}
+};
+
+}
+}
+}

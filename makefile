@@ -11,7 +11,7 @@ INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
 CPPFLAGS ?= $(INC_FLAGS) -MMD -MP
-CPPFLAGS += -g -Wall -W -Wextra -Wunused-function -Wunused-parameter -Wunused-variable -fno-exceptions
+CPPFLAGS += -g -Wall -W -Wextra -Wunused-function -Wunused-parameter -Wunused-variable
 CPPFLAGS += -std=c++14 -fno-rtti -Wreturn-type -pthread
 CPPFLAGS += -DOFFLINE
 LDFLAGS = $(CPPFLAGS)

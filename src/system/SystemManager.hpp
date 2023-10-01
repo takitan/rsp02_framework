@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <algorithm>
 #include "system/Process.hpp"
 #include "fw/time/StopWatch.hpp"
 #include "fw/logger/Logger.hpp"
@@ -71,11 +72,23 @@ class TSystemManager
 
 		void RegisterProcess( IProcess* p)
 		{
+			if( p == nullptr) return;
+			p->SetID( process.size());
 			process.push_back( p);
 			// 思いつく限りの簡単な方法でIDを振っているが、
 			// Process削除できるようにしない限り、これでいいはず
-			p->ProcessID = process.size();
 		}
+
+		IProcess* GetProcess( int process_id)
+		{
+			auto it = std::find_if(
+				std::cbegin(process),
+				std::cend(process),
+				[process_id](IProcess* p){ return p->GetInfo().ProcessID == process_id;});
+			if( it == std::cend(process)) return nullptr;
+			else return *it;
+		}
+
 		const SystemStatus &GetInfo() const
 		{
 			return Info;

@@ -12,7 +12,7 @@ namespace rsp02{
 namespace fw{
 namespace logger{
 
-Logger::Logger( const char* name) : ThresholdLevel(ELogLevel::Debug)
+Logger::Logger( const char* name, ELogLevel initlv = ELogLevel::Debug) : ThresholdLevel(initlv)
 {
 	::strncpy( mName, name, sizeof(mName));
 }

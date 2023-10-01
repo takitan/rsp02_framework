@@ -23,7 +23,7 @@ class TMessageConverter : public PipelineProcess<CNS_T,PRD_T>
 
 		bool ConcreteProcess( CNS_T &product, PRD_T &reproduct)
 		{
-			reproduct = PRD_T(product.Original);
+			reproduct = PRD_T(product.Original, product.sender_id);
 			char buf[64];
 			reproduct.print( buf);
 			logger->Info("Convert to %s", buf);

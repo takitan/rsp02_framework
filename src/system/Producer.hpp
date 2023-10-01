@@ -37,6 +37,7 @@ class Producer : public IProducer<PRD_T>
 		{
 			return Consumer->Accept( p);
 		}
+		const ProcessInfo_t GetInfo() const{ return Info;}
 
 	private:
 		ProcessInfo_t &Info;
