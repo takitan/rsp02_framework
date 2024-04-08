@@ -10,7 +10,7 @@
 #include "fw/logger/Logger.hpp"
 #include "trigger.hpp"
 #include "ntshell/core/ntlibc.h"
-#include "MissionDefine.hpp"
+#include "GlobalDefine.hpp"
 using Logger = rsp::rsp02::fw::logger::Logger;
 using ILogger = rsp::rsp02::fw::logger::ILogger;
 

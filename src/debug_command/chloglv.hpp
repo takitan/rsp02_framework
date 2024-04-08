@@ -1,8 +1,8 @@
 #pragma once
 
-#include "IShellCommand.hpp"
+#include "debug/IShellCommand.hpp"
 #include "rsp02.hpp"
-#include "MissionDefine.hpp"
+#include "GlobalDefine.hpp"
 
 class chloglv : public rsp::rsp02::system::IShellCommand
 {

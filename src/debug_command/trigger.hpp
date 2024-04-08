@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
 #include "fw/fsm/StateBase.hpp"
-#include "system/debug/IShellCommand.hpp"
-#include "MissionDefine.hpp"
+#include "middle/debug/IShellCommand.hpp"
+#include "GlobalDefine.hpp"
 
 class trigger : public rsp::rsp02::system::IShellCommand
 {

@@ -2,12 +2,12 @@
 #include "tlvcmd.hpp"
 #include "chloglv.hpp"
 #include "trigger.hpp"
-#include "system/debug/Shell.hpp"
-#include "system/IProcess.hpp"
-#include "system/debug/DebugPort.hpp"
-#include "CommandKernel.hpp"
+#include "middle/debug/Shell.hpp"
+#include "middle/con_pro/IProcess.hpp"
+#include "middle/debug/DebugPort.hpp"
+//#include "CommandKernel.hpp"
 
-class TDebugCommand
+class TDBGCommandRoot
 {
 	public:
 		tlvcmd tlv_cmd;
@@ -16,9 +16,9 @@ class TDebugCommand
 		rsp::rsp02::system::Shell shell;
 		rsp::rsp02::system::DebugPort DebugPort;
 
-		TDebugCommand();
+		TDBGCommandRoot();
 
 		void Initialize();
 };
 
-extern TDebugCommand DebugCommand;
+extern TDBGCommandRoot DBGCommandRoot;

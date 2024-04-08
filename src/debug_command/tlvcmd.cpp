@@ -5,7 +5,7 @@
 #include "IProcess.hpp"
 #include "tlvcmd.hpp"
 #include "ntshell/core/ntlibc.h"
-#include "process/MissionProcess.hpp"
+#include "processes/ProcessRoot.hpp"
 
 tlvcmd::tlvcmd(){}
 
@@ -56,7 +56,7 @@ int tlvcmd::operator()( int argc, const char** argv, void* extobj)
 	ConvertpData( buf.pValue, argv[4]);
 	rsp02TLV mtlv( &buf);
 	mtlv.sender_id = 1234;
-	MissionProcess.DSTDispatcher.Accept( mtlv);
+	ProcessRoot.DSTDispatcher.Accept( mtlv);
 
 	return 0;
 }

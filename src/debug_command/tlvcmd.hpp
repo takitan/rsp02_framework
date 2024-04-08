@@ -1,7 +1,7 @@
 #pragma once
-#include "system/Process.hpp"
-#include "MissionDefine.hpp"
-#include "system/debug/IShellCommand.hpp"
+#include "middle/con_pro/Process.hpp"
+#include "GlobalDefine.hpp"
+#include "middle/debug/IShellCommand.hpp"
 
 template<size_t N>
 struct TLVBuf
