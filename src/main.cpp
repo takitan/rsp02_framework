@@ -1,29 +1,30 @@
 #include <vector>
-#include "process/StateMachine.hpp"
-#include "InitialFSM.hpp"
-#include "MissionDefine.hpp"
-#include "system/SystemManager.hpp"
-#include "MissionDefine.hpp"
+#include "src/processes/StateMachine.hpp"
+#include "GlobalDefine.hpp"
+#include "middle/SystemManager.hpp"
+#include "GlobalDefine.hpp"
 #include "fw/time/time.hpp"
-#include "system/Process.hpp"
-#include "system/debug/DebugPort.hpp"
-#include "MissionCommand/MissionCommand.hpp"
-#include "DebugCommand/DebugCommand.hpp"
-#include "process/MissionProcess.hpp"
+#include "middle/con_pro/Process.hpp"
+#include "middle/debug/DebugPort.hpp"
+#include "command/CommandRoot.hpp"
+#include "debug_command/DBGCommandRoot.hpp"
+#include "processes/ProcessRoot.hpp"
 #include "MainState/MainFSM.hpp"
 #include "LogSystem.hpp"
+#include "states/StateRoot.hpp"
 
 using namespace rsp::rsp02;
 
-system::CommandKernel<MissionTLV,MissionTLV,MissionTLV> kernel;
+system::CommandKernel<TLVPacket,TLVPacket,TLVPacket> kernel;
+auto logger = rsp::rsp02::fw::logger::Logger::GetLogger( "ROOT");
 
 void Test()
 {
-	MainFSM.StateMachine.ResetState();
+	StateRoot.MainFSM.StateMachine.ResetState();
 
 	while(true)
 	{
-		MissionProcess.SystemManager.Process();
+		ProcessRoot.SystemManager.Process();
 	}
 }
 
@@ -31,14 +32,11 @@ int main(int argc, const char* argv[])
 {
 	// 初期化中にもログを吐くので、真っ先に初期化するべし
 	LogSystem.Initialize();
-	DebugCommand.Initialize();
-	MissionCommand.Initialize();
-	MainFSM.Initialize();
-	MissionProcess.Initialize();
-	DebugCommand.trigger_cmd.RegisterState( &MainFSM.st2);
-	auto logger = rsp::rsp02::fw::logger::Logger::GetLogger( "ROOT");
+	DBGCommandRoot.Initialize();
+	CommandRoot.Initialize();
+	StateRoot.Initialize();
+	ProcessRoot.Initialize();
 	logger->Info("Let's Start!");
-
 	logger->SetLogLevel( rsp::rsp02::fw::logger::ELogLevel::Trace);
 	Test();
 }
