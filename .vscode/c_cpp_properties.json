@@ -1,19 +1,19 @@
 {
-    "configurations": [
-        {
-            "name": "WSL",
-            "intelliSenseMode": "linux-gcc-x64",
-            "compilerPath": "/usr/bin/gcc",
-            "includePath": [
-                "${workspaceFolder}/**",
-                "/usr/include/*",
-                "/usr/include/c++/6.4.0/**"
-            ],
-            "defines": ["OFFLINE"],
-            "cStandard": "gnu11",
-            "cppStandard":"gnu++17",
-            "configurationProvider": "ms-vscode"
-        }
-    ],
-    "version": 4
+  "configurations": [
+    {
+      "name": "linux-gcc-x64",
+      "intelliSenseMode": "linux-gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "includePath": [
+        "${workspaceFolder}/**"
+      ],
+      "defines": [
+        "OFFLINE"
+      ],
+      "cStandard": "${default}",
+      "cppStandard": "${default}",
+      "configurationProvider": "ms-vscode"
+    }
+  ],
+  "version": 4
 }

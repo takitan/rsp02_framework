@@ -2,7 +2,7 @@
 #include <cstdint>
 #include <cstring>
 #include "fw/util/align.hpp"
-#include "TLV_library/rsp02_mission.hpp"
+#include "rsp02_mission.hpp"
 #include "GlobalDefine.hpp"
 #include "fw/util/align.hpp"
 

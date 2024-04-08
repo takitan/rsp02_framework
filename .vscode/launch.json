@@ -1,46 +1,24 @@
 {
-	// IntelliSense を使用して利用可能な属性を学べます。
-	// 既存の属性の説明をホバーして表示します。
-	// 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
-	"version": "0.2.0",
-	"configurations": [
-	  {
-		"name": "C/C++ Runner: Debug Session",
-		"type": "cppdbg",
-		"request": "launch",
-		"args": [],
-		"stopAtEntry": false,
-		//"log": true,
-		"cwd": "${workspaceFolder}",
-//		"targetArchitecture": "x64",
-		"environment": [],
-		"program": "${workspaceFolder}/build/a.out",
-		"internalConsoleOptions": "openOnSessionStart",
-		"preLaunchTask": "build",
-/*		"customLaunchSetupCommands": [
-			{
-				"text": "target-run",
-				"description": "run target",
-				"ignoreFailures": true 
-			}
-		],
-*/		"linux":{
-			"MIMode": "gdb",
-			"miDebuggerPath": "/usr/bin/gdb"
-		},
-		"externalConsole": false,
-		"setupCommands": [
-			{
-				"description": "Enable pretty-printing for gdb",
-				"text": "-enable-pretty-printing",
-				"ignoreFailures": true
-			},
-			{
-				"text":"handle SIGPIPE nostop noprint pass",
-				"description": "ignore SIGPIPE",
-				"ignoreFailures": true
-			}
-		]
-	  }
-	]
-  }
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "cwd": "/home/user/work/rsp/rsp02_framework/src",
+      "program": "/home/user/work/rsp/rsp02_framework/src/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
