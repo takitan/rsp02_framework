@@ -1,4 +1,4 @@
-# RSP02Framework
+# RSP02-Framework
 
 ## これはなに？
 
