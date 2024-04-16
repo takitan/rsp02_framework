@@ -55,17 +55,17 @@ struct SafeArray
 		}
 };
 
-struct TLVpacketBase_t
+struct PacketBase_t
 {
 	const void* Original;
 
-	TLVpacketBase_t(const void* org, int sender) :
-		TLVpacketBase_t( const_cast<void*>(org), sender){}
-	TLVpacketBase_t(void* org, int sender) :
+	PacketBase_t(const void* org, int sender) :
+		PacketBase_t( const_cast<void*>(org), sender){}
+	PacketBase_t(void* org, int sender) :
 		Original(org), sender_id(sender){}
 		int sender_id;
 
-	TLVpacketBase_t( const TLVpacketBase_t &dst)
+	PacketBase_t( const PacketBase_t &dst)
 	{
 		Original = dst.Original;
 		sender_id = dst.sender_id;
@@ -73,7 +73,7 @@ struct TLVpacketBase_t
 };
 
 template<typename DST_T,typename TYP_T>
-struct TLVpacket_t : TLVpacketBase_t
+struct TLVpacket_t : PacketBase_t
 {
 	using dst_t = DST_T;
 	using typ_t = TYP_T;
@@ -88,7 +88,7 @@ struct TLVpacket_t : TLVpacketBase_t
 	TLVpacket_t() : TLVpacket_t((const void*)nullptr){}
 	TLVpacket_t(const void* org) : TLVpacket_t(org,-1){}
 	TLVpacket_t(const void* org, int sender) :
-		TLVpacketBase_t(org,sender),
+		PacketBase_t(org,sender),
 		Destination(org_pnt(dst_offset)),
 		Type(org_pnt(typ_offset)),
 		Length(org_pnt(len_offset)),
