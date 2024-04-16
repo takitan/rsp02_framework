@@ -18,10 +18,19 @@ using namespace rsp::rsp02;
 system::CommandKernel<TLVPacket,TLVPacket,TLVPacket> kernel;
 auto logger = rsp::rsp02::fw::logger::Logger::GetLogger( "ROOT");
 
-void Test()
+void Initialize()
 {
+	// 初期化中にもログを吐くので、真っ先に初期化するべし
+	LogSystem.Initialize();
+	DBGCommandRoot.Initialize();
+	CommandRoot.Initialize();
+	StateRoot.Initialize();
+	ProcessRoot.Initialize();
 	StateRoot.MainFSM.StateMachine.ResetState();
+}
 
+void MainLoop()
+{
 	while(true)
 	{
 		ProcessRoot.SystemManager.Process();
@@ -30,13 +39,7 @@ void Test()
 
 int main(int argc, const char* argv[])
 {
-	// 初期化中にもログを吐くので、真っ先に初期化するべし
-	LogSystem.Initialize();
-	DBGCommandRoot.Initialize();
-	CommandRoot.Initialize();
-	StateRoot.Initialize();
-	ProcessRoot.Initialize();
 	logger->Info("Let's Start!");
 	logger->SetLogLevel( rsp::rsp02::fw::logger::ELogLevel::Trace);
-	Test();
+	MainLoop();
 }
