@@ -71,7 +71,8 @@ Process Aの後続プロセスをProcess BとProcess Cと指定する
 ProcessA.SetConsumer(ProcessB);
 ProcessA.SetConsumer(ProcessC);
 ```
-***(注)現バージョンのOS/02では、分岐をサポートしていない。MessageDispatcherは、OS/02のメッセージ通信機構を使わずに、分岐を実装している。***
+>[!NOTE]
+>現バージョンのOS/02では、分岐をサポートしていない。[MessageDispatcher](../../../src/processes/MessageDispatcher.hpp)は、OS/02のメッセージ通信機構を使わずに、分岐を実装している。
 
 ### クラス図
 ```mermaid
