@@ -1,0 +1,4 @@
+# TLVDatalinkUp,TLVDatalinkDown
+## 動作
+tlvライブラリを利用してUARTから受信したデータをRSP02Tlv形式で生成するProducerプロセス
+（現時点ではTLVStubという疑似TLVライブラリを利用している）
