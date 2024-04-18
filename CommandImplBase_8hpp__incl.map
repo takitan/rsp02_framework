@@ -9,7 +9,7 @@
 <area shape="rect" id="node11" href="$Logger_8hpp.html" title=" " alt="" coords="989,80,1146,107"/>
 <area shape="rect" id="node14" href="$ExecutionStrategy_8hpp.html" title=" " alt="" coords="709,80,964,107"/>
 <area shape="rect" id="node15" href="$assert_8hpp.html" title=" " alt="" coords="1171,80,1305,107"/>
-<area shape="rect" id="node17" href="$raii_8hpp.html" title=" " alt="" coords="38,80,153,107"/>
+<area shape="rect" id="node17" href="$raii_8hpp.html" title="RAII(Resource Acquisition Is Initialization)のための枠組み" alt="" coords="38,80,153,107"/>
 <area shape="rect" id="node7" title=" " alt="" coords="475,304,542,331"/>
 <area shape="rect" id="node8" title=" " alt="" coords="573,379,639,405"/>
 <area shape="rect" id="node9" href="$time_8hpp.html" title=" " alt="" coords="566,304,646,331"/>

@@ -25,7 +25,7 @@
 <area shape="rect" id="node18" href="$Logger_8hpp.html" title=" " alt="" coords="1596,304,1753,331"/>
 <area shape="rect" id="node21" href="$ExecutionStrategy_8hpp.html" title=" " alt="" coords="546,379,801,405"/>
 <area shape="rect" id="node22" href="$assert_8hpp.html" title=" " alt="" coords="759,304,894,331"/>
-<area shape="rect" id="node24" href="$raii_8hpp.html" title=" " alt="" coords="1020,304,1135,331"/>
+<area shape="rect" id="node24" href="$raii_8hpp.html" title="RAII(Resource Acquisition Is Initialization)のための枠組み" alt="" coords="1020,304,1135,331"/>
 <area shape="rect" id="node15" title=" " alt="" coords="1407,603,1473,629"/>
 <area shape="rect" id="node16" href="$time_8hpp.html" title=" " alt="" coords="1497,603,1577,629"/>
 <area shape="rect" id="node19" title=" " alt="" coords="1703,453,1774,480"/>
@@ -34,7 +34,7 @@
 <area shape="rect" id="node26" title=" " alt="" coords="1407,155,1470,181"/>
 <area shape="rect" id="node27" title=" " alt="" coords="1697,155,1783,181"/>
 <area shape="rect" id="node28" href="$Process_8hpp.html" title=" " alt="" coords="1807,155,1907,181"/>
-<area shape="rect" id="node29" href="$Consumer_8hpp.html" title=" " alt="" coords="1959,304,2073,331"/>
+<area shape="rect" id="node29" href="$Consumer_8hpp.html" title="Consumer&#45;ProducerパターンのConsumer." alt="" coords="1959,304,2073,331"/>
 <area shape="rect" id="node34" href="$Producer_8hpp.html" title=" " alt="" coords="1777,304,1884,331"/>
 <area shape="rect" id="node35" href="$Executer_8hpp.html" title=" " alt="" coords="1927,229,2033,256"/>
 <area shape="rect" id="node30" href="$queue_8hpp.html" title=" " alt="" coords="2023,379,2158,405"/>

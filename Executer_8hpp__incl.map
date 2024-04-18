@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title=" " alt="" coords="160,5,369,32"/>
 <area shape="rect" id="node2" href="$IProcess_8hpp.html" title=" " alt="" coords="134,155,238,181"/>
 <area shape="rect" id="node9" href="$Producer_8hpp.html" title=" " alt="" coords="145,80,251,107"/>
-<area shape="rect" id="node10" href="$Consumer_8hpp.html" title=" " alt="" coords="275,80,390,107"/>
+<area shape="rect" id="node10" href="$Consumer_8hpp.html" title="Consumer&#45;ProducerパターンのConsumer." alt="" coords="275,80,390,107"/>
 <area shape="rect" id="node13" href="$Logger_8hpp.html" title=" " alt="" coords="419,80,577,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,229,76,256"/>
 <area shape="rect" id="node4" href="$StopWatch_8hpp.html" title="簡易的な経過時間測定手段を提供する" alt="" coords="100,229,272,256"/>

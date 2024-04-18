@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['vtrecv_5faction_5ft_1485',['vtrecv_action_t',['../vtrecv_8h.html#a05d44438375065f82d4ac03d9a03d60c',1,'vtrecv.h']]],
-  ['vtrecv_5fstate_5ft_1486',['vtrecv_state_t',['../vtrecv_8h.html#a5cac0bc40e7c8d819b00e0d615a43a7b',1,'vtrecv.h']]]
+  ['vtrecv_5faction_5ft_1490',['vtrecv_action_t',['../vtrecv_8h.html#a05d44438375065f82d4ac03d9a03d60c',1,'vtrecv.h']]],
+  ['vtrecv_5fstate_5ft_1491',['vtrecv_state_t',['../vtrecv_8h.html#a5cac0bc40e7c8d819b00e0d615a43a7b',1,'vtrecv.h']]]
 ];

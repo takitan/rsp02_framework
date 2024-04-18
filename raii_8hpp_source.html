@@ -85,35 +85,36 @@ $(document).ready(function(){initNavTree('raii_8hpp_source.html',''); initResiza
 <div class="title">raii.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="raii_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacersp.html">rsp</a>{</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>rsp02{</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>fw{</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>util{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html">raii</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#a04bcec2844283f3c284e3c7c54dc16c2">   12</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#a04bcec2844283f3c284e3c7c54dc16c2">function_t</a> = std::function&lt;void(<span class="keywordtype">void</span>)&gt;;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#ace64c428f6e39b419f5e327aff2e2d07">   13</a></span>&#160;        <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#ace64c428f6e39b419f5e327aff2e2d07">raii</a>( <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#a04bcec2844283f3c284e3c7c54dc16c2">function_t</a> ff) : final_func(ff){}</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#ab6995e4de4a838154b72551cade43567">   14</a></span>&#160;        <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#ab6995e4de4a838154b72551cade43567">~raii</a>()</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            final_func();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#a04bcec2844283f3c284e3c7c54dc16c2">function_t</a> final_func;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1raii_html"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html">rsp::rsp02::fw::util::raii</a></div><div class="ttdef"><b>Definition:</b> raii.hpp:10</div></div>
-<div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1raii_html_a04bcec2844283f3c284e3c7c54dc16c2"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#a04bcec2844283f3c284e3c7c54dc16c2">rsp::rsp02::fw::util::raii::function_t</a></div><div class="ttdeci">std::function&lt; void(void)&gt; function_t</div><div class="ttdef"><b>Definition:</b> raii.hpp:12</div></div>
-<div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1raii_html_ab6995e4de4a838154b72551cade43567"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#ab6995e4de4a838154b72551cade43567">rsp::rsp02::fw::util::raii::~raii</a></div><div class="ttdeci">~raii()</div><div class="ttdef"><b>Definition:</b> raii.hpp:14</div></div>
-<div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1raii_html_ace64c428f6e39b419f5e327aff2e2d07"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#ace64c428f6e39b419f5e327aff2e2d07">rsp::rsp02::fw::util::raii::raii</a></div><div class="ttdeci">raii(function_t ff)</div><div class="ttdef"><b>Definition:</b> raii.hpp:13</div></div>
+<a href="raii_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacersp.html">rsp</a>{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span>rsp02{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>fw{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span>util{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html">raii</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#a04bcec2844283f3c284e3c7c54dc16c2">   26</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#a04bcec2844283f3c284e3c7c54dc16c2">function_t</a> = std::function&lt;void(<span class="keywordtype">void</span>)&gt;;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#ace64c428f6e39b419f5e327aff2e2d07">   32</a></span>&#160;        <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#ace64c428f6e39b419f5e327aff2e2d07">raii</a>( <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#a04bcec2844283f3c284e3c7c54dc16c2">function_t</a> ff) : final_func(ff){}</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#ab6995e4de4a838154b72551cade43567">   33</a></span>&#160;        <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#ab6995e4de4a838154b72551cade43567">~raii</a>()</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            final_func();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#a04bcec2844283f3c284e3c7c54dc16c2">function_t</a> final_func;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1raii_html"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html">rsp::rsp02::fw::util::raii</a></div><div class="ttdef"><b>Definition:</b> raii.hpp:24</div></div>
+<div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1raii_html_a04bcec2844283f3c284e3c7c54dc16c2"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#a04bcec2844283f3c284e3c7c54dc16c2">rsp::rsp02::fw::util::raii::function_t</a></div><div class="ttdeci">std::function&lt; void(void)&gt; function_t</div><div class="ttdef"><b>Definition:</b> raii.hpp:26</div></div>
+<div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1raii_html_ab6995e4de4a838154b72551cade43567"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#ab6995e4de4a838154b72551cade43567">rsp::rsp02::fw::util::raii::~raii</a></div><div class="ttdeci">~raii()</div><div class="ttdef"><b>Definition:</b> raii.hpp:33</div></div>
+<div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1raii_html_ace64c428f6e39b419f5e327aff2e2d07"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1raii.html#ace64c428f6e39b419f5e327aff2e2d07">rsp::rsp02::fw::util::raii::raii</a></div><div class="ttdeci">raii(function_t ff)</div><div class="ttdoc">Construct a new raii object.</div><div class="ttdef"><b>Definition:</b> raii.hpp:32</div></div>
 <div class="ttc" id="anamespacersp_html"><div class="ttname"><a href="namespacersp.html">rsp</a></div><div class="ttdef"><b>Definition:</b> CommandImplBase.hpp:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

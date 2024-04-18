@@ -5,7 +5,7 @@
 <area shape="rect" id="node4" title=" " alt="" coords="190,80,277,107"/>
 <area shape="rect" id="node5" href="$Process_8hpp.html" title=" " alt="" coords="301,80,401,107"/>
 <area shape="rect" id="node18" href="$Logger_8hpp.html" title=" " alt="" coords="473,229,631,256"/>
-<area shape="rect" id="node6" href="$Consumer_8hpp.html" title=" " alt="" coords="153,229,268,256"/>
+<area shape="rect" id="node6" href="$Consumer_8hpp.html" title="Consumer&#45;ProducerパターンのConsumer." alt="" coords="153,229,268,256"/>
 <area shape="rect" id="node16" href="$Producer_8hpp.html" title=" " alt="" coords="343,229,449,256"/>
 <area shape="rect" id="node17" href="$Executer_8hpp.html" title=" " alt="" coords="253,155,358,181"/>
 <area shape="rect" id="node7" href="$queue_8hpp.html" title=" " alt="" coords="79,304,214,331"/>

@@ -1,5 +1,5 @@
 <map id="fw/util/raii.hpp" name="fw/util/raii.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="1448,5,1563,32"/>
+<area shape="rect" id="node1" title="RAII(Resource Acquisition Is Initialization)のための枠組み" alt="" coords="1448,5,1563,32"/>
 <area shape="rect" id="node2" href="$CommandImplBase_8hpp.html" title=" " alt="" coords="1372,80,1639,107"/>
 <area shape="rect" id="node3" href="$GlobalDefine_8hpp.html" title=" " alt="" coords="1427,155,1584,181"/>
 <area shape="rect" id="node4" href="$DebugPort_8hpp.html" title=" " alt="" coords="104,326,315,353"/>

@@ -83,7 +83,8 @@ $(document).ready(function(){initNavTree('align_8hpp.html',''); initResizable();
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">align.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -161,10 +162,13 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrsp_1_1rsp02_1_1fw_1_1util_1_1byte__type.html">rsp::rsp02::fw::util::byte_type&lt; N &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrsp_1_1rsp02_1_1fw_1_1util_1_1byte__type_3_018_01_4.html">rsp::rsp02::fw::util::byte_type&lt; 8 &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">8bit幅の定義  <a href="structrsp_1_1rsp02_1_1fw_1_1util_1_1byte__type_3_018_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrsp_1_1rsp02_1_1fw_1_1util_1_1byte__type_3_0116_01_4.html">rsp::rsp02::fw::util::byte_type&lt; 16 &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">16bit幅の定義  <a href="structrsp_1_1rsp02_1_1fw_1_1util_1_1byte__type_3_0116_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrsp_1_1rsp02_1_1fw_1_1util_1_1byte__type_3_0132_01_4.html">rsp::rsp02::fw::util::byte_type&lt; 32 &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">32bit幅の定義  <a href="structrsp_1_1rsp02_1_1fw_1_1util_1_1byte__type_3_0132_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrsp_1_1rsp02_1_1fw_1_1util_1_1align.html">rsp::rsp02::fw::util::align</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,6 +183,18 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacersp_1_1rsp02_1_1fw_1_1util"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacersp_1_1rsp02_1_1fw_1_1util.html">rsp::rsp02::fw::util</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a39c504d6108a550f81d94e9f8b40c673"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="align_8hpp.html#a39c504d6108a550f81d94e9f8b40c673">SAFE_INIT</a>(x,  y)&#160;&#160;&#160;x( align::safe_read&lt;uint8_t&gt;(&amp;y))</td></tr>
+<tr class="memdesc:a39c504d6108a550f81d94e9f8b40c673"><td class="mdescLeft">&#160;</td><td class="mdescRight">バイトアライメントを気にせずにbyteで値を設定する便利関数  <a href="align_8hpp.html#a39c504d6108a550f81d94e9f8b40c673">More...</a><br /></td></tr>
+<tr class="separator:a39c504d6108a550f81d94e9f8b40c673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4353d1c6cad36fdf375e20dec9d9a960"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="align_8hpp.html#a4353d1c6cad36fdf375e20dec9d9a960">SAFE_INIT8</a>(x,  y)&#160;&#160;&#160;x( align::safe_read&lt;uint8_t&gt;(&amp;y))</td></tr>
+<tr class="memdesc:a4353d1c6cad36fdf375e20dec9d9a960"><td class="mdescLeft">&#160;</td><td class="mdescRight">バイトアライメントを気にせずにbyteで値を設定する便利関数  <a href="align_8hpp.html#a4353d1c6cad36fdf375e20dec9d9a960">More...</a><br /></td></tr>
+<tr class="separator:a4353d1c6cad36fdf375e20dec9d9a960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae816f6bb0ae91393a887d00df4e1a453"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="align_8hpp.html#ae816f6bb0ae91393a887d00df4e1a453">SAFE_INIT16</a>(x,  y)&#160;&#160;&#160;x( align::safe_read&lt;uint16_t&gt;(&amp;y))</td></tr>
+<tr class="memdesc:ae816f6bb0ae91393a887d00df4e1a453"><td class="mdescLeft">&#160;</td><td class="mdescRight">バイトアライメントを気にせずにwordで値を設定する便利関数  <a href="align_8hpp.html#ae816f6bb0ae91393a887d00df4e1a453">More...</a><br /></td></tr>
+<tr class="separator:ae816f6bb0ae91393a887d00df4e1a453"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>バイトアライメントをなるべく気にせずにアクセスする手段たち </p>
@@ -187,8 +203,101 @@ Namespaces</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2023-04-18 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023</dd></dl>
 <p>usage: 要は、テンプレート引数にビットサイズを渡すと適切にアクセスしてくれる</p>
-<p>N=8 : バイトアクセス(実際には普通に読めば良い) uint8_t safe_read&lt;8&gt;(uint8_t* src); </p>
-</div><h2 class="groupheader">Variable Documentation</h2>
+<p>N=8 : バイトアクセス(実際には普通に読めば良い) uint8_t safe_read&lt;8&gt;(uint8_t* src);</p>
+<p>N=16 : ワードアクセス uint16_t safe_read&lt;16&gt;(uint16_t* src);</p>
+<p>N=32 : ダブルワードアクセス uint32_t safe_read&lt;32&gt;(uint32_t* src); </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a39c504d6108a550f81d94e9f8b40c673"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39c504d6108a550f81d94e9f8b40c673">&#9670;&nbsp;</a></span>SAFE_INIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SAFE_INIT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;x( align::safe_read&lt;uint8_t&gt;(&amp;y))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>バイトアライメントを気にせずにbyteで値を設定する便利関数 </p>
+
+</div>
+</div>
+<a id="ae816f6bb0ae91393a887d00df4e1a453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae816f6bb0ae91393a887d00df4e1a453">&#9670;&nbsp;</a></span>SAFE_INIT16</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SAFE_INIT16</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;x( align::safe_read&lt;uint16_t&gt;(&amp;y))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>バイトアライメントを気にせずにwordで値を設定する便利関数 </p>
+
+</div>
+</div>
+<a id="a4353d1c6cad36fdf375e20dec9d9a960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4353d1c6cad36fdf375e20dec9d9a960">&#9670;&nbsp;</a></span>SAFE_INIT8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SAFE_INIT8</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;x( align::safe_read&lt;uint8_t&gt;(&amp;y))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>バイトアライメントを気にせずにbyteで値を設定する便利関数 </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
 <a id="aca507686aaa137d6fe8ddf9dfdc87dfa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aca507686aaa137d6fe8ddf9dfdc87dfa">&#9670;&nbsp;</a></span>src</h2>
 

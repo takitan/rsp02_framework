@@ -1,4 +1,4 @@
 <map id="rsp::rsp02::fw::util::align::safe_write" name="rsp::rsp02::fw::util::align::safe_write">
-<area shape="rect" id="node1" title=" " alt="" coords="232,5,371,47"/>
+<area shape="rect" id="node1" title="バイトアライメントを気にせずにライトする" alt="" coords="232,5,371,47"/>
 <area shape="rect" id="node2" href="$structSafeProperty.html#a1ba2f4cfb6c6358d62b73e20a853de97" title=" " alt="" coords="5,13,184,39"/>
 </map>

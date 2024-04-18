@@ -5,7 +5,7 @@
 <area shape="rect" id="node4" href="$Process_8hpp.html" title=" " alt="" coords="301,80,401,107"/>
 <area shape="rect" id="node11" href="$StopWatch_8hpp.html" title="簡易的な経過時間測定手段を提供する" alt="" coords="143,379,315,405"/>
 <area shape="rect" id="node17" href="$Logger_8hpp.html" title=" " alt="" coords="573,229,730,256"/>
-<area shape="rect" id="node5" href="$Consumer_8hpp.html" title=" " alt="" coords="434,229,549,256"/>
+<area shape="rect" id="node5" href="$Consumer_8hpp.html" title="Consumer&#45;ProducerパターンのConsumer." alt="" coords="434,229,549,256"/>
 <area shape="rect" id="node15" href="$Producer_8hpp.html" title=" " alt="" coords="253,229,359,256"/>
 <area shape="rect" id="node16" href="$Executer_8hpp.html" title=" " alt="" coords="344,155,449,181"/>
 <area shape="rect" id="node6" href="$queue_8hpp.html" title=" " alt="" coords="424,304,559,331"/>

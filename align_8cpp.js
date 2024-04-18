@@ -1,4 +1,4 @@
 var align_8cpp =
 [
-    [ "SAFE_INIT", "align_8cpp.html#a39c504d6108a550f81d94e9f8b40c673", null ]
+    [ "SAFE_INIT32", "align_8cpp.html#a9116e5dd4b264848e4e0bf3f5b39c15a", null ]
 ];
