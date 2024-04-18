@@ -15,6 +15,8 @@ var structTLVpacket__t =
     [ "org_pnt", "structTLVpacket__t.html#abc08e54426158e155fc7f72f85c2bbf5", null ],
     [ "print", "structTLVpacket__t.html#af75e7e2f50fdc86ce864564ef228c12e", null ],
     [ "print", "structTLVpacket__t.html#ab1efde6b7c0f7d4101979f8952bede91", null ],
+    [ "print", "structTLVpacket__t.html#ab1efde6b7c0f7d4101979f8952bede91", null ],
+    [ "print", "structTLVpacket__t.html#ab1efde6b7c0f7d4101979f8952bede91", null ],
     [ "print", "structTLVpacket__t.html#af75e7e2f50fdc86ce864564ef228c12e", null ],
     [ "print", "structTLVpacket__t.html#ab1efde6b7c0f7d4101979f8952bede91", null ],
     [ "print", "structTLVpacket__t.html#ab1efde6b7c0f7d4101979f8952bede91", null ],

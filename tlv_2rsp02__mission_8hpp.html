@@ -109,38 +109,119 @@ Include dependency graph for rsp02_mission.hpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ae531f1a690415aaad5305e2dafc2939a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tlv_2rsp02__mission_8hpp.html#ae531f1a690415aaad5305e2dafc2939a">TLVPacket</a> = <a class="el" href="structTLVpacket__t.html">TLVpacket_t</a>&lt; <a class="el" href="rsp02_8hpp.html#a592b65af44a4e0a8bc43d0ce91bec6fb">EDestination</a>, <a class="el" href="rsp02__cdh_8hpp.html#a5252f123d682c22df3ddce33c9ebea45">EType</a> &gt;</td></tr>
+<tr class="memitem:ae531f1a690415aaad5305e2dafc2939a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tlv_2rsp02__mission_8hpp.html#ae531f1a690415aaad5305e2dafc2939a">TLVPacket</a> = <a class="el" href="structTLVpacket__t.html">TLVpacket_t</a>&lt; <a class="el" href="rsp02_8hpp.html#a592b65af44a4e0a8bc43d0ce91bec6fb">EDestination</a>, <a class="el" href="rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6">EType</a> &gt;</td></tr>
 <tr class="separator:ae531f1a690415aaad5305e2dafc2939a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a74408d5942234e1ab964ccbec05975a6"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6">EType</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6acc413ba1a45b2d37657d44d3c7c86608">RequestNull</a> = 0x00
-, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a71dfd0b7a8fadfba4b1e0b37a569bce5">RequestPing</a> = 0x01
-, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a58df7b0324b6565d7479ed2b3b293650">ReplyNull</a> = 0x80
-, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6adfbdc4fb4c8b3056d8fdb219ea761a6c">ReplyPing</a> = 0x81
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6abbb93ef26e3c101ff11cdd21cab08a94">Null</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a692b8bcfb1f11b1ba8e6234694abc61c">REQ_MAG_TORQUE</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6ad2edf1034310ff55a9175ebd59296e2c">REA_MAG_TORQUE_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a38b9d817ba4c782e4eb79e82327d3476">REQ_BDOT</a>
 , <br />
-&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3">ReqNull</a> = 0x00
-, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6af2ce16945de0f76c11ab7ae1faba85be">ReqPing</a> = 0x01
-, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a8e0a66109e7cdf036a7096cf7c171f6a">ReqTakePhoto</a> = 0x02
-, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a39d520c0a4276005bdaf9f24777f530c">RepNull</a> = 0x80
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a3423ebeeb005c9f810cb087b97b51702">REQ_BDOT_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a482a5225a1d003e65726a66cfd22cceb">REQ_GAIN_CONTROL</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6af9bcf68bd962d2eef4c2d843ff94a72c">REQ_GAIN_CONTROL_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a8fd1dfeed1bd60a5c175b18469b0596a">REQ_ANG_CONTROL</a>
 , <br />
-&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aadf50cae79889d09c5b0dee0939e75ea">RepPing</a> = 0x81
-, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a02633924e2ddc572aed0131f135a7a0b">RepTakePhoto</a> = 0x82
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aa3d3883affdfd4ab8ea1972a6c84db5b">REQ_ANG_CONTROL_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a52cf13014b9595ad47a2e7e8a4af0dc8">REQ_INIT_SENSOR</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a90346ebd76f5ffd5e17aa8898ace6dab">REQ_INIT_SENSOR_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a45db1d37a74e7ddcd22a6eaa89b2552b">REQ_CHANGE_FILTER</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6ad18d0794767369deeaba65f473d1bff8">REQ_CHANGE_FILTER_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6afeb429d96d626a92eca788feaa8cc750">REQ_ABORT_BDOT</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6af873b9fe18d359fb3af597363f89db9f">REQ_ABORT_BDOT_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a2fbb75a09612ef0687fabbcf52eb7cf7">REQ_ATT_DATA</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a9c9b756612517586cc4162bf090b1764">REQ_ATT_DATA_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aa8bd6aac502dd546aa294ae4d6f9f0b5">SET_CUR_TIME</a> = 100
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aa5f20df76ed3a7edff6cba117909b069">SET_CUR_TIME_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aef9bf66aa6688032337edead065b4842">GET_HKDATA</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6afef2050d3eecb553ee02bd76ebef577d">GET_HKDATA_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a6777fd27393dd5cc1c3f1b11f9e6dc22">REQ_PING</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aae5fec0075500e4997e13449777c3766">REQ_PING_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a3e002c35934abf079e6ce7a510be26ad">REQ_TEMPERATURE</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aa2183aa2c518b2c4ca2d9874b85db4fe">REQ_TEMPERATURE_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3">ReqNull</a> = 0
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a1c773fb266d869e3bc8dce9fcf3f1e15">RESET_MAINOBC</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6afd554bb68987b0be25754e8698630afe">RESET_MAINOBC_RES</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a58385e64a0f6815c94fde24654c4daf1">EXPAND_ANTENNA</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a6d4c0ccf984af55cb88c895ed5fcb59e">EXPAND_ANTENNA_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6ac2cf4f7064e024b697e1e1a57c87bbb4">SET_FDIR</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a78097eae11d1dd34c45c5f4389531aa6">SET_FDIR_RES</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6ac9c9c146c630ca5ef9197c73c032f4a6">POWER</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6ab8947c0e855d39239c6f0581cce2a3d9">POWER_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a9f997b796f54dd700600233d510200bb">SEND_CW</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a8b6e693df274bd2dbb34d6a2f979642d">SEND_CW_RES</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6ab6cc70705ce8c42610cc9a2952a71abe">SEND_GMSK</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a35d48045d9d750e687c1b762b876ad21">SEND_GMSD_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6ad0bd0893d7681036938b89204807f65b">ABORT_DOWNLINK</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a24680507d8dae8a012bd801817775684">ABORT_DOWNLINK_RES</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a795a681d8511850ea8a72ab1b04b5f5c">SET_CW_SPEED</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a425382d1b717f28cc28a0134a15b4ad9">SET_CW_SPEED_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a98a09200782535b143c6ae5788a9a312">SELECT_TXOBC</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a509ecfccb240d9293b4f0d03615690d6">SELECT_TXOBC_RES</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a7c57208ce68050342c188460fa2eab67">TX_RESET</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a752ed971133641a6f34832c35a14693c">TX_RESET_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a8fa96fde8de3de3cb472f33f792862a4">COMM_TEST</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6acbfebfa9b6534614338844a11b474e00">COMM_TEST_RES</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a74b7e216ca9e1907893063a3c6a6531a">GET_HKDATA_FULL</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a09bf774442c6a6f8ff296681bd5bcba6">GET_HKDATA_FULL_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aa8bd6aac502dd546aa294ae4d6f9f0b5">SET_CUR_TIME</a> = 100
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aa5f20df76ed3a7edff6cba117909b069">SET_CUR_TIME_RES</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aef9bf66aa6688032337edead065b4842">GET_HKDATA</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6afef2050d3eecb553ee02bd76ebef577d">GET_HKDATA_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a6777fd27393dd5cc1c3f1b11f9e6dc22">REQ_PING</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aae5fec0075500e4997e13449777c3766">REQ_PING_RES</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a3e002c35934abf079e6ce7a510be26ad">REQ_TEMPERATURE</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aa2183aa2c518b2c4ca2d9874b85db4fe">REQ_TEMPERATURE_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6abbb93ef26e3c101ff11cdd21cab08a94">Null</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a4130de26d3895fa5de9f46ddd558315c">TAKE_PHOTO</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a9e1dae2c13d8cc08563e895016654c8d">TAKE_PHOTO_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a5b06d3a1284cc884789ff0826dab8692">REQ_IMAGE</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6afd7fe4ced2495fd37fd1e47bdea0cb95">REQ_IMAGE_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a307caccddab867579d9666cd867d3777">SD_FORMAT</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a88435de62964b4623f96b2d413d52c5d">SD_FORMAT_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a1e1b44f09e2acf312b3e710b74d36c7b">REQ_SD_STATUS</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a801fc090414808362f0bf17fc677e9f8">REQ_SD_STATUS_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aa8bd6aac502dd546aa294ae4d6f9f0b5">SET_CUR_TIME</a> = 100
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aa5f20df76ed3a7edff6cba117909b069">SET_CUR_TIME_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aef9bf66aa6688032337edead065b4842">GET_HKDATA</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6afef2050d3eecb553ee02bd76ebef577d">GET_HKDATA_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a6777fd27393dd5cc1c3f1b11f9e6dc22">REQ_PING</a>
+, <br />
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aae5fec0075500e4997e13449777c3766">REQ_PING_RES</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a3e002c35934abf079e6ce7a510be26ad">REQ_TEMPERATURE</a>
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aa2183aa2c518b2c4ca2d9874b85db4fe">REQ_TEMPERATURE_RES</a>
 , <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3">ReqNull</a> = 0x00
-, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6af2ce16945de0f76c11ab7ae1faba85be">ReqPing</a> = 0x01
 , <br />
-&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a8e0a66109e7cdf036a7096cf7c171f6a">ReqTakePhoto</a> = 0x02
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6af2ce16945de0f76c11ab7ae1faba85be">ReqPing</a> = 0x01
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a8e0a66109e7cdf036a7096cf7c171f6a">ReqTakePhoto</a> = 0x02
 , <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a39d520c0a4276005bdaf9f24777f530c">RepNull</a> = 0x80
 , <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aadf50cae79889d09c5b0dee0939e75ea">RepPing</a> = 0x81
-, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a02633924e2ddc572aed0131f135a7a0b">RepTakePhoto</a> = 0x82
 , <br />
-&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3">ReqNull</a> = 0x00
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a02633924e2ddc572aed0131f135a7a0b">RepTakePhoto</a> = 0x82
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3">ReqNull</a> = 0x00
 , <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6af2ce16945de0f76c11ab7ae1faba85be">ReqPing</a> = 0x01
 , <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a8e0a66109e7cdf036a7096cf7c171f6a">ReqTakePhoto</a> = 0x02
-, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a39d520c0a4276005bdaf9f24777f530c">RepNull</a> = 0x80
 , <br />
-&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aadf50cae79889d09c5b0dee0939e75ea">RepPing</a> = 0x81
+&#160;&#160;<a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a39d520c0a4276005bdaf9f24777f530c">RepNull</a> = 0x80
+, <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6aadf50cae79889d09c5b0dee0939e75ea">RepPing</a> = 0x81
 , <a class="el" href="tlv_2rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a02633924e2ddc572aed0131f135a7a0b">RepTakePhoto</a> = 0x82
 <br />
  }</td></tr>
@@ -154,7 +235,7 @@ Enumerations</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="rsp02__mission_8hpp.html#ae531f1a690415aaad5305e2dafc2939a">TLVPacket</a> =  <a class="el" href="structTLVpacket__t.html">TLVpacket_t</a>&lt;<a class="el" href="rsp02_8hpp.html#a592b65af44a4e0a8bc43d0ce91bec6fb">EDestination</a>, <a class="el" href="rsp02__cdh_8hpp.html#a5252f123d682c22df3ddce33c9ebea45">EType</a>&gt;</td>
+          <td class="memname">using <a class="el" href="rsp02__attitude_8hpp.html#ae531f1a690415aaad5305e2dafc2939a">TLVPacket</a> =  <a class="el" href="structTLVpacket__t.html">TLVpacket_t</a>&lt;<a class="el" href="rsp02_8hpp.html#a592b65af44a4e0a8bc43d0ce91bec6fb">EDestination</a>, <a class="el" href="rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6">EType</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -172,7 +253,7 @@ Enumerations</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="rsp02__cdh_8hpp.html#a5252f123d682c22df3ddce33c9ebea45">EType</a> : uint8_t</td>
+          <td class="memname">enum <a class="el" href="rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6">EType</a> : uint8_t</td>
         </tr>
       </table>
   </td>
@@ -182,16 +263,156 @@ Enumerations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6acc413ba1a45b2d37657d44d3c7c86608"></a>RequestNull&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a71dfd0b7a8fadfba4b1e0b37a569bce5"></a>RequestPing&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a58df7b0324b6565d7479ed2b3b293650"></a>ReplyNull&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6adfbdc4fb4c8b3056d8fdb219ea761a6c"></a>ReplyPing&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3"></a>ReqNull&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6af2ce16945de0f76c11ab7ae1faba85be"></a>ReqPing&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a8e0a66109e7cdf036a7096cf7c171f6a"></a>ReqTakePhoto&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a39d520c0a4276005bdaf9f24777f530c"></a>RepNull&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aadf50cae79889d09c5b0dee0939e75ea"></a>RepPing&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a02633924e2ddc572aed0131f135a7a0b"></a>RepTakePhoto&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6abbb93ef26e3c101ff11cdd21cab08a94"></a>Null&#160;</td><td class="fielddoc"><p>未定義 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a692b8bcfb1f11b1ba8e6234694abc61c"></a>REQ_MAG_TORQUE&#160;</td><td class="fielddoc"><p>磁気トルカ作動要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6ad2edf1034310ff55a9175ebd59296e2c"></a>REA_MAG_TORQUE_RES&#160;</td><td class="fielddoc"><p>磁気トルカ作動応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a38b9d817ba4c782e4eb79e82327d3476"></a>REQ_BDOT&#160;</td><td class="fielddoc"><p>Bdot制御実行要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a3423ebeeb005c9f810cb087b97b51702"></a>REQ_BDOT_RES&#160;</td><td class="fielddoc"><p>Bdot制御実行応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a482a5225a1d003e65726a66cfd22cceb"></a>REQ_GAIN_CONTROL&#160;</td><td class="fielddoc"><p>電流ゲイン設定要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6af9bcf68bd962d2eef4c2d843ff94a72c"></a>REQ_GAIN_CONTROL_RES&#160;</td><td class="fielddoc"><p>電流ゲイン設定応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a8fd1dfeed1bd60a5c175b18469b0596a"></a>REQ_ANG_CONTROL&#160;</td><td class="fielddoc"><p>角速度収束判定しきい値設定要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aa3d3883affdfd4ab8ea1972a6c84db5b"></a>REQ_ANG_CONTROL_RES&#160;</td><td class="fielddoc"><p>角速度収束判定しきい値設定応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a52cf13014b9595ad47a2e7e8a4af0dc8"></a>REQ_INIT_SENSOR&#160;</td><td class="fielddoc"><p>センサ初期化要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a90346ebd76f5ffd5e17aa8898ace6dab"></a>REQ_INIT_SENSOR_RES&#160;</td><td class="fielddoc"><p>センサ初期化応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a45db1d37a74e7ddcd22a6eaa89b2552b"></a>REQ_CHANGE_FILTER&#160;</td><td class="fielddoc"><p>フィルタ定数設定要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6ad18d0794767369deeaba65f473d1bff8"></a>REQ_CHANGE_FILTER_RES&#160;</td><td class="fielddoc"><p>フィルタ定数設定応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6afeb429d96d626a92eca788feaa8cc750"></a>REQ_ABORT_BDOT&#160;</td><td class="fielddoc"><p>Bdot制御停止要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6af873b9fe18d359fb3af597363f89db9f"></a>REQ_ABORT_BDOT_RES&#160;</td><td class="fielddoc"><p>Bdot制御停止応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a2fbb75a09612ef0687fabbcf52eb7cf7"></a>REQ_ATT_DATA&#160;</td><td class="fielddoc"><p>姿勢データ送信要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a9c9b756612517586cc4162bf090b1764"></a>REQ_ATT_DATA_RES&#160;</td><td class="fielddoc"><p>姿勢データ送信応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aa8bd6aac502dd546aa294ae4d6f9f0b5"></a>SET_CUR_TIME&#160;</td><td class="fielddoc"><p>自系現在時刻設定要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aa5f20df76ed3a7edff6cba117909b069"></a>SET_CUR_TIME_RES&#160;</td><td class="fielddoc"><p>自系現在時刻設定応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aef9bf66aa6688032337edead065b4842"></a>GET_HKDATA&#160;</td><td class="fielddoc"><p>自系HKデータ要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6afef2050d3eecb553ee02bd76ebef577d"></a>GET_HKDATA_RES&#160;</td><td class="fielddoc"><p>自系HKデータ応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a6777fd27393dd5cc1c3f1b11f9e6dc22"></a>REQ_PING&#160;</td><td class="fielddoc"><p>自系死活確認要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aae5fec0075500e4997e13449777c3766"></a>REQ_PING_RES&#160;</td><td class="fielddoc"><p>自系死活確認応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a3e002c35934abf079e6ce7a510be26ad"></a>REQ_TEMPERATURE&#160;</td><td class="fielddoc"><p>自系温度要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aa2183aa2c518b2c4ca2d9874b85db4fe"></a>REQ_TEMPERATURE_RES&#160;</td><td class="fielddoc"><p>自系温度応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3"></a>ReqNull&#160;</td><td class="fielddoc"><p>未定義 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a1c773fb266d869e3bc8dce9fcf3f1e15"></a>RESET_MAINOBC&#160;</td><td class="fielddoc"><p>衛星全体リセット要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6afd554bb68987b0be25754e8698630afe"></a>RESET_MAINOBC_RES&#160;</td><td class="fielddoc"><p>衛星全体リセット応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a58385e64a0f6815c94fde24654c4daf1"></a>EXPAND_ANTENNA&#160;</td><td class="fielddoc"><p>アンテナ展開要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a6d4c0ccf984af55cb88c895ed5fcb59e"></a>EXPAND_ANTENNA_RES&#160;</td><td class="fielddoc"><p>アンテナ展開応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6ac2cf4f7064e024b697e1e1a57c87bbb4"></a>SET_FDIR&#160;</td><td class="fielddoc"><p>異常処置設定要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a78097eae11d1dd34c45c5f4389531aa6"></a>SET_FDIR_RES&#160;</td><td class="fielddoc"><p>異常処置設定応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6ac9c9c146c630ca5ef9197c73c032f4a6"></a>POWER&#160;</td><td class="fielddoc"><p>搭載機器電源設定要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6ab8947c0e855d39239c6f0581cce2a3d9"></a>POWER_RES&#160;</td><td class="fielddoc"><p>搭載機器電源設定応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a9f997b796f54dd700600233d510200bb"></a>SEND_CW&#160;</td><td class="fielddoc"><p>CW送信要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a8b6e693df274bd2dbb34d6a2f979642d"></a>SEND_CW_RES&#160;</td><td class="fielddoc"><p>CW送信応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6ab6cc70705ce8c42610cc9a2952a71abe"></a>SEND_GMSK&#160;</td><td class="fielddoc"><p>GMSK送信要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a35d48045d9d750e687c1b762b876ad21"></a>SEND_GMSD_RES&#160;</td><td class="fielddoc"><p>GMSK送信応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6ad0bd0893d7681036938b89204807f65b"></a>ABORT_DOWNLINK&#160;</td><td class="fielddoc"><p>送信キャンセル要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a24680507d8dae8a012bd801817775684"></a>ABORT_DOWNLINK_RES&#160;</td><td class="fielddoc"><p>送信キャンセル応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a795a681d8511850ea8a72ab1b04b5f5c"></a>SET_CW_SPEED&#160;</td><td class="fielddoc"><p>CW送信速度設定要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a425382d1b717f28cc28a0134a15b4ad9"></a>SET_CW_SPEED_RES&#160;</td><td class="fielddoc"><p>CW送信速度設定応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a98a09200782535b143c6ae5788a9a312"></a>SELECT_TXOBC&#160;</td><td class="fielddoc"><p>送信機切替要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a509ecfccb240d9293b4f0d03615690d6"></a>SELECT_TXOBC_RES&#160;</td><td class="fielddoc"><p>送信機切替応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a7c57208ce68050342c188460fa2eab67"></a>TX_RESET&#160;</td><td class="fielddoc"><p>送信機リセット要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a752ed971133641a6f34832c35a14693c"></a>TX_RESET_RES&#160;</td><td class="fielddoc"><p>送信機リセット応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a8fa96fde8de3de3cb472f33f792862a4"></a>COMM_TEST&#160;</td><td class="fielddoc"><p>衛星内通信テスト要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6acbfebfa9b6534614338844a11b474e00"></a>COMM_TEST_RES&#160;</td><td class="fielddoc"><p>衛星内通信テスト応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a74b7e216ca9e1907893063a3c6a6531a"></a>GET_HKDATA_FULL&#160;</td><td class="fielddoc"><p>全系HKデータ要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a09bf774442c6a6f8ff296681bd5bcba6"></a>GET_HKDATA_FULL_RES&#160;</td><td class="fielddoc"><p>全系HKデータ応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aa8bd6aac502dd546aa294ae4d6f9f0b5"></a>SET_CUR_TIME&#160;</td><td class="fielddoc"><p>自系現在時刻設定要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aa5f20df76ed3a7edff6cba117909b069"></a>SET_CUR_TIME_RES&#160;</td><td class="fielddoc"><p>自系現在時刻設定応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aef9bf66aa6688032337edead065b4842"></a>GET_HKDATA&#160;</td><td class="fielddoc"><p>自系HKデータ要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6afef2050d3eecb553ee02bd76ebef577d"></a>GET_HKDATA_RES&#160;</td><td class="fielddoc"><p>自系HKデータ応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a6777fd27393dd5cc1c3f1b11f9e6dc22"></a>REQ_PING&#160;</td><td class="fielddoc"><p>自系死活確認要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aae5fec0075500e4997e13449777c3766"></a>REQ_PING_RES&#160;</td><td class="fielddoc"><p>自系死活確認応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a3e002c35934abf079e6ce7a510be26ad"></a>REQ_TEMPERATURE&#160;</td><td class="fielddoc"><p>自系温度要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aa2183aa2c518b2c4ca2d9874b85db4fe"></a>REQ_TEMPERATURE_RES&#160;</td><td class="fielddoc"><p>自系温度応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6abbb93ef26e3c101ff11cdd21cab08a94"></a>Null&#160;</td><td class="fielddoc"><p>未定義 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a4130de26d3895fa5de9f46ddd558315c"></a>TAKE_PHOTO&#160;</td><td class="fielddoc"><p>写真撮影要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a9e1dae2c13d8cc08563e895016654c8d"></a>TAKE_PHOTO_RES&#160;</td><td class="fielddoc"><p>写真撮影応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a5b06d3a1284cc884789ff0826dab8692"></a>REQ_IMAGE&#160;</td><td class="fielddoc"><p>画像データ要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6afd7fe4ced2495fd37fd1e47bdea0cb95"></a>REQ_IMAGE_RES&#160;</td><td class="fielddoc"><p>画像データ応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a307caccddab867579d9666cd867d3777"></a>SD_FORMAT&#160;</td><td class="fielddoc"><p>SDカードフォーマット要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a88435de62964b4623f96b2d413d52c5d"></a>SD_FORMAT_RES&#160;</td><td class="fielddoc"><p>SDカードフォーマット要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a1e1b44f09e2acf312b3e710b74d36c7b"></a>REQ_SD_STATUS&#160;</td><td class="fielddoc"><p>SDカードステータス要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a801fc090414808362f0bf17fc677e9f8"></a>REQ_SD_STATUS_RES&#160;</td><td class="fielddoc"><p>SDカードステータス応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aa8bd6aac502dd546aa294ae4d6f9f0b5"></a>SET_CUR_TIME&#160;</td><td class="fielddoc"><p>自系現在時刻設定要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aa5f20df76ed3a7edff6cba117909b069"></a>SET_CUR_TIME_RES&#160;</td><td class="fielddoc"><p>自系現在時刻設定応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aef9bf66aa6688032337edead065b4842"></a>GET_HKDATA&#160;</td><td class="fielddoc"><p>自系HKデータ要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6afef2050d3eecb553ee02bd76ebef577d"></a>GET_HKDATA_RES&#160;</td><td class="fielddoc"><p>自系HKデータ応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a6777fd27393dd5cc1c3f1b11f9e6dc22"></a>REQ_PING&#160;</td><td class="fielddoc"><p>自系死活確認要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aae5fec0075500e4997e13449777c3766"></a>REQ_PING_RES&#160;</td><td class="fielddoc"><p>自系死活確認応答 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a3e002c35934abf079e6ce7a510be26ad"></a>REQ_TEMPERATURE&#160;</td><td class="fielddoc"><p>自系温度要求 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aa2183aa2c518b2c4ca2d9874b85db4fe"></a>REQ_TEMPERATURE_RES&#160;</td><td class="fielddoc"><p>自系温度応答 </p>
+</td></tr>
 <tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3"></a>ReqNull&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6af2ce16945de0f76c11ab7ae1faba85be"></a>ReqPing&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a8e0a66109e7cdf036a7096cf7c171f6a"></a>ReqTakePhoto&#160;</td><td class="fielddoc"></td></tr>

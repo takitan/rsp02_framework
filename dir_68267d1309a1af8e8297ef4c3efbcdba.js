@@ -10,6 +10,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "LogSystem.hpp", "LogSystem_8hpp.html", "LogSystem_8hpp" ],
     [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
     [ "rsp02.hpp", "rsp02_8hpp.html", "rsp02_8hpp" ],
+    [ "rsp02_attitude.hpp", "rsp02__attitude_8hpp.html", "rsp02__attitude_8hpp" ],
     [ "rsp02_cdh.hpp", "rsp02__cdh_8hpp.html", "rsp02__cdh_8hpp" ],
     [ "rsp02_mission.hpp", "rsp02__mission_8hpp.html", "rsp02__mission_8hpp" ]
 ];

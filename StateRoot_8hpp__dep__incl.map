@@ -1,7 +1,7 @@
 <map id="src/states/StateRoot.hpp" name="src/states/StateRoot.hpp">
 <area shape="rect" id="node1" title=" " alt="" coords="342,5,523,32"/>
 <area shape="rect" id="node2" href="$DBGCommandRoot_8cpp.html" title=" " alt="" coords="5,80,263,121"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title=" " alt="" coords="287,87,392,114"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title="エントリポイント" alt="" coords="287,87,392,114"/>
 <area shape="rect" id="node4" href="$ProcessRoot_8cpp.html" title=" " alt="" coords="417,87,638,114"/>
 <area shape="rect" id="node5" href="$StateRoot_8cpp.html" title=" " alt="" coords="663,87,843,114"/>
 </map>

@@ -1,9 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"classrsp_1_1rsp02_1_1fw_1_1util_1_1Callback_3_01R_07ArgTs_8_8_8_08_4.html#ae5107157ae4fc006349354ca2bcde18f":[15,0,0,1,17],
-"classrsp_1_1rsp02_1_1fw_1_1util_1_1Callback_3_01R_07ArgTs_8_8_8_08_4.html#ae5a687308dc3e3d0acb8c1ebec36f00d":[15,0,0,1,7],
-"classrsp_1_1rsp02_1_1fw_1_1util_1_1Callback_3_01R_07ArgTs_8_8_8_08_4.html#ae925683eae9c0e4f0a20961a2e1cac68":[15,0,0,1,13],
-"classrsp_1_1rsp02_1_1fw_1_1util_1_1Callback_3_01R_07ArgTs_8_8_8_08_4.html#aeab84b91d8a3a94b897a6802117f8b20":[15,0,0,1,20],
 "classrsp_1_1rsp02_1_1fw_1_1util_1_1Callback_3_01R_07ArgTs_8_8_8_08_4.html#afb50ff62465353676abade5b39018f56":[15,0,0,1,23],
 "classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html":[17,0,0,0,0,4,8],
 "classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a75977fdb5c420d3e3209f510dd522740":[17,0,0,0,0,4,8,5],
@@ -227,8 +223,8 @@ var NAVTREEINDEX2 =
 "functions_~.html":[17,3,0,24],
 "fw_2fsm_2StateMachine_8hpp.html":[18,0,1,1,3],
 "fw_2fsm_2StateMachine_8hpp_source.html":[18,0,1,1,3],
-"globals.html":[18,1,0,0],
 "globals.html":[18,1,0],
+"globals.html":[18,1,0,0],
 "globals_c.html":[18,1,0,1],
 "globals_d.html":[18,1,0,2],
 "globals_defs.html":[18,1,6],
@@ -249,5 +245,9 @@ var NAVTREEINDEX2 =
 "globals_t.html":[18,1,0,14],
 "globals_type.html":[18,1,3],
 "globals_u.html":[18,1,0,15],
-"globals_v.html":[18,1,0,16]
+"globals_v.html":[18,1,0,16],
+"globals_vars.html":[18,1,2],
+"globals_w.html":[18,1,0,17],
+"group__platform-public-api.html":[15,0],
+"group__platform__Callback.html":[15,0,0]
 };

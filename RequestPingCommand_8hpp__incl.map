@@ -5,9 +5,9 @@
 <area shape="rect" id="node4" href="$align_8hpp.html" title="バイトアライメントをなるべく気にせずにアクセスする手段たち" alt="" coords="138,304,265,331"/>
 <area shape="rect" id="node5" title=" " alt="" coords="188,80,332,107"/>
 <area shape="rect" id="node6" href="$GlobalDefine_8hpp.html" title=" " alt="" coords="362,80,497,107"/>
-<area shape="rect" id="node7" href="$rsp02__mission_8hpp.html" title=" " alt="" coords="357,155,501,181"/>
+<area shape="rect" id="node7" href="$rsp02__mission_8hpp.html" title="Mission系定義" alt="" coords="357,155,501,181"/>
 <area shape="rect" id="node11" href="$CommandImplBase_8hpp.html" title=" " alt="" coords="915,155,1181,181"/>
-<area shape="rect" id="node8" href="$rsp02_8hpp.html" title=" " alt="" coords="189,229,275,256"/>
+<area shape="rect" id="node8" href="$rsp02_8hpp.html" title="RSP02全系共通定義" alt="" coords="189,229,275,256"/>
 <area shape="rect" id="node10" href="$CommandTypeBase_8hpp.html" title=" " alt="" coords="300,229,567,256"/>
 <area shape="rect" id="node9" title=" " alt="" coords="528,304,589,331"/>
 <area shape="rect" id="node12" title=" " alt="" coords="739,304,826,331"/>
