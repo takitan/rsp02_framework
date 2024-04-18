@@ -1,5 +1,5 @@
 /**
- * @file rsp02_mission.hpp
+ * @file rsp02_attitude.hpp
  * @author Nobuyuki Takita (takitan1972@gmail.com)
  * @brief Mission系定義
  * @version 0.1
@@ -22,14 +22,22 @@ enum class StateID : int
 enum class EType : uint8_t
 {
 	Null,						//!< 未定義
-	TAKE_PHOTO,					//!< 写真撮影要求
-	TAKE_PHOTO_RES,				//!< 写真撮影応答
-	REQ_IMAGE,					//!< 画像データ要求
-	REQ_IMAGE_RES,				//!< 画像データ応答
-	SD_FORMAT,					//!< SDカードフォーマット要求
-	SD_FORMAT_RES,				//!< SDカードフォーマット要求
-	REQ_SD_STATUS,				//!< SDカードステータス要求
-	REQ_SD_STATUS_RES,			//!< SDカードステータス応答
+	REQ_MAG_TORQUE,				//!< 磁気トルカ作動要求
+	REA_MAG_TORQUE_RES,			//!< 磁気トルカ作動応答
+	REQ_BDOT,					//!< Bdot制御実行要求
+	REQ_BDOT_RES,				//!< Bdot制御実行応答
+	REQ_GAIN_CONTROL,			//!< 電流ゲイン設定要求
+	REQ_GAIN_CONTROL_RES,		//!< 電流ゲイン設定応答
+	REQ_ANG_CONTROL,			//!< 角速度収束判定しきい値設定要求
+	REQ_ANG_CONTROL_RES,		//!< 角速度収束判定しきい値設定応答
+	REQ_INIT_SENSOR,			//!< センサ初期化要求
+	REQ_INIT_SENSOR_RES,		//!< センサ初期化応答
+	REQ_CHANGE_FILTER,			//!< フィルタ定数設定要求
+	REQ_CHANGE_FILTER_RES,		//!< フィルタ定数設定応答
+	REQ_ABORT_BDOT,				//!< Bdot制御停止要求
+	REQ_ABORT_BDOT_RES,			//!< Bdot制御停止応答
+	REQ_ATT_DATA,				//!< 姿勢データ送信要求
+	REQ_ATT_DATA_RES,			//!< 姿勢データ送信応答
 	SET_CUR_TIME		= 100,	//!< 自系現在時刻設定要求
 	SET_CUR_TIME_RES,			//!< 自系現在時刻設定応答
 	GET_HKDATA,					//!< 自系HKデータ要求
@@ -39,7 +47,25 @@ enum class EType : uint8_t
 	REQ_TEMPERATURE,			//!< 自系温度要求
 	REQ_TEMPERATURE_RES,		//!< 自系温度応答
 };
+/*
+REQ_MAG_TORQUE,
+REA_MAG_TORQUE_RES,
+REQ_BDOT,
+REQ_BDOT_RES,
+REQ_GAIN_CONTROL,
+REQ_GAIN_CONTROL_RES,
+REQ_ANG_CONTROL,
+REQ_ANG_CONTROL_RES,
+REQ_INIT_SENSOR,
+REQ_INIT_SENSOR_RES,
+REQ_CHANGE_FILTER,
+REQ_CHANGE_FILTER_RES,
+REQ_ABORT_BDOT,
+REQ_ABORT_BDOT_RES,
+REQ_ATT_DATA,
+REQ_ATT_DATA_RES,
 
+*/
 using TLVPacket = TLVpacket_t<EDestination, EType>;
 //using CommandTypeBase = rsp::rsp02::fw::command::CommandTypeBase_t<EType,EType>;
 

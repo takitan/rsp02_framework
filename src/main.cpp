@@ -1,3 +1,10 @@
+/**
+ * @file main.cpp
+ * @author Nobuyuki Takita (takitan1972@gmail.com)
+ * @brief エントリポイント
+ * @version 0.1
+ * @date 2024-04-18
+ */
 #include <vector>
 #include "src/processes/StateMachine.hpp"
 #include "GlobalDefine.hpp"

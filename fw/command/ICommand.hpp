@@ -1,5 +1,5 @@
 /*
- * TlvCommandBase.h
+ * ICommand.h
  *
  *  Created on: 2021/10/26
  *      Author: takit
@@ -12,13 +12,6 @@ namespace rsp{
 namespace rsp02{
 namespace fw{
 namespace command{
-
-//#include "mission.hpp"
-//#include "RSP02.hpp"
-//#include "RspTLV.hpp"
-//#include "mbed.h"
-//#include "DebugSys/inc/hardware.h"
-//#include "DebugSys/inc/uart_interface.h"
 
 enum class ParseStatus
 {

@@ -1,3 +1,14 @@
+/**
+ * @file SystemManager.hpp
+ * @author Nobuyuki Takita (takitan1972@gmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 2024-04-18
+ * 
+ * メインループ
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #pragma once
 #include <vector>
 #include <algorithm>

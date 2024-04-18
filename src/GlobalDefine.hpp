@@ -6,9 +6,3 @@ using ICommand = rsp::rsp02::fw::command::ICommand<TLVPacket>;
 template<typename CMD_T, typename RES_T>
 using CommandImplBase =rsp::rsp02::fw::command::CommandImplBase<CMD_T,RES_T,TLVPacket>;
 
-enum class StateID : int
-{
-	Idle = 0,
-	State1 = 1,
-	State2 = 2,
-};

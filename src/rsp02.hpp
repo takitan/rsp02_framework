@@ -1,3 +1,10 @@
+/**
+ * @file rsp02.hpp
+ * @author Nobuyuki Takita (takitan1972@gmail.com)
+ * @brief RSP02全系共通定義
+ * @version 0.1
+ * @date 2024-04-18
+ */
 #pragma once
 #include <cstdint>
 #include <cstring>
@@ -6,18 +13,36 @@
 
 enum class EDestination : uint8_t
 {
-	Null = 0,
-	Ground = 1,
-	Rx = 2,
-	Tx1 = 3,
-	Tx2 = 4,
-	CDH = 5,
-	Mission = 6,
-	ParentLora = 7,
-	Child1 = 8,
-	Child2 = 9,
-	NumOfDestination,
+	Null				= 0,	//< 未定義
+	Ground				= 1,	//< 地上局
+	Rx					= 2,	//!< 受信機
+	Tx1					= 3,	//!< 主送信機
+	Tx2					= 4,	//!< 副送信機
+	CDH					= 5,	//!< C&DH系
+	Mission				= 6,	//!< Mission系
+	ParentLora			= 7,	//!< 親局LoRa
+	Child1				= 8,	//!< 小衛星1
+	Child2				= 9,	//!< 小衛星2
+	NumOfDestination,			//!< 番兵くん
 };
+
+static inline const char* DestinationString(EDestination dst)
+{
+	switch( dst)
+	{
+		case EDestination::Null			: return "Null!";
+		case EDestination::Ground		: return "Ground";
+		case EDestination::Rx			: return "Rx";
+		case EDestination::Tx1			: return "Tx1";
+		case EDestination::Tx2			: return "Tx2";
+		case EDestination::CDH			: return "CDH";
+		case EDestination::Mission		: return "Mission";
+		case EDestination::ParentLora	: return "ParentLora";
+		case EDestination::Child1		: return "Child1";
+		case EDestination::Child2		: return "Child2";
+		default: return "";
+	}
+}
 
 template<typename T>
 struct SafeProperty
@@ -120,20 +145,3 @@ struct TLVpacket_t : PacketBase_t
 
 using rsp02TLV = TLVpacket_t<EDestination,uint8_t>;
 
-static inline const char* DestinationString(EDestination dst)
-{
-	switch( dst)
-	{
-		case EDestination::Null: return "Null!";
-		case EDestination::Ground: return "Ground";
-		case EDestination::Rx: return "Rx";
-		case EDestination::Tx1: return "Tx1";
-		case EDestination::Tx2: return "Tx2";
-		case EDestination::CDH: return "CDH";
-		case EDestination::Mission: return "Mission";
-		case EDestination::ParentLora: return "ParentLora";
-		case EDestination::Child1: return "Child1";
-		case EDestination::Child2: return "Child2";
-		default: return "";
-	}
-}
