@@ -1,3 +1,13 @@
+/**
+ * @file Consumer.hpp
+ * @author Nobuyuki Takita (takitan1972@gmail.com)
+ * @brief Consumer-ProducerパターンのConsumer
+ * @version 0.1
+ * @date 2024-04-18
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #pragma once
 #include "fw/util/queue.hpp"
 #include "IProcess.hpp"
@@ -9,6 +19,11 @@ namespace system{
 template<typename T> class Producer;
 template<typename T> class Consumer;
 
+/**
+ * @brief @ref Executer
+ * 
+ * @tparam CNS_T 
+ */
 template<typename CNS_T>
 class ConsumerAdapter
 {

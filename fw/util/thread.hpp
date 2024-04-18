@@ -1,3 +1,13 @@
+/**
+ * @file thread.hpp
+ * @author Nobuyuki Takita (takitan1972@gmail.com)
+ * @brief mbedのthreadを使っているように騙して実はlinuxというかPOSIXのthreadを使わせるためのラッパ
+ * @version 0.1
+ * @date 2024-04-18
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #pragma once
 #ifndef OFFLINE
 #else
@@ -18,6 +28,7 @@ using Thread = mbed::Thread;
 
 #else
 
+/** @brief mbedOSのthreadのステータス */
 typedef int32_t                  osStatus;
 #define osOK					(0x00)
 #define osEventSignal           (0x08)
@@ -30,6 +41,11 @@ typedef int32_t                  osStatus;
 #define osErrorValue            (-127)
 #define osErrorPriority         (-128)
 
+/**
+ * @brief mbedのthreadを使っているように騙して実はlinuxというかPOSIXのthreadを使わせるためのラッパ
+ *
+ * @warning まったく不真面目に実装しているため、汎用的には使わないほうが身のためです 
+ */
 class Thread
 {
 	public:
