@@ -11,6 +11,7 @@ Entry,Execute,Exitモデルは、FSMの中でも極めて汎用的なモデル�
 	StateID → StateHoge
 	状態名 → StateHoge
 	とする
+StateIDについては、別の場所で定義されているはずなので、その定義に追記する。
 
 2. 状態クラスを記述するファイルを用意する
 	状態名 = クラス名 = ファイル名であったほうがわかりやすいため、StateHoge.hppに下記を記述する
@@ -40,7 +41,7 @@ Entry,Execute,Exitモデルは、FSMの中でも極めて汎用的なモデル�
 		{
 		}
 
-		IState* Execute( void)
+		IState* Execute()
 		{
 			return next;
 		}
@@ -51,3 +52,8 @@ Entry,Execute,Exitモデルは、FSMの中でも極めて汎用的なモデル�
 	};
 	```
 	#includeはおまじないだと思って受け入れてください
+	次に、各処理を実装する。
+
+	1. `void Entry()`に、この状態に遷移してきた最初の1回だけ実行したい処理を実装する
+	1. `IState* Execute()`に、この状態にいる間常に実行したい処理を実装する
+	1. `void Exit()`に、別状態に遷移する時に1回だけ実行したい処理を実装する
