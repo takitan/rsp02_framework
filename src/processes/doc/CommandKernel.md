@@ -1,0 +1,4 @@
+# CommandKernel
+Consumerとしてコマンドを受け取り、Producerとしてレスポンスを生成するプロセス
+
+PipelineProcess（Consumer機能とProducer機能を両方持つプロセス）を基底として持ち、受け取ったproduct(コマンド)を実行し、reproduct(レスポンス)を生成する。

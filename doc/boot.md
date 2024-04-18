@@ -24,6 +24,7 @@ main関数では、Initialize()関数で各種サブシステムの初期化を�
 
 ####　LogSystem.Initialize()
 ログシステムのインスタンス化及び個別の初期化を行い、ログシステムを稼働させる。
+[LogSystem](../src/LogSystem.md)
 
 #### DBCCommandRoot.Initialize()
 デバッグシェルにデバッグコマンドを登録し、デバッグシステムを稼働させる。
