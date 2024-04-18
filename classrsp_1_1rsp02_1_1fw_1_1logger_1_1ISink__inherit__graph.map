@@ -1,0 +1,7 @@
+<map id="rsp::rsp02::fw::logger::ISink" name="rsp::rsp02::fw::logger::ISink">
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,163,145"/>
+<area shape="rect" id="node2" href="$classrsp_1_1rsp02_1_1fw_1_1logger_1_1FifoSink.html" title=" " alt="" coords="211,5,368,47"/>
+<area shape="rect" id="node3" href="$classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink.html" title=" " alt="" coords="211,71,368,112"/>
+<area shape="rect" id="node4" href="$classrsp_1_1rsp02_1_1fw_1_1logger_1_1NullSink.html" title=" " alt="" coords="211,136,368,177"/>
+<area shape="rect" id="node5" href="$classrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink.html" title=" " alt="" coords="211,201,368,243"/>
+</map>

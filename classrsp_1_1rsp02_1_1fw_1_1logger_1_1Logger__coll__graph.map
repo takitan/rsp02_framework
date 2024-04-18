@@ -1,0 +1,5 @@
+<map id="rsp::rsp02::fw::logger::Logger" name="rsp::rsp02::fw::logger::Logger">
+<area shape="rect" id="node1" title=" " alt="" coords="96,109,253,151"/>
+<area shape="rect" id="node2" href="$classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html" title=" " alt="" coords="5,5,163,47"/>
+<area shape="rect" id="node3" href="$classrsp_1_1rsp02_1_1fw_1_1logger_1_1ISink.html" title=" " alt="" coords="187,5,344,47"/>
+</map>

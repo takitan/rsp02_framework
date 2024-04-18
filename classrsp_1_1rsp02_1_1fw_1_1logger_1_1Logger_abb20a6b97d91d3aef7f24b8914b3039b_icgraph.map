@@ -1,0 +1,5 @@
+<map id="rsp::rsp02::fw::logger::Logger::GetLogger" name="rsp::rsp02::fw::logger::Logger::GetLogger">
+<area shape="rect" id="node1" title="Get the Logger object." alt="" coords="348,35,505,76"/>
+<area shape="rect" id="node2" href="$classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#a9252e462744824ed3728ab5e057149b9" title="Construct a new CommandImplBase object." alt="" coords="5,5,300,47"/>
+<area shape="rect" id="node3" href="$classchloglv.html#a220d86ea9f89427dfab00941262b03ba" title=" " alt="" coords="82,71,223,98"/>
+</map>

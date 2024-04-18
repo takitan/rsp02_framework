@@ -1,0 +1,5 @@
+<map id="rsp::rsp02::fw::time::StopWatch::LapAndGetElapsed" name="rsp::rsp02::fw::time::StopWatch::LapAndGetElapsed">
+<area shape="rect" id="node1" title="経過時刻を登録しつつ経過時間を取得する" alt="" coords="5,39,235,80"/>
+<area shape="rect" id="node2" href="$classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#a0c7b5d935b502a2fe3aab0d005b5278e" title="経過時間を取得する" alt="" coords="283,5,464,47"/>
+<area shape="rect" id="node3" href="$classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#acfbaa9fc23150740e68f399111b47a20" title="計時時刻の登録" alt="" coords="300,71,447,112"/>
+</map>

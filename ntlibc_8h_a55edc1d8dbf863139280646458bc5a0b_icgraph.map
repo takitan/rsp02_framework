@@ -1,0 +1,6 @@
+<map id="ntlibc_strcpy" name="ntlibc_strcpy">
+<area shape="rect" id="node1" title=" " alt="" coords="200,56,305,83"/>
+<area shape="rect" id="node2" href="$ntshell_8c.html#a9a6881dc9b5c6a35de5a6c8ee15ea812" title="Initialize the NT&#45;Shell." alt="" coords="31,5,126,32"/>
+<area shape="rect" id="node3" href="$ntshell_8c.html#a0be63f7a4e7d7006441b3b7b359771dd" title="Set up the prompt of the NT&#45;Shell." alt="" coords="5,56,152,83"/>
+<area shape="rect" id="node4" href="$text__history_8c.html#a1db13e39e69d660e3039ca2f04d3e8b0" title="Find the given text string from the text history." alt="" coords="13,107,144,133"/>
+</map>

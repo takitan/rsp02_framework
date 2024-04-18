@@ -1,0 +1,6 @@
+<map id="IExecutionStrategy" name="IExecutionStrategy">
+<area shape="rect" id="node1" title=" " alt="" coords="209,5,353,32"/>
+<area shape="rect" id="node2" href="$classContinueUntillScanout.html" title=" " alt="" coords="5,80,172,107"/>
+<area shape="rect" id="node3" href="$classContinueUntillTimeout.html" title=" " alt="" coords="196,80,365,107"/>
+<area shape="rect" id="node4" href="$classOnceAndForAll.html" title=" " alt="" coords="390,80,507,107"/>
+</map>

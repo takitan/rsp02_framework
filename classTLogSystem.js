@@ -1,0 +1,5 @@
+var classTLogSystem =
+[
+    [ "TLogSystem", "classTLogSystem.html#aa717a8067adbf676a0ca33ef41ffbd7a", null ],
+    [ "Initialize", "classTLogSystem.html#aa96a7bf251f3ed682eababf86f273e43", null ]
+];

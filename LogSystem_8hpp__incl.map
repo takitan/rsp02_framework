@@ -1,0 +1,12 @@
+<map id="src/LogSystem.hpp" name="src/LogSystem.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="207,5,353,32"/>
+<area shape="rect" id="node2" href="$Logger_8hpp.html" title=" " alt="" coords="5,80,163,107"/>
+<area shape="rect" id="node7" href="$NullSink_8hpp.html" title="すべてのログを捨てるロガー" alt="" coords="388,80,556,107"/>
+<area shape="rect" id="node9" href="$FifoSink_8hpp.html" title=" " alt="" coords="197,80,363,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="109,229,179,256"/>
+<area shape="rect" id="node4" href="$time_8hpp.html" title=" " alt="" coords="357,229,472,256"/>
+<area shape="rect" id="node6" href="$ILogger_8hpp.html" title=" " alt="" coords="26,155,123,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="381,304,448,331"/>
+<area shape="rect" id="node8" href="$ISink_8hpp.html" title=" " alt="" coords="335,155,417,181"/>
+<area shape="rect" id="node10" title=" " alt="" coords="249,155,311,181"/>
+</map>

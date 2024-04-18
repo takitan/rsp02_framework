@@ -1,0 +1,7 @@
+<map id="ntshell_t" name="ntshell_t">
+<area shape="rect" id="node1" title="The handler of NT&#45;Shell." alt="" coords="216,95,295,121"/>
+<area shape="rect" id="node2" href="$structvtsend__t.html" title=" " alt="" coords="5,5,84,32"/>
+<area shape="rect" id="node3" href="$structvtrecv.html" title=" " alt="" coords="108,5,171,32"/>
+<area shape="rect" id="node4" href="$structtext__history__t.html" title="Structure of the text history module." alt="" coords="239,5,351,32"/>
+<area shape="rect" id="node5" href="$structtext__editor__t.html" title="Text editor handler." alt="" coords="375,5,480,32"/>
+</map>
