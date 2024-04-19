@@ -152,37 +152,30 @@ $(document).ready(function(){initNavTree('align_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        ::memcpy( dst, &amp;<a class="code" href="align_8hpp.html#aca507686aaa137d6fe8ddf9dfdc87dfa">src</a>, byte_size);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="structrsp_1_1rsp02_1_1fw_1_1util_1_1align.html#a9e70ae12e7019e5e0e061245d2af54c7">  116</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structrsp_1_1rsp02_1_1fw_1_1util_1_1align.html#a9e70ae12e7019e5e0e061245d2af54c7">safe_write</a>( <span class="keywordtype">void</span>* dst, <span class="keyword">const</span> T <a class="code" href="align_8hpp.html#aca507686aaa137d6fe8ddf9dfdc87dfa">src</a>)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    {</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        constexpr <span class="keyword">static</span> std::size_t byte_size = <span class="keyword">sizeof</span>(T);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        ::memcpy( dst, &amp;<a class="code" href="align_8hpp.html#aca507686aaa137d6fe8ddf9dfdc87dfa">src</a>, byte_size);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="structrsp_1_1rsp02_1_1fw_1_1util_1_1align.html#a333771c33024c67b29afb3789f2d149d">  117</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structrsp_1_1rsp02_1_1fw_1_1util_1_1align.html#a333771c33024c67b29afb3789f2d149d">safe_write</a>( <span class="keyword">const</span> <span class="keywordtype">void</span>* dst, T <a class="code" href="align_8hpp.html#aca507686aaa137d6fe8ddf9dfdc87dfa">src</a>)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        safe_write&lt;T&gt;( <span class="keyword">const_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(dst), <a class="code" href="align_8hpp.html#aca507686aaa137d6fe8ddf9dfdc87dfa">src</a>);</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="structrsp_1_1rsp02_1_1fw_1_1util_1_1align.html#a333771c33024c67b29afb3789f2d149d">  130</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="structrsp_1_1rsp02_1_1fw_1_1util_1_1align.html#a333771c33024c67b29afb3789f2d149d">safe_write</a>( <span class="keyword">const</span> <span class="keywordtype">void</span>* dst, T <a class="code" href="align_8hpp.html#aca507686aaa137d6fe8ddf9dfdc87dfa">src</a>)</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        safe_write&lt;T&gt;( <span class="keyword">const_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(dst), <a class="code" href="align_8hpp.html#aca507686aaa137d6fe8ddf9dfdc87dfa">src</a>);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;};</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="align_8hpp.html#a39c504d6108a550f81d94e9f8b40c673">  142</a></span>&#160;<span class="preprocessor">#define SAFE_INIT(x,y) x( align::safe_read&lt;uint8_t&gt;(&amp;y))</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="align_8hpp.html#a4353d1c6cad36fdf375e20dec9d9a960">  145</a></span>&#160;<span class="preprocessor">#define SAFE_INIT8(x,y) x( align::safe_read&lt;uint8_t&gt;(&amp;y))</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="align_8hpp.html#ae816f6bb0ae91393a887d00df4e1a453">  148</a></span>&#160;<span class="preprocessor">#define SAFE_INIT16(x,y) x( align::safe_read&lt;uint16_t&gt;(&amp;y))</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="align_8cpp.html#a9116e5dd4b264848e4e0bf3f5b39c15a">  151</a></span>&#160;<span class="preprocessor">#define SAFE_INIT32(x,y) x( align::safe_read&lt;uint32_t&gt;(&amp;y))</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;};</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="align_8hpp.html#a39c504d6108a550f81d94e9f8b40c673">  129</a></span>&#160;<span class="preprocessor">#define SAFE_INIT(x,y) x( align::safe_read&lt;uint8_t&gt;(&amp;y))</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="align_8hpp.html#a4353d1c6cad36fdf375e20dec9d9a960">  132</a></span>&#160;<span class="preprocessor">#define SAFE_INIT8(x,y) x( align::safe_read&lt;uint8_t&gt;(&amp;y))</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="align_8hpp.html#ae816f6bb0ae91393a887d00df4e1a453">  135</a></span>&#160;<span class="preprocessor">#define SAFE_INIT16(x,y) x( align::safe_read&lt;uint16_t&gt;(&amp;y))</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="align_8cpp.html#a9116e5dd4b264848e4e0bf3f5b39c15a">  138</a></span>&#160;<span class="preprocessor">#define SAFE_INIT32(x,y) x( align::safe_read&lt;uint32_t&gt;(&amp;y))</span></div>
 <div class="ttc" id="aalign_8hpp_html_a3d4adeeef23f893ca0348563200f7084"><div class="ttname"><a href="align_8hpp.html#a3d4adeeef23f893ca0348563200f7084">word</a></div><div class="ttdeci">T word</div><div class="ttdef"><b>Definition:</b> align.hpp:63</div></div>
 <div class="ttc" id="aalign_8hpp_html_aca507686aaa137d6fe8ddf9dfdc87dfa"><div class="ttname"><a href="align_8hpp.html#aca507686aaa137d6fe8ddf9dfdc87dfa">src</a></div><div class="ttdeci">uint8_t src[sizeof(T)]</div><div class="ttdef"><b>Definition:</b> align.hpp:62</div></div>
 <div class="ttc" id="anamespacersp_html"><div class="ttname"><a href="namespacersp.html">rsp</a></div><div class="ttdef"><b>Definition:</b> CommandImplBase.hpp:21</div></div>
 <div class="ttc" id="astructrsp_1_1rsp02_1_1fw_1_1util_1_1align_html"><div class="ttname"><a href="structrsp_1_1rsp02_1_1fw_1_1util_1_1align.html">rsp::rsp02::fw::util::align</a></div><div class="ttdef"><b>Definition:</b> align.hpp:68</div></div>
-<div class="ttc" id="astructrsp_1_1rsp02_1_1fw_1_1util_1_1align_html_a333771c33024c67b29afb3789f2d149d"><div class="ttname"><a href="structrsp_1_1rsp02_1_1fw_1_1util_1_1align.html#a333771c33024c67b29afb3789f2d149d">rsp::rsp02::fw::util::align::safe_write</a></div><div class="ttdeci">static void safe_write(const void *dst, T src)</div><div class="ttdoc">バイトアライメントを気にせずにライトする(constバージョン)</div><div class="ttdef"><b>Definition:</b> align.hpp:130</div></div>
+<div class="ttc" id="astructrsp_1_1rsp02_1_1fw_1_1util_1_1align_html_a333771c33024c67b29afb3789f2d149d"><div class="ttname"><a href="structrsp_1_1rsp02_1_1fw_1_1util_1_1align.html#a333771c33024c67b29afb3789f2d149d">rsp::rsp02::fw::util::align::safe_write</a></div><div class="ttdeci">static void safe_write(const void *dst, T src)</div><div class="ttdoc">バイトアライメントを気にせずにライトする(constバージョン)</div><div class="ttdef"><b>Definition:</b> align.hpp:117</div></div>
 <div class="ttc" id="astructrsp_1_1rsp02_1_1fw_1_1util_1_1align_html_a3c26458496a316775d2eb3a2923497f6"><div class="ttname"><a href="structrsp_1_1rsp02_1_1fw_1_1util_1_1align.html#a3c26458496a316775d2eb3a2923497f6">rsp::rsp02::fw::util::align::safe_read</a></div><div class="ttdeci">static T safe_read(const void *src)</div><div class="ttdoc">バイトアライメントを気にせずにリードする(constバージョン)</div><div class="ttdef"><b>Definition:</b> align.hpp:91</div></div>
 <div class="ttc" id="astructrsp_1_1rsp02_1_1fw_1_1util_1_1align_html_a4b8e3de55628ccb11be8adabf7653aa4"><div class="ttname"><a href="structrsp_1_1rsp02_1_1fw_1_1util_1_1align.html#a4b8e3de55628ccb11be8adabf7653aa4">rsp::rsp02::fw::util::align::safe_read</a></div><div class="ttdeci">static T safe_read(void *src)</div><div class="ttdoc">バイトアライメントを気にせずにリードする</div><div class="ttdef"><b>Definition:</b> align.hpp:76</div></div>
 <div class="ttc" id="astructrsp_1_1rsp02_1_1fw_1_1util_1_1align_html_a9e70ae12e7019e5e0e061245d2af54c7"><div class="ttname"><a href="structrsp_1_1rsp02_1_1fw_1_1util_1_1align.html#a9e70ae12e7019e5e0e061245d2af54c7">rsp::rsp02::fw::util::align::safe_write</a></div><div class="ttdeci">static void safe_write(void *dst, const T src)</div><div class="ttdoc">バイトアライメントを気にせずにライトする</div><div class="ttdef"><b>Definition:</b> align.hpp:103</div></div>
