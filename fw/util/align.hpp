@@ -107,19 +107,6 @@ struct align
 	}
 
 	/**
-	 * @brief バイトアライメントを気にせずにライトする
-	 * @tparam T アクセスする時の型
-	 * @param dst ライト先
-	 * @param src ライトする値
-	 */
-	template<typename T>
-	static void safe_write( void* dst, const T src)
-	{
-		constexpr static std::size_t byte_size = sizeof(T);
-		::memcpy( dst, &src, byte_size);
-	}
-
-	/**
 	 * @brief バイトアライメントを気にせずにライトする(constバージョン)
 	 * @note 悪いことしてる自覚はある・・・・
 	 * @tparam T アクセスする時の型

@@ -8,7 +8,6 @@
 #pragma once
 
 #include "rsp02.hpp"
-#include "fw/command/CommandTypeBase.hpp"
 
 /** @brief StateID */
 enum class StateID : int
