@@ -48,40 +48,37 @@ enum class EType : uint8_t
 	REQ_TEMPERATURE_RES,		//!< 自系温度応答
 };
 /*
-REQ_MAG_TORQUE,
-REA_MAG_TORQUE_RES,
-REQ_BDOT,
-REQ_BDOT_RES,
-REQ_GAIN_CONTROL,
-REQ_GAIN_CONTROL_RES,
-REQ_ANG_CONTROL,
-REQ_ANG_CONTROL_RES,
-REQ_INIT_SENSOR,
-REQ_INIT_SENSOR_RES,
-REQ_CHANGE_FILTER,
-REQ_CHANGE_FILTER_RES,
-REQ_ABORT_BDOT,
-REQ_ABORT_BDOT_RES,
-REQ_ATT_DATA,
-REQ_ATT_DATA_RES,
 
 */
 using TLVPacket = TLVpacket_t<EDestination, EType>;
-//using CommandTypeBase = rsp::rsp02::fw::command::CommandTypeBase_t<EType,EType>;
 
+/**
+ * @brief StateIDから文字列を得る
+ * 
+ * @param dst StateID
+ * @return const char* 対応する文字列
+ */
 static inline const char* TypeString(EType dst)
 {
 	switch( dst)
 	{
 		case EType::Null: 					return "Null";
-		case EType::TAKE_PHOTO: 			return "TAKE_PHOTO";
-		case EType::TAKE_PHOTO_RES: 		return "TAKE_PHOTO_RES";
-		case EType::REQ_IMAGE:				return "REQ_IMAGE";
-		case EType::REQ_IMAGE_RES:			return "REQ_IMAGE_RES";
-		case EType::SD_FORMAT:				return "SD_FORMAT";
-		case EType::SD_FORMAT_RES:			return "SD_FORMAT_RES";
-		case EType::REQ_SD_STATUS:			return "REQ_SD_STATUS";
-		case EType::REQ_SD_STATUS_RES:		return "REQ_SD_STATUS";
+		case EType::REQ_MAG_TORQUE:			return "REQ_MAG_TORQUE";
+		case EType::REA_MAG_TORQUE_RES:		return "REA_MAG_TORQUE_RES";
+		case EType::REQ_BDOT:				return "REQ_BDOT";
+		case EType::REQ_BDOT_RES:			return "REQ_BDOT_RES";
+		case EType::REQ_GAIN_CONTROL:		return "REQ_GAIN_CONTROL";
+		case EType::REQ_GAIN_CONTROL_RES:	return "REQ_GAIN_CONTROL_RES";
+		case EType::REQ_ANG_CONTROL:		return "REQ_ANG_CONTROL";
+		case EType::REQ_ANG_CONTROL_RES:	return "REQ_ANG_CONTROL_RES";
+		case EType::REQ_INIT_SENSOR:		return "REQ_INIT_SENSOR";
+		case EType::REQ_INIT_SENSOR_RES:	return "REQ_INIT_SENSOR_RES";
+		case EType::REQ_CHANGE_FILTER:		return "REQ_CHANGE_FILTER";
+		case EType::REQ_CHANGE_FILTER_RES:	return "REQ_CHANGE_FILTER_RES";
+		case EType::REQ_ABORT_BDOT:			return "REQ_ABORT_BDOT";
+		case EType::REQ_ABORT_BDOT_RES:		return "REQ_ABORT_BDOT_RES";
+		case EType::REQ_ATT_DATA:			return "REQ_ATT_DATA";
+		case EType::REQ_ATT_DATA_RES:		return "REQ_ATT_DATA_RES";
 		case EType::SET_CUR_TIME:			return "SET_CUR_TIME";
 		case EType::SET_CUR_TIME_RES:		return "SET_CUR_TIME_RES";
 		case EType::GET_HKDATA:				return "GET_HKDATA";

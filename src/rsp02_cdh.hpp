@@ -61,6 +61,12 @@ enum class EType : uint8_t
 
 using CdhTLV = TLVpacket_t<EDestination, EType>;
 
+/**
+ * @brief StateIDから文字列を得る
+ * 
+ * @param dst StateID
+ * @return const char* 対応する文字列
+ */
 static inline const char* TypeString(EType dst)
 {
 	switch( dst)

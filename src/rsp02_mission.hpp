@@ -27,7 +27,7 @@ enum class EType : uint8_t
 	REQ_IMAGE,					//!< 画像データ要求
 	REQ_IMAGE_RES,				//!< 画像データ応答
 	SD_FORMAT,					//!< SDカードフォーマット要求
-	SD_FORMAT_RES,				//!< SDカードフォーマット要求
+	SD_FORMAT_RES,				//!< SDカードフォーマット応答
 	REQ_SD_STATUS,				//!< SDカードステータス要求
 	REQ_SD_STATUS_RES,			//!< SDカードステータス応答
 	SET_CUR_TIME		= 100,	//!< 自系現在時刻設定要求
@@ -41,8 +41,13 @@ enum class EType : uint8_t
 };
 
 using TLVPacket = TLVpacket_t<EDestination, EType>;
-//using CommandTypeBase = rsp::rsp02::fw::command::CommandTypeBase_t<EType,EType>;
 
+/**
+ * @brief StateIDから文字列を得る
+ * 
+ * @param dst StateID
+ * @return const char* 対応する文字列
+ */
 static inline const char* TypeString(EType dst)
 {
 	switch( dst)
