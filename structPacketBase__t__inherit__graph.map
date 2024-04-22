@@ -1,10 +1,8 @@
 <map id="PacketBase_t" name="PacketBase_t">
-<area shape="rect" id="node1" title=" " alt="" coords="5,85,113,112"/>
-<area shape="rect" id="node2" href="$structCMDpacket__t.html" title="地上局がC系に送信するコマンド" alt="" coords="161,5,339,32"/>
-<area shape="rect" id="node3" href="$structRESpacket__t.html" title="C系間から地上局に返すレスポンス" alt="" coords="165,56,335,83"/>
-<area shape="rect" id="node4" href="$structTLVpacket__t.html" title="TLVコマンドレスポンス" alt="" coords="170,107,330,149"/>
-<area shape="rect" id="node5" href="$structRequestPingCommand__t.html" title=" " alt="" coords="394,9,587,50"/>
-<area shape="rect" id="node6" href="$structRequestPingResponse__t.html" title=" " alt="" coords="394,74,587,115"/>
-<area shape="rect" id="node7" href="$structRequestTakePhotoCommand__t.html" title=" " alt="" coords="387,139,595,181"/>
-<area shape="rect" id="node8" href="$structRequestTakePhotoResponse__t.html" title=" " alt="" coords="389,205,593,246"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,111,113,138"/>
+<area shape="rect" id="node2" href="$structTLVpacket__t.html" title=" " alt="" coords="161,104,321,145"/>
+<area shape="rect" id="node3" href="$structRequestPingCommand__t.html" title=" " alt="" coords="377,5,570,47"/>
+<area shape="rect" id="node4" href="$structRequestPingResponse__t.html" title=" " alt="" coords="377,71,570,112"/>
+<area shape="rect" id="node5" href="$structRequestTakePhotoCommand__t.html" title=" " alt="" coords="369,136,577,177"/>
+<area shape="rect" id="node6" href="$structRequestTakePhotoResponse__t.html" title=" " alt="" coords="371,201,575,243"/>
 </map>

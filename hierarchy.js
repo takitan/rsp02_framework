@@ -111,15 +111,12 @@ var hierarchy =
     [ "ntshell_t", "structntshell__t.html", null ],
     [ "ntstdio_t", "structntstdio__t.html", null ],
     [ "PacketBase_t", "structPacketBase__t.html", [
-      [ "CMDpacket_t< TYP_T >", "structCMDpacket__t.html", null ],
-      [ "RESpacket_t< TYP_T >", "structRESpacket__t.html", null ],
       [ "TLVpacket_t< DST_T, TYP_T >", "structTLVpacket__t.html", [
         [ "RequestPingCommand_t", "structRequestPingCommand__t.html", null ],
         [ "RequestPingResponse_t", "structRequestPingResponse__t.html", null ],
         [ "RequestTakePhotoCommand_t", "structRequestTakePhotoCommand__t.html", null ],
         [ "RequestTakePhotoResponse_t", "structRequestTakePhotoResponse__t.html", null ]
-      ] ],
-      [ "TLVpacket_t< DST_T, TYP_T >", "structTLVpacket__t.html", null ]
+      ] ]
     ] ],
     [ "rsp::rsp02::system::ProcessInfo_t", "structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html", null ],
     [ "rsp::rsp02::system::Producer< NONE_T >", "classrsp_1_1rsp02_1_1system_1_1Producer_3_01NONE__T_01_4.html", null ],
@@ -135,8 +132,6 @@ var hierarchy =
     [ "SafeProperty< len_t >", "structSafeProperty.html", null ],
     [ "SafeProperty< typ_t >", "structSafeProperty.html", null ],
     [ "SafeProperty< uint8_t >", "structSafeProperty.html", null ],
-    [ "SafePropertyEx< T >", "structSafePropertyEx.html", null ],
-    [ "SafePropertyEx< uint16_t >", "structSafePropertyEx.html", null ],
     [ "rsp::rsp02::system::detail::ShellImpl", "classrsp_1_1rsp02_1_1system_1_1detail_1_1ShellImpl.html", null ],
     [ "rsp::rsp02::fw::util::singleton< T >", "classrsp_1_1rsp02_1_1fw_1_1util_1_1singleton.html", null ],
     [ "state_table_t", "structstate__table__t.html", null ],

@@ -76,19 +76,7 @@ var rsp02__attitude_8hpp =
       [ "REQ_PING", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6a6777fd27393dd5cc1c3f1b11f9e6dc22", null ],
       [ "REQ_PING_RES", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6aae5fec0075500e4997e13449777c3766", null ],
       [ "REQ_TEMPERATURE", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6a3e002c35934abf079e6ce7a510be26ad", null ],
-      [ "REQ_TEMPERATURE_RES", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6aa2183aa2c518b2c4ca2d9874b85db4fe", null ],
-      [ "ReqNull", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3", null ],
-      [ "ReqPing", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6af2ce16945de0f76c11ab7ae1faba85be", null ],
-      [ "ReqTakePhoto", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6a8e0a66109e7cdf036a7096cf7c171f6a", null ],
-      [ "RepNull", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6a39d520c0a4276005bdaf9f24777f530c", null ],
-      [ "RepPing", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6aadf50cae79889d09c5b0dee0939e75ea", null ],
-      [ "RepTakePhoto", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6a02633924e2ddc572aed0131f135a7a0b", null ],
-      [ "ReqNull", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3", null ],
-      [ "ReqPing", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6af2ce16945de0f76c11ab7ae1faba85be", null ],
-      [ "ReqTakePhoto", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6a8e0a66109e7cdf036a7096cf7c171f6a", null ],
-      [ "RepNull", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6a39d520c0a4276005bdaf9f24777f530c", null ],
-      [ "RepPing", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6aadf50cae79889d09c5b0dee0939e75ea", null ],
-      [ "RepTakePhoto", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6a02633924e2ddc572aed0131f135a7a0b", null ]
+      [ "REQ_TEMPERATURE_RES", "rsp02__attitude_8hpp.html#a74408d5942234e1ab964ccbec05975a6aa2183aa2c518b2c4ca2d9874b85db4fe", null ]
     ] ],
     [ "StateID", "rsp02__attitude_8hpp.html#ab5d849ef2fbbf1914db5aac2898a3765", [
       [ "Idle", "rsp02__attitude_8hpp.html#ab5d849ef2fbbf1914db5aac2898a3765ae599161956d626eda4cb0a5ffb85271c", null ],

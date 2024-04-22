@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['word_1475',['word',['../align_8hpp.html#a3d4adeeef23f893ca0348563200f7084',1,'align.hpp']]],
-  ['wp_1476',['wp',['../structtext__history__t.html#a46895a4e96791a8024c42104dccc086e',1,'text_history_t']]]
+  ['word_1444',['word',['../align_8hpp.html#a3d4adeeef23f893ca0348563200f7084',1,'align.hpp']]],
+  ['wp_1445',['wp',['../structtext__history__t.html#a46895a4e96791a8024c42104dccc086e',1,'text_history_t']]]
 ];

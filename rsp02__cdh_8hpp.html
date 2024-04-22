@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>rsp02_framework: src/rsp02_cdh.hpp File Reference</title>
+<title>rsp02_framework: src/tlv/rsp02_cdh.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -96,9 +96,9 @@ $(document).ready(function(){initNavTree('rsp02__cdh_8hpp.html',''); initResizab
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for rsp02_cdh.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="rsp02__cdh_8hpp__incl.png" border="0" usemap="#asrc_2rsp02__cdh_8hpp" alt=""/></div>
-<map name="asrc_2rsp02__cdh_8hpp" id="asrc_2rsp02__cdh_8hpp">
-<area shape="rect" title="C&amp;DH系定義" alt="" coords="177,5,315,32"/>
+<div class="center"><img src="rsp02__cdh_8hpp__incl.png" border="0" usemap="#asrc_2tlv_2rsp02__cdh_8hpp" alt=""/></div>
+<map name="asrc_2tlv_2rsp02__cdh_8hpp" id="asrc_2tlv_2rsp02__cdh_8hpp">
+<area shape="rect" title="C&amp;DH系定義" alt="" coords="166,5,326,32"/>
 <area shape="rect" href="rsp02_8hpp.html" title="RSP02全系共通定義" alt="" coords="103,80,189,107"/>
 <area shape="rect" title=" " alt="" coords="214,80,481,107"/>
 <area shape="rect" title=" " alt="" coords="6,229,73,256"/>
@@ -227,21 +227,6 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6aae5fec0075500e4997e13449777c3766">REQ_PING_RES</a>
 , <a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6a3e002c35934abf079e6ce7a510be26ad">REQ_TEMPERATURE</a>
 , <a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6aa2183aa2c518b2c4ca2d9874b85db4fe">REQ_TEMPERATURE_RES</a>
-, <a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3">ReqNull</a> = 0x00
-, <br />
-&#160;&#160;<a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6af2ce16945de0f76c11ab7ae1faba85be">ReqPing</a> = 0x01
-, <a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6a8e0a66109e7cdf036a7096cf7c171f6a">ReqTakePhoto</a> = 0x02
-, <a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6a39d520c0a4276005bdaf9f24777f530c">RepNull</a> = 0x80
-, <a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6aadf50cae79889d09c5b0dee0939e75ea">RepPing</a> = 0x81
-, <br />
-&#160;&#160;<a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6a02633924e2ddc572aed0131f135a7a0b">RepTakePhoto</a> = 0x82
-, <a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3">ReqNull</a> = 0x00
-, <a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6af2ce16945de0f76c11ab7ae1faba85be">ReqPing</a> = 0x01
-, <a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6a8e0a66109e7cdf036a7096cf7c171f6a">ReqTakePhoto</a> = 0x02
-, <br />
-&#160;&#160;<a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6a39d520c0a4276005bdaf9f24777f530c">RepNull</a> = 0x80
-, <a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6aadf50cae79889d09c5b0dee0939e75ea">RepPing</a> = 0x81
-, <a class="el" href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6a02633924e2ddc572aed0131f135a7a0b">RepTakePhoto</a> = 0x82
 <br />
  }</td></tr>
 <tr class="memdesc:a74408d5942234e1ab964ccbec05975a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">TLVコマンド  <a href="rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6">More...</a><br /></td></tr>
@@ -441,18 +426,6 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aa2183aa2c518b2c4ca2d9874b85db4fe"></a>REQ_TEMPERATURE_RES&#160;</td><td class="fielddoc"><p>自系温度応答 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3"></a>ReqNull&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6af2ce16945de0f76c11ab7ae1faba85be"></a>ReqPing&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a8e0a66109e7cdf036a7096cf7c171f6a"></a>ReqTakePhoto&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a39d520c0a4276005bdaf9f24777f530c"></a>RepNull&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aadf50cae79889d09c5b0dee0939e75ea"></a>RepPing&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a02633924e2ddc572aed0131f135a7a0b"></a>RepTakePhoto&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6ad84cdace6cf6e29c0284545e2d5f05f3"></a>ReqNull&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6af2ce16945de0f76c11ab7ae1faba85be"></a>ReqPing&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a8e0a66109e7cdf036a7096cf7c171f6a"></a>ReqTakePhoto&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a39d520c0a4276005bdaf9f24777f530c"></a>RepNull&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6aadf50cae79889d09c5b0dee0939e75ea"></a>RepPing&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a74408d5942234e1ab964ccbec05975a6a02633924e2ddc572aed0131f135a7a0b"></a>RepTakePhoto&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -500,7 +473,7 @@ Enumerations</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="rsp02__cdh_8hpp.html">rsp02_cdh.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_734ac19da3049d543847d4c83fb156a6.html">tlv</a></li><li class="navelem"><a class="el" href="rsp02__cdh_8hpp.html">rsp02_cdh.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

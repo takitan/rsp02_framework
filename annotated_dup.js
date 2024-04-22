@@ -89,7 +89,6 @@ var annotated_dup =
       ] ]
     ] ],
     [ "chloglv", "classchloglv.html", "classchloglv" ],
-    [ "CMDpacket_t", "structCMDpacket__t.html", "structCMDpacket__t" ],
     [ "ContinueUntillScanout", "classContinueUntillScanout.html", "classContinueUntillScanout" ],
     [ "ContinueUntillTimeout", "classContinueUntillTimeout.html", "classContinueUntillTimeout" ],
     [ "IExecutionStrategy", "classIExecutionStrategy.html", "classIExecutionStrategy" ],
@@ -106,10 +105,8 @@ var annotated_dup =
     [ "RequestPingResponse_t", "structRequestPingResponse__t.html", "structRequestPingResponse__t" ],
     [ "RequestTakePhotoCommand_t", "structRequestTakePhotoCommand__t.html", "structRequestTakePhotoCommand__t" ],
     [ "RequestTakePhotoResponse_t", "structRequestTakePhotoResponse__t.html", "structRequestTakePhotoResponse__t" ],
-    [ "RESpacket_t", "structRESpacket__t.html", "structRESpacket__t" ],
     [ "SafeArray", "structSafeArray.html", "structSafeArray" ],
     [ "SafeProperty", "structSafeProperty.html", "structSafeProperty" ],
-    [ "SafePropertyEx", "structSafePropertyEx.html", "structSafePropertyEx" ],
     [ "state_table_t", "structstate__table__t.html", "structstate__table__t" ],
     [ "TCommandRoot", "classTCommandRoot.html", "classTCommandRoot" ],
     [ "TDBGCommandRoot", "classTDBGCommandRoot.html", "classTDBGCommandRoot" ],

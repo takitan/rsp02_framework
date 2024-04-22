@@ -1,10 +1,8 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structPacketBase__t.html" title=" " alt="" coords="5,56,113,83"/>
-<area shape="rect" id="node2" href="$structCMDpacket__t.html" title="地上局がC系に送信するコマンド" alt="" coords="161,5,339,32"/>
-<area shape="rect" id="node3" href="$structRESpacket__t.html" title="C系間から地上局に返すレスポンス" alt="" coords="165,56,335,83"/>
-<area shape="rect" id="node4" href="$structTLVpacket__t.html" title="TLVコマンドレスポンス" alt="" coords="170,107,330,149"/>
-<area shape="rect" id="node5" href="$structRequestPingCommand__t.html" title=" " alt="" coords="405,39,588,65"/>
-<area shape="rect" id="node6" href="$structRequestPingResponse__t.html" title=" " alt="" coords="407,89,586,116"/>
-<area shape="rect" id="node7" href="$structRequestTakePhotoCommand__t.html" title=" " alt="" coords="387,140,607,167"/>
-<area shape="rect" id="node8" href="$structRequestTakePhotoResponse__t.html" title=" " alt="" coords="389,191,605,217"/>
+<area shape="rect" id="node1" href="$structPacketBase__t.html" title=" " alt="" coords="5,81,113,108"/>
+<area shape="rect" id="node2" href="$structTLVpacket__t.html" title=" " alt="" coords="161,74,321,115"/>
+<area shape="rect" id="node3" href="$structRequestPingCommand__t.html" title=" " alt="" coords="388,5,571,32"/>
+<area shape="rect" id="node4" href="$structRequestPingResponse__t.html" title=" " alt="" coords="390,56,569,83"/>
+<area shape="rect" id="node5" href="$structRequestTakePhotoCommand__t.html" title=" " alt="" coords="369,107,589,133"/>
+<area shape="rect" id="node6" href="$structRequestTakePhotoResponse__t.html" title=" " alt="" coords="371,157,587,184"/>
 </map>

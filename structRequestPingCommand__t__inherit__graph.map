@@ -1,5 +1,5 @@
 <map id="RequestPingCommand_t" name="RequestPingCommand_t">
 <area shape="rect" id="node1" title=" " alt="" coords="5,155,188,181"/>
-<area shape="rect" id="node2" href="$structTLVpacket__t.html" title="TLVコマンドレスポンス" alt="" coords="53,80,140,107"/>
+<area shape="rect" id="node2" href="$structTLVpacket__t.html" title=" " alt="" coords="53,80,140,107"/>
 <area shape="rect" id="node3" href="$structPacketBase__t.html" title=" " alt="" coords="43,5,151,32"/>
 </map>
