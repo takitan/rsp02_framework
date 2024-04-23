@@ -110,13 +110,13 @@ $(document).ready(function(){initNavTree('queue_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#ifdef OFFLINE</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">mutable</span> std::deque&lt;T&gt; mqueue;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">mutable</span> std::deque&lt;T&gt; <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">mutable</span> std::mutex mtx;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">mutable</span> std::condition_variable can_put;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">mutable</span> std::condition_variable can_get;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        Queue&lt;T,N&gt; mqueue;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        MemoryPool&lt;T,N&gt; mpool;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">   40</a></span>&#160;        Queue&lt;T,N&gt; <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a011ca8fd086b28a4fe0d9b263e843a1b">   41</a></span>&#160;        MemoryPool&lt;T,N&gt; <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a011ca8fd086b28a4fe0d9b263e843a1b">mpool</a>;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a7b9ff909e3d62a926b24b83f65185e06">   44</a></span>&#160;        <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a7b9ff909e3d62a926b24b83f65185e06">queue</a>(){}</div>
@@ -126,16 +126,16 @@ $(document).ready(function(){initNavTree('queue_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#ifdef OFFLINE</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            std::lock_guard&lt;std::mutex&gt; lg(mtx);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> mqueue.empty();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>.empty();</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a891f521428caffa4b7b5904bea77e908">   66</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a891f521428caffa4b7b5904bea77e908">full</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#ifdef OFFLINE</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            std::lock_guard&lt;std::mutex&gt; lg(mtx);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">return</span> mqueue.size()==N;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>.size()==N;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">return</span> mqueue.full();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>.full();</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
@@ -143,9 +143,9 @@ $(document).ready(function(){initNavTree('queue_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#ifdef OFFLINE</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            std::lock_guard&lt;std::mutex&gt; lg(mtx);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">return</span> mqueue.size();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>.size();</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">return</span> mqueue.count();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>.count();</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
@@ -154,7 +154,7 @@ $(document).ready(function(){initNavTree('queue_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#ifdef OFFLINE</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordflow">return</span> N;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">return</span> mqueue.max_size();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>.max_size();</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
@@ -163,16 +163,16 @@ $(document).ready(function(){initNavTree('queue_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#ifdef OFFLINE</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            std::unique_lock&lt;std::mutex&gt; ul(mtx);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keyword">auto</span> rel_time = std::chrono::milliseconds(milliseconds);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keyword">auto</span> cv_status = can_put.wait_for(ul, rel_time, [<span class="keyword">this</span>]{ <span class="keywordflow">return</span> mqueue.size()&lt;N;});</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keyword">auto</span> cv_status = can_put.wait_for(ul, rel_time, [<span class="keyword">this</span>]{ <span class="keywordflow">return</span> <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>.size()&lt;N;});</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordflow">if</span>( !cv_status) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            mqueue.push_back( std::move(data));</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>.push_back( std::move(data));</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            can_put.notify_all();</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            T* p = mpool.try_alloc(rel_time);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            T* p = <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a011ca8fd086b28a4fe0d9b263e843a1b">mpool</a>.try_alloc(rel_time);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="keywordflow">if</span>( p==<span class="keyword">nullptr</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            *p = data;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keyword">auto</span> st = mqueue.try_put_for( p, rel_time);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keyword">auto</span> st = <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>.try_put_for( p, rel_time);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keywordflow">return</span> st == osOK ? true : <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        }</div>
@@ -182,17 +182,17 @@ $(document).ready(function(){initNavTree('queue_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="preprocessor">#ifdef OFFLINE</span></div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            std::unique_lock&lt;std::mutex&gt; ul(mtx);</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <span class="keyword">auto</span> rel_time = std::chrono::milliseconds(milliseconds);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <span class="keyword">auto</span> cv_status = can_get.wait_for( ul, rel_time, [<span class="keyword">this</span>]{<span class="keywordflow">return</span> !mqueue.empty();});</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <span class="keyword">auto</span> cv_status = can_get.wait_for( ul, rel_time, [<span class="keyword">this</span>]{<span class="keywordflow">return</span> !<a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>.empty();});</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <span class="keywordflow">if</span>( !cv_status) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            data = mqueue.front();</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            mqueue.pop_front();</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            data = <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>.front();</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a>.pop_front();</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            can_get.notify_all();</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            osEvent ev = <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html">queue</a>.try_get();</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <span class="keywordflow">if</span>( ev.status != osOK) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            data = *<span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(ev.value.p);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            mpool.free( ev.value.p);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            <a class="code" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a011ca8fd086b28a4fe0d9b263e843a1b">mpool</a>.free( ev.value.p);</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        }</div>
@@ -203,12 +203,14 @@ $(document).ready(function(){initNavTree('queue_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
 <div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_html"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html">rsp::rsp02::fw::util::queue</a></div><div class="ttdoc">Queueのラッパ</div><div class="ttdef"><b>Definition:</b> queue.hpp:32</div></div>
+<div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_html_a011ca8fd086b28a4fe0d9b263e843a1b"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a011ca8fd086b28a4fe0d9b263e843a1b">rsp::rsp02::fw::util::queue::mpool</a></div><div class="ttdeci">MemoryPool&lt; T, N &gt; mpool</div><div class="ttdef"><b>Definition:</b> queue.hpp:41</div></div>
 <div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_html_a75977fdb5c420d3e3209f510dd522740"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a75977fdb5c420d3e3209f510dd522740">rsp::rsp02::fw::util::queue::try_get_for</a></div><div class="ttdeci">bool try_get_for(T &amp;data, uint32_t milliseconds=0)</div><div class="ttdoc">Queueからデータを取り出す Queueにデータが格納されていないときに失敗する</div><div class="ttdef"><b>Definition:</b> queue.hpp:140</div></div>
 <div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_html_a7b9ff909e3d62a926b24b83f65185e06"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a7b9ff909e3d62a926b24b83f65185e06">rsp::rsp02::fw::util::queue::queue</a></div><div class="ttdeci">queue()</div><div class="ttdef"><b>Definition:</b> queue.hpp:44</div></div>
 <div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_html_a891f521428caffa4b7b5904bea77e908"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a891f521428caffa4b7b5904bea77e908">rsp::rsp02::fw::util::queue::full</a></div><div class="ttdeci">bool full() const</div><div class="ttdoc">Queueが満杯かどうかを返す</div><div class="ttdef"><b>Definition:</b> queue.hpp:66</div></div>
 <div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_html_a90a1ce29b2d7d6bcdbe5cd6112df522d"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a90a1ce29b2d7d6bcdbe5cd6112df522d">rsp::rsp02::fw::util::queue::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">Queueが空かどうかを返す</div><div class="ttdef"><b>Definition:</b> queue.hpp:52</div></div>
 <div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_html_a9c722dd46178ec41b192b926855e99d4"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a9c722dd46178ec41b192b926855e99d4">rsp::rsp02::fw::util::queue::max_size</a></div><div class="ttdeci">size_t max_size() const</div><div class="ttdoc">Queueの最大データ数(template parameter N)を返す</div><div class="ttdef"><b>Definition:</b> queue.hpp:96</div></div>
 <div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_html_aa0f501e8da8a79b5ac82a51fae63978b"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#aa0f501e8da8a79b5ac82a51fae63978b">rsp::rsp02::fw::util::queue::size</a></div><div class="ttdeci">uint32_t size() const</div><div class="ttdoc">Queueにあるデータの個数を返す</div><div class="ttdef"><b>Definition:</b> queue.hpp:81</div></div>
+<div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_html_ab2f14697978167ac566d6a0fb89c3597"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">rsp::rsp02::fw::util::queue::mqueue</a></div><div class="ttdeci">Queue&lt; T, N &gt; mqueue</div><div class="ttdef"><b>Definition:</b> queue.hpp:40</div></div>
 <div class="ttc" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_html_accf6ef2a89cab735ebb03be85aae9497"><div class="ttname"><a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#accf6ef2a89cab735ebb03be85aae9497">rsp::rsp02::fw::util::queue::try_put_for</a></div><div class="ttdeci">bool try_put_for(const T &amp;data, uint32_t milliseconds=0)</div><div class="ttdoc">Queueにデータを格納する template parameter Nで指定される最大データ数まで格納できる 最大データ数を超えて格納しようとしたときと、メモリを確保できなかったとき(mbed環境)に失...</div><div class="ttdef"><b>Definition:</b> queue.hpp:113</div></div>
 <div class="ttc" id="anamespacersp_html"><div class="ttname"><a href="namespacersp.html">rsp</a></div><div class="ttdef"><b>Definition:</b> CommandImplBase.hpp:21</div></div>
 </div><!-- fragment --></div><!-- contents -->

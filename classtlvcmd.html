@@ -83,6 +83,9 @@ $(document).ready(function(){initNavTree('classtlvcmd.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classtlvcmd-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">tlvcmd Class Reference</div>  </div>
@@ -104,8 +107,9 @@ Collaboration diagram for tlvcmd:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtlvcmd__coll__graph.png" border="0" usemap="#atlvcmd_coll__map" alt="Collaboration graph"/></div>
 <map name="atlvcmd_coll__map" id="atlvcmd_coll__map">
-<area shape="rect" title=" " alt="" coords="43,95,110,121"/>
+<area shape="rect" title=" " alt="" coords="119,109,186,136"/>
 <area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IShellCommand.html" title=" " alt="" coords="5,5,148,47"/>
+<area shape="rect" href="structTLVBuf.html" title=" " alt="" coords="172,13,285,39"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -115,6 +119,21 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a52949e1053a1790430701b0fc451bd7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf74f595950ada280df3959424cc1887"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtlvcmd.html#abf74f595950ada280df3959424cc1887">operator()</a> (int argc, const char **argv, void *extobj)</td></tr>
 <tr class="separator:abf74f595950ada280df3959424cc1887"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a1afccb556db9fe5a92f25584052ac180"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtlvcmd.html#a1afccb556db9fe5a92f25584052ac180">ConvertpData</a> (uint8_t *pData, const char *arg)</td></tr>
+<tr class="separator:a1afccb556db9fe5a92f25584052ac180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aace81d3c06d34434526d35022c413e00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTLVBuf.html">TLVBuf</a>&lt; 16 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtlvcmd.html#aace81d3c06d34434526d35022c413e00">buf</a></td></tr>
+<tr class="separator:aace81d3c06d34434526d35022c413e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a5192a3b5ea44dedcb06400ea6385e62e"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtlvcmd.html#a5192a3b5ea44dedcb06400ea6385e62e">pDataSize</a> = 256</td></tr>
+<tr class="separator:a5192a3b5ea44dedcb06400ea6385e62e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a52949e1053a1790430701b0fc451bd7c"></a>
@@ -135,6 +154,51 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1afccb556db9fe5a92f25584052ac180"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1afccb556db9fe5a92f25584052ac180">&#9670;&nbsp;</a></span>ConvertpData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tlvcmd::ConvertpData </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>pData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classtlvcmd_a1afccb556db9fe5a92f25584052ac180_icgraph.png" border="0" usemap="#aclasstlvcmd_a1afccb556db9fe5a92f25584052ac180_icgraph" alt=""/></div>
+<map name="aclasstlvcmd_a1afccb556db9fe5a92f25584052ac180_icgraph" id="aclasstlvcmd_a1afccb556db9fe5a92f25584052ac180_icgraph">
+<area shape="rect" title=" " alt="" coords="193,5,359,32"/>
+<area shape="rect" href="classtlvcmd.html#abf74f595950ada280df3959424cc1887" title=" " alt="" coords="5,5,145,32"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="abf74f595950ada280df3959424cc1887"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf74f595950ada280df3959424cc1887">&#9670;&nbsp;</a></span>operator()()</h2>
 
@@ -181,14 +245,60 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtlvcmd_abf74f595950ada280df3959424cc1887_cgraph.png" border="0" usemap="#aclasstlvcmd_abf74f595950ada280df3959424cc1887_cgraph" alt=""/></div>
 <map name="aclasstlvcmd_abf74f595950ada280df3959424cc1887_cgraph" id="aclasstlvcmd_abf74f595950ada280df3959424cc1887_cgraph">
-<area shape="rect" title=" " alt="" coords="5,78,145,105"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html#a2a1e86269c09b8e8f35718f108841627" title=" " alt="" coords="193,71,357,112"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#a14a2e59fe4d8a940732d8228eed3e281" title=" " alt="" coords="410,37,558,79"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html#afff6f5c1db38a9c772eff42449ec8ca4" title=" " alt="" coords="405,103,563,144"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#aa0f501e8da8a79b5ac82a51fae63978b" title="Queueにあるデータの個数を返す" alt="" coords="617,5,754,47"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#accf6ef2a89cab735ebb03be85aae9497" title="Queueにデータを格納する template parameter Nで指定される最大データ数まで格納できる 最大データ数を超えて格納しようとしたときと、メモリを確保できなかったとき(mbed環境)に失..." alt="" coords="611,71,760,112"/>
+<area shape="rect" title=" " alt="" coords="5,109,145,135"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html#a2a1e86269c09b8e8f35718f108841627" title=" " alt="" coords="194,72,358,113"/>
+<area shape="rect" href="classtlvcmd.html#a1afccb556db9fe5a92f25584052ac180" title=" " alt="" coords="193,138,359,165"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#a14a2e59fe4d8a940732d8228eed3e281" title=" " alt="" coords="411,39,559,80"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html#afff6f5c1db38a9c772eff42449ec8ca4" title=" " alt="" coords="407,104,564,145"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#aa0f501e8da8a79b5ac82a51fae63978b" title="Queueにあるデータの個数を返す" alt="" coords="618,5,755,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#accf6ef2a89cab735ebb03be85aae9497" title="Queueにデータを格納する template parameter Nで指定される最大データ数まで格納できる 最大データ数を超えて格納しようとしたときと、メモリを確保できなかったとき(mbed環境)に失..." alt="" coords="612,71,761,112"/>
 </map>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aace81d3c06d34434526d35022c413e00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aace81d3c06d34434526d35022c413e00">&#9670;&nbsp;</a></span>buf</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTLVBuf.html">TLVBuf</a>&lt;16&gt; tlvcmd::buf</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5192a3b5ea44dedcb06400ea6385e62e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5192a3b5ea44dedcb06400ea6385e62e">&#9670;&nbsp;</a></span>pDataSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int tlvcmd::pDataSize = 256</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

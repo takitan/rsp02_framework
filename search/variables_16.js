@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['xi_1446',['xi',['../structntstdio__t.html#aba43641d36e452d23193195fd832f8dd',1,'ntstdio_t']]],
-  ['xo_1447',['xo',['../structntstdio__t.html#af1c09c73eddb22bb968f5b6c4e944f91',1,'ntstdio_t']]]
+  ['word_1612',['word',['../align_8hpp.html#a3d4adeeef23f893ca0348563200f7084',1,'align.hpp']]],
+  ['wp_1613',['wp',['../structtext__history__t.html#a46895a4e96791a8024c42104dccc086e',1,'text_history_t']]]
 ];

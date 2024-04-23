@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('classrsp_1_1rsp02_1_1system_1_1Produce
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classrsp_1_1rsp02_1_1system_1_1Producer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">rsp::rsp02::system::Producer&lt; PRD_T &gt; Class Template Reference</div>  </div>
@@ -121,8 +122,10 @@ Collaboration diagram for rsp::rsp02::system::Producer&lt; PRD_T &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1Producer__coll__graph.png" border="0" usemap="#arsp_1_1rsp02_1_1system_1_1Producer_3_01PRD__T_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="arsp_1_1rsp02_1_1system_1_1Producer_3_01PRD__T_01_4_coll__map" id="arsp_1_1rsp02_1_1system_1_1Producer_3_01PRD__T_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="7,95,166,136"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IProducer.html" title=" " alt="" coords="5,5,168,47"/>
+<area shape="rect" title=" " alt="" coords="296,71,455,112"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IProducer.html" title=" " alt="" coords="10,5,173,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IConsumer.html" title=" " alt="" coords="5,71,177,112"/>
+<area shape="rect" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html" title=" " alt="" coords="20,136,163,177"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -136,6 +139,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2372dec5a2f537708b2e70e926d21a0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67c0ab381b7ee204460f19b6469e623a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html">ProcessInfo_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Producer.html#a67c0ab381b7ee204460f19b6469e623a">GetInfo</a> () const</td></tr>
 <tr class="separator:a67c0ab381b7ee204460f19b6469e623a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a85769da32ab30e88fd22a053d4f2dd35"><td class="memItemLeft" align="right" valign="top">friend&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Producer.html#a85769da32ab30e88fd22a053d4f2dd35">ProducerAdapter&lt; PRD_T &gt;</a></td></tr>
+<tr class="separator:a85769da32ab30e88fd22a053d4f2dd35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4712c6371c81e63a5ce116d8be9b400"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html">ProcessInfo_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Producer.html#aa4712c6371c81e63a5ce116d8be9b400">Info</a></td></tr>
+<tr class="separator:aa4712c6371c81e63a5ce116d8be9b400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c00e3c3b7ae0cc3b87b9d826f015812"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1IConsumer.html">IConsumer</a>&lt; PRD_T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Producer.html#a6c00e3c3b7ae0cc3b87b9d826f015812">Consumer</a></td></tr>
+<tr class="separator:a6c00e3c3b7ae0cc3b87b9d826f015812"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acc4d1ed286f2003d61bea43be8873ee9"></a>
@@ -272,6 +284,79 @@ template&lt;typename PRD_T &gt; </div>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="classrsp_1_1rsp02_1_1system_1_1IProducer.html#a4df4173a604f36e54dcb277dfb60b92a">rsp::rsp02::system::IProducer&lt; PRD_T &gt;</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6c00e3c3b7ae0cc3b87b9d826f015812"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c00e3c3b7ae0cc3b87b9d826f015812">&#9670;&nbsp;</a></span>Consumer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRD_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1IConsumer.html">IConsumer</a>&lt;PRD_T&gt;* <a class="el" href="classrsp_1_1rsp02_1_1system_1_1Producer.html">rsp::rsp02::system::Producer</a>&lt; PRD_T &gt;::<a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html">Consumer</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa4712c6371c81e63a5ce116d8be9b400"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4712c6371c81e63a5ce116d8be9b400">&#9670;&nbsp;</a></span>Info</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRD_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html">ProcessInfo_t</a>&amp; <a class="el" href="classrsp_1_1rsp02_1_1system_1_1Producer.html">rsp::rsp02::system::Producer</a>&lt; PRD_T &gt;::Info</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85769da32ab30e88fd22a053d4f2dd35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85769da32ab30e88fd22a053d4f2dd35">&#9670;&nbsp;</a></span>ProducerAdapter&lt; PRD_T &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PRD_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend <a class="el" href="classrsp_1_1rsp02_1_1system_1_1Producer.html">rsp::rsp02::system::Producer</a>&lt; PRD_T &gt;::<a class="el" href="classrsp_1_1rsp02_1_1system_1_1ProducerAdapter.html">ProducerAdapter</a>&lt; PRD_T &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

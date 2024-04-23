@@ -1,5 +1,6 @@
 var classTinyTLV =
 [
+    [ "align", "classTinyTLV.html#a68ae84c82635a3c6160b797cc6a259e7", null ],
     [ "TinyTLV", "classTinyTLV.html#aec78dc8cd986af7e567a7006dab774b2", null ],
     [ "GetDestination", "classTinyTLV.html#a242a6de033225356c634f501b917a47c", null ],
     [ "GetLength", "classTinyTLV.html#a8840639687fb49c891c869a0ff19a8cf", null ],

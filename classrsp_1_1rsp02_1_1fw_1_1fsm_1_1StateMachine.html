@@ -84,6 +84,8 @@ $(document).ready(function(){initNavTree('classrsp_1_1rsp02_1_1fw_1_1fsm_1_1Stat
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">rsp::rsp02::fw::fsm::StateMachine&lt; T &gt; Class Template Reference</div>  </div>
@@ -105,6 +107,22 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afab104e3258f7c74c9266e4d7e5076a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa30dead2eca0bebcb296e5008fc6bf2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine.html#aa30dead2eca0bebcb296e5008fc6bf2c">Process</a> (void)</td></tr>
 <tr class="separator:aa30dead2eca0bebcb296e5008fc6bf2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a8f218f7e806b18be741c837fafa815cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine.html#a8f218f7e806b18be741c837fafa815cb">__attribute__</a> ((weak)) static inline void OnTransfer()</td></tr>
+<tr class="separator:a8f218f7e806b18be741c837fafa815cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ab3b3d0cc413a033f37aa39539e3bd67c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1IState.html">IState</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine.html#ab3b3d0cc413a033f37aa39539e3bd67c">PreState</a></td></tr>
+<tr class="separator:ab3b3d0cc413a033f37aa39539e3bd67c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17606599e36f230b23e026e170d47b4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1IState.html">IState</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine.html#a17606599e36f230b23e026e170d47b4b">CurrentState</a></td></tr>
+<tr class="separator:a17606599e36f230b23e026e170d47b4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd0a23f27c494e3716b3315cb1cf80f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1IState.html">IState</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine.html#afd0a23f27c494e3716b3315cb1cf80f2">NextState</a></td></tr>
+<tr class="separator:afd0a23f27c494e3716b3315cb1cf80f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc2c6deec1321290abc9377e11b562a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateFactory.html">StateFactory</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine.html#afc2c6deec1321290abc9377e11b562a2">Factory</a></td></tr>
+<tr class="separator:afc2c6deec1321290abc9377e11b562a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="acb2aef7ceefa63588c1b4bbcaad76493"></a>
@@ -153,6 +171,34 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8f218f7e806b18be741c837fafa815cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f218f7e806b18be741c837fafa815cb">&#9670;&nbsp;</a></span>__attribute__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine.html">rsp::rsp02::fw::fsm::StateMachine</a>&lt; T &gt;::__attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(weak)&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afab104e3258f7c74c9266e4d7e5076a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afab104e3258f7c74c9266e4d7e5076a9">&#9670;&nbsp;</a></span>ForceTrans()</h2>
 
@@ -178,16 +224,6 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine_afab104e3258f7c74c9266e4d7e5076a9_cgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine_afab104e3258f7c74c9266e4d7e5076a9_cgraph" alt=""/></div>
-<map name="aclassrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine_afab104e3258f7c74c9266e4d7e5076a9_cgraph" id="aclassrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine_afab104e3258f7c74c9266e4d7e5076a9_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,201,47"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateFactory.html#a52232ff669fc9a25c8e5174c919625ba" title=" " alt="" coords="249,5,424,47"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1IState.html#adaec86be1ee6d5676436d8d1afc0f358" title=" " alt="" coords="472,5,631,47"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -216,15 +252,103 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine_aa30dead2eca0bebcb296e5008fc6bf2c_cgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine_aa30dead2eca0bebcb296e5008fc6bf2c_cgraph" alt=""/></div>
-<map name="aclassrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine_aa30dead2eca0bebcb296e5008fc6bf2c_cgraph" id="aclassrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine_aa30dead2eca0bebcb296e5008fc6bf2c_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,183,47"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1IState.html#af911f444e5d21e1f059491b7566cef32" title=" " alt="" coords="231,5,372,47"/>
-</map>
+
 </div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a17606599e36f230b23e026e170d47b4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17606599e36f230b23e026e170d47b4b">&#9670;&nbsp;</a></span>CurrentState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1IState.html">IState</a>&lt;T&gt;* <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine.html">rsp::rsp02::fw::fsm::StateMachine</a>&lt; T &gt;::CurrentState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc2c6deec1321290abc9377e11b562a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc2c6deec1321290abc9377e11b562a2">&#9670;&nbsp;</a></span>Factory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateFactory.html">StateFactory</a>&lt;T&gt;* <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine.html">rsp::rsp02::fw::fsm::StateMachine</a>&lt; T &gt;::Factory</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afd0a23f27c494e3716b3315cb1cf80f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd0a23f27c494e3716b3315cb1cf80f2">&#9670;&nbsp;</a></span>NextState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1IState.html">IState</a>&lt;T&gt;* <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine.html">rsp::rsp02::fw::fsm::StateMachine</a>&lt; T &gt;::NextState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab3b3d0cc413a033f37aa39539e3bd67c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3b3d0cc413a033f37aa39539e3bd67c">&#9670;&nbsp;</a></span>PreState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1IState.html">IState</a>&lt;T&gt;* <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine.html">rsp::rsp02::fw::fsm::StateMachine</a>&lt; T &gt;::PreState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

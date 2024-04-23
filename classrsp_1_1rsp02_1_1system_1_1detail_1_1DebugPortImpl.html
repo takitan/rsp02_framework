@@ -83,11 +83,23 @@ $(document).ready(function(){initNavTree('classrsp_1_1rsp02_1_1system_1_1detail_
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">rsp::rsp02::system::detail::DebugPortImpl Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Collaboration diagram for rsp::rsp02::system::detail::DebugPortImpl:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl__coll__graph.png" border="0" usemap="#arsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_coll__map" alt="Collaboration graph"/></div>
+<map name="arsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_coll__map" id="arsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_coll__map">
+<area shape="rect" title=" " alt="" coords="5,109,177,151"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IShell.html" title=" " alt="" coords="20,5,163,47"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -103,7 +115,51 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af2aef966fc1542000dbf2102a7fcadf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b5ec5bb1e60633530d70f7822c3acc9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl.html#a8b5ec5bb1e60633530d70f7822c3acc9">prints</a> (const char *text, void *extobj)</td></tr>
 <tr class="separator:a8b5ec5bb1e60633530d70f7822c3acc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a1b40da268c72344405894d796fd87854"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl.html#a1b40da268c72344405894d796fd87854">Thread</a> = <a class="el" href="namespacersp_1_1rsp02_1_1fw_1_1util.html#a43e14e31d4fff73ae2b4979681a66a69">fw::util::Thread</a></td></tr>
+<tr class="separator:a1b40da268c72344405894d796fd87854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ad1fd393defe5cbffd3ea931d11beb82d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl.html#ad1fd393defe5cbffd3ea931d11beb82d">SetupConsole</a> ()</td></tr>
+<tr class="separator:ad1fd393defe5cbffd3ea931d11beb82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5754889b294d596a68fc0cded800eabb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl.html#a5754889b294d596a68fc0cded800eabb">func</a> ()</td></tr>
+<tr class="separator:a5754889b294d596a68fc0cded800eabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a7ff79eac943164b3d7b9f8e93ba64c2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl.html#a7ff79eac943164b3d7b9f8e93ba64c2c">isCanceled</a></td></tr>
+<tr class="separator:a7ff79eac943164b3d7b9f8e93ba64c2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e7b21ff5d920385e5b4514a280cd6fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl.html#a1b40da268c72344405894d796fd87854">Thread</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl.html#a9e7b21ff5d920385e5b4514a280cd6fd">th</a></td></tr>
+<tr class="separator:a9e7b21ff5d920385e5b4514a280cd6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee2c7a7bf4b2fc20095e52c17618402b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1IShell.html">IShell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl.html#aee2c7a7bf4b2fc20095e52c17618402b">shell</a></td></tr>
+<tr class="separator:aee2c7a7bf4b2fc20095e52c17618402b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a1b40da268c72344405894d796fd87854"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b40da268c72344405894d796fd87854">&#9670;&nbsp;</a></span>Thread</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl.html#a1b40da268c72344405894d796fd87854">rsp::rsp02::system::detail::DebugPortImpl::Thread</a> =  <a class="el" href="namespacersp_1_1rsp02_1_1fw_1_1util.html#a43e14e31d4fff73ae2b4979681a66a69">fw::util::Thread</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae4c5edad0074a910e612e87efd353241"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae4c5edad0074a910e612e87efd353241">&#9670;&nbsp;</a></span>DebugPortImpl()</h2>
@@ -133,14 +189,77 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_ae4c5edad0074a910e612e87efd353241_cgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_ae4c5edad0074a910e612e87efd353241_cgraph" alt=""/></div>
 <map name="aclassrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_ae4c5edad0074a910e612e87efd353241_cgraph" id="aclassrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_ae4c5edad0074a910e612e87efd353241_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,177,61"/>
-<area shape="rect" href="group__platform__Callback.html#gabd0e8a629b80926c57257c8b1d481e7e" title=" " alt="" coords="225,13,363,54"/>
+<area shape="rect" title=" " alt="" coords="5,31,177,87"/>
+<area shape="rect" href="group__platform__Callback.html#gabd0e8a629b80926c57257c8b1d481e7e" title=" " alt="" coords="261,5,398,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl.html#a5754889b294d596a68fc0cded800eabb" title=" " alt="" coords="225,71,433,112"/>
+<area shape="rect" href="ntshell_8c.html#ae5d9803654f63f7cca063236655eb0c4" title="Execute the NT&#45;Shell." alt="" coords="493,27,617,54"/>
+<area shape="rect" href="ntshell_8c.html#a9a6881dc9b5c6a35de5a6c8ee15ea812" title="Initialize the NT&#45;Shell." alt="" coords="507,179,602,206"/>
+<area shape="rect" href="ntshell_8c.html#a0be63f7a4e7d7006441b3b7b359771dd" title="Set up the prompt of the NT&#45;Shell." alt="" coords="481,78,628,105"/>
+<area shape="rect" href="vtrecv_8c.html#a74832bc7b9d08e8ece60a7a6f254dcf5" title=" " alt="" coords="679,27,801,54"/>
+<area shape="rect" href="ntlibc_8c.html#a55edc1d8dbf863139280646458bc5a0b" title=" " alt="" coords="687,78,793,105"/>
+<area shape="rect" href="text__editor_8c.html#a7386f859ce44fc6e7dbb0e188f4fb6b7" title="Initialize the text editor module." alt="" coords="679,129,801,155"/>
+<area shape="rect" href="text__history_8c.html#ab218f0bccd213a40c919f75b886ea375" title="Initialize this module." alt="" coords="676,179,804,206"/>
+<area shape="rect" href="ntshell_8c.html#a7d675ddb9d03d14d4bd4ccbd8cbe90b1" title="The callback function for the vtrecv module." alt="" coords="678,230,802,257"/>
+<area shape="rect" href="vtrecv_8c.html#a4cacb824aeb0fc3ef6590bfebe07c927" title=" " alt="" coords="695,281,785,307"/>
+<area shape="rect" href="vtsend_8c.html#a6a3399ec35efcfdd87e79d3321d43ca8" title=" " alt="" coords="693,331,787,358"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5754889b294d596a68fc0cded800eabb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5754889b294d596a68fc0cded800eabb">&#9670;&nbsp;</a></span>func()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rsp::rsp02::system::detail::DebugPortImpl::func </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_a5754889b294d596a68fc0cded800eabb_cgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_a5754889b294d596a68fc0cded800eabb_cgraph" alt=""/></div>
+<map name="aclassrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_a5754889b294d596a68fc0cded800eabb_cgraph" id="aclassrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_a5754889b294d596a68fc0cded800eabb_cgraph">
+<area shape="rect" title=" " alt="" coords="5,49,213,90"/>
+<area shape="rect" href="ntshell_8c.html#ae5d9803654f63f7cca063236655eb0c4" title="Execute the NT&#45;Shell." alt="" coords="273,5,397,32"/>
+<area shape="rect" href="ntshell_8c.html#a9a6881dc9b5c6a35de5a6c8ee15ea812" title="Initialize the NT&#45;Shell." alt="" coords="287,157,382,184"/>
+<area shape="rect" href="ntshell_8c.html#a0be63f7a4e7d7006441b3b7b359771dd" title="Set up the prompt of the NT&#45;Shell." alt="" coords="261,56,408,83"/>
+<area shape="rect" href="vtrecv_8c.html#a74832bc7b9d08e8ece60a7a6f254dcf5" title=" " alt="" coords="459,5,581,32"/>
+<area shape="rect" href="ntlibc_8c.html#a55edc1d8dbf863139280646458bc5a0b" title=" " alt="" coords="467,56,573,83"/>
+<area shape="rect" href="text__editor_8c.html#a7386f859ce44fc6e7dbb0e188f4fb6b7" title="Initialize the text editor module." alt="" coords="459,107,581,133"/>
+<area shape="rect" href="text__history_8c.html#ab218f0bccd213a40c919f75b886ea375" title="Initialize this module." alt="" coords="456,157,584,184"/>
+<area shape="rect" href="ntshell_8c.html#a7d675ddb9d03d14d4bd4ccbd8cbe90b1" title="The callback function for the vtrecv module." alt="" coords="458,208,582,235"/>
+<area shape="rect" href="vtrecv_8c.html#a4cacb824aeb0fc3ef6590bfebe07c927" title=" " alt="" coords="475,259,565,285"/>
+<area shape="rect" href="vtsend_8c.html#a6a3399ec35efcfdd87e79d3321d43ca8" title=" " alt="" coords="473,309,567,336"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_a5754889b294d596a68fc0cded800eabb_icgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_a5754889b294d596a68fc0cded800eabb_icgraph" alt=""/></div>
+<map name="aclassrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_a5754889b294d596a68fc0cded800eabb_icgraph" id="aclassrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl_a5754889b294d596a68fc0cded800eabb_icgraph">
+<area shape="rect" title=" " alt="" coords="225,13,433,54"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl.html#ae4c5edad0074a910e612e87efd353241" title=" " alt="" coords="5,5,177,61"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a1d1949b04d709565984bedc8f767c0e0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d1949b04d709565984bedc8f767c0e0">&#9670;&nbsp;</a></span>func_cb()</h2>
 
@@ -372,6 +491,98 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl.html#a6f959a8ac49eebb7b6b1d060b007a15b" title=" " alt="" coords="225,5,397,61"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="ad1fd393defe5cbffd3ea931d11beb82d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1fd393defe5cbffd3ea931d11beb82d">&#9670;&nbsp;</a></span>SetupConsole()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rsp::rsp02::system::detail::DebugPortImpl::SetupConsole </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7ff79eac943164b3d7b9f8e93ba64c2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ff79eac943164b3d7b9f8e93ba64c2c">&#9670;&nbsp;</a></span>isCanceled</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rsp::rsp02::system::detail::DebugPortImpl::isCanceled</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aee2c7a7bf4b2fc20095e52c17618402b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee2c7a7bf4b2fc20095e52c17618402b">&#9670;&nbsp;</a></span>shell</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1IShell.html">IShell</a>* rsp::rsp02::system::detail::DebugPortImpl::shell</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e7b21ff5d920385e5b4514a280cd6fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e7b21ff5d920385e5b4514a280cd6fd">&#9670;&nbsp;</a></span>th</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1detail_1_1DebugPortImpl.html#a1b40da268c72344405894d796fd87854">Thread</a> rsp::rsp02::system::detail::DebugPortImpl::th</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

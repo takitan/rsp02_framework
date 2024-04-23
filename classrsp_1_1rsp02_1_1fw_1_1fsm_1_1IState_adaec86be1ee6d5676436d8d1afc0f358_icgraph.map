@@ -1,5 +1,4 @@
 <map id="rsp::rsp02::fw::fsm::IState::GetStateInfo" name="rsp::rsp02::fw::fsm::IState::GetStateInfo">
-<area shape="rect" id="node1" title=" " alt="" coords="472,5,631,47"/>
-<area shape="rect" id="node2" href="$classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateFactory.html#a52232ff669fc9a25c8e5174c919625ba" title=" " alt="" coords="249,5,424,47"/>
-<area shape="rect" id="node3" href="$classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateMachine.html#afab104e3258f7c74c9266e4d7e5076a9" title=" " alt="" coords="5,5,201,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="228,5,387,47"/>
+<area shape="rect" id="node2" href="$classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateFactory.html#a52232ff669fc9a25c8e5174c919625ba" title=" " alt="" coords="5,5,180,47"/>
 </map>

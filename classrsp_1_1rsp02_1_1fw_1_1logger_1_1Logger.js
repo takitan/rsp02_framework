@@ -1,5 +1,6 @@
 var classrsp_1_1rsp02_1_1fw_1_1logger_1_1Logger =
 [
+    [ "Logger", "classrsp_1_1rsp02_1_1fw_1_1logger_1_1Logger.html#a765ca05903511709676a8212ac972c5b", null ],
     [ "~Logger", "classrsp_1_1rsp02_1_1fw_1_1logger_1_1Logger.html#aaddb41c52ad88556bb4c2bdf958080db", null ],
     [ "Debug", "classrsp_1_1rsp02_1_1fw_1_1logger_1_1Logger.html#a521a59f760a161fff7a4edf91281d0cd", null ],
     [ "Error", "classrsp_1_1rsp02_1_1fw_1_1logger_1_1Logger.html#a7cd0198c73342d3150ca20b97614e746", null ],

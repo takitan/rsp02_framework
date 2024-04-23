@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('classrsp_1_1rsp02_1_1fw_1_1logger_1_1P
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">rsp::rsp02::fw::logger::PrintfSink Class Reference</div>  </div>
@@ -117,6 +118,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab0fc09e0800f6c19ac6c5f37be5b7af5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink.html#ab0fc09e0800f6c19ac6c5f37be5b7af5">~PrintfSink</a> ()</td></tr>
 <tr class="memdesc:ab0fc09e0800f6c19ac6c5f37be5b7af5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink.html">PrintfSink</a> object.  <a href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink.html#ab0fc09e0800f6c19ac6c5f37be5b7af5">More...</a><br /></td></tr>
 <tr class="separator:ab0fc09e0800f6c19ac6c5f37be5b7af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ad10ef270b8a2087037b31c2da15dfac6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink.html#ad10ef270b8a2087037b31c2da15dfac6">Sink</a> (<a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ISink.html#a2a802dc69b4b7f3e77cef766a3508ef9">time_t</a> time, const char *name, const char *ll, const char *fmt, ::va_list arg)</td></tr>
+<tr class="memdesc:ad10ef270b8a2087037b31c2da15dfac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">va_listバージョンのログ出力  <a href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink.html#ad10ef270b8a2087037b31c2da15dfac6">More...</a><br /></td></tr>
+<tr class="separator:ad10ef270b8a2087037b31c2da15dfac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a797c96b03dc5760e34dec8e60b7d4d66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink.html#a797c96b03dc5760e34dec8e60b7d4d66">operator()</a> (<a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ISink.html#a2a802dc69b4b7f3e77cef766a3508ef9">time_t</a> time, const char *name, const char *ll, const char *fmt, ::va_list arg)</td></tr>
+<tr class="separator:a797c96b03dc5760e34dec8e60b7d4d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -168,6 +177,148 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Destroy the <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink.html">PrintfSink</a> object. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a797c96b03dc5760e34dec8e60b7d4d66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a797c96b03dc5760e34dec8e60b7d4d66">&#9670;&nbsp;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rsp::rsp02::fw::logger::PrintfSink::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ISink.html#a2a802dc69b4b7f3e77cef766a3508ef9">time_t</a>&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ll</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">::va_list&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ISink.html#ad719bd36643f669809a8030cb9b17bb2">rsp::rsp02::fw::logger::ISink</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink_a797c96b03dc5760e34dec8e60b7d4d66_cgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink_a797c96b03dc5760e34dec8e60b7d4d66_cgraph" alt=""/></div>
+<map name="aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink_a797c96b03dc5760e34dec8e60b7d4d66_cgraph" id="aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink_a797c96b03dc5760e34dec8e60b7d4d66_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,172,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink.html#ad10ef270b8a2087037b31c2da15dfac6" title="va_listバージョンのログ出力" alt="" coords="220,5,377,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad10ef270b8a2087037b31c2da15dfac6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad10ef270b8a2087037b31c2da15dfac6">&#9670;&nbsp;</a></span>Sink()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rsp::rsp02::fw::logger::PrintfSink::Sink </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ISink.html#a2a802dc69b4b7f3e77cef766a3508ef9">time_t</a>&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ll</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">::va_list&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>va_listバージョンのログ出力 </p>
+<p>fmt以降の引数は、そのままgvprintfに引き渡される </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>ロガー名称 </td></tr>
+    <tr><td class="paramname">ll</td><td>ログレベル </td></tr>
+    <tr><td class="paramname">fmt</td><td>フォーマット文字列 </td></tr>
+    <tr><td class="paramname">arg</td><td>va_list </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ISink.html#aab9fbfcb1b6812383310f85cc34fd858">rsp::rsp02::fw::logger::ISink</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink_ad10ef270b8a2087037b31c2da15dfac6_icgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink_ad10ef270b8a2087037b31c2da15dfac6_icgraph" alt=""/></div>
+<map name="aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink_ad10ef270b8a2087037b31c2da15dfac6_icgraph" id="aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink_ad10ef270b8a2087037b31c2da15dfac6_icgraph">
+<area shape="rect" title="va_listバージョンのログ出力" alt="" coords="220,5,377,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1PrintfSink.html#a797c96b03dc5760e34dec8e60b7d4d66" title=" " alt="" coords="5,5,172,47"/>
+</map>
+</div>
 
 </div>
 </div>

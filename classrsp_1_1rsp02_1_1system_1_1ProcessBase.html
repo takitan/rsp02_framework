@@ -84,6 +84,8 @@ $(document).ready(function(){initNavTree('classrsp_1_1rsp02_1_1system_1_1Process
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classrsp_1_1rsp02_1_1system_1_1ProcessBase-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">rsp::rsp02::system::ProcessBase&lt; CNS_T, PRD_T &gt; Class Template Reference</div>  </div>
@@ -127,15 +129,19 @@ Collaboration diagram for rsp::rsp02::system::ProcessBase&lt; CNS_T, PRD_T &gt;:
 <div class="dyncontent">
 <div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1ProcessBase__coll__graph.png" border="0" usemap="#arsp_1_1rsp02_1_1system_1_1ProcessBase_3_01CNS__T_00_01PRD__T_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="arsp_1_1rsp02_1_1system_1_1ProcessBase_3_01CNS__T_00_01PRD__T_01_4_coll__map" id="arsp_1_1rsp02_1_1system_1_1ProcessBase_3_01CNS__T_00_01PRD__T_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="512,129,685,185"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Producer.html" title=" " alt="" coords="251,5,410,47"/>
+<area shape="rect" title=" " alt="" coords="575,361,748,417"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Producer.html" title=" " alt="" coords="321,85,479,127"/>
 <area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IProducer.html" title=" " alt="" coords="10,5,173,47"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html" title=" " alt="" coords="247,71,415,112"/>
 <area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IConsumer.html" title=" " alt="" coords="5,71,177,112"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Executer.html" title=" " alt="" coords="227,136,435,177"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IExecuter.html" title=" " alt="" coords="16,137,167,193"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IProcess.html" title=" " alt="" coords="259,201,402,243"/>
-<area shape="rect" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html" title=" " alt="" coords="259,267,402,308"/>
+<area shape="rect" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html" title=" " alt="" coords="20,168,163,209"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html" title=" " alt="" coords="316,293,484,335"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Executer.html" title=" " alt="" coords="296,368,504,409"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IConsumer.html" title=" " alt="" coords="5,247,177,288"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html" title=" " alt="" coords="11,312,171,353"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IExecuter.html" title=" " alt="" coords="16,378,167,434"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html" title=" " alt="" coords="13,459,170,500"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IProcess.html" title=" " alt="" coords="329,516,471,557"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html" title="簡易的な経過時間測定クラス" alt="" coords="327,581,473,623"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -173,7 +179,44 @@ Public Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ab80c940c7aaa05da01b7b57b8a225a14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html">ProcessInfo_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html#ab80c940c7aaa05da01b7b57b8a225a14">Info</a></td></tr>
 <tr class="separator:ab80c940c7aaa05da01b7b57b8a225a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a3064c4e16fab9ab1ab95c715e4bb1f3a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html#a3064c4e16fab9ab1ab95c715e4bb1f3a">StopWatch</a> = <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html">rsp::rsp02::fw::time::StopWatch</a></td></tr>
+<tr class="separator:a3064c4e16fab9ab1ab95c715e4bb1f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a629429529ca99ba4c8eae27b639c6a86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html">rsp::rsp02::fw::time::StopWatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html#a629429529ca99ba4c8eae27b639c6a86">sw</a></td></tr>
+<tr class="separator:a629429529ca99ba4c8eae27b639c6a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d8efab1b93520e7facad56742e8f092"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html">rsp::rsp02::fw::logger::ILogger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html#a0d8efab1b93520e7facad56742e8f092">logger</a></td></tr>
+<tr class="separator:a0d8efab1b93520e7facad56742e8f092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a3064c4e16fab9ab1ab95c715e4bb1f3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3064c4e16fab9ab1ab95c715e4bb1f3a">&#9670;&nbsp;</a></span>StopWatch</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CNS_T , typename PRD_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html">rsp::rsp02::system::ProcessBase</a>&lt; CNS_T, PRD_T &gt;::<a class="el" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html#a3064c4e16fab9ab1ab95c715e4bb1f3a">StopWatch</a> =  <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html">rsp::rsp02::fw::time::StopWatch</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5445ee359bf41fbd533bfa19fdb19c86"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5445ee359bf41fbd533bfa19fdb19c86">&#9670;&nbsp;</a></span>ProcessBase()</h2>
@@ -372,16 +415,17 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1ProcessBase_a7b8f49da6e5812a556fc3a46723e2c21_cgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1system_1_1ProcessBase_a7b8f49da6e5812a556fc3a46723e2c21_cgraph" alt=""/></div>
 <map name="aclassrsp_1_1rsp02_1_1system_1_1ProcessBase_a7b8f49da6e5812a556fc3a46723e2c21_cgraph" id="aclassrsp_1_1rsp02_1_1system_1_1ProcessBase_a7b8f49da6e5812a556fc3a46723e2c21_cgraph">
-<area shape="rect" title=" " alt="" coords="5,165,177,207"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#a70d484f9925ea6f502459fc7b0db2256" title=" " alt="" coords="225,100,384,141"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Executer.html#afa39a068d35c430bb5ed1fa73bb482fe" title=" " alt="" coords="231,165,378,207"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html#a6d1c7fc118c821d2809d9ad63d71277a" title=" " alt="" coords="226,231,383,272"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#a6ffcfbf1d796b54fa615fe3b8e4d8b56" title="経過時間が指定時間を超えているかを判定する" alt="" coords="432,45,601,87"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#acce1aafb04c4250c76731f1e945f4d98" title="スタート時刻の登録" alt="" coords="691,104,837,145"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#afffb2793225d2d811aba8c1220846f3e" title="経過時刻を登録しつつ経過時間を取得する" alt="" coords="649,39,879,80"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#a0c7b5d935b502a2fe3aab0d005b5278e" title="経過時間を取得する" alt="" coords="927,5,1108,47"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#acfbaa9fc23150740e68f399111b47a20" title="計時時刻の登録" alt="" coords="944,71,1091,112"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html#afff6f5c1db38a9c772eff42449ec8ca4" title=" " alt="" coords="438,165,595,207"/>
+<area shape="rect" title=" " alt="" coords="5,168,177,209"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#a70d484f9925ea6f502459fc7b0db2256" title=" " alt="" coords="225,103,384,144"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Executer.html#afa39a068d35c430bb5ed1fa73bb482fe" title=" " alt="" coords="231,168,378,209"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html#a6d1c7fc118c821d2809d9ad63d71277a" title=" " alt="" coords="226,233,383,275"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#a6ffcfbf1d796b54fa615fe3b8e4d8b56" title="経過時間が指定時間を超えているかを判定する" alt="" coords="449,45,618,87"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#acce1aafb04c4250c76731f1e945f4d98" title="スタート時刻の登録" alt="" coords="724,104,871,145"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#afffb2793225d2d811aba8c1220846f3e" title="経過時刻を登録しつつ経過時間を取得する" alt="" coords="683,39,912,80"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#a0c7b5d935b502a2fe3aab0d005b5278e" title="経過時間を取得する" alt="" coords="960,5,1141,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#acfbaa9fc23150740e68f399111b47a20" title="計時時刻の登録" alt="" coords="977,71,1124,112"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Executer.html#a64ea53d6b6beef1191013c775d094f50" title=" " alt="" coords="432,165,635,207"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html#afff6f5c1db38a9c772eff42449ec8ca4" title=" " alt="" coords="455,231,612,272"/>
 </map>
 </div>
 
@@ -436,6 +480,54 @@ template&lt;typename CNS_T , typename PRD_T &gt; </div>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d8efab1b93520e7facad56742e8f092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d8efab1b93520e7facad56742e8f092">&#9670;&nbsp;</a></span>logger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CNS_T , typename PRD_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html">rsp::rsp02::fw::logger::ILogger</a>* <a class="el" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html">rsp::rsp02::system::ProcessBase</a>&lt; CNS_T, PRD_T &gt;::logger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a629429529ca99ba4c8eae27b639c6a86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a629429529ca99ba4c8eae27b639c6a86">&#9670;&nbsp;</a></span>sw</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CNS_T , typename PRD_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html">rsp::rsp02::fw::time::StopWatch</a> <a class="el" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html">rsp::rsp02::system::ProcessBase</a>&lt; CNS_T, PRD_T &gt;::sw</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

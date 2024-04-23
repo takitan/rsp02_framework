@@ -83,6 +83,9 @@ $(document).ready(function(){initNavTree('classrsp_1_1rsp02_1_1system_1_1Consume
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classrsp_1_1rsp02_1_1system_1_1Consumer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">rsp::rsp02::system::Consumer&lt; CNS_T &gt; Class Template Reference</div>  </div>
@@ -121,8 +124,10 @@ Collaboration diagram for rsp::rsp02::system::Consumer&lt; CNS_T &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1Consumer__coll__graph.png" border="0" usemap="#arsp_1_1rsp02_1_1system_1_1Consumer_3_01CNS__T_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="arsp_1_1rsp02_1_1system_1_1Consumer_3_01CNS__T_01_4_coll__map" id="arsp_1_1rsp02_1_1system_1_1Consumer_3_01CNS__T_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="7,95,175,136"/>
+<area shape="rect" title=" " alt="" coords="271,71,439,112"/>
 <area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IConsumer.html" title=" " alt="" coords="5,5,177,47"/>
+<area shape="rect" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html" title=" " alt="" coords="20,71,163,112"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html" title=" " alt="" coords="11,136,171,177"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -134,6 +139,25 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a14a2e59fe4d8a940732d8228eed3e281"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a439477b37d45065d9335982e2561ae47"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html">ProcessInfo_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#a439477b37d45065d9335982e2561ae47">GetInfo</a> () const</td></tr>
 <tr class="separator:a439477b37d45065d9335982e2561ae47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a03bdbbc4ab5f0554ba164db88745917f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#a03bdbbc4ab5f0554ba164db88745917f">TakeProduct</a> (CNS_T &amp;product)</td></tr>
+<tr class="separator:a03bdbbc4ab5f0554ba164db88745917f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a2fb0a602d0c85e2504d28f529e73ee21"><td class="memItemLeft" align="right" valign="top">friend&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#a2fb0a602d0c85e2504d28f529e73ee21">ConsumerAdapter&lt; CNS_T &gt;</a></td></tr>
+<tr class="separator:a2fb0a602d0c85e2504d28f529e73ee21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af93503c63726f729612e473929af5329"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html">ProcessInfo_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#af93503c63726f729612e473929af5329">Info</a></td></tr>
+<tr class="separator:af93503c63726f729612e473929af5329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec3b290cb26fbb9fb2272bb84e7da23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html">rsp02::fw::util::queue</a>&lt; CNS_T, <a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#a624042ec8a423d0ee1a727b371688698">N</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#a5ec3b290cb26fbb9fb2272bb84e7da23">queue</a></td></tr>
+<tr class="separator:a5ec3b290cb26fbb9fb2272bb84e7da23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a624042ec8a423d0ee1a727b371688698"><td class="memItemLeft" align="right" valign="top">constexpr static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#a624042ec8a423d0ee1a727b371688698">N</a> = 1</td></tr>
+<tr class="separator:a624042ec8a423d0ee1a727b371688698"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a853847e3a4f00bd714774d783fae323c"></a>
@@ -258,6 +282,150 @@ template&lt;typename CNS_T &gt; </div>
 <p>Implements <a class="el" href="classrsp_1_1rsp02_1_1system_1_1IConsumer.html#a0f876cd1b47461a575b55f16218b7600">rsp::rsp02::system::IConsumer&lt; CNS_T &gt;</a>.</p>
 
 <p>Reimplemented in <a class="el" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html#acc43995dfbc7068e8517229171a2f1af">rsp::rsp02::system::ProcessBase&lt; CNS_T, PRD_T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a03bdbbc4ab5f0554ba164db88745917f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03bdbbc4ab5f0554ba164db88745917f">&#9670;&nbsp;</a></span>TakeProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CNS_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html">rsp::rsp02::system::Consumer</a>&lt; CNS_T &gt;::TakeProduct </td>
+          <td>(</td>
+          <td class="paramtype">CNS_T &amp;&#160;</td>
+          <td class="paramname"><em>product</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1Consumer_a03bdbbc4ab5f0554ba164db88745917f_cgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1system_1_1Consumer_a03bdbbc4ab5f0554ba164db88745917f_cgraph" alt=""/></div>
+<map name="aclassrsp_1_1rsp02_1_1system_1_1Consumer_a03bdbbc4ab5f0554ba164db88745917f_cgraph" id="aclassrsp_1_1rsp02_1_1system_1_1Consumer_a03bdbbc4ab5f0554ba164db88745917f_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,188,80"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#aa0f501e8da8a79b5ac82a51fae63978b" title="Queueにあるデータの個数を返す" alt="" coords="242,5,379,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a75977fdb5c420d3e3209f510dd522740" title="Queueからデータを取り出す Queueにデータが格納されていないときに失敗する" alt="" coords="236,71,385,112"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1Consumer_a03bdbbc4ab5f0554ba164db88745917f_icgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1system_1_1Consumer_a03bdbbc4ab5f0554ba164db88745917f_icgraph" alt=""/></div>
+<map name="aclassrsp_1_1rsp02_1_1system_1_1Consumer_a03bdbbc4ab5f0554ba164db88745917f_icgraph" id="aclassrsp_1_1rsp02_1_1system_1_1Consumer_a03bdbbc4ab5f0554ba164db88745917f_icgraph">
+<area shape="rect" title=" " alt="" coords="287,5,469,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1ConsumerAdapter.html#a1f99c5a74d5e79cd72ba502b9f1926a2" title=" " alt="" coords="5,5,239,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2fb0a602d0c85e2504d28f529e73ee21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fb0a602d0c85e2504d28f529e73ee21">&#9670;&nbsp;</a></span>ConsumerAdapter&lt; CNS_T &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CNS_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend <a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html">rsp::rsp02::system::Consumer</a>&lt; CNS_T &gt;::<a class="el" href="classrsp_1_1rsp02_1_1system_1_1ConsumerAdapter.html">ConsumerAdapter</a>&lt; CNS_T &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af93503c63726f729612e473929af5329"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af93503c63726f729612e473929af5329">&#9670;&nbsp;</a></span>Info</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CNS_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html">ProcessInfo_t</a>&amp; <a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html">rsp::rsp02::system::Consumer</a>&lt; CNS_T &gt;::Info</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a624042ec8a423d0ee1a727b371688698"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a624042ec8a423d0ee1a727b371688698">&#9670;&nbsp;</a></span>N</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CNS_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr static int <a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html">rsp::rsp02::system::Consumer</a>&lt; CNS_T &gt;::N = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ec3b290cb26fbb9fb2272bb84e7da23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ec3b290cb26fbb9fb2272bb84e7da23">&#9670;&nbsp;</a></span>queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CNS_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html">rsp02::fw::util::queue</a>&lt;CNS_T,<a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#a624042ec8a423d0ee1a727b371688698">N</a>&gt; <a class="el" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html">rsp::rsp02::system::Consumer</a>&lt; CNS_T &gt;::queue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

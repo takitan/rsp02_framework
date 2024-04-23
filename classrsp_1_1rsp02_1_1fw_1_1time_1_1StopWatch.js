@@ -9,5 +9,8 @@ var classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch =
     [ "isPeriod", "classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#a70d484f9925ea6f502459fc7b0db2256", null ],
     [ "Lap", "classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#acfbaa9fc23150740e68f399111b47a20", null ],
     [ "LapAndGetElapsed", "classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#afffb2793225d2d811aba8c1220846f3e", null ],
-    [ "Start", "classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#acce1aafb04c4250c76731f1e945f4d98", null ]
+    [ "Start", "classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#acce1aafb04c4250c76731f1e945f4d98", null ],
+    [ "CurrentTime", "classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#af6e78016db7ac99ace4c0afe7dca82fd", null ],
+    [ "Period", "classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#adccb7aa0521dcfdaf7600dcfaf6469fe", null ],
+    [ "StartTime", "classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#a9ff40844667d7342b148913cbed001fa", null ]
 ];

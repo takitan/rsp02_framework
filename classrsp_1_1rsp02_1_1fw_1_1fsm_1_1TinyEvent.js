@@ -4,5 +4,7 @@ var classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent =
     [ "Reset", "classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html#a901d91f15e49bc6c7b7c79a2ab0fb0e4", null ],
     [ "Set", "classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html#a70dcccc4d909a40a987d98e0657b0020", null ],
     [ "Test", "classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html#a90b2cd55f00a4b969304d7df694310dd", null ],
-    [ "TestAndReset", "classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html#ae735c8ba7d76d895e1ddd30065d89258", null ]
+    [ "TestAndReset", "classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html#ae735c8ba7d76d895e1ddd30065d89258", null ],
+    [ "flag", "classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html#abc97e95402ad660e6ecb63fa3106e53b", null ],
+    [ "mtx", "classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html#a1fe2c0a4e1eb62fcfba94e9de64138c6", null ]
 ];

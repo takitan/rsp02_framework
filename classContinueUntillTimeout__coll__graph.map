@@ -1,4 +1,5 @@
 <map id="ContinueUntillTimeout" name="ContinueUntillTimeout">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,175,107"/>
-<area shape="rect" id="node2" href="$classIExecutionStrategy.html" title=" " alt="" coords="18,5,162,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="77,109,246,136"/>
+<area shape="rect" id="node2" href="$classIExecutionStrategy.html" title=" " alt="" coords="5,13,149,39"/>
+<area shape="rect" id="node3" href="$classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html" title="簡易的な経過時間測定クラス" alt="" coords="173,5,320,47"/>
 </map>

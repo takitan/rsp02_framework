@@ -83,6 +83,8 @@ $(document).ready(function(){initNavTree('classrsp_1_1rsp02_1_1fw_1_1logger_1_1F
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">rsp::rsp02::fw::logger::FileSink Class Reference</div>  </div>
@@ -122,6 +124,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:add14a102fb2e0edd11942d9bf2e838da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc57e065186975ad934266ed961fc7fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink.html#adc57e065186975ad934266ed961fc7fe">operator()</a> (<a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ISink.html#a2a802dc69b4b7f3e77cef766a3508ef9">time_t</a> time, const char *name, const char *ll, const char *fmt, ::va_list arg)</td></tr>
 <tr class="separator:adc57e065186975ad934266ed961fc7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a5d4c621abaff7e2abb76a460bacdb15e"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink.html#a5d4c621abaff7e2abb76a460bacdb15e">LineCount</a> (::FILE *fp)</td></tr>
+<tr class="separator:a5d4c621abaff7e2abb76a460bacdb15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a096923215a1946fe652eabc84e324fa7"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink.html#a096923215a1946fe652eabc84e324fa7">FileName</a></td></tr>
+<tr class="separator:a096923215a1946fe652eabc84e324fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e7989d1ac9b2e7bb36601125d1a91ee"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink.html#a6e7989d1ac9b2e7bb36601125d1a91ee">MaxLines</a></td></tr>
+<tr class="separator:a6e7989d1ac9b2e7bb36601125d1a91ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -188,6 +202,42 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5d4c621abaff7e2abb76a460bacdb15e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d4c621abaff7e2abb76a460bacdb15e">&#9670;&nbsp;</a></span>LineCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t rsp::rsp02::fw::logger::FileSink::LineCount </td>
+          <td>(</td>
+          <td class="paramtype">::FILE *&#160;</td>
+          <td class="paramname"><em>fp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink_a5d4c621abaff7e2abb76a460bacdb15e_icgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink_a5d4c621abaff7e2abb76a460bacdb15e_icgraph" alt=""/></div>
+<map name="aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink_a5d4c621abaff7e2abb76a460bacdb15e_icgraph" id="aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink_a5d4c621abaff7e2abb76a460bacdb15e_icgraph">
+<area shape="rect" title=" " alt="" coords="416,5,573,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink.html#add14a102fb2e0edd11942d9bf2e838da" title="va_listバージョンのログ出力" alt="" coords="211,5,368,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink.html#adc57e065186975ad934266ed961fc7fe" title=" " alt="" coords="5,5,163,47"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="adc57e065186975ad934266ed961fc7fe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adc57e065186975ad934266ed961fc7fe">&#9670;&nbsp;</a></span>operator()()</h2>
 
@@ -248,6 +298,7 @@ Here is the call graph for this function:</div>
 <map name="aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink_adc57e065186975ad934266ed961fc7fe_cgraph" id="aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink_adc57e065186975ad934266ed961fc7fe_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,163,47"/>
 <area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink.html#add14a102fb2e0edd11942d9bf2e838da" title="va_listバージョンのログ出力" alt="" coords="211,5,368,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink.html#a5d4c621abaff7e2abb76a460bacdb15e" title=" " alt="" coords="416,5,573,47"/>
 </map>
 </div>
 
@@ -318,6 +369,15 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ISink.html#aab9fbfcb1b6812383310f85cc34fd858">rsp::rsp02::fw::logger::ISink</a>.</p>
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink_add14a102fb2e0edd11942d9bf2e838da_cgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink_add14a102fb2e0edd11942d9bf2e838da_cgraph" alt=""/></div>
+<map name="aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink_add14a102fb2e0edd11942d9bf2e838da_cgraph" id="aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink_add14a102fb2e0edd11942d9bf2e838da_cgraph">
+<area shape="rect" title="va_listバージョンのログ出力" alt="" coords="5,5,163,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink.html#a5d4c621abaff7e2abb76a460bacdb15e" title=" " alt="" coords="211,5,368,47"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink_add14a102fb2e0edd11942d9bf2e838da_icgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink_add14a102fb2e0edd11942d9bf2e838da_icgraph" alt=""/></div>
@@ -326,6 +386,51 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1FileSink.html#adc57e065186975ad934266ed961fc7fe" title=" " alt="" coords="5,5,163,47"/>
 </map>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a096923215a1946fe652eabc84e324fa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a096923215a1946fe652eabc84e324fa7">&#9670;&nbsp;</a></span>FileName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* rsp::rsp02::fw::logger::FileSink::FileName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e7989d1ac9b2e7bb36601125d1a91ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e7989d1ac9b2e7bb36601125d1a91ee">&#9670;&nbsp;</a></span>MaxLines</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t rsp::rsp02::fw::logger::FileSink::MaxLines</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

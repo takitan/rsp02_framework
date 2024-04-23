@@ -1,5 +1,6 @@
 <map id="rsp::rsp02::fw::command::CommandImplBase::CommandImplBase" name="rsp::rsp02::fw::command::CommandImplBase::CommandImplBase">
-<area shape="rect" id="node1" title="Construct a new CommandImplBase object." alt="" coords="5,5,300,47"/>
-<area shape="rect" id="node2" href="$classrsp_1_1rsp02_1_1fw_1_1logger_1_1Logger.html#abb20a6b97d91d3aef7f24b8914b3039b" title="Get the Logger object." alt="" coords="348,5,505,47"/>
-<area shape="rect" id="node3" href="$classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html#a8ea0585e01fbd2ae0e99dfac7ea95527" title=" " alt="" coords="553,5,711,47"/>
+<area shape="rect" id="node1" title="Construct a new CommandImplBase object." alt="" coords="5,39,300,80"/>
+<area shape="rect" id="node2" href="$classrsp_1_1rsp02_1_1fw_1_1logger_1_1Logger.html#abb20a6b97d91d3aef7f24b8914b3039b" title="Get the Logger object." alt="" coords="348,39,505,80"/>
+<area shape="rect" id="node3" href="$classrsp_1_1rsp02_1_1fw_1_1logger_1_1Logger.html#a765ca05903511709676a8212ac972c5b" title=" " alt="" coords="553,5,711,47"/>
+<area shape="rect" id="node4" href="$classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html#a8ea0585e01fbd2ae0e99dfac7ea95527" title=" " alt="" coords="553,71,711,112"/>
 </map>

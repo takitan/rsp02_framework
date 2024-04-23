@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('classrsp_1_1rsp02_1_1fw_1_1util_1_1que
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">rsp::rsp02::fw::util::queue&lt; T, N &gt; Class Template Reference</div>  </div>
@@ -116,6 +117,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a75977fdb5c420d3e3209f510dd522740"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a75977fdb5c420d3e3209f510dd522740">try_get_for</a> (T &amp;data, uint32_t milliseconds=0)</td></tr>
 <tr class="memdesc:a75977fdb5c420d3e3209f510dd522740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queueからデータを取り出す Queueにデータが格納されていないときに失敗する  <a href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a75977fdb5c420d3e3209f510dd522740">More...</a><br /></td></tr>
 <tr class="separator:a75977fdb5c420d3e3209f510dd522740"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ab2f14697978167ac566d6a0fb89c3597"><td class="memItemLeft" align="right" valign="top">Queue&lt; T, N &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#ab2f14697978167ac566d6a0fb89c3597">mqueue</a></td></tr>
+<tr class="separator:ab2f14697978167ac566d6a0fb89c3597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a011ca8fd086b28a4fe0d9b263e843a1b"><td class="memItemLeft" align="right" valign="top">MemoryPool&lt; T, N &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a011ca8fd086b28a4fe0d9b263e843a1b">mpool</a></td></tr>
+<tr class="separator:a011ca8fd086b28a4fe0d9b263e843a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T, size_t N&gt;<br />
@@ -285,13 +293,15 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue_aa0f501e8da8a79b5ac82a51fae63978b_icgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_aa0f501e8da8a79b5ac82a51fae63978b_icgraph" alt=""/></div>
 <map name="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_aa0f501e8da8a79b5ac82a51fae63978b_icgraph" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_aa0f501e8da8a79b5ac82a51fae63978b_icgraph">
-<area shape="rect" title="Queueにあるデータの個数を返す" alt="" coords="651,39,788,80"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#a14a2e59fe4d8a940732d8228eed3e281" title=" " alt="" coords="455,39,603,80"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html#a2a1e86269c09b8e8f35718f108841627" title=" " alt="" coords="243,5,407,47"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Producer.html#a2372dec5a2f537708b2e70e926d21a0d" title=" " alt="" coords="253,71,396,112"/>
+<area shape="rect" title="Queueにあるデータの個数を返す" alt="" coords="755,104,892,145"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#a14a2e59fe4d8a940732d8228eed3e281" title=" " alt="" coords="541,71,689,112"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#a03bdbbc4ab5f0554ba164db88745917f" title=" " alt="" coords="524,136,707,177"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html#a2a1e86269c09b8e8f35718f108841627" title=" " alt="" coords="277,5,441,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Producer.html#a2372dec5a2f537708b2e70e926d21a0d" title=" " alt="" coords="288,71,431,112"/>
 <area shape="rect" href="classtlvcmd.html#abf74f595950ada280df3959424cc1887" title=" " alt="" coords="30,13,170,39"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html#ad18eeb847d26fad2c0644fba3b895b51" title=" " alt="" coords="19,67,181,108"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1ProducerAdapter.html#ab45e709d2da2d98c499ec69be07ea5e8" title=" " alt="" coords="5,132,195,173"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1ProcessBase.html#ad18eeb847d26fad2c0644fba3b895b51" title=" " alt="" coords="19,68,181,109"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1ProducerAdapter.html#ab45e709d2da2d98c499ec69be07ea5e8" title=" " alt="" coords="5,133,195,175"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1ConsumerAdapter.html#a1f99c5a74d5e79cd72ba502b9f1926a2" title=" " alt="" coords="243,136,476,177"/>
 </map>
 </div>
 
@@ -343,6 +353,16 @@ template&lt;typename T , size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>true 成功 </dd>
 <dd>
 false 失敗 </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue_a75977fdb5c420d3e3209f510dd522740_icgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_a75977fdb5c420d3e3209f510dd522740_icgraph" alt=""/></div>
+<map name="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_a75977fdb5c420d3e3209f510dd522740_icgraph" id="aclassrsp_1_1rsp02_1_1fw_1_1util_1_1queue_a75977fdb5c420d3e3209f510dd522740_icgraph">
+<area shape="rect" title="Queueからデータを取り出す Queueにデータが格納されていないときに失敗する" alt="" coords="517,5,667,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Consumer.html#a03bdbbc4ab5f0554ba164db88745917f" title=" " alt="" coords="287,5,469,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1ConsumerAdapter.html#a1f99c5a74d5e79cd72ba502b9f1926a2" title=" " alt="" coords="5,5,239,47"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -406,6 +426,55 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1ProducerAdapter.html#ab45e709d2da2d98c499ec69be07ea5e8" title=" " alt="" coords="5,132,195,173"/>
 </map>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a011ca8fd086b28a4fe0d9b263e843a1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a011ca8fd086b28a4fe0d9b263e843a1b">&#9670;&nbsp;</a></span>mpool</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MemoryPool&lt;T,N&gt; <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html">rsp::rsp02::fw::util::queue</a>&lt; T, N &gt;::mpool</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2f14697978167ac566d6a0fb89c3597"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2f14697978167ac566d6a0fb89c3597">&#9670;&nbsp;</a></span>mqueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Queue&lt;T,N&gt; <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html">rsp::rsp02::fw::util::queue</a>&lt; T, N &gt;::mqueue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -83,6 +83,8 @@ $(document).ready(function(){initNavTree('classrsp_1_1rsp02_1_1system_1_1Execute
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classrsp_1_1rsp02_1_1system_1_1Executer_3_01CNS__T_00_01NONE__T_01_4-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">rsp::rsp02::system::Executer&lt; CNS_T, NONE_T &gt; Class Template Reference</div>  </div>
@@ -104,8 +106,9 @@ Collaboration diagram for rsp::rsp02::system::Executer&lt; CNS_T, NONE_T &gt;:</
 <div class="dyncontent">
 <div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1Executer_3_01CNS__T_00_01NONE__T_01_4__coll__graph.png" border="0" usemap="#arsp_1_1rsp02_1_1system_1_1Executer_3_01CNS__T_00_01NONE__T_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="arsp_1_1rsp02_1_1system_1_1Executer_3_01CNS__T_00_01NONE__T_01_4_coll__map" id="arsp_1_1rsp02_1_1system_1_1Executer_3_01CNS__T_00_01NONE__T_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="5,109,224,151"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IExecuter.html" title=" " alt="" coords="39,5,190,61"/>
+<area shape="rect" title=" " alt="" coords="57,124,275,165"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1IExecuter.html" title=" " alt="" coords="5,5,156,61"/>
+<area shape="rect" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html" title=" " alt="" coords="180,13,323,54"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -117,6 +120,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a044c2b171a9897c2a10f9c2dc9500b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae879547bc6b17f2dc1c846338f06be49"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html">ProcessInfo_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Executer_3_01CNS__T_00_01NONE__T_01_4.html#ae879547bc6b17f2dc1c846338f06be49">GetInfo</a> () const</td></tr>
 <tr class="separator:ae879547bc6b17f2dc1c846338f06be49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a78fe15643fe6e6056221e6ea11f142bb"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Executer_3_01CNS__T_00_01NONE__T_01_4.html#a78fe15643fe6e6056221e6ea11f142bb">ConcreteProcess</a> (CNS_T &amp;product)</td></tr>
+<tr class="separator:a78fe15643fe6e6056221e6ea11f142bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a1c6ea948dc2d01b19cf1b6c902994905"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html">ProcessInfo_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Executer_3_01CNS__T_00_01NONE__T_01_4.html#a1c6ea948dc2d01b19cf1b6c902994905">Info</a></td></tr>
+<tr class="separator:a1c6ea948dc2d01b19cf1b6c902994905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5604965369124637b8ce08a12fde202b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1ConsumerAdapter.html">ConsumerAdapter</a>&lt; CNS_T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1Executer_3_01CNS__T_00_01NONE__T_01_4.html#a5604965369124637b8ce08a12fde202b">cns_adp</a></td></tr>
+<tr class="separator:a5604965369124637b8ce08a12fde202b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1c9665795eebcd4f842773fc5e7ef504"></a>
@@ -164,6 +179,34 @@ template&lt;typename CNS_T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a78fe15643fe6e6056221e6ea11f142bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78fe15643fe6e6056221e6ea11f142bb">&#9670;&nbsp;</a></span>ConcreteProcess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CNS_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool <a class="el" href="classrsp_1_1rsp02_1_1system_1_1Executer.html">rsp::rsp02::system::Executer</a>&lt; CNS_T, <a class="el" href="structrsp_1_1rsp02_1_1system_1_1NONE__T.html">NONE_T</a> &gt;::ConcreteProcess </td>
+          <td>(</td>
+          <td class="paramtype">CNS_T &amp;&#160;</td>
+          <td class="paramname"><em>product</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae879547bc6b17f2dc1c846338f06be49"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae879547bc6b17f2dc1c846338f06be49">&#9670;&nbsp;</a></span>GetInfo()</h2>
 
@@ -219,6 +262,64 @@ template&lt;typename CNS_T &gt; </div>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="classrsp_1_1rsp02_1_1system_1_1IExecuter.html#a67807f1d9e54a95d24dc31b6631999a7">rsp::rsp02::system::IExecuter&lt; CNS_T, NONE_T &gt;</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1Executer_3_01CNS__T_00_01NONE__T_01_4_a044c2b171a9897c2a10f9c2dc9500b30_cgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1system_1_1Executer_3_01CNS__T_00_01NONE__T_01_4_a044c2b171a9897c2a10f9c2dc9500b30_cgraph" alt=""/></div>
+<map name="aclassrsp_1_1rsp02_1_1system_1_1Executer_3_01CNS__T_00_01NONE__T_01_4_a044c2b171a9897c2a10f9c2dc9500b30_cgraph" id="aclassrsp_1_1rsp02_1_1system_1_1Executer_3_01CNS__T_00_01NONE__T_01_4_a044c2b171a9897c2a10f9c2dc9500b30_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,195,61"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1Executer.html#a64ea53d6b6beef1191013c775d094f50" title=" " alt="" coords="243,13,445,54"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5604965369124637b8ce08a12fde202b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5604965369124637b8ce08a12fde202b">&#9670;&nbsp;</a></span>cns_adp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CNS_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1ConsumerAdapter.html">ConsumerAdapter</a>&lt;CNS_T&gt;* <a class="el" href="classrsp_1_1rsp02_1_1system_1_1Executer.html">rsp::rsp02::system::Executer</a>&lt; CNS_T, <a class="el" href="structrsp_1_1rsp02_1_1system_1_1NONE__T.html">NONE_T</a> &gt;::cns_adp</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c6ea948dc2d01b19cf1b6c902994905"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c6ea948dc2d01b19cf1b6c902994905">&#9670;&nbsp;</a></span>Info</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CNS_T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structrsp_1_1rsp02_1_1system_1_1ProcessInfo__t.html">ProcessInfo_t</a>&amp; <a class="el" href="classrsp_1_1rsp02_1_1system_1_1Executer.html">rsp::rsp02::system::Executer</a>&lt; CNS_T, <a class="el" href="structrsp_1_1rsp02_1_1system_1_1NONE__T.html">NONE_T</a> &gt;::Info</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

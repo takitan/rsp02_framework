@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('classrsp_1_1rsp02_1_1fw_1_1fsm_1_1Tiny
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">rsp::rsp02::fw::fsm::TinyEvent&lt; N &gt; Class Template Reference</div>  </div>
@@ -103,6 +104,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae735c8ba7d76d895e1ddd30065d89258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90b2cd55f00a4b969304d7df694310dd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html#a90b2cd55f00a4b969304d7df694310dd">Test</a> (size_t n)</td></tr>
 <tr class="separator:a90b2cd55f00a4b969304d7df694310dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:abc97e95402ad660e6ecb63fa3106e53b"><td class="memItemLeft" align="right" valign="top">std::bitset&lt; N &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html#abc97e95402ad660e6ecb63fa3106e53b">flag</a></td></tr>
+<tr class="separator:abc97e95402ad660e6ecb63fa3106e53b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fe2c0a4e1eb62fcfba94e9de64138c6"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html#a1fe2c0a4e1eb62fcfba94e9de64138c6">mtx</a></td></tr>
+<tr class="separator:a1fe2c0a4e1eb62fcfba94e9de64138c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;size_t N&gt;<br />
@@ -245,6 +253,64 @@ template&lt;size_t N&gt; </div>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent_ae735c8ba7d76d895e1ddd30065d89258_icgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent_ae735c8ba7d76d895e1ddd30065d89258_icgraph" alt=""/></div>
+<map name="aclassrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent_ae735c8ba7d76d895e1ddd30065d89258_icgraph" id="aclassrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent_ae735c8ba7d76d895e1ddd30065d89258_icgraph">
+<area shape="rect" title=" " alt="" coords="213,5,404,47"/>
+<area shape="rect" href="classInitialState1.html#a97918abacc167ffe5ae9296f1fce76b4" title=" " alt="" coords="5,13,165,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="abc97e95402ad660e6ecb63fa3106e53b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc97e95402ad660e6ecb63fa3106e53b">&#9670;&nbsp;</a></span>flag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::bitset&lt;N&gt; <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html">rsp::rsp02::fw::fsm::TinyEvent</a>&lt; N &gt;::flag</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1fe2c0a4e1eb62fcfba94e9de64138c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fe2c0a4e1eb62fcfba94e9de64138c6">&#9670;&nbsp;</a></span>mtx</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html">rsp::rsp02::fw::fsm::TinyEvent</a>&lt; N &gt;::mtx</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

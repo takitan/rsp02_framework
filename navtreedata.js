@@ -190,7 +190,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
@@ -213,12 +213,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "CommandImplBase_8hpp.html",
-"classTInitialFSM.html#a86974c507d7c1f1226f5e2cbc1037d9c",
-"classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a75977fdb5c420d3e3209f510dd522740",
-"group__platform__Callback.html#ga09b6f38581dad214107a2bd153790f81",
-"ntopt_8c.html#ad4a8d34fddb10d91844cafb89142b2ba",
-"rsp02__cdh_8hpp.html#a74408d5942234e1ab964ccbec05975a6aef9bf66aa6688032337edead065b4842",
-"structrsp_1_1rsp02_1_1system_1_1SystemInfo.html#a52fb499000d9273288bbb937e0407d04"
+"classInitialState2.html#aa876a0e7dc0d2be308357f576eb604e5",
+"classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html#afce7a9dafa4fa3eb56546d6c3bb97ff7",
+"classrsp_1_1rsp02_1_1system_1_1TMessageDispatcher.html#a1601f593df58dd16403889c2d2f891a1",
+"md_README.html#autotoc_md116",
+"ntstdio_8c.html#a3e2aadc736bd0e484f82b6e350d30317",
+"rsp02__mission_8hpp.html#a74408d5942234e1ab964ccbec05975a6a6777fd27393dd5cc1c3f1b11f9e6dc22",
+"structvtrecv.html#ae08d51f256e731d8d8d96230b44c79cd"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

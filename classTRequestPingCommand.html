@@ -84,6 +84,8 @@ $(document).ready(function(){initNavTree('classTRequestPingCommand.html',''); in
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classTRequestPingCommand-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">TRequestPingCommand Class Reference</div>  </div>
@@ -106,10 +108,18 @@ Collaboration diagram for TRequestPingCommand:</div>
 <div class="dyncontent">
 <div class="center"><img src="classTRequestPingCommand__coll__graph.png" border="0" usemap="#aTRequestPingCommand_coll__map" alt="Collaboration graph"/></div>
 <map name="aTRequestPingCommand_coll__map" id="aTRequestPingCommand_coll__map">
-<area shape="rect" title=" " alt="" coords="103,200,281,227"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html" title=" " alt="" coords="38,109,346,151"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1ICommand.html" title=" " alt="" coords="5,5,187,47"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html" title=" " alt="" coords="211,5,368,47"/>
+<area shape="rect" title=" " alt="" coords="1079,130,1257,157"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html" title=" " alt="" coords="655,83,963,124"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1ICommand.html" title=" " alt="" coords="303,5,484,47"/>
+<area shape="rect" href="classIExecutionStrategy.html" title=" " alt="" coords="321,71,465,98"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html" title=" " alt="" coords="315,123,472,164"/>
+<area shape="rect" href="structRequestPingResponse__t.html" title=" " alt="" coords="719,159,898,186"/>
+<area shape="rect" href="structTLVpacket__t.html" title=" " alt="" coords="350,189,437,215"/>
+<area shape="rect" href="structPacketBase__t.html" title=" " alt="" coords="36,87,144,114"/>
+<area shape="rect" href="structSafeProperty.html" title=" " alt="" coords="6,138,174,165"/>
+<area shape="rect" href="structSafeArray.html" title=" " alt="" coords="9,189,171,215"/>
+<area shape="rect" href="structSafeProperty.html" title=" " alt="" coords="5,239,175,266"/>
+<area shape="rect" href="structSafeProperty.html" title=" " alt="" coords="6,290,174,317"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -133,7 +143,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8f1a67527c424d1aceb97825190e8d76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTRequestPingCommand.html#a8f1a67527c424d1aceb97825190e8d76">TRequestPingCommand</a> ()</td></tr>
 <tr class="separator:a8f1a67527c424d1aceb97825190e8d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html">rsp::rsp02::fw::command::CommandImplBase&lt; CMD_T, RES_T, TLV_T &gt;</a></td></tr>
-<tr class="memitem:a9252e462744824ed3728ab5e057149b9 inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#a9252e462744824ed3728ab5e057149b9">CommandImplBase</a> (const char *name, dst_t dst, typ_t type, <a class="el" href="classIExecutionStrategy.html">IExecutionStrategy</a> *ex=nullptr)</td></tr>
+<tr class="memitem:a9252e462744824ed3728ab5e057149b9 inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#a9252e462744824ed3728ab5e057149b9">CommandImplBase</a> (const char *name, <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#a40575a5a693948cc99cd6ac72032079b">dst_t</a> dst, <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#af84441441543677749afcc86d3e9f356">typ_t</a> type, <a class="el" href="classIExecutionStrategy.html">IExecutionStrategy</a> *ex=nullptr)</td></tr>
 <tr class="memdesc:a9252e462744824ed3728ab5e057149b9 inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html">CommandImplBase</a> object.  <a href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#a9252e462744824ed3728ab5e057149b9">More...</a><br /></td></tr>
 <tr class="separator:a9252e462744824ed3728ab5e057149b9 inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44f54dec9ddbb4c6858cf7c61f1d136d inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#a44f54dec9ddbb4c6858cf7c61f1d136d">~CommandImplBase</a> ()</td></tr>
@@ -144,7 +154,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae9ca33a1455b0566cbf219ef354a91a8 inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#ae9ca33a1455b0566cbf219ef354a91a8">Execute</a> (const TLV_T &amp;<a class="el" href="classtlvcmd.html">tlvcmd</a>, TLV_T &amp;tlvres)</td></tr>
 <tr class="memdesc:ae9ca33a1455b0566cbf219ef354a91a8 inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンド実行関数  <a href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#ae9ca33a1455b0566cbf219ef354a91a8">More...</a><br /></td></tr>
 <tr class="separator:ae9ca33a1455b0566cbf219ef354a91a8 inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad70b91bdd5fa97b344b2efd7a3e3b474 inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structrsp_1_1rsp02_1_1fw_1_1command_1_1CommandInfo.html">TCommandInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#ad70b91bdd5fa97b344b2efd7a3e3b474">GetInfo</a> () const</td></tr>
+<tr class="memitem:ad70b91bdd5fa97b344b2efd7a3e3b474 inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#a2460fc1c7c7804116fc588e96a764136">TCommandInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#ad70b91bdd5fa97b344b2efd7a3e3b474">GetInfo</a> () const</td></tr>
 <tr class="memdesc:ad70b91bdd5fa97b344b2efd7a3e3b474 inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドの現在ステータス参照  <a href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#ad70b91bdd5fa97b344b2efd7a3e3b474">More...</a><br /></td></tr>
 <tr class="separator:ad70b91bdd5fa97b344b2efd7a3e3b474 inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60e1864ba5195e67c7193a97ee5b6c14 inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#a60e1864ba5195e67c7193a97ee5b6c14">TestInvoked</a> (bool clear=true)</td></tr>
@@ -155,6 +165,18 @@ Public Member Functions</h2></td></tr>
 <tr class="inherit_header pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1ICommand"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1ICommand')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1ICommand.html">rsp::rsp02::fw::command::ICommand&lt; TLV_T &gt;</a></td></tr>
 <tr class="memitem:afd38ed1bcc3305d33049fd3a113f6b5a inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1ICommand"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1ICommand.html#afd38ed1bcc3305d33049fd3a113f6b5a">~ICommand</a> ()</td></tr>
 <tr class="separator:afd38ed1bcc3305d33049fd3a113f6b5a inherit pub_methods_classrsp_1_1rsp02_1_1fw_1_1command_1_1ICommand"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ad8527545e971ec951e57e72a6af39305"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacersp_1_1rsp02_1_1fw_1_1command.html#aaf3982bdb8a51b37915d07b686dfbac0">ExecuteStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTRequestPingCommand.html#ad8527545e971ec951e57e72a6af39305">ConcreteExecute</a> (const <a class="el" href="structRequestPingCommand__t.html">RequestPingCommand_t</a> &amp;cmd)</td></tr>
+<tr class="separator:ad8527545e971ec951e57e72a6af39305"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4d60f9f216caf405d35bb0dbc8de5012"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTRequestPingCommand.html#a4d60f9f216caf405d35bb0dbc8de5012">buffer</a> [<a class="el" href="structTLVpacket__t.html#a6c12aaea42041d4149075ecf3aaef0dc">RequestPingResponse_t::HeaderSize</a>+<a class="el" href="structRequestPingResponse__t.html#ac1540406d9edce9a40c366484f92e2d0">RequestPingResponse_t::PayloadSize</a>]</td></tr>
+<tr class="separator:a4d60f9f216caf405d35bb0dbc8de5012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8488694526c32ecc8ae0f3f98767756"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structRequestPingResponse__t.html">RequestPingResponse_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTRequestPingCommand.html#ab8488694526c32ecc8ae0f3f98767756">Response</a></td></tr>
+<tr class="separator:ab8488694526c32ecc8ae0f3f98767756"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -173,7 +195,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html">rsp::rsp02::fw::command::CommandImplBase&lt; CMD_T, RES_T, TLV_T &gt;</a></td></tr>
 <tr class="memitem:a70cb95a7a5e7cfa33e2d947dd7c236a8 inherit pro_attribs_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#a70cb95a7a5e7cfa33e2d947dd7c236a8">isSendRequested</a> = false</td></tr>
 <tr class="separator:a70cb95a7a5e7cfa33e2d947dd7c236a8 inherit pro_attribs_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a412e65e57af1f01fa1ad069083562250 inherit pro_attribs_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html">ILogger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#a412e65e57af1f01fa1ad069083562250">logger</a></td></tr>
+<tr class="memitem:a412e65e57af1f01fa1ad069083562250 inherit pro_attribs_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#a0b90c5a4a3e0f3179e0d24a27792657b">ILogger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#a412e65e57af1f01fa1ad069083562250">logger</a></td></tr>
 <tr class="memdesc:a412e65e57af1f01fa1ad069083562250 inherit pro_attribs_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロガー  <a href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#a412e65e57af1f01fa1ad069083562250">More...</a><br /></td></tr>
 <tr class="separator:a412e65e57af1f01fa1ad069083562250 inherit pro_attribs_classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -220,6 +242,88 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad8527545e971ec951e57e72a6af39305"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8527545e971ec951e57e72a6af39305">&#9670;&nbsp;</a></span>ConcreteExecute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacersp_1_1rsp02_1_1fw_1_1command.html#aaf3982bdb8a51b37915d07b686dfbac0">TRequestPingCommand::ExecuteStatus</a> TRequestPingCommand::ConcreteExecute </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structRequestPingCommand__t.html">RequestPingCommand_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>cmd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTRequestPingCommand_ad8527545e971ec951e57e72a6af39305_cgraph.png" border="0" usemap="#aclassTRequestPingCommand_ad8527545e971ec951e57e72a6af39305_cgraph" alt=""/></div>
+<map name="aclassTRequestPingCommand_ad8527545e971ec951e57e72a6af39305_cgraph" id="aclassTRequestPingCommand_ad8527545e971ec951e57e72a6af39305_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,184,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1command_1_1CommandImplBase.html#af6f1f20b8812fe4ed64b6d114c91d7fd" title=" " alt="" coords="232,5,483,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html#afff6f5c1db38a9c772eff42449ec8ca4" title=" " alt="" coords="531,5,688,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4d60f9f216caf405d35bb0dbc8de5012"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d60f9f216caf405d35bb0dbc8de5012">&#9670;&nbsp;</a></span>buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t TRequestPingCommand::buffer[<a class="el" href="structTLVpacket__t.html#a6c12aaea42041d4149075ecf3aaef0dc">RequestPingResponse_t::HeaderSize</a>+<a class="el" href="structRequestPingResponse__t.html#ac1540406d9edce9a40c366484f92e2d0">RequestPingResponse_t::PayloadSize</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab8488694526c32ecc8ae0f3f98767756"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8488694526c32ecc8ae0f3f98767756">&#9670;&nbsp;</a></span>Response</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRequestPingResponse__t.html">RequestPingResponse_t</a> TRequestPingCommand::Response</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

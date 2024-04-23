@@ -1,0 +1,6 @@
+<map id="rsp::rsp02::system::ConsumerAdapter::TakeProduct" name="rsp::rsp02::system::ConsumerAdapter::TakeProduct">
+<area shape="rect" id="node1" title=" " alt="" coords="5,39,239,80"/>
+<area shape="rect" id="node2" href="$classrsp_1_1rsp02_1_1system_1_1Consumer.html#a03bdbbc4ab5f0554ba164db88745917f" title=" " alt="" coords="287,39,469,80"/>
+<area shape="rect" id="node3" href="$classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#aa0f501e8da8a79b5ac82a51fae63978b" title="Queueにあるデータの個数を返す" alt="" coords="523,5,661,47"/>
+<area shape="rect" id="node4" href="$classrsp_1_1rsp02_1_1fw_1_1util_1_1queue.html#a75977fdb5c420d3e3209f510dd522740" title="Queueからデータを取り出す Queueにデータが格納されていないときに失敗する" alt="" coords="517,71,667,112"/>
+</map>

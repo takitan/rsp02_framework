@@ -86,6 +86,8 @@ $(document).ready(function(){initNavTree('classrsp_1_1rsp02_1_1fw_1_1fsm_1_1Stat
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">rsp::rsp02::fw::fsm::StateBase&lt; T &gt; Class Template Reference</div>  </div>
@@ -107,9 +109,10 @@ Collaboration diagram for rsp::rsp02::fw::fsm::StateBase&lt; T &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase__coll__graph.png" border="0" usemap="#arsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="arsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase_3_01T_01_4_coll__map" id="arsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase_3_01T_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="92,109,233,151"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1IState.html" title=" " alt="" coords="5,5,147,47"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html" title=" " alt="" coords="171,5,328,47"/>
+<area shape="rect" title=" " alt="" coords="256,71,397,112"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1IState.html" title=" " alt="" coords="13,5,155,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html" title=" " alt="" coords="13,71,155,112"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html" title=" " alt="" coords="5,136,163,177"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -150,6 +153,22 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a97acc6c860328c9b515f4553154fc968"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87de6dbbdc36fa0908ab4f9756469e37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html">rsp::rsp02::fw::logger::ILogger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase.html#a87de6dbbdc36fa0908ab4f9756469e37">logger</a></td></tr>
 <tr class="separator:a87de6dbbdc36fa0908ab4f9756469e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a774034fa97f2d5588ae3508ce3020531"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase.html#a774034fa97f2d5588ae3508ce3020531">__attribute__</a> ((weak)) static inline void OnEntry(const <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateInfo__t.html">StateInfo_t</a>&lt; T &gt; &amp;state)</td></tr>
+<tr class="separator:a774034fa97f2d5588ae3508ce3020531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81e03492bec02e82b2b9f0087e3e60d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase.html#a81e03492bec02e82b2b9f0087e3e60d3">__attribute__</a> ((weak)) static inline void OnExecute(const <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateInfo__t.html">StateInfo_t</a>&lt; T &gt; &amp;state)</td></tr>
+<tr class="separator:a81e03492bec02e82b2b9f0087e3e60d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e724400ec58e4ac7d32427f24923dd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase.html#a5e724400ec58e4ac7d32427f24923dd4">__attribute__</a> ((weak)) static inline void OnExit(const <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateInfo__t.html">StateInfo_t</a>&lt; T &gt; &amp;state)</td></tr>
+<tr class="separator:a5e724400ec58e4ac7d32427f24923dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a2492b3617609de84ab3dd4b155ff1185"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1IState.html">IState</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase.html#a2492b3617609de84ab3dd4b155ff1185">next</a></td></tr>
+<tr class="separator:a2492b3617609de84ab3dd4b155ff1185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac6f68b91f4decb41da54b42ecb01c65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html">TinyEvent</a>&lt; 32 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase.html#aac6f68b91f4decb41da54b42ecb01c65">event</a></td></tr>
+<tr class="separator:aac6f68b91f4decb41da54b42ecb01c65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a589efba1da353e19752fe7474a167084"></a>
@@ -218,6 +237,90 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a774034fa97f2d5588ae3508ce3020531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a774034fa97f2d5588ae3508ce3020531">&#9670;&nbsp;</a></span>__attribute__() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase.html">rsp::rsp02::fw::fsm::StateBase</a>&lt; T &gt;::__attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(weak)&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const &amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a81e03492bec02e82b2b9f0087e3e60d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81e03492bec02e82b2b9f0087e3e60d3">&#9670;&nbsp;</a></span>__attribute__() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase.html">rsp::rsp02::fw::fsm::StateBase</a>&lt; T &gt;::__attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(weak)&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const &amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e724400ec58e4ac7d32427f24923dd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e724400ec58e4ac7d32427f24923dd4">&#9670;&nbsp;</a></span>__attribute__() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase.html">rsp::rsp02::fw::fsm::StateBase</a>&lt; T &gt;::__attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(weak)&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const &amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9f7f52e2b45915e58ed72397fb405dd2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f7f52e2b45915e58ed72397fb405dd2">&#9670;&nbsp;</a></span>Entry()</h2>
 
@@ -243,6 +346,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classInitialStateIdle.html#a5f6f95d2e71de2c8feb1235a38656be3">InitialStateIdle</a>, <a class="el" href="classInitialState2.html#aefe83e7ea1d9323e482a02246edf7be0">InitialState2</a>, <a class="el" href="classInitialState1.html#a54b2135a3a5b97dc41e00b97cc7a1247">InitialState1</a>, <a class="el" href="classInitialStateIdle.html#a5f6f95d2e71de2c8feb1235a38656be3">InitialStateIdle</a>, <a class="el" href="classInitialState2.html#aefe83e7ea1d9323e482a02246edf7be0">InitialState2</a>, and <a class="el" href="classInitialState1.html#a54b2135a3a5b97dc41e00b97cc7a1247">InitialState1</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -280,6 +385,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classInitialStateIdle.html#abbcba177ecaf2a01eda63685b6c7b6f7">InitialStateIdle</a>, <a class="el" href="classInitialState2.html#ae04fa3e26445e2ecbab2992dbad907cf">InitialState2</a>, <a class="el" href="classInitialState1.html#a97918abacc167ffe5ae9296f1fce76b4">InitialState1</a>, <a class="el" href="classInitialStateIdle.html#abbcba177ecaf2a01eda63685b6c7b6f7">InitialStateIdle</a>, <a class="el" href="classInitialState2.html#ae04fa3e26445e2ecbab2992dbad907cf">InitialState2</a>, and <a class="el" href="classInitialState1.html#a97918abacc167ffe5ae9296f1fce76b4">InitialState1</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -317,6 +424,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classInitialStateIdle.html#a113999a9378c0f5d6e65bd14eead3217">InitialStateIdle</a>, <a class="el" href="classInitialState2.html#abdde7b1716b7b429ba4277e9ae214b7c">InitialState2</a>, <a class="el" href="classInitialState1.html#a4731ca28752132dfeaa288919e5674dd">InitialState1</a>, <a class="el" href="classInitialStateIdle.html#a113999a9378c0f5d6e65bd14eead3217">InitialStateIdle</a>, <a class="el" href="classInitialState2.html#abdde7b1716b7b429ba4277e9ae214b7c">InitialState2</a>, and <a class="el" href="classInitialState1.html#a4731ca28752132dfeaa288919e5674dd">InitialState1</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -487,6 +596,30 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="aac6f68b91f4decb41da54b42ecb01c65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac6f68b91f4decb41da54b42ecb01c65">&#9670;&nbsp;</a></span>event</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1TinyEvent.html">TinyEvent</a>&lt;32&gt; <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase.html">rsp::rsp02::fw::fsm::StateBase</a>&lt; T &gt;::event</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aabd4f1e2264f7ee8088de3d7a3f5b92b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aabd4f1e2264f7ee8088de3d7a3f5b92b">&#9670;&nbsp;</a></span>Factory</h2>
 
@@ -529,6 +662,30 @@ template&lt;typename T &gt; </div>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2492b3617609de84ab3dd4b155ff1185"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2492b3617609de84ab3dd4b155ff1185">&#9670;&nbsp;</a></span>next</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1IState.html">IState</a>&lt;T&gt;* <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1fsm_1_1StateBase.html">rsp::rsp02::fw::fsm::StateBase</a>&lt; T &gt;::next</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

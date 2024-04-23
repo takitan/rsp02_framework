@@ -85,6 +85,9 @@ $(document).ready(function(){initNavTree('classrsp_1_1rsp02_1_1system_1_1TSystem
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classrsp_1_1rsp02_1_1system_1_1TSystemManager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">rsp::rsp02::system::TSystemManager&lt; T &gt; Class Template Reference</div>  </div>
@@ -97,19 +100,21 @@ Collaboration diagram for rsp::rsp02::system::TSystemManager&lt; T &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1TSystemManager__coll__graph.png" border="0" usemap="#arsp_1_1rsp02_1_1system_1_1TSystemManager_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="arsp_1_1rsp02_1_1system_1_1TSystemManager_3_01T_01_4_coll__map" id="arsp_1_1rsp02_1_1system_1_1TSystemManager_3_01T_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="5,124,188,165"/>
-<area shape="rect" href="structrsp_1_1rsp02_1_1system_1_1SystemInfo.html" title=" " alt="" coords="25,5,168,47"/>
+<area shape="rect" title=" " alt="" coords="384,77,567,118"/>
+<area shape="rect" href="structrsp_1_1rsp02_1_1system_1_1SystemInfo.html" title=" " alt="" coords="13,11,155,53"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html" title="簡易的な経過時間測定クラス" alt="" coords="11,77,157,118"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html" title=" " alt="" coords="5,142,163,183"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a878a60a60b27b4f862b56fd7746ce6ef"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a878a60a60b27b4f862b56fd7746ce6ef">SystemManagerCallback_t</a> = void(*)(const <a class="el" href="structrsp_1_1rsp02_1_1system_1_1SystemInfo.html">SystemInfo</a> &amp;Info)</td></tr>
+<tr class="memitem:a878a60a60b27b4f862b56fd7746ce6ef"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a878a60a60b27b4f862b56fd7746ce6ef">SystemManagerCallback_t</a> = void(*)(const <a class="el" href="structrsp_1_1rsp02_1_1system_1_1SystemInfo.html">SystemInfo</a> &amp;<a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a4477133876e218f5bee6d4c1b0da838a">Info</a>)</td></tr>
 <tr class="separator:a878a60a60b27b4f862b56fd7746ce6ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a010a25ee572fa48c6d95d664b88df03c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a010a25ee572fa48c6d95d664b88df03c">TSystemManager</a> (time_t lp)</td></tr>
+<tr class="memitem:a010a25ee572fa48c6d95d664b88df03c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a010a25ee572fa48c6d95d664b88df03c">TSystemManager</a> (<a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#adfdb530454f8a0da44e186c2b59160ca">time_t</a> lp)</td></tr>
 <tr class="separator:a010a25ee572fa48c6d95d664b88df03c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29e2b93cd6a94ad82e73fa7b89e8572b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacersp_1_1rsp02_1_1system.html#a7dbaec6fe61d53ec1796bac8c7d3b4ef">SystemStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a29e2b93cd6a94ad82e73fa7b89e8572b">Process</a> ()</td></tr>
 <tr class="separator:a29e2b93cd6a94ad82e73fa7b89e8572b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,8 +131,57 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aa4a12a19ffcdd58fad513cfb967992d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af668bdff90dee644e7650dfa67cb1cff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a878a60a60b27b4f862b56fd7746ce6ef">SystemManagerCallback_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#af668bdff90dee644e7650dfa67cb1cff">PeriodCompletionCallback</a></td></tr>
 <tr class="separator:af668bdff90dee644e7650dfa67cb1cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:adfdb530454f8a0da44e186c2b59160ca"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#adfdb530454f8a0da44e186c2b59160ca">time_t</a> = <a class="el" href="namespacersp_1_1rsp02.html#a6dbd41f903e9bd9dc12162233c489122">rsp::rsp02::time_t</a></td></tr>
+<tr class="separator:adfdb530454f8a0da44e186c2b59160ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c942b7ad932ac7b462ceb75fcbea00e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a8c942b7ad932ac7b462ceb75fcbea00e">StopWatch</a> = <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html">rsp::rsp02::fw::time::StopWatch</a></td></tr>
+<tr class="separator:a8c942b7ad932ac7b462ceb75fcbea00e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a7589bf8baf5bec64264b38b68f48bdfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a7589bf8baf5bec64264b38b68f48bdfc">mPeriodStart</a> ()</td></tr>
+<tr class="separator:a7589bf8baf5bec64264b38b68f48bdfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83e8c0bd576fe7bacf5566c6686f8732"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a83e8c0bd576fe7bacf5566c6686f8732">mPeriodCompletion</a> ()</td></tr>
+<tr class="separator:a83e8c0bd576fe7bacf5566c6686f8732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4477133876e218f5bee6d4c1b0da838a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structrsp_1_1rsp02_1_1system_1_1SystemInfo.html">SystemInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a4477133876e218f5bee6d4c1b0da838a">Info</a></td></tr>
+<tr class="separator:a4477133876e218f5bee6d4c1b0da838a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e86d9e759aa4fb6ba37154a0bbfdb96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a8c942b7ad932ac7b462ceb75fcbea00e">StopWatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a2e86d9e759aa4fb6ba37154a0bbfdb96">PeriodicTimer</a></td></tr>
+<tr class="separator:a2e86d9e759aa4fb6ba37154a0bbfdb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39b81774688d6f365142ef6a19f6bd1a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classrsp_1_1rsp02_1_1system_1_1IProcess.html">IProcess</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a39b81774688d6f365142ef6a19f6bd1a">process</a></td></tr>
+<tr class="separator:a39b81774688d6f365142ef6a19f6bd1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10b63509d7c5f8b280c808b1fd01c556"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html">rsp::rsp02::fw::logger::ILogger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a10b63509d7c5f8b280c808b1fd01c556">logger</a></td></tr>
+<tr class="separator:a10b63509d7c5f8b280c808b1fd01c556"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a8c942b7ad932ac7b462ceb75fcbea00e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c942b7ad932ac7b462ceb75fcbea00e">&#9670;&nbsp;</a></span>StopWatch</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html">rsp::rsp02::system::TSystemManager</a>&lt; T &gt;::<a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a8c942b7ad932ac7b462ceb75fcbea00e">StopWatch</a> =  <a class="el" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html">rsp::rsp02::fw::time::StopWatch</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a878a60a60b27b4f862b56fd7746ce6ef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a878a60a60b27b4f862b56fd7746ce6ef">&#9670;&nbsp;</a></span>SystemManagerCallback_t</h2>
 
@@ -137,9 +191,33 @@ Public Attributes</h2></td></tr>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html">rsp::rsp02::system::TSystemManager</a>&lt; T &gt;::<a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a878a60a60b27b4f862b56fd7746ce6ef">SystemManagerCallback_t</a> =  void (*)(const <a class="el" href="structrsp_1_1rsp02_1_1system_1_1SystemInfo.html">SystemInfo</a> &amp;Info)</td>
+          <td class="memname">using <a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html">rsp::rsp02::system::TSystemManager</a>&lt; T &gt;::<a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a878a60a60b27b4f862b56fd7746ce6ef">SystemManagerCallback_t</a> =  void (*)(const <a class="el" href="structrsp_1_1rsp02_1_1system_1_1SystemInfo.html">SystemInfo</a> &amp;<a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a4477133876e218f5bee6d4c1b0da838a">Info</a>)</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfdb530454f8a0da44e186c2b59160ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfdb530454f8a0da44e186c2b59160ca">&#9670;&nbsp;</a></span>time_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html">rsp::rsp02::system::TSystemManager</a>&lt; T &gt;::<a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#adfdb530454f8a0da44e186c2b59160ca">time_t</a> =  <a class="el" href="namespacersp_1_1rsp02.html#a6dbd41f903e9bd9dc12162233c489122">rsp::rsp02::time_t</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -159,7 +237,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html">rsp::rsp02::system::TSystemManager</a>&lt; T &gt;::<a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html">TSystemManager</a> </td>
           <td>(</td>
-          <td class="paramtype">time_t&#160;</td>
+          <td class="paramtype"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#adfdb530454f8a0da44e186c2b59160ca">time_t</a>&#160;</td>
           <td class="paramname"><em>lp</em></td><td>)</td>
           <td></td>
         </tr>
@@ -247,6 +325,78 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a83e8c0bd576fe7bacf5566c6686f8732"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83e8c0bd576fe7bacf5566c6686f8732">&#9670;&nbsp;</a></span>mPeriodCompletion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html">rsp::rsp02::system::TSystemManager</a>&lt; T &gt;::mPeriodCompletion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1TSystemManager_a83e8c0bd576fe7bacf5566c6686f8732_icgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1system_1_1TSystemManager_a83e8c0bd576fe7bacf5566c6686f8732_icgraph" alt=""/></div>
+<map name="aclassrsp_1_1rsp02_1_1system_1_1TSystemManager_a83e8c0bd576fe7bacf5566c6686f8732_icgraph" id="aclassrsp_1_1rsp02_1_1system_1_1TSystemManager_a83e8c0bd576fe7bacf5566c6686f8732_icgraph">
+<area shape="rect" title=" " alt="" coords="256,5,537,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a29e2b93cd6a94ad82e73fa7b89e8572b" title=" " alt="" coords="5,5,208,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7589bf8baf5bec64264b38b68f48bdfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7589bf8baf5bec64264b38b68f48bdfc">&#9670;&nbsp;</a></span>mPeriodStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html">rsp::rsp02::system::TSystemManager</a>&lt; T &gt;::mPeriodStart </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1TSystemManager_a7589bf8baf5bec64264b38b68f48bdfc_icgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1system_1_1TSystemManager_a7589bf8baf5bec64264b38b68f48bdfc_icgraph" alt=""/></div>
+<map name="aclassrsp_1_1rsp02_1_1system_1_1TSystemManager_a7589bf8baf5bec64264b38b68f48bdfc_icgraph" id="aclassrsp_1_1rsp02_1_1system_1_1TSystemManager_a7589bf8baf5bec64264b38b68f48bdfc_icgraph">
+<area shape="rect" title=" " alt="" coords="256,5,493,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a29e2b93cd6a94ad82e73fa7b89e8572b" title=" " alt="" coords="5,5,208,47"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a29e2b93cd6a94ad82e73fa7b89e8572b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a29e2b93cd6a94ad82e73fa7b89e8572b">&#9670;&nbsp;</a></span>Process()</h2>
 
@@ -276,12 +426,14 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classrsp_1_1rsp02_1_1system_1_1TSystemManager_a29e2b93cd6a94ad82e73fa7b89e8572b_cgraph.png" border="0" usemap="#aclassrsp_1_1rsp02_1_1system_1_1TSystemManager_a29e2b93cd6a94ad82e73fa7b89e8572b_cgraph" alt=""/></div>
 <map name="aclassrsp_1_1rsp02_1_1system_1_1TSystemManager_a29e2b93cd6a94ad82e73fa7b89e8572b_cgraph" id="aclassrsp_1_1rsp02_1_1system_1_1TSystemManager_a29e2b93cd6a94ad82e73fa7b89e8572b_cgraph">
-<area shape="rect" title=" " alt="" coords="5,103,208,144"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#afffb2793225d2d811aba8c1220846f3e" title="経過時刻を登録しつつ経過時間を取得する" alt="" coords="256,37,485,79"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#acce1aafb04c4250c76731f1e945f4d98" title="スタート時刻の登録" alt="" coords="297,103,444,144"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html#a6d1c7fc118c821d2809d9ad63d71277a" title=" " alt="" coords="292,168,449,209"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#a0c7b5d935b502a2fe3aab0d005b5278e" title="経過時間を取得する" alt="" coords="533,5,715,47"/>
-<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#acfbaa9fc23150740e68f399111b47a20" title="計時時刻の登録" alt="" coords="551,71,697,112"/>
+<area shape="rect" title=" " alt="" coords="5,168,208,209"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#afffb2793225d2d811aba8c1220846f3e" title="経過時刻を登録しつつ経過時間を取得する" alt="" coords="282,37,511,79"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a83e8c0bd576fe7bacf5566c6686f8732" title=" " alt="" coords="256,103,537,144"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a7589bf8baf5bec64264b38b68f48bdfc" title=" " alt="" coords="278,168,515,209"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#acce1aafb04c4250c76731f1e945f4d98" title="スタート時刻の登録" alt="" coords="323,233,470,275"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html#a6d1c7fc118c821d2809d9ad63d71277a" title=" " alt="" coords="318,299,475,340"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#a0c7b5d935b502a2fe3aab0d005b5278e" title="経過時間を取得する" alt="" coords="585,5,767,47"/>
+<area shape="rect" href="classrsp_1_1rsp02_1_1fw_1_1time_1_1StopWatch.html#acfbaa9fc23150740e68f399111b47a20" title="計時時刻の登録" alt="" coords="603,71,749,112"/>
 </map>
 </div>
 
@@ -325,6 +477,54 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4477133876e218f5bee6d4c1b0da838a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4477133876e218f5bee6d4c1b0da838a">&#9670;&nbsp;</a></span>Info</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structrsp_1_1rsp02_1_1system_1_1SystemInfo.html">SystemInfo</a> <a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html">rsp::rsp02::system::TSystemManager</a>&lt; T &gt;::Info</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10b63509d7c5f8b280c808b1fd01c556"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10b63509d7c5f8b280c808b1fd01c556">&#9670;&nbsp;</a></span>logger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1fw_1_1logger_1_1ILogger.html">rsp::rsp02::fw::logger::ILogger</a>* <a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html">rsp::rsp02::system::TSystemManager</a>&lt; T &gt;::logger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af668bdff90dee644e7650dfa67cb1cff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af668bdff90dee644e7650dfa67cb1cff">&#9670;&nbsp;</a></span>PeriodCompletionCallback</h2>
 
@@ -341,6 +541,30 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a2e86d9e759aa4fb6ba37154a0bbfdb96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e86d9e759aa4fb6ba37154a0bbfdb96">&#9670;&nbsp;</a></span>PeriodicTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a8c942b7ad932ac7b462ceb75fcbea00e">StopWatch</a> <a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html">rsp::rsp02::system::TSystemManager</a>&lt; T &gt;::PeriodicTimer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa4a12a19ffcdd58fad513cfb967992d0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa4a12a19ffcdd58fad513cfb967992d0">&#9670;&nbsp;</a></span>PeriodStartCallback</h2>
 
@@ -353,6 +577,30 @@ template&lt;typename T &gt; </div>
           <td class="memname"><a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html#a878a60a60b27b4f862b56fd7746ce6ef">SystemManagerCallback_t</a> <a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html">rsp::rsp02::system::TSystemManager</a>&lt; T &gt;::PeriodStartCallback</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39b81774688d6f365142ef6a19f6bd1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39b81774688d6f365142ef6a19f6bd1a">&#9670;&nbsp;</a></span>process</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classrsp_1_1rsp02_1_1system_1_1IProcess.html">IProcess</a>*&gt; <a class="el" href="classrsp_1_1rsp02_1_1system_1_1TSystemManager.html">rsp::rsp02::system::TSystemManager</a>&lt; T &gt;::process</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
